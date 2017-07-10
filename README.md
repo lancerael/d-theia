@@ -33,14 +33,20 @@ In progress:
 - Line chart.
 
 Installation:
+
 Install Node.JS (https://nodejs.org/) and NPM:
 * npm install npm -g
+
 Navigate to folder and install app:
 * npm install
+
 You can then use NPM to manage project tasks:
+
 TESTING (Uses Karma to run Jasmine TDD tests and generate code coverage - watcher):
 - npm run test
+
 DEV SERVER (Uses Webpack/Babel with plugins, performs linting on build - watcher):
 - npm run serve
+
 BUILD DISTRIBUTION:
 - npm run dist
