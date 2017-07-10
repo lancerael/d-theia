@@ -1,5 +1,5 @@
 # d-theia
-dTheia is a reusable charting library built using d3 v.4 and ES6 
+dTheia is a reusable charting library built using d3 v.4 and ES6. Code is transpiled into ES5 for distribution. 
 
 Demo App: http://79.170.40.52/ui-dev.lt/d-theia/
 - Shows randomised cycle docking station data as bar chart and bubble chart.
