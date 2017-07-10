@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\modules\bubble-chart.js - dTheia</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="dTheia" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.00</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Axis.html">Axis</a></li>
+                                <li><a href="../classes/BarChart.html">BarChart</a></li>
+                                <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
+                                <li><a href="../classes/Key.html">Key</a></li>
+                                <li><a href="../classes/Theia.html">Theia</a></li>
+                                <li><a href="../classes/Tooltip.html">Tooltip</a></li>
+                                <li><a href="../classes/Utilities.html">Utilities</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/dTheia.html">dTheia</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: src\modules\bubble-chart.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+const d3 = require(&#x27;d3&#x27;);
+const Theia = require(&#x27;./theia.js&#x27;);
+const Axis = require(&#x27;./axis.js&#x27;);
+const Key = require(&#x27;./key.js&#x27;);
+
+/**
+* Create BubbleCharts from the supplied data, based on the supplied JSON config.
+*
+* @class BubbleChart
+* @extends Theia
+* @constructor
+*/
+export default class BubbleChart extends Theia {
+  iTransitionTime = 500;
+  oScaleColour = d3.scaleLinear();
+  aBubbles;
+
+  /**
+  * Supersede the parent method to update local scaling objects
+  *
+  * @method setDimensions
+  */
+  setDimensions() {
+    super.setDimensions();
+    this.oScaleColour
+      .domain([0, d3.max(this.aData, d =&gt; d[this.jConfig.aValues[1].sKey])])
+      .range(this.jConfig.aValues[1].aColours);
+  }
+
+  /**
+  * Render the chart including bubbles, axes and labels
+  *
+  * @method renderChart
+  */
+  renderChart() {
+    const { aAxisKeys, aAxisLabels, aValues } = this.jConfig;
+    const { iInnerWidth, iInnerHeight, jPadding } = this;
+    const { sKey: sKey1, sName: sName1 } = aValues[0];
+    const { sKey: sKey2, sName: sName2, aColours } = aValues[1];
+
+    // Add chart scale axes
+    this.oAxisG = this.oAxisG || this.oD3Svg.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;axes-g&#x27;);
+    this.oAxis = new Axis({
+      oContainer: this.oAxisG,
+      aAxisLabels,
+      jPadding,
+      iWidth: iInnerWidth,
+      iHeight: iInnerHeight - 25 }).renderLabels();
+
+    // Add the group container for bubbles
+    this.oBubblesG = this.oBubblesG || this.oD3Svg.append(&#x27;g&#x27;).attr(&#x27;transform&#x27;, &#x60;translate(${this.jPadding.l}, 0)&#x60;);
+
+    // The method runs on each tick of the force calculation to reposition the bubbles
+    const fnTicked = () =&gt; {
+      this.oBubblesG.selectAll(&#x27;circle&#x27;)
+        .attr(&#x27;cx&#x27;, d =&gt; d.x)
+        .attr(&#x27;cy&#x27;, d =&gt; d.y);
+    };
+
+    // Initialise the d3 force calculations
+    this.oForce = d3.forceSimulation()
+      .nodes(JSON.parse(JSON.stringify(this.aData)))
+      .force(&#x27;charge&#x27;, d3.forceManyBody().strength(d =&gt; (d[sKey1] * (d[sKey1] / 2)) / -100))
+      .force(&#x27;center&#x27;, d3.forceCenter(this.iWidth / 2, this.iHeight / 2))
+      .on(&#x27;tick&#x27;, () =&gt; {
+        fnTicked();
+      });
+
+    // Add circles for each value
+    if (!this.aCircles) {
+      // Bind bars data
+      this.aCircles = this.oBubblesG.selectAll(&#x27;circle.circles&#x27;).data(this.oForce.nodes());
+      // Add new rect elements and set base attributes
+      this.aCircles
+        .enter()
+        .append(&#x27;circle&#x27;)
+        .on(&#x27;mousemove&#x27;, (d) =&gt; {
+          this.oToolTip.ping(d3.event.clientX, d3.event.clientY + document.body.scrollTop + 20,
+            &#x60;&lt;strong&gt;${d[aAxisKeys[0]]}&lt;/strong&gt;&lt;br&gt;${sName1}: &lt;em&gt;${d[sKey1]}&lt;/em&gt;&lt;br&gt;${sName2}: &lt;em&gt;${d[sKey2]}&lt;/em&gt;&#x60;);
+        })
+        .on(&#x27;mouseout&#x27;, () =&gt; this.oToolTip.hide())
+        .attr(&#x27;class&#x27;, &#x27;circles&#x27;)
+        .attr(&#x27;fill&#x27;, d =&gt; this.oScaleColour(d[sKey2]))
+        .attr(&#x27;r&#x27;, 0)
+        .transition()
+        .ease(d3.easeLinear)
+        .duration(this.iTransitionTime)
+        .attr(&#x27;r&#x27;, d =&gt; d[sKey1] / 2);
+    } else {
+      this.oBubblesG.attr(&#x27;transform&#x27;, &#x60;translate(${this.iResizeOffset / 2}, 0)&#x60;);
+    }
+
+    // Render the key for the data
+    this.oKey = new Key({
+      oContainer: d3.select(this.oSvg),
+      aValues: [
+        {
+          sName: 0,
+          sColour: aColours[0]
+        },
+        {
+          sName: this.oScaleColour.domain()[1],
+          sColour: aColours[1]
+        }
+      ],
+      iOffsetX: (this.iInnerWidth / 2) + this.jPadding.l + 10,
+      iOffsetY: this.iHeight - 15
+    }).render();
+  }
+
+}
+
+module.exports = BubbleChart;
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

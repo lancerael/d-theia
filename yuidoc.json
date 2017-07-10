@@ -1,0 +1,8 @@
+{
+    "name": "dTheia",
+    "description": "A basic library for creating chart visualisations.",
+    "version": "1.00",
+    "options": {
+        "outdir": "./documentation"
+    }
+}

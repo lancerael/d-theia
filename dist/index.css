@@ -1,0 +1,87 @@
+body {
+  background-color: #F0F0F0;
+  margin-right: 15px;
+  font-family: sans-serif;
+  font-size: 12px;
+}
+
+.container {
+  width: 100%;
+  height: 320px;
+  padding: 1px;
+  background-color: #c5d9f7;
+  border: 1px solid #b8d2f9;
+  box-shadow: 2px 2px 5px grey;
+  margin-bottom: 15px;
+  min-width: 350px;
+}
+
+.x-labels {
+  cursor: default;
+}
+
+.y-axis .tick line {
+  opacity: 0.2;
+}
+
+.title {
+  position: absolute;
+  text-align: center;
+  width: 96%;
+  margin-top: 5px;
+  color: grey;
+}
+
+.labels, .title {
+  fill: grey;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.tooltip {
+  background-color: #f2f7ff;
+  padding: 5px;
+  border: 1px solid #555555;
+  border-radius: 5px;
+  position: absolute;
+  opacity: 0.9;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+  background: linear-gradient(#f2f7ff, white);
+  box-shadow: 2px 2px 2px grey;
+}
+
+.is-transparent {
+  opacity: 0;
+}
+
+.is-hidden {
+  visibility: hidden;
+}
+
+svg.theia {
+  background-color: #f2f7ff;
+  background: linear-gradient(#f2f7ff, white);
+  width: 100%;
+  height: 100%;
+}
+
+g.key {
+  border: 1px solid red;
+}
+
+.bars, .circles {
+  -webkit-transition: fill 0.2s;
+  transition: fill 0.2s;
+}
+
+.bars:hover, .circles:hover {
+  fill: #444444;
+  cursor: pointer;
+}
+
+.bar {
+  width: 10px;
+  background-color: red;
+  float: left;
+}
