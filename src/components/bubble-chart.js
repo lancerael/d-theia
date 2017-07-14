@@ -69,7 +69,7 @@ export default class BubbleChart extends Theia {
     // Initialise the d3 force calculations
     this.oForce = d3.forceSimulation()
       .nodes(JSON.parse(JSON.stringify(this.aData)))
-      .force('charge', d3.forceManyBody().strength(d => (d[sKey1] * (d[sKey1] / 2)) / -100))
+      .force('charge', d3.forceManyBody().strength(d => (d[sKey1] * (d[sKey1] / 2)) / -150))
       .force('center', d3.forceCenter(this.iWidth / 2, this.iHeight / 2))
       .on('tick', () => {
         fnTicked();

@@ -39,6 +39,10 @@ Technologies Used:
 - TDD Jasmine/Karma
 - YUIDoc
 
+TDD Unit tests
+- 29 tests cover all available classes.
+- More tests to be added on completion of code coverage reporting.
+
 In progress:
 
 - Implement TDD code coverage reporting.

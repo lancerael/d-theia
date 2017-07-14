@@ -39,11 +39,18 @@ export default class Theia {
   * @param {Array} aData the data to be displayed
   */
   constructor(oParams = {}) {
-    const { oContainer, jConfig, aData } = oParams;
+    const { jConfig, aData, sContainer } = oParams;
+    let { oContainer } = oParams;
     this.oSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     this.oD3Svg = d3.select(this.oSvg);
     this.iTransitionTime = 500;
     this.jPadding = { l: 5, r: 5, t: 5, b: 5 };
+    if (!oContainer && sContainer) {
+      oContainer = document.getElementById(sContainer);
+      if (!oContainer) {
+        throw new Error('No valid element ID provided for chart.');
+      }
+    }
     if (oContainer) {
       this.setContainer(oContainer);
     }

@@ -7,6 +7,14 @@ describe('Theia', () => {
     oChart = new Theia();
   });
 
+  it('should use ID string to get DOM element', () => {
+    const oDiv = document.createElement('div');
+    oDiv.setAttribute('id', 'test');
+    document.body.appendChild(oDiv);
+    oChart = new Theia({ sContainer: 'test' });
+    expect(oChart.oContainer).toEqual(oDiv);
+  });
+
   it('should set valid container node', () => {
     const oDiv = document.createElement('div');
     const fnUpdate = () => {
