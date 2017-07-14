@@ -46,11 +46,14 @@ export default class Tooltip {
   * @param {String} sContent inner html content
   */
   ping(x, y, sContent) {
+    const iPageOffsetY = window.pageYOffset
+      || document.documentElement.scrollTop
+      || document.body.scrollTop || 0;
     this.oTooltip.innerHTML = sContent;
     this.oTooltip.className = 'tooltip is-transparent';
     this.oTooltip.className = 'tooltip';
     this.oTooltip.style.left = `${x}px`;
-    this.oTooltip.style.top = `${y}px`;
+    this.oTooltip.style.top = `${y + iPageOffsetY}px`;
     clearTimeout(this.oTooltipTimeout);
     clearTimeout(this.oTooltipSubTimeout);
     this.oTooltipTimeout = setTimeout(() => {

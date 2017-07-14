@@ -43,7 +43,7 @@ export default class BarChart extends AxisChart {
           .enter()
           .append('rect')
           .on('mousemove', (d) => {
-            this.oToolTip.ping(d3.event.clientX, d3.event.clientY + document.body.scrollTop + 20,
+            this.oToolTip.ping(d3.event.clientX, d3.event.clientY + 20,
               `<strong>${d[aAxisKeys[0]]}</strong><br>${oValues.sName}: <em>${d[oValues.sKey]}</em>`);
           })
           .on('mousedown', (d) => {
