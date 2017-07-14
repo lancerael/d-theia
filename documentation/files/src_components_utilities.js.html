@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>dTheia - dTheia</title>
+    <title>src\components\utilities.js - dTheia</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -85,79 +85,93 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>dTheia Module</h1>
-<div class="box clearfix meta">
+<h1 class="file-heading">File: src\components\utilities.js</h1>
 
+<div class="file">
+    <pre class="code prettyprint linenums">
+require(&#x27;../../node_modules/whatwg-fetch/fetch.js&#x27;);
 
-        <div class="foundat">
-            Defined in: <a href="../files/src_components_utilities.js.html#l3"><code>src\components\utilities.js:3</code></a>
-        </div>
+/**
+* The Utilities object is is a module containing reusable static methods
+*
+* @class Utilities
+*/
+const Utilities = {
 
-</div>
+  /**
+  * Returns a promise resolving with JSON when supplied with a valid URL
+  *
+  * @method getPromiseJSON
+  * @param {String} sUrl Required URL to make request
+  * @throws {Error} invalid api string
+  */
+  getPromiseJSON(sUrl) {
+    if (typeof sUrl === &#x27;string&#x27;) {
+      return new Promise((resolve, reject) =&gt; {
+        fetch(sUrl, {
+          mode: &#x27;no-cors&#x27;,
+        }).then((response) =&gt; {
+          response.json().then((data) =&gt; {
+            resolve(data);
+          }).catch((error) =&gt; {
+            reject(error);
+          });
+        }).catch((error) =&gt; {
+          reject(error);
+        });
+      });
+    }
+    throw new Error(&#x27;No valid data API string provided.&#x27;);
+  },
 
+  /**
+  * Truncates a string and adds ellipsis.
+  *
+  * @method truncateString
+  * @param {String} sString string to be truncated
+  * @param {Integer} iMaxLength max length of string before truncation
+  */
+  truncateString(sString, iMaxLength) {
+    if (sString.length &gt; iMaxLength) {
+      return &#x60;${sString.slice(0, iMaxLength - 3)}[...]&#x60;;
+    }
+    return sString;
+  },
 
-<div class="box intro">
-    <p>dTheia is a reusable charting library built using d3 v.4 and ES6</p>
+  /**
+  * Generates a random integer within a range.
+  *
+  * @method generateRandomInteger
+  * @param {Integer} iMin minimum random value
+  * @param {Integer} iMax max random value
+  * @param {Integer} iOmit optional excempt integer
+  */
+  generateRandomInteger(iMin, iMax, iOmit) {
+    let iInt = Math.floor(Math.random() * (iMin - iMax - 1)) + iMax + 1;
+    while (iInt === iOmit) {
+      iInt = this.fnGntRandInt(iMin, iMax);
+    }
+    return iInt;
+  },
 
-</div>
+  /**
+  * Returns a sample selection from an array.
+  *
+  * @method sliceSampleData
+  * @param {Array} aData the complete data set
+  * @param {Integer} iMaxLength max length of sample
+  */
+  sliceSampleData(aData, iMaxLength = 50) {
+    const iStart = this.generateRandomInteger(0, aData.length - iMaxLength);
+    const iEnd = iStart + this.generateRandomInteger(1, iMaxLength);
+    return aData.slice(iStart, iEnd);
+  },
 
+};
 
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-            <p>This module provides the following classes:</p>
+module.exports = Utilities;
 
-            <ul class="module-classes">
-                <li class="module-class">
-                    <a href="../classes/Axis.html">
-                        Axis
-                    </a>
-                </li>
-                <li class="module-class">
-                    <a href="../classes/AxisChart.html">
-                        AxisChart
-                    </a>
-                </li>
-                <li class="module-class">
-                    <a href="../classes/BarChart.html">
-                        BarChart
-                    </a>
-                </li>
-                <li class="module-class">
-                    <a href="../classes/BubbleChart.html">
-                        BubbleChart
-                    </a>
-                </li>
-                <li class="module-class">
-                    <a href="../classes/Key.html">
-                        Key
-                    </a>
-                </li>
-                <li class="module-class">
-                    <a href="../classes/LineChart.html">
-                        LineChart
-                    </a>
-                </li>
-                <li class="module-class">
-                    <a href="../classes/Theia.html">
-                        Theia
-                    </a>
-                </li>
-                <li class="module-class">
-                    <a href="../classes/Tooltip.html">
-                        Tooltip
-                    </a>
-                </li>
-                <li class="module-class">
-                    <a href="../classes/Utilities.html">
-                        Utilities
-                    </a>
-                </li>
-            </ul>
-    </div>
-
-
-    <div class="yui3-u-1-2">
-    </div>
+    </pre>
 </div>
                     </div>
                 </div>

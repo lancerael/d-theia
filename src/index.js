@@ -1,9 +1,11 @@
 const BarChart = require('./components/bar-chart.js');
+const LineChart = require('./components/line-chart.js');
 const BubbleChart = require('./components/bubble-chart.js');
 const Utilities = require('./components/utilities.js');
 const Config = require('./config.js');
 
 const aBarCharts = [];
+const aLineCharts = [];
 const aBubbleCharts = [];
 
 /*
@@ -11,12 +13,13 @@ const aBubbleCharts = [];
  of retrieved data.
 */
 Utilities.getPromiseJSON('./data/cycles.json').then((data) => {
-  const aCycleData = Utilities.sliceSampleData(data.stationBeanList, 10);
-  aBarCharts.push(new BarChart({
-    oContainer: document.getElementById('container-bar-1'),
-    jConfig: Config.jBarConfig1,
+  const aCycleData = Utilities.sliceSampleData(data.stationBeanList, 15);
+  const jAxis = {
+    jConfig: Config.jAxisConfig1,
     aData: aCycleData,
-  }).init());
+  };
+  aBarCharts.push(new BarChart(Object.assign({ oContainer: document.getElementById('container-bar-1') }, jAxis)).init());
+  aLineCharts.push(new LineChart(Object.assign({ oContainer: document.getElementById('container-line-1') }, jAxis)).init());
   aBubbleCharts.push(new BubbleChart({
     oContainer: document.getElementById('container-bubble-1'),
     jConfig: Config.jBubbleConfig1,

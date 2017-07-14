@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src\modules\theia.js - dTheia</title>
+    <title>src\components\bar-chart.js - dTheia</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -39,9 +39,11 @@
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
                                 <li><a href="../classes/Axis.html">Axis</a></li>
+                                <li><a href="../classes/AxisChart.html">AxisChart</a></li>
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
+                                <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Theia.html">Theia</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
                                 <li><a href="../classes/Utilities.html">Utilities</a></li>
@@ -83,161 +85,89 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: src\modules\theia.js</h1>
+<h1 class="file-heading">File: src\components\bar-chart.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
-/**
-* dTheia is a reusable charting library built using d3 v.4 and ES6
-*
-* @module dTheia
-*/
-
 const d3 = require(&#x27;d3&#x27;);
-const ToolTip = require(&#x27;./tooltip.js&#x27;);
+const AxisChart = require(&#x27;./axis-chart.js&#x27;);
 
 /**
-* The Theia object is the parent class for all types of Chart.
+* Create BarCharts from the supplied data, based on the supplied JSON config.
 *
-* @class Theia
+* @class BarChart
+* @extends AxisChart
 * @constructor
 */
-export default class Theia {
-  oSvg = document.createElementNS(&#x27;http://www.w3.org/2000/svg&#x27;, &#x27;svg&#x27;);
-  oD3Svg = d3.select(this.oSvg);
-  iTransitionTime = 500;
-  oContainer;
-  oToolTip;
-  iWidth;
-  iHeight;
-  iInnerWidth;
-  iInnerHeight;
-  iInitialWidth;
-  iResizeOffset;
-  jConfig;
-  jPadding = { l: 5, r: 5, t: 5, b: 5 };
-  aData;
+export default class BarChart extends AxisChart {
+  aBars;
 
   /**
-  * Constructor function that sets up the local object.
+  * Render the chart including bars, axes and labels
   *
-  * @method constructor
-  * @param {Object} oParams (may contain any of the below values)
-  * @param {DOM Element} oContainer Optional DOM object
-  * @param {JSON Object} jConfig JSON configuration object
-  * @param {Array} aData the data to be displayed
+  * @method renderChart
+  * @param {Boolean} bReset optionally reset the chart data
   */
-  constructor(oParams = {}) {
-    const { oContainer, jConfig, aData } = oParams;
-    if (oContainer) {
-      this.setContainer(oContainer);
-    }
-    if (jConfig) {
-      this.setConfig(jConfig);
-    }
-    if (aData) {
-      this.setData(aData);
-    }
-  }
+  renderChart(bReset) {
+    super.renderChart();
+    const { aAxisKeys, aValues, sBarType } = this.jConfig;
+    const { iInnerHeight, oScaleX, oScaleY } = this;
+    const iBarWidth = oScaleX.bandwidth() / aValues.length;
 
-  /**
-  * Sets the local container object.
-  *
-  * @method setContainer
-  * @param {DOM Element} oContainer Required DOM element
-  * @throws {Error} invalid DOM element
-  */
-  setContainer(oContainer) {
-    if (oContainer.nodeName) {
-      this.oContainer = oContainer;
-    } else {
-      throw new Error(&#x27;No valid DOM element provided for chart.&#x27;);
-    }
-  }
-
-  /**
-  * Sets the local config options for the chart.
-  *
-  * @method setConfig
-  * @param {JSON Object} jConfig JSON configuration object
-  * @throws {Error} missing configuration
-  */
-  setConfig(jConfig) {
-    if (jConfig &amp;&amp; jConfig.toString() === &#x27;[object Object]&#x27;) {
-      this.jConfig = Object.assign({}, jConfig);
-    } else {
-      throw new Error(&#x27;No valid configuration provided for chart.&#x27;);
-    }
-  }
-
-  /**
-  * Sets the local data for the chart.
-  *
-  * @method setData
-  * @param {Array} aData array of JSON objects
-  * @throws {Error} missing data
-  */
-  setData(aData) {
-    if (aData &amp;&amp; {}.toString.call(aData) === &#x27;[object Array]&#x27;) {
-      this.aData = aData.slice(aData);
-    } else {
-      throw new Error(&#x27;No valid data provided for chart.&#x27;);
-    }
-  }
-
-  /**
-  * Sets the local chart dimensions based on the size of the container.
-  *
-  * @method setDimensions
-  * @throws {Error} missing DOM element
-  */
-  setDimensions() {
-    if (this.oContainer &amp;&amp; this.oContainer.nodeName) {
-      this.iWidth = this.oContainer.clientWidth;
-      this.iHeight = this.oContainer.clientHeight;
-      this.iInnerWidth = this.iWidth - this.jPadding.l - this.jPadding.r;
-      this.iInnerHeight = this.iHeight - this.jPadding.t - this.jPadding.b;
-    } else {
-      throw new Error(&#x27;Cannot set dimensions of chart without container element.&#x27;);
-    }
-  }
-
-  /**
-  * Check chart is ready and render.
-  *
-  * @method init
-  * @throws {Error} chart not ready for initialisation
-  */
-  init() {
-    this.setDimensions();
-    if (this.aData &amp;&amp; this.jConfig &amp;&amp; !isNaN(this.iWidth) &amp;&amp; !isNaN(this.iHeight)) {
-      this.iInitialWidth = this.iWidth;
-      this.oToolTip = new ToolTip(this.oContainer).create();
-      d3.select(this.oContainer).append(&#x27;div&#x27;).attr(&#x27;class&#x27;, &#x27;title&#x27;).text(this.jConfig.sTitle);
-      this.oSvg.setAttribute(&#x27;class&#x27;, &#x27;theia&#x27;);
-      this.oContainer.appendChild(this.oSvg);
-      this.oResizeWatcher = this.oResizeWatcher || window.addEventListener(&#x27;resize&#x27;, () =&gt; {
-        this.setDimensions();
-        this.iResizeOffset = this.iWidth - this.iInitialWidth;
-        if (this.renderChart) {
-          this.renderChart();
-        }
-        this.oToolTip.hide();
-      });
-      this.oChartOutWatcher = this.oChartOutWatcher || this.oSvg.addEventListener(&#x27;mouseout&#x27;, () =&gt; {
-        this.oToolTip.hide();
-      });
-      if (this.renderChart) {
-        this.renderChart();
+    // Iterate through config value keys
+    aValues.forEach((oValues, i) =&gt; {
+      const { sKey, sColour } = oValues;
+      const iBarOffset = sBarType === &#x27;side&#x27; ? (iBarWidth * i) : 0;
+      // Reset bars data and clear graph
+      if (bReset) {
+        this.aBars[i] = this.oChartG.selectAll(&#x27;rect.bars&#x27;).data({});
+        this.aBars[i].exit().remove();
+        this.aBars[i] = undefined;
       }
-    } else {
-      throw new Error(&#x27;The chart is not ready for initialisation.&#x27;);
-    }
+      this.aBars = this.aBars || [];
+      // Add bars for each value
+      if (!this.aBars[i]) {
+        // Bind bars data
+        this.aBars[i] = this.oChartG.selectAll(&#x60;rect.bars-${i}&#x60;).data(this.aData);
+        // Add new rect elements and set base attributes
+        this.aBars[i]
+          .enter()
+          .append(&#x27;rect&#x27;)
+          .on(&#x27;mousemove&#x27;, (d) =&gt; {
+            this.oToolTip.ping(d3.event.clientX, d3.event.clientY + document.body.scrollTop + 20,
+              &#x60;&lt;strong&gt;${d[aAxisKeys[0]]}&lt;/strong&gt;&lt;br&gt;${oValues.sName}: &lt;em&gt;${d[oValues.sKey]}&lt;/em&gt;&#x60;);
+          })
+          .on(&#x27;mousedown&#x27;, (d) =&gt; {
+            if (this.jConfig.fnClickCallback) {
+              this.jConfig.fnClickCallback({
+                oEvent: d3.event,
+                jData: d,
+                sKey
+              });
+            }
+          })
+          .on(&#x27;mouseout&#x27;, () =&gt; this.oToolTip.hide())
+          .attr(&#x27;class&#x27;, &#x60;bars bars-${i}&#x60;)
+          .attr(&#x27;fill&#x27;, sColour)
+          .attr(&#x27;y&#x27;, iInnerHeight)
+          .attr(&#x27;height&#x27;, 0);
+      }
+
+      // Update bars
+      this.oChartG.selectAll(&#x60;rect.bars-${i}&#x60;)
+        .attr(&#x27;x&#x27;, d =&gt; oScaleX(d[aAxisKeys[0]]) + iBarOffset)
+        .attr(&#x27;width&#x27;, iBarWidth)
+        .transition()
+        .ease(d3.easeLinear)
+        .duration(this.iTransitionTime)
+        .attr(&#x27;y&#x27;, d =&gt; oScaleY(d[sKey]))
+        .attr(&#x27;height&#x27;, d =&gt; iInnerHeight - oScaleY(d[sKey]));
+    });
   }
 
 }
 
-module.exports = Theia;
+module.exports = BarChart;
 
     </pre>
 </div>

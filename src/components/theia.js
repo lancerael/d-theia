@@ -93,7 +93,7 @@ export default class Theia {
   * @throws {Error} missing data
   */
   setData(aData) {
-    if (aData && {}.toString.call(aData) === '[object Array]') {
+    if (aData && Array.isArray(aData) === true) {
       this.aData = aData.slice(aData);
     } else {
       throw new Error('No valid data provided for chart.');

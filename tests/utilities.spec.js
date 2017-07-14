@@ -2,7 +2,7 @@ const Utilities = require('../src/components/utilities.js');
 
 describe('Utilities', () => {
   it('should return a promise', () => {
-    expect(Object.prototype.toString.call(Utilities.getPromiseJSON('path'))).toContain('Promise');
+    expect({}.toString.call(Utilities.getPromiseJSON('path'))).toContain('Promise');
   });
 
   it('should throw an error when missing a path', () => {
@@ -27,7 +27,7 @@ describe('Utilities', () => {
     const aData = [2, 5, 8, 3, 4, 6];
     const aSample = Utilities.sliceSampleData(aData, 3);
     const iLength = aSample.length;
-    expect({}.toString.call(aSample)).toBe('[object Array]');
+    expect(Array.isArray(aSample)).toBe(true);
     expect(iLength).toBeGreaterThan(0);
     expect(iLength).toBeLessThanOrEqual(3);
   });

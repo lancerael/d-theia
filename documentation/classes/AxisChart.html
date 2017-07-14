@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Theia - dTheia</title>
+    <title>AxisChart - dTheia</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -85,12 +85,15 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>Theia Class</h1>
+<h1>AxisChart Class</h1>
 <div class="box meta">
 
+        <div class="extends">
+            Extends <a href="../classes/Theia.html" class="crosslink">Theia</a>
+        </div>
 
         <div class="foundat">
-            Defined in: <a href="../files/src_components_theia.js.html#l10"><code>src\components\theia.js:10</code></a>
+            Defined in: <a href="../files/src_components_axis-chart.js.html#l6"><code>src\components\axis-chart.js:6</code></a>
         </div>
 
             Module: <a href="../modules/dTheia.html">dTheia</a>
@@ -99,14 +102,14 @@
 
 
 <div class="box intro">
-    <p>The Theia object is the parent class for all types of Chart.</p>
+    <p>Create AxisChart from the supplied data, based on the supplied JSON config.</p>
 
 </div>
 
     <div class="constructor">
         <h2>Constructor</h2>
-<div id="method_Theia" class="method item">
-    <h3 class="name"><code>Theia</code></h3>
+<div id="method_AxisChart" class="method item">
+    <h3 class="name"><code>AxisChart</code></h3>
 
         <span class="paren">()</span>
 
@@ -120,7 +123,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_components_theia.js.html#l10"><code>src\components\theia.js:10</code></a>
+        <a href="../files/src_components_axis-chart.js.html#l6"><code>src\components\axis-chart.js:6</code></a>
         </p>
 
 
@@ -151,28 +154,32 @@
                 <div class="index-section methods">
                     <h3>Methods</h3>
 
-                    <ul class="index-list methods">
-                            <li class="index-item method">
+                    <ul class="index-list methods extends">
+                            <li class="index-item method inherited">
                                 <a href="#method_constructor">constructor</a>
 
                             </li>
-                            <li class="index-item method">
+                            <li class="index-item method inherited">
                                 <a href="#method_init">init</a>
 
                             </li>
                             <li class="index-item method">
+                                <a href="#method_renderChart">renderChart</a>
+
+                            </li>
+                            <li class="index-item method inherited">
                                 <a href="#method_setConfig">setConfig</a>
 
                             </li>
-                            <li class="index-item method">
+                            <li class="index-item method inherited">
                                 <a href="#method_setContainer">setContainer</a>
 
                             </li>
-                            <li class="index-item method">
+                            <li class="index-item method inherited">
                                 <a href="#method_setData">setData</a>
 
                             </li>
-                            <li class="index-item method">
+                            <li class="index-item method inherited">
                                 <a href="#method_setDimensions">setDimensions</a>
 
                             </li>
@@ -194,15 +201,6 @@
                 <li class="arg">
                         <code>oParams</code>
                 </li>
-                <li class="arg">
-                        <code>oContainer</code>
-                </li>
-                <li class="arg">
-                        <code>jConfig</code>
-                </li>
-                <li class="arg">
-                        <code>aData</code>
-                </li>
             </ul><span class="paren">)</span>
         </div>
 
@@ -214,9 +212,12 @@
 
 
     <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_components_theia.js.html#l32"><code>src\components\theia.js:32</code></a>
+            <p>Inherited from
+            <a href="../classes/Theia.html#method_constructor">
+                Theia
+            </a>
+            but overwritten in
+        <a href="../files/src_components_axis-chart.js.html#l19"><code>src\components\axis-chart.js:19</code></a>
         </p>
 
 
@@ -224,7 +225,7 @@
     </div>
 
     <div class="description">
-        <p>Constructor function that sets up the local object.</p>
+        <p>Constructor function supersedes parent class.</p>
 
     </div>
 
@@ -238,40 +239,7 @@
 
 
                     <div class="param-description">
-                        <p>(may contain any of the below values)</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">oContainer</code>
-                        <span class="type">DOM Element</span>
-
-
-                    <div class="param-description">
-                        <p>Optional DOM object</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">jConfig</code>
-                        <span class="type">JSON Object</span>
-
-
-                    <div class="param-description">
-                        <p>JSON configuration object</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">aData</code>
-                        <span class="type">Array</span>
-
-
-                    <div class="param-description">
-                        <p>the data to be displayed</p>
+                        <p>same as Theia</p>
 
                     </div>
 
@@ -282,8 +250,46 @@
 
 
 </div>
-<div id="method_init" class="method item">
+<div id="method_init" class="method item inherited">
     <h3 class="name"><code>init</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Theia.html#method_init">Theia</a>:
+        <a href="../files/src_components_theia.js.html#l120"><code>src\components\theia.js:120</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Check chart is ready and render.
+    </div>
+
+
+
+        <div class="throws">
+            <h4>Throws:</h4>
+
+            <div class="throws-description">
+                        <span class="type">Error</span>:
+                    chart not ready for initialisation
+            </div>
+        </div>
+
+</div>
+<div id="method_renderChart" class="method item">
+    <h3 class="name"><code>renderChart</code></h3>
 
         <span class="paren">()</span>
 
@@ -297,7 +303,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_components_theia.js.html#l120"><code>src\components\theia.js:120</code></a>
+        <a href="../files/src_components_axis-chart.js.html#l53"><code>src\components\axis-chart.js:53</code></a>
         </p>
 
 
@@ -305,24 +311,15 @@
     </div>
 
     <div class="description">
-        <p>Check chart is ready and render.</p>
+        <p>Render the chart including axes and labels</p>
 
     </div>
 
 
 
-        <div class="throws">
-            <h4>Throws:</h4>
-
-            <div class="throws-description">
-                        <span class="type">Error</span>:
-                    <p>chart not ready for initialisation</p>
-
-            </div>
-        </div>
 
 </div>
-<div id="method_setConfig" class="method item">
+<div id="method_setConfig" class="method item inherited">
     <h3 class="name"><code>setConfig</code></h3>
 
         <div class="args">
@@ -341,8 +338,8 @@
 
 
     <div class="meta">
-                <p>
-                Defined in
+                <p>Inherited from
+                <a href="../classes/Theia.html#method_setConfig">Theia</a>:
         <a href="../files/src_components_theia.js.html#l73"><code>src\components\theia.js:73</code></a>
         </p>
 
@@ -351,8 +348,7 @@
     </div>
 
     <div class="description">
-        <p>Sets the local config options for the chart.</p>
-
+        Sets the local config options for the chart.
     </div>
 
         <div class="params">
@@ -365,8 +361,7 @@
 
 
                     <div class="param-description">
-                        <p>JSON configuration object</p>
-
+                        JSON configuration object
                     </div>
 
                 </li>
@@ -379,13 +374,12 @@
 
             <div class="throws-description">
                         <span class="type">Error</span>:
-                    <p>missing configuration</p>
-
+                    missing configuration
             </div>
         </div>
 
 </div>
-<div id="method_setContainer" class="method item">
+<div id="method_setContainer" class="method item inherited">
     <h3 class="name"><code>setContainer</code></h3>
 
         <div class="args">
@@ -404,8 +398,8 @@
 
 
     <div class="meta">
-                <p>
-                Defined in
+                <p>Inherited from
+                <a href="../classes/Theia.html#method_setContainer">Theia</a>:
         <a href="../files/src_components_theia.js.html#l58"><code>src\components\theia.js:58</code></a>
         </p>
 
@@ -414,8 +408,7 @@
     </div>
 
     <div class="description">
-        <p>Sets the local container object.</p>
-
+        Sets the local container object.
     </div>
 
         <div class="params">
@@ -428,8 +421,7 @@
 
 
                     <div class="param-description">
-                        <p>Required DOM element</p>
-
+                        Required DOM element
                     </div>
 
                 </li>
@@ -442,13 +434,12 @@
 
             <div class="throws-description">
                         <span class="type">Error</span>:
-                    <p>invalid DOM element</p>
-
+                    invalid DOM element
             </div>
         </div>
 
 </div>
-<div id="method_setData" class="method item">
+<div id="method_setData" class="method item inherited">
     <h3 class="name"><code>setData</code></h3>
 
         <div class="args">
@@ -467,8 +458,8 @@
 
 
     <div class="meta">
-                <p>
-                Defined in
+                <p>Inherited from
+                <a href="../classes/Theia.html#method_setData">Theia</a>:
         <a href="../files/src_components_theia.js.html#l88"><code>src\components\theia.js:88</code></a>
         </p>
 
@@ -477,8 +468,7 @@
     </div>
 
     <div class="description">
-        <p>Sets the local data for the chart.</p>
-
+        Sets the local data for the chart.
     </div>
 
         <div class="params">
@@ -491,8 +481,7 @@
 
 
                     <div class="param-description">
-                        <p>array of JSON objects</p>
-
+                        array of JSON objects
                     </div>
 
                 </li>
@@ -505,8 +494,7 @@
 
             <div class="throws-description">
                         <span class="type">Error</span>:
-                    <p>missing data</p>
-
+                    missing data
             </div>
         </div>
 
@@ -524,9 +512,12 @@
 
 
     <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_components_theia.js.html#l103"><code>src\components\theia.js:103</code></a>
+            <p>Inherited from
+            <a href="../classes/Theia.html#method_setDimensions">
+                Theia
+            </a>
+            but overwritten in
+        <a href="../files/src_components_axis-chart.js.html#l32"><code>src\components\axis-chart.js:32</code></a>
         </p>
 
 
@@ -534,21 +525,12 @@
     </div>
 
     <div class="description">
-        <p>Sets the local chart dimensions based on the size of the container.</p>
+        <p>Supersede the parent method to update local scaling objects</p>
 
     </div>
 
 
 
-        <div class="throws">
-            <h4>Throws:</h4>
-
-            <div class="throws-description">
-                        <span class="type">Error</span>:
-                    <p>missing DOM element</p>
-
-            </div>
-        </div>
 
 </div>
             </div>

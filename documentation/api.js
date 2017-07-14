@@ -2,9 +2,11 @@ YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
         "Axis",
+        "AxisChart",
         "BarChart",
         "BubbleChart",
         "Key",
+        "LineChart",
         "Theia",
         "Tooltip",
         "Utilities"

@@ -75,6 +75,11 @@ g.key {
   transition: fill 0.2s;
 }
 
+path.line {
+  fill: none;
+  stroke-width: 2px;
+}
+
 .bars:hover, .circles:hover {
   fill: #444444;
   cursor: pointer;

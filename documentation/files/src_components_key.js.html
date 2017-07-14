@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src\modules\tooltip.js - dTheia</title>
+    <title>src\components\key.js - dTheia</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -39,9 +39,11 @@
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
                                 <li><a href="../classes/Axis.html">Axis</a></li>
+                                <li><a href="../classes/AxisChart.html">AxisChart</a></li>
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
+                                <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Theia.html">Theia</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
                                 <li><a href="../classes/Utilities.html">Utilities</a></li>
@@ -83,82 +85,95 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: src\modules\tooltip.js</h1>
+<h1 class="file-heading">File: src\components\key.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
-* The Tooltip
+* The Key shows how the colours represent the data
 *
-* @class Tooltip
+* @class Key
 * @constructor
 */
-export default class Tooltip {
+export default class Key {
   oContainer;
-  oTooltip;
-  oTooltipTimeout;
-  oTooltipSubTimeout;
+  aValues;
+  iOffsetX;
+  iOffsetY;
 
   /**
   * Constructor function that sets up the local object.
   *
   * @method constructor
   * @param {DOM Element} oContainer DOM object
+  * @param {Array} aValues the data to be displayed
+  * @param {Integer} iOffsetX optional x offset
+  * @param {Integer} iOffsetY optional y offset
   */
-  constructor(oContainer) {
-    if (oContainer.nodeName) {
+  constructor({ oContainer, aValues, iOffsetX = 0, iOffsetY = 0 }) {
+    if (oContainer &amp;&amp; aValues) {
       this.oContainer = oContainer;
+      this.aValues = aValues.slice(aValues);
+      this.iOffsetX = iOffsetX;
+      this.iOffsetY = iOffsetY;
     } else {
-      throw new Error(&#x27;The tooltip has no valid container element.&#x27;);
+      throw new Error(&#x27;Incorrect parameters provided to Key constructor.&#x27;);
     }
   }
 
   /**
-  * Create the tooltip DOM and return object
+  * Render the key showing the labels for the colour values
   *
-  * @method create
-  * @chainable
+  * @method render
   */
-  create() {
-    this.oTooltip = document.createElement(&#x27;div&#x27;);
-    this.oTooltip.className = &#x27;tooltip is-transparent is-hidden&#x27;;
-    this.oContainer.appendChild(this.oTooltip);
+  render() {
+    this.oContainer.selectAll(&#x27;g.key&#x27;).remove();
+    let iGroupOffset = 0;
+    const oKeyG = this.oContainer.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;key&#x27;);
+    const aLabels = oKeyG.selectAll(&#x27;text.label&#x27;).data(this.aValues);
+    const calculateMargin = (aValues, i) =&gt; {
+      let iMargin = 0;
+      if (i) {
+        for (let l = 0; l &lt; i; l++) {
+          iMargin += aValues[l].iLabelWidth;
+        }
+      }
+      return iMargin;
+    };
+    aLabels.enter()
+      .append(&#x27;text&#x27;)
+      .text(d =&gt; d.sName)
+      .each((d, i, nodes) =&gt; {
+        const iLabelWidth = nodes[i].getBoundingClientRect().width + 15;
+        this.aValues[i].iLabelWidth = iLabelWidth;
+        iGroupOffset += iLabelWidth - 2;
+      })
+      .attr(&#x27;class&#x27;, &#x27;label&#x27;)
+      .attr(&#x27;x&#x27;, (d, i) =&gt; calculateMargin(this.aValues, i))
+      .attr(&#x27;y&#x27;, 8)
+      .attr(&#x27;width&#x27;, 10)
+      .attr(&#x27;height&#x27;, 10)
+      .attr(&#x27;font-family&#x27;, &#x27;sans-serif&#x27;)
+      .attr(&#x27;font-size&#x27;, &#x27;10px&#x27;)
+      .attr(&#x27;fill&#x27;, &#x27;#222222&#x27;);
+    const aKeys = oKeyG.selectAll(&#x27;rect.key&#x27;).data(this.aValues);
+    aKeys.enter()
+      .append(&#x27;rect&#x27;)
+      .attr(&#x27;class&#x27;, &#x27;key&#x27;)
+      .attr(&#x27;fill&#x27;, d =&gt; d.sColour)
+      .attr(&#x27;x&#x27;, (d, i) =&gt; calculateMargin(this.aValues, i) - 12)
+      .attr(&#x27;y&#x27;, 0)
+      .attr(&#x27;width&#x27;, 10)
+      .attr(&#x27;height&#x27;, 10);
+    iGroupOffset = this.iOffsetX - (iGroupOffset / 2);
+    oKeyG.attr(&#x27;transform&#x27;, &#x60;translate(${iGroupOffset},${this.iOffsetY})&#x60;);
     return this;
   }
 
-  /**
-  * Ping the tooltip with data and location
-  *
-  * @method ping
-  * @param {Integer} x Location of x tooltip position
-  * @param {Integer} y Location of y tooltip position
-  * @param {String} sContent inner html content
-  */
-  ping(x, y, sContent) {
-    this.oTooltip.innerHTML = sContent;
-    this.oTooltip.className = &#x27;tooltip is-transparent&#x27;;
-    this.oTooltip.className = &#x27;tooltip&#x27;;
-    this.oTooltip.style.left = &#x60;${x}px&#x60;;
-    this.oTooltip.style.top = &#x60;${y}px&#x60;;
-    clearTimeout(this.oTooltipTimeout);
-    clearTimeout(this.oTooltipSubTimeout);
-    this.oTooltipTimeout = setTimeout(() =&gt; {
-      this.hideTooltip();
-    }, 5000);
-  }
-
-  hide() {
-    clearTimeout(this.oTooltipTimeout);
-    clearTimeout(this.oTooltipSubTimeout);
-    this.oTooltip.className = &#x27;tooltip is-transparent&#x27;;
-    this.oTooltipSubTimeout = setTimeout(() =&gt; {
-      this.oTooltip.className = &#x27;tooltip is-transparent is-hidden&#x27;;
-    }, 1000);
-  }
 
 }
 
-module.exports = Tooltip;
+module.exports = Key;
 
     </pre>
 </div>

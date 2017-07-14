@@ -1,11 +1,11 @@
-const BarChart = require('../src/components/bar-chart.js');
+const LineChart = require('../src/components/line-chart.js');
 
-describe('BarChart', () => {
-  let oBarChart;
+describe('LineChart', () => {
+  let oLineChart;
 
   beforeEach(() => {
     const oDiv = document.createElement('div');
-    oBarChart = new BarChart({
+    oLineChart = new LineChart({
       oContainer: oDiv,
       jConfig: {
         aAxisKeys: ['k3'],
@@ -28,8 +28,8 @@ describe('BarChart', () => {
   });
 
   it('should render the chart', () => {
-    oBarChart.renderChart();
-    expect(oBarChart.aBars.length).toBe(2);
-    expect(oBarChart.oChartG.selectAll('rect.bars').size()).toEqual(oBarChart.jConfig.aValues.length * oBarChart.aData.length);
+    oLineChart.renderChart();
+    expect(oLineChart.aLines.length).toBe(2);
+    expect(oLineChart.oChartG.selectAll('path.line').size()).toEqual(oLineChart.jConfig.aValues.length);
   });
 });

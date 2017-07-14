@@ -39,9 +39,11 @@
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
                                 <li><a href="../classes/Axis.html">Axis</a></li>
+                                <li><a href="../classes/AxisChart.html">AxisChart</a></li>
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
+                                <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Theia.html">Theia</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
                                 <li><a href="../classes/Utilities.html">Utilities</a></li>
@@ -91,7 +93,7 @@
         </div>
 
         <div class="foundat">
-            Defined in: <a href="../files/src_modules_bubble-chart.js.html#l6"><code>src\modules\bubble-chart.js:6</code></a>
+            Defined in: <a href="../files/src_components_bubble-chart.js.html#l6"><code>src\components\bubble-chart.js:6</code></a>
         </div>
 
             Module: <a href="../modules/dTheia.html">dTheia</a>
@@ -121,7 +123,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_modules_bubble-chart.js.html#l6"><code>src\modules\bubble-chart.js:6</code></a>
+        <a href="../files/src_components_bubble-chart.js.html#l6"><code>src\components\bubble-chart.js:6</code></a>
         </p>
 
 
@@ -191,22 +193,13 @@
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
-<div id="method_constructor" class="method item inherited">
+<div id="method_constructor" class="method item">
     <h3 class="name"><code>constructor</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
                         <code>oParams</code>
-                </li>
-                <li class="arg">
-                        <code>oContainer</code>
-                </li>
-                <li class="arg">
-                        <code>jConfig</code>
-                </li>
-                <li class="arg">
-                        <code>aData</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -219,9 +212,12 @@
 
 
     <div class="meta">
-                <p>Inherited from
-                <a href="../classes/Theia.html#method_constructor">Theia</a>:
-        <a href="../files/src_modules_theia.js.html#l32"><code>src\modules\theia.js:32</code></a>
+            <p>Inherited from
+            <a href="../classes/Theia.html#method_constructor">
+                Theia
+            </a>
+            but overwritten in
+        <a href="../files/src_components_bubble-chart.js.html#l16"><code>src\components\bubble-chart.js:16</code></a>
         </p>
 
 
@@ -229,7 +225,8 @@
     </div>
 
     <div class="description">
-        Constructor function that sets up the local object.
+        <p>Constructor function supersedes parent class.</p>
+
     </div>
 
         <div class="params">
@@ -242,37 +239,8 @@
 
 
                     <div class="param-description">
-                        (may contain any of the below values)
-                    </div>
+                        <p>same as Theia</p>
 
-                </li>
-                <li class="param">
-                        <code class="param-name">oContainer</code>
-                        <span class="type">DOM Element</span>
-
-
-                    <div class="param-description">
-                        Optional DOM object
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">jConfig</code>
-                        <span class="type">JSON Object</span>
-
-
-                    <div class="param-description">
-                        JSON configuration object
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">aData</code>
-                        <span class="type">Array</span>
-
-
-                    <div class="param-description">
-                        the data to be displayed
                     </div>
 
                 </li>
@@ -297,7 +265,7 @@
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/Theia.html#method_init">Theia</a>:
-        <a href="../files/src_modules_theia.js.html#l116"><code>src\modules\theia.js:116</code></a>
+        <a href="../files/src_components_theia.js.html#l120"><code>src\components\theia.js:120</code></a>
         </p>
 
 
@@ -335,7 +303,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_modules_bubble-chart.js.html#l30"><code>src\modules\bubble-chart.js:30</code></a>
+        <a href="../files/src_components_bubble-chart.js.html#l39"><code>src\components\bubble-chart.js:39</code></a>
         </p>
 
 
@@ -372,7 +340,7 @@
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/Theia.html#method_setConfig">Theia</a>:
-        <a href="../files/src_modules_theia.js.html#l69"><code>src\modules\theia.js:69</code></a>
+        <a href="../files/src_components_theia.js.html#l73"><code>src\components\theia.js:73</code></a>
         </p>
 
 
@@ -432,7 +400,7 @@
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/Theia.html#method_setContainer">Theia</a>:
-        <a href="../files/src_modules_theia.js.html#l54"><code>src\modules\theia.js:54</code></a>
+        <a href="../files/src_components_theia.js.html#l58"><code>src\components\theia.js:58</code></a>
         </p>
 
 
@@ -492,7 +460,7 @@
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/Theia.html#method_setData">Theia</a>:
-        <a href="../files/src_modules_theia.js.html#l84"><code>src\modules\theia.js:84</code></a>
+        <a href="../files/src_components_theia.js.html#l88"><code>src\components\theia.js:88</code></a>
         </p>
 
 
@@ -549,7 +517,7 @@
                 Theia
             </a>
             but overwritten in
-        <a href="../files/src_modules_bubble-chart.js.html#l18"><code>src\modules\bubble-chart.js:18</code></a>
+        <a href="../files/src_components_bubble-chart.js.html#l27"><code>src\components\bubble-chart.js:27</code></a>
         </p>
 
 

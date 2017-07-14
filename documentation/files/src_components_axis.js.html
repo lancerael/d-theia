@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src\modules\utilities.js - dTheia</title>
+    <title>src\components\axis.js - dTheia</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -39,9 +39,11 @@
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
                                 <li><a href="../classes/Axis.html">Axis</a></li>
+                                <li><a href="../classes/AxisChart.html">AxisChart</a></li>
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
+                                <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Theia.html">Theia</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
                                 <li><a href="../classes/Utilities.html">Utilities</a></li>
@@ -83,91 +85,122 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: src\modules\utilities.js</h1>
+<h1 class="file-heading">File: src\components\axis.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
-require(&#x27;../../node_modules/whatwg-fetch/fetch.js&#x27;);
-
+const d3 = require(&#x27;d3&#x27;);
+const Utilities = require(&#x27;./utilities.js&#x27;);
 /**
-* The Utilities object is is a module containing reusable static methods
+* The Axis object is used to instantiate x and y axes, as well as labels
 *
-* @class Utilities
+* @class Axis
+* @constructor
 */
-const Utilities = {
+export default class Axis {
+  oContainer;
+  iTruncate;
+  aAxisLabels;
+  oScaleX;
+  oScaleY;
+  oToolTip;
+  iWidth;
+  iHeight;
+  jPadding;
 
   /**
-  * Returns a promise resolving with JSON when supplied with a valid URL
+  * Constructor function which sets up the local object.
   *
-  * @method getPromiseJSON
-  * @param {String} sUrl Required URL to make request
-  * @throws {Error} invalid api string
+  * @method constructor
+  * @param {JSON Object} jParams JSON configuration parameters object
+  * @throws {Error} invalid parameters
   */
-  getPromiseJSON(sUrl) {
-    if (typeof sUrl === &#x27;string&#x27;) {
-      return new Promise((resolve, reject) =&gt; {
-        fetch(sUrl, {
-          mode: &#x27;no-cors&#x27;,
-        }).then((response) =&gt; {
-          response.json().then((data) =&gt; {
-            resolve(data);
-          }).catch((error) =&gt; {
-            reject(error);
+  constructor(jParams) {
+    if (jParams.oContainer) {
+      Object.assign(this, jParams);
+    } else {
+      throw new Error(&#x27;Incorrect parameters provided to Axis constructor.&#x27;);
+    }
+  }
+
+  /**
+  * Master render to call all rendering methods
+  *
+  * @method render
+  * @chainable
+  */
+  render() {
+    this.renderAxisX();
+    this.renderAxisY();
+    this.renderLabels();
+    return this;
+  }
+
+  /**
+  * Render only the x axis
+  *
+  * @method renderAxisX
+  */
+  renderAxisX() {
+    this.oContainer.selectAll(&#x27;g.x-axis&#x27;).remove();
+    this.oContainer.append(&#x27;g&#x27;)
+        .attr(&#x27;class&#x27;, &#x27;x-axis&#x27;)
+        .call(d3.axisBottom(this.oScaleX))
+        .attr(&#x27;transform&#x27;, &#x60;translate(${this.jPadding.l},${this.iHeight})&#x60;)
+        .selectAll(&#x27;text&#x27;)
+          .attr(&#x27;x&#x27;, -5)
+          .attr(&#x27;y&#x27;, 6)
+          .attr(&#x27;transform&#x27;, &#x27;rotate(310)&#x27;)
+          .attr(&#x27;class&#x27;, &#x27;x-labels&#x27;)
+          .text(d =&gt; Utilities.truncateString(d, this.iTruncate))
+          .style(&#x27;text-anchor&#x27;, &#x27;end&#x27;)
+          .on(&#x27;mousemove&#x27;, (d) =&gt; {
+            if (this.oToolTip &amp;&amp; d.length &gt; this.iTruncate) {
+              this.oToolTip.ping(d3.event.clientX + 8, d3.event.clientY + 5 + document.body.scrollTop, &#x60;&lt;strong&gt;${d}&lt;/strong&gt;&#x60;);
+            }
           });
-        }).catch((error) =&gt; {
-          reject(error);
-        });
-      });
-    }
-    throw new Error(&#x27;No valid data API string provided.&#x27;);
-  },
+  }
 
   /**
-  * Truncates a string and adds ellipsis.
+  * Render only the y axis
   *
-  * @method truncateString
-  * @param {String} sString string to be truncated
-  * @param {Integer} iMaxLength max length of string before truncation
+  * @method renderAxisY
   */
-  truncateString(sString, iMaxLength) {
-    if (sString.length &gt; iMaxLength) {
-      return &#x60;${sString.slice(0, iMaxLength - 3)}[...]&#x60;;
-    }
-    return sString;
-  },
+  renderAxisY() {
+    this.oContainer.selectAll(&#x27;g.y-axis&#x27;).remove();
+    this.oContainer.append(&#x27;g&#x27;)
+        .attr(&#x27;class&#x27;, &#x27;y-axis&#x27;)
+        .call(d3.axisLeft(this.oScaleY))
+        .attr(&#x27;transform&#x27;, &#x60;translate(${this.jPadding.l},0)&#x60;)
+        .selectAll(&#x27;.y-axis .tick line&#x27;)
+          .attr(&#x27;x2&#x27;, () =&gt; this.iWidth);
+  }
 
   /**
-  * Generates a random integer within a range.
+  * Render only the labels
   *
-  * @method generateRandomInteger
-  * @param {Integer} iMin minimum random value
-  * @param {Integer} iMax max random value
-  * @param {Integer} iOmit optional excempt integer
+  * @method renderLabels
   */
-  generateRandomInteger(iMin, iMax, iOmit) {
-    let iInt = Math.floor(Math.random() * (iMin - iMax - 1)) + iMax + 1;
-    while (iInt === iOmit) {
-      iInt = this.fnGntRandInt(iMin, iMax);
-    }
-    return iInt;
-  },
+  renderLabels() {
+    this.oContainer.selectAll(&#x27;text.labels&#x27;).remove();
+    this.oContainer.append(&#x27;text&#x27;)
+        .attr(&#x27;class&#x27;, &#x27;labels&#x27;)
+        .attr(&#x27;x&#x27;, (this.iHeight / -2) - (this.jPadding.t / 2))// - ((this.jConfig.aAxisLabels[0].length / 2) * 7))
+        .attr(&#x27;y&#x27;, 10)
+        .attr(&#x27;transform&#x27;, &#x27;rotate(-90)&#x27;)
+        .attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;)
+        .text(this.aAxisLabels[0]);
+    this.oContainer.append(&#x27;text&#x27;)
+        .attr(&#x27;class&#x27;, &#x27;labels&#x27;)
+        .attr(&#x27;x&#x27;, ((this.iWidth + this.jPadding.l + this.jPadding.r) / 2))// - ((this.aAxisLabels[1].length / 2) * 2))
+        .attr(&#x27;y&#x27;, this.iHeight + (this.jPadding.b - 5))
+        .attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;)
+        .text(this.aAxisLabels[1]);
+  }
 
-  /**
-  * Returns a sample selection from an array.
-  *
-  * @method sliceSampleData
-  * @param {Array} aData the complete data set
-  * @param {Integer} iMaxLength max length of sample
-  */
-  sliceSampleData(aData, iMaxLength = 50) {
-    const iStart = this.generateRandomInteger(0, aData.length - iMaxLength);
-    const iEnd = iStart + this.generateRandomInteger(1, iMaxLength);
-    return aData.slice(iStart, iEnd);
-  },
+}
 
-};
-
-module.exports = Utilities;
+module.exports = Axis;
 
     </pre>
 </div>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src\modules\bar-chart.js - dTheia</title>
+    <title>src\components\axis-chart.js - dTheia</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -39,9 +39,11 @@
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
                                 <li><a href="../classes/Axis.html">Axis</a></li>
+                                <li><a href="../classes/AxisChart.html">AxisChart</a></li>
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
+                                <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Theia.html">Theia</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
                                 <li><a href="../classes/Utilities.html">Utilities</a></li>
@@ -83,7 +85,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: src\modules\bar-chart.js</h1>
+<h1 class="file-heading">File: src\components\axis-chart.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
@@ -93,21 +95,30 @@ const Key = require(&#x27;./key.js&#x27;);
 const Axis = require(&#x27;./axis.js&#x27;);
 
 /**
-* Create BarCharts from the supplied data, based on the supplied JSON config.
+* Create AxisChart from the supplied data, based on the supplied JSON config.
 *
-* @class BarChart
+* @class AxisChart
 * @extends Theia
 * @constructor
 */
-export default class BarChart extends Theia {
-  jPadding = { l: 35, r: 15, t: 25, b: 90 };
-  oScaleX = d3.scaleBand().padding(0.2);
-  oScaleY = d3.scaleLinear();
-  aBars;
-  oBarsG;
+export default class AxisChart extends Theia {
+  oChartG;
   oAxisG;
   oAxis;
   oKey;
+
+  /**
+  * Constructor function supersedes parent class.
+  *
+  * @method constructor
+  * @param {Object} oParams same as Theia
+  */
+  constructor(oParams = {}) {
+    super(oParams);
+    this.jPadding = { l: 35, r: 15, t: 25, b: 90 };
+    this.oScaleX = d3.scaleBand().padding(0.2);
+    this.oScaleY = d3.scaleLinear();
+  }
 
   /**
   * Supersede the parent method to update local scaling objects
@@ -131,15 +142,13 @@ export default class BarChart extends Theia {
   }
 
   /**
-  * Render the chart including bars, axes and labels
+  * Render the chart including axes and labels
   *
   * @method renderChart
-  * @param {Boolean} bReset optionally reset the chart data
   */
-  renderChart(bReset) {
-    const { aAxisKeys, aAxisLabels, aValues, sBarType, iTruncate } = this.jConfig;
+  renderChart() {
+    const { aAxisLabels, iTruncate } = this.jConfig;
     const { iInnerWidth, iInnerHeight, oScaleX, oScaleY, jPadding } = this;
-    const iBarWidth = oScaleX.bandwidth() / aValues.length;
 
     // Add chart scale axes
     this.oAxisG = this.oAxisG || this.oD3Svg.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;axes-g&#x27;);
@@ -153,70 +162,22 @@ export default class BarChart extends Theia {
       iWidth: iInnerWidth,
       iHeight: iInnerHeight,
       oToolTip: this.oToolTip }).render();
-    // Add bars container group
-    this.oBarsG = this.oBarsG || this.oD3Svg.append(&#x27;g&#x27;).attr(&#x27;transform&#x27;, &#x60;translate(${this.jPadding.l}, 0)&#x60;);
-    // Iterate through config value keys
-    aValues.forEach((oValues, i) =&gt; {
-      const { sKey, sColour } = oValues;
-      const iBarOffset = sBarType === &#x27;side&#x27; ? (iBarWidth * i) : 0;
-      // Reset bars data and clear graph
-      if (bReset) {
-        this.aBars[i] = this.oBarsG.selectAll(&#x27;rect.bars&#x27;).data({});
-        this.aBars[i].exit().remove();
-        this.aBars[i] = undefined;
-      }
-      this.aBars = this.aBars || [];
-      // Add bars for each value
-      if (!this.aBars[i]) {
-        // Bind bars data
-        this.aBars[i] = this.oBarsG.selectAll(&#x60;rect.bars-${i}&#x60;).data(this.aData);
-        // Add new rect elements and set base attributes
-        this.aBars[i]
-          .enter()
-          .append(&#x27;rect&#x27;)
-          .on(&#x27;mousemove&#x27;, (d) =&gt; {
-            this.oToolTip.ping(d3.event.clientX, d3.event.clientY + document.body.scrollTop + 20,
-              &#x60;&lt;strong&gt;${d[aAxisKeys[0]]}&lt;/strong&gt;&lt;br&gt;${oValues.sName}: &lt;em&gt;${d[oValues.sKey]}&lt;/em&gt;&#x60;);
-          })
-          .on(&#x27;mousedown&#x27;, (d) =&gt; {
-            if (this.jConfig.fnClickCallback) {
-              this.jConfig.fnClickCallback({
-                oEvent: d3.event,
-                jData: d,
-                sKey
-              });
-            }
-          })
-          .on(&#x27;mouseout&#x27;, () =&gt; this.oToolTip.hide())
-          .attr(&#x27;class&#x27;, &#x60;bars bars-${i}&#x60;)
-          .attr(&#x27;fill&#x27;, sColour)
-          .attr(&#x27;y&#x27;, iInnerHeight)
-          .attr(&#x27;height&#x27;, 0);
-      }
 
-      // Update bars
-      this.oBarsG.selectAll(&#x60;rect.bars-${i}&#x60;)
-        .attr(&#x27;x&#x27;, d =&gt; oScaleX(d[aAxisKeys[0]]) + iBarOffset)
-        .attr(&#x27;width&#x27;, iBarWidth)
-        .transition()
-        .ease(d3.easeLinear)
-        .duration(this.iTransitionTime)
-        .attr(&#x27;y&#x27;, d =&gt; oScaleY(d[sKey]))
-        .attr(&#x27;height&#x27;, d =&gt; iInnerHeight - oScaleY(d[sKey]));
+    // Add chart container group
+    this.oChartG = this.oChartG || this.oD3Svg.append(&#x27;g&#x27;).attr(&#x27;transform&#x27;, &#x60;translate(${this.jPadding.l}, 0)&#x60;);
 
-      // Render the key for the data
-      this.oKey = new Key({
-        oContainer: d3.select(this.oSvg),
-        aValues: this.jConfig.aValues,
-        iOffsetX: (this.iInnerWidth / 2) + this.jPadding.l,
-        iOffsetY: this.iHeight - 15
-      }).render();
-    });
+    // Render the key for the data
+    this.oKey = new Key({
+      oContainer: d3.select(this.oSvg),
+      aValues: this.jConfig.aValues,
+      iOffsetX: (this.iInnerWidth / 2) + this.jPadding.l,
+      iOffsetY: this.iHeight - 15
+    }).render();
   }
 
 }
 
-module.exports = BarChart;
+module.exports = AxisChart;
 
     </pre>
 </div>

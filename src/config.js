@@ -1,6 +1,6 @@
 module.exports = {
 
-  jBarConfig1: {
+  jAxisConfig1: {
     sTitle: 'Bike Docking Stations by Street',
     aValues: [
       {

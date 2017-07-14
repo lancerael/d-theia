@@ -39,9 +39,11 @@
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
                                 <li><a href="../classes/Axis.html">Axis</a></li>
+                                <li><a href="../classes/AxisChart.html">AxisChart</a></li>
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
+                                <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Theia.html">Theia</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
                                 <li><a href="../classes/Utilities.html">Utilities</a></li>
@@ -87,11 +89,11 @@
 <div class="box meta">
 
         <div class="extends">
-            Extends <a href="../classes/Theia.html" class="crosslink">Theia</a>
+            Extends <a href="../classes/AxisChart.html" class="crosslink">AxisChart</a>
         </div>
 
         <div class="foundat">
-            Defined in: <a href="../files/src_modules_bar-chart.js.html#l6"><code>src\modules\bar-chart.js:6</code></a>
+            Defined in: <a href="../files/src_components_bar-chart.js.html#l4"><code>src\components\bar-chart.js:4</code></a>
         </div>
 
             Module: <a href="../modules/dTheia.html">dTheia</a>
@@ -121,7 +123,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_modules_bar-chart.js.html#l6"><code>src\modules\bar-chart.js:6</code></a>
+        <a href="../files/src_components_bar-chart.js.html#l4"><code>src\components\bar-chart.js:4</code></a>
         </p>
 
 
@@ -153,7 +155,7 @@
                     <h3>Methods</h3>
 
                     <ul class="index-list methods extends">
-                            <li class="index-item method inherited">
+                            <li class="index-item method inherited inherited">
                                 <a href="#method_constructor">constructor</a>
 
                             </li>
@@ -161,7 +163,7 @@
                                 <a href="#method_init">init</a>
 
                             </li>
-                            <li class="index-item method">
+                            <li class="index-item method inherited">
                                 <a href="#method_renderChart">renderChart</a>
 
                             </li>
@@ -177,7 +179,7 @@
                                 <a href="#method_setData">setData</a>
 
                             </li>
-                            <li class="index-item method inherited">
+                            <li class="index-item method inherited inherited">
                                 <a href="#method_setDimensions">setDimensions</a>
 
                             </li>
@@ -199,15 +201,6 @@
                 <li class="arg">
                         <code>oParams</code>
                 </li>
-                <li class="arg">
-                        <code>oContainer</code>
-                </li>
-                <li class="arg">
-                        <code>jConfig</code>
-                </li>
-                <li class="arg">
-                        <code>aData</code>
-                </li>
             </ul><span class="paren">)</span>
         </div>
 
@@ -219,9 +212,12 @@
 
 
     <div class="meta">
-                <p>Inherited from
-                <a href="../classes/Theia.html#method_constructor">Theia</a>:
-        <a href="../files/src_modules_theia.js.html#l32"><code>src\modules\theia.js:32</code></a>
+            <p>Inherited from
+            <a href="../classes/Theia.html#method_constructor">
+                Theia
+            </a>
+            but overwritten in
+        <a href="../files/src_components_axis-chart.js.html#l19"><code>src\components\axis-chart.js:19</code></a>
         </p>
 
 
@@ -229,7 +225,8 @@
     </div>
 
     <div class="description">
-        Constructor function that sets up the local object.
+        <p>Constructor function supersedes parent class.</p>
+
     </div>
 
         <div class="params">
@@ -242,37 +239,8 @@
 
 
                     <div class="param-description">
-                        (may contain any of the below values)
-                    </div>
+                        <p>same as Theia</p>
 
-                </li>
-                <li class="param">
-                        <code class="param-name">oContainer</code>
-                        <span class="type">DOM Element</span>
-
-
-                    <div class="param-description">
-                        Optional DOM object
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">jConfig</code>
-                        <span class="type">JSON Object</span>
-
-
-                    <div class="param-description">
-                        JSON configuration object
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">aData</code>
-                        <span class="type">Array</span>
-
-
-                    <div class="param-description">
-                        the data to be displayed
                     </div>
 
                 </li>
@@ -297,7 +265,7 @@
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/Theia.html#method_init">Theia</a>:
-        <a href="../files/src_modules_theia.js.html#l116"><code>src\modules\theia.js:116</code></a>
+        <a href="../files/src_components_theia.js.html#l120"><code>src\components\theia.js:120</code></a>
         </p>
 
 
@@ -339,9 +307,12 @@
 
 
     <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_modules_bar-chart.js.html#l44"><code>src\modules\bar-chart.js:44</code></a>
+            <p>Inherited from
+            <a href="../classes/AxisChart.html#method_renderChart">
+                AxisChart
+            </a>
+            but overwritten in
+        <a href="../files/src_components_bar-chart.js.html#l14"><code>src\components\bar-chart.js:14</code></a>
         </p>
 
 
@@ -395,7 +366,7 @@
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/Theia.html#method_setConfig">Theia</a>:
-        <a href="../files/src_modules_theia.js.html#l69"><code>src\modules\theia.js:69</code></a>
+        <a href="../files/src_components_theia.js.html#l73"><code>src\components\theia.js:73</code></a>
         </p>
 
 
@@ -455,7 +426,7 @@
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/Theia.html#method_setContainer">Theia</a>:
-        <a href="../files/src_modules_theia.js.html#l54"><code>src\modules\theia.js:54</code></a>
+        <a href="../files/src_components_theia.js.html#l58"><code>src\components\theia.js:58</code></a>
         </p>
 
 
@@ -515,7 +486,7 @@
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/Theia.html#method_setData">Theia</a>:
-        <a href="../files/src_modules_theia.js.html#l84"><code>src\modules\theia.js:84</code></a>
+        <a href="../files/src_components_theia.js.html#l88"><code>src\components\theia.js:88</code></a>
         </p>
 
 
@@ -554,7 +525,7 @@
         </div>
 
 </div>
-<div id="method_setDimensions" class="method item">
+<div id="method_setDimensions" class="method item inherited">
     <h3 class="name"><code>setDimensions</code></h3>
 
         <span class="paren">()</span>
@@ -572,7 +543,7 @@
                 Theia
             </a>
             but overwritten in
-        <a href="../files/src_modules_bar-chart.js.html#l23"><code>src\modules\bar-chart.js:23</code></a>
+        <a href="../files/src_components_axis-chart.js.html#l32"><code>src\components\axis-chart.js:32</code></a>
         </p>
 
 

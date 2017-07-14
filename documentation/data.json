@@ -5,8 +5,17 @@
         "version": "1.00"
     },
     "files": {
-        "src\\modules\\axis.js": {
-            "name": "src\\modules\\axis.js",
+        "src\\components\\axis-chart.js": {
+            "name": "src\\components\\axis-chart.js",
+            "modules": {},
+            "classes": {
+                "AxisChart": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\components\\axis.js": {
+            "name": "src\\components\\axis.js",
             "modules": {},
             "classes": {
                 "Axis": 1
@@ -14,8 +23,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "src\\modules\\bar-chart.js": {
-            "name": "src\\modules\\bar-chart.js",
+        "src\\components\\bar-chart.js": {
+            "name": "src\\components\\bar-chart.js",
             "modules": {},
             "classes": {
                 "BarChart": 1
@@ -23,8 +32,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "src\\modules\\bubble-chart.js": {
-            "name": "src\\modules\\bubble-chart.js",
+        "src\\components\\bubble-chart.js": {
+            "name": "src\\components\\bubble-chart.js",
             "modules": {},
             "classes": {
                 "BubbleChart": 1
@@ -32,8 +41,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "src\\modules\\key.js": {
-            "name": "src\\modules\\key.js",
+        "src\\components\\key.js": {
+            "name": "src\\components\\key.js",
             "modules": {},
             "classes": {
                 "Key": 1
@@ -41,8 +50,17 @@
             "fors": {},
             "namespaces": {}
         },
-        "src\\modules\\theia.js": {
-            "name": "src\\modules\\theia.js",
+        "src\\components\\line-chart.js": {
+            "name": "src\\components\\line-chart.js",
+            "modules": {},
+            "classes": {
+                "LineChart": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\components\\theia.js": {
+            "name": "src\\components\\theia.js",
             "modules": {
                 "dTheia": 1
             },
@@ -52,8 +70,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "src\\modules\\tooltip.js": {
-            "name": "src\\modules\\tooltip.js",
+        "src\\components\\tooltip.js": {
+            "name": "src\\components\\tooltip.js",
             "modules": {},
             "classes": {
                 "Tooltip": 1
@@ -61,8 +79,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "src\\modules\\utilities.js": {
-            "name": "src\\modules\\utilities.js",
+        "src\\components\\utilities.js": {
+            "name": "src\\components\\utilities.js",
             "modules": {},
             "classes": {
                 "Utilities": 1
@@ -77,10 +95,12 @@
             "submodules": {},
             "elements": {},
             "classes": {
+                "AxisChart": 1,
                 "Axis": 1,
                 "BarChart": 1,
                 "BubbleChart": 1,
                 "Key": 1,
+                "LineChart": 1,
                 "Theia": 1,
                 "Tooltip": 1,
                 "Utilities": 1
@@ -88,12 +108,27 @@
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "src\\modules\\utilities.js",
+            "file": "src\\components\\utilities.js",
             "line": 3,
             "description": "dTheia is a reusable charting library built using d3 v.4 and ES6"
         }
     },
     "classes": {
+        "AxisChart": {
+            "name": "AxisChart",
+            "shortname": "AxisChart",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "dTheia",
+            "file": "src\\components\\axis-chart.js",
+            "line": 6,
+            "description": "Create AxisChart from the supplied data, based on the supplied JSON config.",
+            "extends": "Theia",
+            "is_constructor": 1
+        },
         "Axis": {
             "name": "Axis",
             "shortname": "Axis",
@@ -103,7 +138,7 @@
             "plugin_for": [],
             "extension_for": [],
             "module": "dTheia",
-            "file": "src\\modules\\axis.js",
+            "file": "src\\components\\axis.js",
             "line": 3,
             "description": "The Axis object is used to instantiate x and y axes, as well as labels",
             "is_constructor": 1
@@ -117,10 +152,10 @@
             "plugin_for": [],
             "extension_for": [],
             "module": "dTheia",
-            "file": "src\\modules\\bar-chart.js",
-            "line": 6,
+            "file": "src\\components\\bar-chart.js",
+            "line": 4,
             "description": "Create BarCharts from the supplied data, based on the supplied JSON config.",
-            "extends": "Theia",
+            "extends": "AxisChart",
             "is_constructor": 1
         },
         "BubbleChart": {
@@ -132,7 +167,7 @@
             "plugin_for": [],
             "extension_for": [],
             "module": "dTheia",
-            "file": "src\\modules\\bubble-chart.js",
+            "file": "src\\components\\bubble-chart.js",
             "line": 6,
             "description": "Create BubbleCharts from the supplied data, based on the supplied JSON config.",
             "extends": "Theia",
@@ -147,9 +182,24 @@
             "plugin_for": [],
             "extension_for": [],
             "module": "dTheia",
-            "file": "src\\modules\\key.js",
+            "file": "src\\components\\key.js",
             "line": 1,
             "description": "The Key shows how the colours represent the data",
+            "is_constructor": 1
+        },
+        "LineChart": {
+            "name": "LineChart",
+            "shortname": "LineChart",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "dTheia",
+            "file": "src\\components\\line-chart.js",
+            "line": 4,
+            "description": "Create LineCharts from the supplied data, based on the supplied JSON config.",
+            "extends": "AxisChart",
             "is_constructor": 1
         },
         "Theia": {
@@ -162,7 +212,7 @@
             "extension_for": [],
             "module": "dTheia",
             "namespace": "",
-            "file": "src\\modules\\theia.js",
+            "file": "src\\components\\theia.js",
             "line": 10,
             "description": "The Theia object is the parent class for all types of Chart.",
             "is_constructor": 1
@@ -177,7 +227,7 @@
             "extension_for": [],
             "module": "dTheia",
             "namespace": "",
-            "file": "src\\modules\\tooltip.js",
+            "file": "src\\components\\tooltip.js",
             "line": 1,
             "description": "The Tooltip",
             "is_constructor": 1
@@ -192,7 +242,7 @@
             "extension_for": [],
             "module": "dTheia",
             "namespace": "",
-            "file": "src\\modules\\utilities.js",
+            "file": "src\\components\\utilities.js",
             "line": 3,
             "description": "The Utilities object is is a module containing reusable static methods"
         }
@@ -200,7 +250,38 @@
     "elements": {},
     "classitems": [
         {
-            "file": "src\\modules\\axis.js",
+            "file": "src\\components\\axis-chart.js",
+            "line": 19,
+            "description": "Constructor function supersedes parent class.",
+            "itemtype": "method",
+            "name": "constructor",
+            "params": [
+                {
+                    "name": "oParams",
+                    "description": "same as Theia",
+                    "type": "Object"
+                }
+            ],
+            "class": "AxisChart"
+        },
+        {
+            "file": "src\\components\\axis-chart.js",
+            "line": 32,
+            "description": "Supersede the parent method to update local scaling objects",
+            "itemtype": "method",
+            "name": "setDimensions",
+            "class": "AxisChart"
+        },
+        {
+            "file": "src\\components\\axis-chart.js",
+            "line": 53,
+            "description": "Render the chart including axes and labels",
+            "itemtype": "method",
+            "name": "renderChart",
+            "class": "AxisChart"
+        },
+        {
+            "file": "src\\components\\axis.js",
             "line": 20,
             "description": "Constructor function which sets up the local object.",
             "itemtype": "method",
@@ -219,7 +300,7 @@
             "class": "Axis"
         },
         {
-            "file": "src\\modules\\axis.js",
+            "file": "src\\components\\axis.js",
             "line": 35,
             "description": "Master render to call all rendering methods",
             "itemtype": "method",
@@ -228,7 +309,7 @@
             "class": "Axis"
         },
         {
-            "file": "src\\modules\\axis.js",
+            "file": "src\\components\\axis.js",
             "line": 48,
             "description": "Render only the x axis",
             "itemtype": "method",
@@ -236,7 +317,7 @@
             "class": "Axis"
         },
         {
-            "file": "src\\modules\\axis.js",
+            "file": "src\\components\\axis.js",
             "line": 73,
             "description": "Render only the y axis",
             "itemtype": "method",
@@ -244,7 +325,7 @@
             "class": "Axis"
         },
         {
-            "file": "src\\modules\\axis.js",
+            "file": "src\\components\\axis.js",
             "line": 88,
             "description": "Render only the labels",
             "itemtype": "method",
@@ -252,16 +333,8 @@
             "class": "Axis"
         },
         {
-            "file": "src\\modules\\bar-chart.js",
-            "line": 23,
-            "description": "Supersede the parent method to update local scaling objects",
-            "itemtype": "method",
-            "name": "setDimensions",
-            "class": "BarChart"
-        },
-        {
-            "file": "src\\modules\\bar-chart.js",
-            "line": 44,
+            "file": "src\\components\\bar-chart.js",
+            "line": 14,
             "description": "Render the chart including bars, axes and labels",
             "itemtype": "method",
             "name": "renderChart",
@@ -275,23 +348,38 @@
             "class": "BarChart"
         },
         {
-            "file": "src\\modules\\bubble-chart.js",
-            "line": 18,
+            "file": "src\\components\\bubble-chart.js",
+            "line": 16,
+            "description": "Constructor function supersedes parent class.",
+            "itemtype": "method",
+            "name": "constructor",
+            "params": [
+                {
+                    "name": "oParams",
+                    "description": "same as Theia",
+                    "type": "Object"
+                }
+            ],
+            "class": "BubbleChart"
+        },
+        {
+            "file": "src\\components\\bubble-chart.js",
+            "line": 27,
             "description": "Supersede the parent method to update local scaling objects",
             "itemtype": "method",
             "name": "setDimensions",
             "class": "BubbleChart"
         },
         {
-            "file": "src\\modules\\bubble-chart.js",
-            "line": 30,
+            "file": "src\\components\\bubble-chart.js",
+            "line": 39,
             "description": "Render the chart including bubbles, axes and labels",
             "itemtype": "method",
             "name": "renderChart",
             "class": "BubbleChart"
         },
         {
-            "file": "src\\modules\\key.js",
+            "file": "src\\components\\key.js",
             "line": 13,
             "description": "Constructor function that sets up the local object.",
             "itemtype": "method",
@@ -321,7 +409,7 @@
             "class": "Key"
         },
         {
-            "file": "src\\modules\\key.js",
+            "file": "src\\components\\key.js",
             "line": 33,
             "description": "Render the key showing the labels for the colour values",
             "itemtype": "method",
@@ -329,7 +417,15 @@
             "class": "Key"
         },
         {
-            "file": "src\\modules\\theia.js",
+            "file": "src\\components\\line-chart.js",
+            "line": 14,
+            "description": "Render the chart including lines, axes and labels",
+            "itemtype": "method",
+            "name": "renderChart",
+            "class": "LineChart"
+        },
+        {
+            "file": "src\\components\\theia.js",
             "line": 32,
             "description": "Constructor function that sets up the local object.",
             "itemtype": "method",
@@ -360,8 +456,8 @@
             "module": "dTheia"
         },
         {
-            "file": "src\\modules\\theia.js",
-            "line": 54,
+            "file": "src\\components\\theia.js",
+            "line": 58,
             "description": "Sets the local container object.",
             "itemtype": "method",
             "name": "setContainer",
@@ -380,8 +476,8 @@
             "module": "dTheia"
         },
         {
-            "file": "src\\modules\\theia.js",
-            "line": 69,
+            "file": "src\\components\\theia.js",
+            "line": 73,
             "description": "Sets the local config options for the chart.",
             "itemtype": "method",
             "name": "setConfig",
@@ -400,8 +496,8 @@
             "module": "dTheia"
         },
         {
-            "file": "src\\modules\\theia.js",
-            "line": 84,
+            "file": "src\\components\\theia.js",
+            "line": 88,
             "description": "Sets the local data for the chart.",
             "itemtype": "method",
             "name": "setData",
@@ -420,8 +516,8 @@
             "module": "dTheia"
         },
         {
-            "file": "src\\modules\\theia.js",
-            "line": 99,
+            "file": "src\\components\\theia.js",
+            "line": 103,
             "description": "Sets the local chart dimensions based on the size of the container.",
             "itemtype": "method",
             "name": "setDimensions",
@@ -433,8 +529,8 @@
             "module": "dTheia"
         },
         {
-            "file": "src\\modules\\theia.js",
-            "line": 116,
+            "file": "src\\components\\theia.js",
+            "line": 120,
             "description": "Check chart is ready and render.",
             "itemtype": "method",
             "name": "init",
@@ -446,7 +542,7 @@
             "module": "dTheia"
         },
         {
-            "file": "src\\modules\\tooltip.js",
+            "file": "src\\components\\tooltip.js",
             "line": 13,
             "description": "Constructor function that sets up the local object.",
             "itemtype": "method",
@@ -462,7 +558,7 @@
             "module": "dTheia"
         },
         {
-            "file": "src\\modules\\tooltip.js",
+            "file": "src\\components\\tooltip.js",
             "line": 27,
             "description": "Create the tooltip DOM and return object",
             "itemtype": "method",
@@ -472,7 +568,7 @@
             "module": "dTheia"
         },
         {
-            "file": "src\\modules\\tooltip.js",
+            "file": "src\\components\\tooltip.js",
             "line": 40,
             "description": "Ping the tooltip with data and location",
             "itemtype": "method",
@@ -498,7 +594,7 @@
             "module": "dTheia"
         },
         {
-            "file": "src\\modules\\utilities.js",
+            "file": "src\\components\\utilities.js",
             "line": 10,
             "description": "Returns a promise resolving with JSON when supplied with a valid URL",
             "itemtype": "method",
@@ -518,7 +614,7 @@
             "module": "dTheia"
         },
         {
-            "file": "src\\modules\\utilities.js",
+            "file": "src\\components\\utilities.js",
             "line": 36,
             "description": "Truncates a string and adds ellipsis.",
             "itemtype": "method",
@@ -539,7 +635,7 @@
             "module": "dTheia"
         },
         {
-            "file": "src\\modules\\utilities.js",
+            "file": "src\\components\\utilities.js",
             "line": 50,
             "description": "Generates a random integer within a range.",
             "itemtype": "method",
@@ -565,7 +661,7 @@
             "module": "dTheia"
         },
         {
-            "file": "src\\modules\\utilities.js",
+            "file": "src\\components\\utilities.js",
             "line": 66,
             "description": "Returns a sample selection from an array.",
             "itemtype": "method",
