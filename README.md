@@ -29,7 +29,7 @@ This module provides the following ES6 classes:
 - Tooltip - reusable tooltip
 - Utilities - helper methods
 
-The limitations of this approach have been demonstrated. The class based heirarchy has presented an easily understood structure, but different types of chart cannot be easily combined. The code is now being refactored for a Functional Programming approach.
+The limitations of this approach have been demonstrated. The class based heirarchy has presented an easily understood structure, but different types of chart cannot be easily combined. The code is now being evaluated for a Functional Programming approach.
 
 Technologies Used:
 - NodeJS/NPM
@@ -43,7 +43,7 @@ In progress:
 
 - Implement TDD code coverage reporting.
 - Colour range key.
-- Functional Programming refactor.
+- Evaluate Functional Programming refactor.
 
 Installation:
 
