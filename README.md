@@ -43,7 +43,7 @@ In progress:
 
 - Implement TDD code coverage reporting.
 - Colour range key.
-- Line chart.
+- Functional Programming refactor.
 
 Installation:
 
