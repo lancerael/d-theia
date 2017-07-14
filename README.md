@@ -8,7 +8,8 @@ Current available charts:
 
 The library is purely JavaScript but does include a simple app and associated HTML/CSS for demonstration and development.
 Demo App: http://79.170.40.52/ui-dev.lt/d-theia/
-- Shows randomised cycle docking station data as
+- Shows randomised cycle docking station data.
+- Refresh page for new random: 
 -- bar chart
 -- line chart
 -- bubble chart.
