@@ -3,7 +3,7 @@ require('../../node_modules/whatwg-fetch/fetch.js');
 /**
 * The Utilities object is is a module containing reusable static methods
 *
-* @class Utilities
+* @module Utilities
 */
 const Utilities = {
 

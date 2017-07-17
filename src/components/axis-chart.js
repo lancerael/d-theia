@@ -1,5 +1,5 @@
 const d3 = require('d3');
-const Theia = require('./theia.js');
+const Chart = require('./chart.js');
 const Key = require('./key.js');
 const Axis = require('./axis.js');
 
@@ -7,10 +7,10 @@ const Axis = require('./axis.js');
 * Create AxisChart from the supplied data, based on the supplied JSON config.
 *
 * @class AxisChart
-* @extends Theia
+* @extends Chart
 * @constructor
 */
-export default class AxisChart extends Theia {
+export default class AxisChart extends Chart {
   oChartG;
   oAxisG;
   oAxis;
@@ -20,7 +20,7 @@ export default class AxisChart extends Theia {
   * Constructor function supersedes parent class.
   *
   * @method constructor
-  * @param {Object} oParams same as Theia
+  * @param {Object} oParams same as Chart
   */
   constructor(oParams = {}) {
     super(oParams);

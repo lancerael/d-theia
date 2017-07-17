@@ -1,5 +1,5 @@
 const d3 = require('d3');
-const Theia = require('./theia.js');
+const Chart = require('./chart.js');
 const Axis = require('./axis.js');
 const Key = require('./key.js');
 
@@ -7,17 +7,17 @@ const Key = require('./key.js');
 * Create BubbleCharts from the supplied data, based on the supplied JSON config.
 *
 * @class BubbleChart
-* @extends Theia
+* @extends Chart
 * @constructor
 */
-export default class BubbleChart extends Theia {
+export default class BubbleChart extends Chart {
   aBubbles;
 
   /**
   * Constructor function supersedes parent class.
   *
   * @method constructor
-  * @param {Object} oParams same as Theia
+  * @param {Object} oParams same as Chart
   */
   constructor(oParams = {}) {
     super(oParams);

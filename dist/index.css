@@ -59,7 +59,7 @@ body {
   visibility: hidden;
 }
 
-svg.theia {
+svg.chart {
   background-color: #f2f7ff;
   background: linear-gradient(#f2f7ff, white);
   width: 100%;

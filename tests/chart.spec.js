@@ -1,17 +1,17 @@
-const Theia = require('../src/components/theia.js');
+const Chart = require('../src/components/chart.js');
 
-describe('Theia', () => {
+describe('Chart', () => {
   let oChart;
 
   beforeEach(() => {
-    oChart = new Theia();
+    oChart = new Chart();
   });
 
   it('should use ID string to get DOM element', () => {
     const oDiv = document.createElement('div');
     oDiv.setAttribute('id', 'test');
     document.body.appendChild(oDiv);
-    oChart = new Theia({ sContainer: 'test' });
+    oChart = new Chart({ sContainer: 'test' });
     expect(oChart.oContainer).toEqual(oDiv);
   });
 

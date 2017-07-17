@@ -1,12 +1,6 @@
-const BarChart = require('./components/bar-chart.js');
-const LineChart = require('./components/line-chart.js');
-const BubbleChart = require('./components/bubble-chart.js');
+const Theia = require('./components/theia.js');
 const Utilities = require('./components/utilities.js');
 const Config = require('./config.js');
-
-const aBarCharts = [];
-const aLineCharts = [];
-const aBubbleCharts = [];
 
 /*
  Display a bar chart, line chart and bubble chart from a subsection
@@ -18,20 +12,20 @@ Utilities.getPromiseJSON('./data/cycles.json').then((data) => {
     jConfig: Config.jAxisConfig1,
     aData: aCycleData,
   };
-  aBarCharts.push(new BarChart(Object.assign({ sContainer: 'container-bar-1' }, jAxis)).init());
-  aLineCharts.push(new LineChart(Object.assign({ sContainer: 'container-line-1' }, jAxis)).init());
-  aBubbleCharts.push(new BubbleChart({
+  Theia.createBarChart(Object.assign({ sContainer: 'container-bar-1' }, jAxis));
+  Theia.createLineChart(Object.assign({ sContainer: 'container-line-1' }, jAxis));
+  Theia.createBubbleChart({
     sContainer: 'container-bubble-1',
     jConfig: Config.jBubbleConfig1,
     aData: aCycleData,
-  }).init());
+  });
 });
 
 /*
  Display a bar chart from retrieved and transfromed data.
 */
 Utilities.getPromiseJSON('./data/formula1.json').then((data) => {
-  aBarCharts.push(new BarChart({
+  Theia.createBubbleChart({
     sContainer: 'container-bar-2',
     jConfig: Config.jBarConfig2,
     aData: (() => {
@@ -45,5 +39,5 @@ Utilities.getPromiseJSON('./data/formula1.json').then((data) => {
       }
       return aData;
     })()
-  }).init());
+  });
 });
