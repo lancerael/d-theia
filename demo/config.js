@@ -1,4 +1,4 @@
-module.exports = {
+const Config = {
 
   jAxisConfig1: {
     sTitle: 'Bike Docking Stations by Street',

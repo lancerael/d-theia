@@ -23,25 +23,30 @@ export default class LineChart extends AxisChart {
     const { oScaleX, oScaleY } = this;
 
     this.aLines = this.aLines || [];
+    this.aCircles = this.aCircles || [];
     this.oChartG.selectAll('path.line').remove();
 
     // Iterate through config value keys
     aValues.forEach((oValues, i) => {
       const { sKey, sColour } = oValues;
 
-      // define the line
-      this.aLines[i] = d3.line()
-        .x(d => oScaleX(d[aAxisKeys[0]]) + (oScaleX.bandwidth() / 2))
-        .y(d => oScaleY(d[sKey]));
+      if (!this.aLines[i]) {
+        // define the line
+        this.aLines[i] = d3.line();
 
         // Add the valueline path.
-      this.oChartG.append('path')
-          .data([this.aData])
-          .attr('class', 'line')
-          .attr('stroke', sColour)
-          .attr('d', this.aLines[i]);
+        this.oChartG.append('path')
+            .data([this.aData])
+            .attr('class', `lines lines-${i}`)
+            .attr('stroke', sColour);
+      }
 
-      this.aCircles = this.aCircles || [];
+      // Update lines
+      this.aLines[i]
+        .x(d => oScaleX(d[aAxisKeys[0]]) + (oScaleX.bandwidth() / 2))
+        .y(d => oScaleY(d[sKey]))
+      this.oChartG.selectAll(`path.lines-${i}`).attr('d', this.aLines[i]);
+
       // Add circles for each value
       if (!this.aCircles[i]) {
         // Bind circles data
@@ -67,9 +72,12 @@ export default class LineChart extends AxisChart {
           .attr('class', `circles circles-${i}`)
           .attr('fill', sColour)
           .attr('r', 3)
-          .attr('cx', d => oScaleX(d[aAxisKeys[0]]) + (oScaleX.bandwidth() / 2))
           .attr('cy', d => oScaleY(d[sKey]));
       }
+
+      // Update circles
+      this.oChartG.selectAll(`circle.circles-${i}`)
+      .attr('cx', d => oScaleX(d[aAxisKeys[0]]) + (oScaleX.bandwidth() / 2));
     });
   }
 

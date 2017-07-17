@@ -1,6 +1,7 @@
 const BarChart = require('./bar-chart.js');
 const LineChart = require('./line-chart.js');
 const BubbleChart = require('./bubble-chart.js');
+const Utilities = require('./utilities.js');
 
 /**
 * Theia is the main API for dTheia - a reusable charting library built using d3 v.4 and ES6
@@ -51,6 +52,15 @@ const Theia = {
     this.aCharts.push(oBubbleChart);
     this.aBarCharts.push(oBubbleChart);
     return oBubbleChart;
+  },
+
+  /**
+  * Return a public Utilities module
+  *
+  * @method getUtilities
+  */
+  getUtilities() {
+    return Utilities;
   }
 };
 

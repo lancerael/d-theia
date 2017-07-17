@@ -1,6 +1,4 @@
-const Theia = require('./components/theia.js');
-const Utilities = require('./components/utilities.js');
-const Config = require('./config.js');
+const Utilities = Theia.getUtilities();
 
 /*
  Display a bar chart, line chart and bubble chart from a subsection

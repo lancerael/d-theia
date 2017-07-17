@@ -3,10 +3,11 @@ const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/components/theia.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.bundle.js',
+    filename: 'd-theia.min.js',
+    library: 'Theia'
   },
   module: {
     loaders: [
