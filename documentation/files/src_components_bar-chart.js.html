@@ -42,16 +42,16 @@
                                 <li><a href="../classes/AxisChart.html">AxisChart</a></li>
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
+                                <li><a href="../classes/Chart.html">Chart</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
-                                <li><a href="../classes/Theia.html">Theia</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
-                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
-                                <li><a href="../modules/dTheia.html">dTheia</a></li>
+                                <li><a href="../modules/Theia.html">Theia</a></li>
+                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -134,7 +134,7 @@ export default class BarChart extends AxisChart {
           .enter()
           .append(&#x27;rect&#x27;)
           .on(&#x27;mousemove&#x27;, (d) =&gt; {
-            this.oToolTip.ping(d3.event.clientX, d3.event.clientY + document.body.scrollTop + 20,
+            this.oToolTip.ping(d3.event.clientX, d3.event.clientY + 20,
               &#x60;&lt;strong&gt;${d[aAxisKeys[0]]}&lt;/strong&gt;&lt;br&gt;${oValues.sName}: &lt;em&gt;${d[oValues.sKey]}&lt;/em&gt;&#x60;);
           })
           .on(&#x27;mousedown&#x27;, (d) =&gt; {

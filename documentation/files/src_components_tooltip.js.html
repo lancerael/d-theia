@@ -42,16 +42,16 @@
                                 <li><a href="../classes/AxisChart.html">AxisChart</a></li>
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
+                                <li><a href="../classes/Chart.html">Chart</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
-                                <li><a href="../classes/Theia.html">Theia</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
-                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
-                                <li><a href="../modules/dTheia.html">dTheia</a></li>
+                                <li><a href="../modules/Theia.html">Theia</a></li>
+                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -137,11 +137,14 @@ export default class Tooltip {
   * @param {String} sContent inner html content
   */
   ping(x, y, sContent) {
+    const iPageOffsetY = window.pageYOffset
+      || document.documentElement.scrollTop
+      || document.body.scrollTop || 0;
     this.oTooltip.innerHTML = sContent;
     this.oTooltip.className = &#x27;tooltip is-transparent&#x27;;
     this.oTooltip.className = &#x27;tooltip&#x27;;
     this.oTooltip.style.left = &#x60;${x}px&#x60;;
-    this.oTooltip.style.top = &#x60;${y}px&#x60;;
+    this.oTooltip.style.top = &#x60;${y + iPageOffsetY}px&#x60;;
     clearTimeout(this.oTooltipTimeout);
     clearTimeout(this.oTooltipSubTimeout);
     this.oTooltipTimeout = setTimeout(() =&gt; {

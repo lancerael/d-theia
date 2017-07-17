@@ -42,16 +42,16 @@
                                 <li><a href="../classes/AxisChart.html">AxisChart</a></li>
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
+                                <li><a href="../classes/Chart.html">Chart</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
-                                <li><a href="../classes/Theia.html">Theia</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
-                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
-                                <li><a href="../modules/dTheia.html">dTheia</a></li>
+                                <li><a href="../modules/Theia.html">Theia</a></li>
+                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -101,6 +101,7 @@ const AxisChart = require(&#x27;./axis-chart.js&#x27;);
 */
 export default class LineChart extends AxisChart {
   aLines;
+  aCircles;
 
   /**
   * Render the chart including lines, axes and labels
@@ -130,6 +131,36 @@ export default class LineChart extends AxisChart {
           .attr(&#x27;class&#x27;, &#x27;line&#x27;)
           .attr(&#x27;stroke&#x27;, sColour)
           .attr(&#x27;d&#x27;, this.aLines[i]);
+
+      this.aCircles = this.aCircles || [];
+      // Add circles for each value
+      if (!this.aCircles[i]) {
+        // Bind circles data
+        this.aCircles[i] = this.oChartG.selectAll(&#x60;circle.circles-${i}&#x60;).data(this.aData);
+        // Add new circle elements and set base attributes
+        this.aCircles[i]
+          .enter()
+          .append(&#x27;circle&#x27;)
+          .on(&#x27;mousemove&#x27;, (d) =&gt; {
+            this.oToolTip.ping(d3.event.clientX, d3.event.clientY + 20,
+              &#x60;&lt;strong&gt;${d[aAxisKeys[0]]}&lt;/strong&gt;&lt;br&gt;${oValues.sName}: &lt;em&gt;${d[oValues.sKey]}&lt;/em&gt;&#x60;);
+          })
+          .on(&#x27;mousedown&#x27;, (d) =&gt; {
+            if (this.jConfig.fnClickCallback) {
+              this.jConfig.fnClickCallback({
+                oEvent: d3.event,
+                jData: d,
+                sKey
+              });
+            }
+          })
+          .on(&#x27;mouseout&#x27;, () =&gt; this.oToolTip.hide())
+          .attr(&#x27;class&#x27;, &#x60;circles circles-${i}&#x60;)
+          .attr(&#x27;fill&#x27;, sColour)
+          .attr(&#x27;r&#x27;, 3)
+          .attr(&#x27;cx&#x27;, d =&gt; oScaleX(d[aAxisKeys[0]]) + (oScaleX.bandwidth() / 2))
+          .attr(&#x27;cy&#x27;, d =&gt; oScaleY(d[sKey]));
+      }
     });
   }
 

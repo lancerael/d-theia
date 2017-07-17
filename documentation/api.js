@@ -5,20 +5,25 @@ YUI.add("yuidoc-meta", function(Y) {
         "AxisChart",
         "BarChart",
         "BubbleChart",
+        "Chart",
         "Key",
         "LineChart",
-        "Theia",
-        "Tooltip",
-        "Utilities"
+        "Tooltip"
     ],
     "modules": [
-        "dTheia"
+        "Theia",
+        "Utilities"
     ],
     "allModules": [
         {
-            "displayName": "dTheia",
-            "name": "dTheia",
-            "description": "dTheia is a reusable charting library built using d3 v.4 and ES6"
+            "displayName": "Theia",
+            "name": "Theia",
+            "description": "Theia is the main API for dTheia - a reusable charting library built using d3 v.4 and ES6"
+        },
+        {
+            "displayName": "Utilities",
+            "name": "Utilities",
+            "description": "The Utilities object is is a module containing reusable static methods"
         }
     ],
     "elements": []

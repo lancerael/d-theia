@@ -42,16 +42,16 @@
                                 <li><a href="../classes/AxisChart.html">AxisChart</a></li>
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
+                                <li><a href="../classes/Chart.html">Chart</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
-                                <li><a href="../classes/Theia.html">Theia</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
-                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
-                                <li><a href="../modules/dTheia.html">dTheia</a></li>
+                                <li><a href="../modules/Theia.html">Theia</a></li>
+                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -94,7 +94,7 @@ require(&#x27;../../node_modules/whatwg-fetch/fetch.js&#x27;);
 /**
 * The Utilities object is is a module containing reusable static methods
 *
-* @class Utilities
+* @module Utilities
 */
 const Utilities = {
 
@@ -155,7 +155,7 @@ const Utilities = {
   },
 
   /**
-  * Returns a sample selection from an array.
+  * Returns a sample selection from an array (minmum length 3).
   *
   * @method sliceSampleData
   * @param {Array} aData the complete data set
@@ -163,7 +163,7 @@ const Utilities = {
   */
   sliceSampleData(aData, iMaxLength = 50) {
     const iStart = this.generateRandomInteger(0, aData.length - iMaxLength);
-    const iEnd = iStart + this.generateRandomInteger(1, iMaxLength);
+    const iEnd = iStart + this.generateRandomInteger(3, iMaxLength);
     return aData.slice(iStart, iEnd);
   },
 

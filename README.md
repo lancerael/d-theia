@@ -9,7 +9,7 @@ Current available charts:
 The library is purely JavaScript but does include a simple app and associated HTML/CSS for demonstration and development.
 Demo App: http://79.170.40.52/ui-dev.lt/d-theia/
 - Shows randomised cycle docking station data.
-- Refresh page for new random:
+- Refresh page for new random data: 
 -- bar chart
 -- line chart
 -- bubble chart.
@@ -30,9 +30,8 @@ This module provides the following ES6 classes:
 - Tooltip - reusable tooltip
 - Utilities - helper methods
 
-The limitations of this approach have been demonstrated. The class based heirarchy has presented an easily understood structure, but different types of chart cannot be easily combined. The code is now being evaluated for advantages of a Functional Programming approach.
-
 Technologies Used:
+
 - NodeJS/NPM
 - OOP JavaScript ES2015 (ES6)
 - d3 v4
@@ -40,15 +39,17 @@ Technologies Used:
 - TDD Jasmine/Karma
 - YUIDoc
 
-TDD Unit tests
+TDD Unit tests:
+
 - 29 tests cover all available classes.
 - More tests to be added on completion of code coverage reporting.
 
 In progress:
 
-- Implement TDD code coverage reporting.
 - Colour range key.
-- Evaluate Functional Programming refactor.
+- Implement TDD code coverage reporting.
+- Evaluate Functional Programming enhancements.
+- Create React and Angular 2 sandbox environments.
 
 Installation:
 

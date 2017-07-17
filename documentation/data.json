@@ -41,6 +41,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\components\\chart.js": {
+            "name": "src\\components\\chart.js",
+            "modules": {},
+            "classes": {
+                "Chart": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\components\\key.js": {
             "name": "src\\components\\key.js",
             "modules": {},
@@ -62,11 +71,9 @@
         "src\\components\\theia.js": {
             "name": "src\\components\\theia.js",
             "modules": {
-                "dTheia": 1
-            },
-            "classes": {
                 "Theia": 1
             },
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
@@ -81,17 +88,17 @@
         },
         "src\\components\\utilities.js": {
             "name": "src\\components\\utilities.js",
-            "modules": {},
-            "classes": {
+            "modules": {
                 "Utilities": 1
             },
+            "classes": {},
             "fors": {},
             "namespaces": {}
         }
     },
     "modules": {
-        "dTheia": {
-            "name": "dTheia",
+        "Theia": {
+            "name": "Theia",
             "submodules": {},
             "elements": {},
             "classes": {
@@ -99,18 +106,29 @@
                 "Axis": 1,
                 "BarChart": 1,
                 "BubbleChart": 1,
+                "Chart": 1,
                 "Key": 1,
                 "LineChart": 1,
-                "Theia": 1,
-                "Tooltip": 1,
-                "Utilities": 1
+                "Tooltip": 1
             },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\components\\tooltip.js",
+            "line": 1,
+            "description": "Theia is the main API for dTheia - a reusable charting library built using d3 v.4 and ES6"
+        },
+        "Utilities": {
+            "name": "Utilities",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
             "fors": {},
             "namespaces": {},
             "tag": "module",
             "file": "src\\components\\utilities.js",
             "line": 3,
-            "description": "dTheia is a reusable charting library built using d3 v.4 and ES6"
+            "description": "The Utilities object is is a module containing reusable static methods"
         }
     },
     "classes": {
@@ -122,11 +140,11 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "dTheia",
+            "module": "Theia",
             "file": "src\\components\\axis-chart.js",
             "line": 6,
             "description": "Create AxisChart from the supplied data, based on the supplied JSON config.",
-            "extends": "Theia",
+            "extends": "Chart",
             "is_constructor": 1
         },
         "Axis": {
@@ -137,7 +155,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "dTheia",
+            "module": "Theia",
             "file": "src\\components\\axis.js",
             "line": 3,
             "description": "The Axis object is used to instantiate x and y axes, as well as labels",
@@ -151,7 +169,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "dTheia",
+            "module": "Theia",
             "file": "src\\components\\bar-chart.js",
             "line": 4,
             "description": "Create BarCharts from the supplied data, based on the supplied JSON config.",
@@ -166,11 +184,25 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "dTheia",
+            "module": "Theia",
             "file": "src\\components\\bubble-chart.js",
             "line": 6,
             "description": "Create BubbleCharts from the supplied data, based on the supplied JSON config.",
-            "extends": "Theia",
+            "extends": "Chart",
+            "is_constructor": 1
+        },
+        "Chart": {
+            "name": "Chart",
+            "shortname": "Chart",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Theia",
+            "file": "src\\components\\chart.js",
+            "line": 4,
+            "description": "The Chart object is the parent class for all types of Chart.",
             "is_constructor": 1
         },
         "Key": {
@@ -181,7 +213,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "dTheia",
+            "module": "Theia",
             "file": "src\\components\\key.js",
             "line": 1,
             "description": "The Key shows how the colours represent the data",
@@ -195,26 +227,11 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "dTheia",
+            "module": "Theia",
             "file": "src\\components\\line-chart.js",
             "line": 4,
             "description": "Create LineCharts from the supplied data, based on the supplied JSON config.",
             "extends": "AxisChart",
-            "is_constructor": 1
-        },
-        "Theia": {
-            "name": "Theia",
-            "shortname": "Theia",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "dTheia",
-            "namespace": "",
-            "file": "src\\components\\theia.js",
-            "line": 10,
-            "description": "The Theia object is the parent class for all types of Chart.",
             "is_constructor": 1
         },
         "Tooltip": {
@@ -225,26 +242,12 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "dTheia",
+            "module": "Theia",
             "namespace": "",
             "file": "src\\components\\tooltip.js",
             "line": 1,
             "description": "The Tooltip",
             "is_constructor": 1
-        },
-        "Utilities": {
-            "name": "Utilities",
-            "shortname": "Utilities",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "dTheia",
-            "namespace": "",
-            "file": "src\\components\\utilities.js",
-            "line": 3,
-            "description": "The Utilities object is is a module containing reusable static methods"
         }
     },
     "elements": {},
@@ -258,7 +261,7 @@
             "params": [
                 {
                     "name": "oParams",
-                    "description": "same as Theia",
+                    "description": "same as Chart",
                     "type": "Object"
                 }
             ],
@@ -356,7 +359,7 @@
             "params": [
                 {
                     "name": "oParams",
-                    "description": "same as Theia",
+                    "description": "same as Chart",
                     "type": "Object"
                 }
             ],
@@ -377,6 +380,117 @@
             "itemtype": "method",
             "name": "renderChart",
             "class": "BubbleChart"
+        },
+        {
+            "file": "src\\components\\chart.js",
+            "line": 26,
+            "description": "Constructor function that sets up the local object.",
+            "itemtype": "method",
+            "name": "constructor",
+            "params": [
+                {
+                    "name": "oParams",
+                    "description": "(may contain any of the below values)",
+                    "type": "Object"
+                },
+                {
+                    "name": "oContainer",
+                    "description": "Optional DOM object",
+                    "type": "DOM Element"
+                },
+                {
+                    "name": "jConfig",
+                    "description": "JSON configuration object",
+                    "type": "JSON Object"
+                },
+                {
+                    "name": "aData",
+                    "description": "the data to be displayed",
+                    "type": "Array"
+                }
+            ],
+            "class": "Chart"
+        },
+        {
+            "file": "src\\components\\chart.js",
+            "line": 59,
+            "description": "Sets the local container object.",
+            "itemtype": "method",
+            "name": "setContainer",
+            "params": [
+                {
+                    "name": "oContainer",
+                    "description": "Required DOM element",
+                    "type": "DOM Element"
+                }
+            ],
+            "throws": {
+                "description": "invalid DOM element",
+                "type": "Error"
+            },
+            "class": "Chart"
+        },
+        {
+            "file": "src\\components\\chart.js",
+            "line": 74,
+            "description": "Sets the local config options for the chart.",
+            "itemtype": "method",
+            "name": "setConfig",
+            "params": [
+                {
+                    "name": "jConfig",
+                    "description": "JSON configuration object",
+                    "type": "JSON Object"
+                }
+            ],
+            "throws": {
+                "description": "missing configuration",
+                "type": "Error"
+            },
+            "class": "Chart"
+        },
+        {
+            "file": "src\\components\\chart.js",
+            "line": 89,
+            "description": "Sets the local data for the chart.",
+            "itemtype": "method",
+            "name": "setData",
+            "params": [
+                {
+                    "name": "aData",
+                    "description": "array of JSON objects",
+                    "type": "Array"
+                }
+            ],
+            "throws": {
+                "description": "missing data",
+                "type": "Error"
+            },
+            "class": "Chart"
+        },
+        {
+            "file": "src\\components\\chart.js",
+            "line": 104,
+            "description": "Sets the local chart dimensions based on the size of the container.",
+            "itemtype": "method",
+            "name": "setDimensions",
+            "throws": {
+                "description": "missing DOM element",
+                "type": "Error"
+            },
+            "class": "Chart"
+        },
+        {
+            "file": "src\\components\\chart.js",
+            "line": 121,
+            "description": "Check chart is ready and render.",
+            "itemtype": "method",
+            "name": "init",
+            "throws": {
+                "description": "chart not ready for initialisation",
+                "type": "Error"
+            },
+            "class": "Chart"
         },
         {
             "file": "src\\components\\key.js",
@@ -418,7 +532,7 @@
         },
         {
             "file": "src\\components\\line-chart.js",
-            "line": 14,
+            "line": 15,
             "description": "Render the chart including lines, axes and labels",
             "itemtype": "method",
             "name": "renderChart",
@@ -426,120 +540,51 @@
         },
         {
             "file": "src\\components\\theia.js",
-            "line": 32,
-            "description": "Constructor function that sets up the local object.",
+            "line": 17,
+            "description": "Create a bar chart and return object",
             "itemtype": "method",
-            "name": "constructor",
+            "name": "createBarChart",
             "params": [
                 {
                     "name": "oParams",
-                    "description": "(may contain any of the below values)",
+                    "description": "includes target DOM object, JSON config and array of data",
                     "type": "Object"
-                },
-                {
-                    "name": "oContainer",
-                    "description": "Optional DOM object",
-                    "type": "DOM Element"
-                },
-                {
-                    "name": "jConfig",
-                    "description": "JSON configuration object",
-                    "type": "JSON Object"
-                },
-                {
-                    "name": "aData",
-                    "description": "the data to be displayed",
-                    "type": "Array"
                 }
             ],
-            "class": "Theia",
-            "module": "dTheia"
+            "class": "Tooltip",
+            "module": "Theia"
         },
         {
             "file": "src\\components\\theia.js",
-            "line": 58,
-            "description": "Sets the local container object.",
+            "line": 30,
+            "description": "Create a line chart and return object",
             "itemtype": "method",
-            "name": "setContainer",
+            "name": "createLineChart",
             "params": [
                 {
-                    "name": "oContainer",
-                    "description": "Required DOM element",
-                    "type": "DOM Element"
+                    "name": "oParams",
+                    "description": "includes target DOM object, JSON config and array of data",
+                    "type": "Object"
                 }
             ],
-            "throws": {
-                "description": "invalid DOM element",
-                "type": "Error"
-            },
-            "class": "Theia",
-            "module": "dTheia"
+            "class": "Tooltip",
+            "module": "Theia"
         },
         {
             "file": "src\\components\\theia.js",
-            "line": 73,
-            "description": "Sets the local config options for the chart.",
+            "line": 43,
+            "description": "Create a line chart and return object",
             "itemtype": "method",
-            "name": "setConfig",
+            "name": "createLineChart",
             "params": [
                 {
-                    "name": "jConfig",
-                    "description": "JSON configuration object",
-                    "type": "JSON Object"
+                    "name": "oParams",
+                    "description": "includes target DOM object, JSON config and array of data",
+                    "type": "Object"
                 }
             ],
-            "throws": {
-                "description": "missing configuration",
-                "type": "Error"
-            },
-            "class": "Theia",
-            "module": "dTheia"
-        },
-        {
-            "file": "src\\components\\theia.js",
-            "line": 88,
-            "description": "Sets the local data for the chart.",
-            "itemtype": "method",
-            "name": "setData",
-            "params": [
-                {
-                    "name": "aData",
-                    "description": "array of JSON objects",
-                    "type": "Array"
-                }
-            ],
-            "throws": {
-                "description": "missing data",
-                "type": "Error"
-            },
-            "class": "Theia",
-            "module": "dTheia"
-        },
-        {
-            "file": "src\\components\\theia.js",
-            "line": 103,
-            "description": "Sets the local chart dimensions based on the size of the container.",
-            "itemtype": "method",
-            "name": "setDimensions",
-            "throws": {
-                "description": "missing DOM element",
-                "type": "Error"
-            },
-            "class": "Theia",
-            "module": "dTheia"
-        },
-        {
-            "file": "src\\components\\theia.js",
-            "line": 120,
-            "description": "Check chart is ready and render.",
-            "itemtype": "method",
-            "name": "init",
-            "throws": {
-                "description": "chart not ready for initialisation",
-                "type": "Error"
-            },
-            "class": "Theia",
-            "module": "dTheia"
+            "class": "Tooltip",
+            "module": "Theia"
         },
         {
             "file": "src\\components\\tooltip.js",
@@ -555,7 +600,7 @@
                 }
             ],
             "class": "Tooltip",
-            "module": "dTheia"
+            "module": "Theia"
         },
         {
             "file": "src\\components\\tooltip.js",
@@ -565,7 +610,7 @@
             "name": "create",
             "chainable": 1,
             "class": "Tooltip",
-            "module": "dTheia"
+            "module": "Theia"
         },
         {
             "file": "src\\components\\tooltip.js",
@@ -591,7 +636,7 @@
                 }
             ],
             "class": "Tooltip",
-            "module": "dTheia"
+            "module": "Theia"
         },
         {
             "file": "src\\components\\utilities.js",
@@ -610,8 +655,8 @@
                 "description": "invalid api string",
                 "type": "Error"
             },
-            "class": "Utilities",
-            "module": "dTheia"
+            "class": "",
+            "module": "Utilities"
         },
         {
             "file": "src\\components\\utilities.js",
@@ -631,8 +676,8 @@
                     "type": "Integer"
                 }
             ],
-            "class": "Utilities",
-            "module": "dTheia"
+            "class": "",
+            "module": "Utilities"
         },
         {
             "file": "src\\components\\utilities.js",
@@ -657,13 +702,13 @@
                     "type": "Integer"
                 }
             ],
-            "class": "Utilities",
-            "module": "dTheia"
+            "class": "",
+            "module": "Utilities"
         },
         {
             "file": "src\\components\\utilities.js",
             "line": 66,
-            "description": "Returns a sample selection from an array.",
+            "description": "Returns a sample selection from an array (minmum length 3).",
             "itemtype": "method",
             "name": "sliceSampleData",
             "params": [
@@ -678,8 +723,8 @@
                     "type": "Integer"
                 }
             ],
-            "class": "Utilities",
-            "module": "dTheia"
+            "class": "",
+            "module": "Utilities"
         }
     ],
     "warnings": []

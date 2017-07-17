@@ -42,16 +42,16 @@
                                 <li><a href="../classes/AxisChart.html">AxisChart</a></li>
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
+                                <li><a href="../classes/Chart.html">Chart</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
-                                <li><a href="../classes/Theia.html">Theia</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
-                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
-                                <li><a href="../modules/dTheia.html">dTheia</a></li>
+                                <li><a href="../modules/Theia.html">Theia</a></li>
+                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
 <div class="file">
     <pre class="code prettyprint linenums">
 const d3 = require(&#x27;d3&#x27;);
-const Theia = require(&#x27;./theia.js&#x27;);
+const Chart = require(&#x27;./chart.js&#x27;);
 const Key = require(&#x27;./key.js&#x27;);
 const Axis = require(&#x27;./axis.js&#x27;);
 
@@ -98,10 +98,10 @@ const Axis = require(&#x27;./axis.js&#x27;);
 * Create AxisChart from the supplied data, based on the supplied JSON config.
 *
 * @class AxisChart
-* @extends Theia
+* @extends Chart
 * @constructor
 */
-export default class AxisChart extends Theia {
+export default class AxisChart extends Chart {
   oChartG;
   oAxisG;
   oAxis;
@@ -111,7 +111,7 @@ export default class AxisChart extends Theia {
   * Constructor function supersedes parent class.
   *
   * @method constructor
-  * @param {Object} oParams same as Theia
+  * @param {Object} oParams same as Chart
   */
   constructor(oParams = {}) {
     super(oParams);

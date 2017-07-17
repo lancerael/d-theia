@@ -42,16 +42,16 @@
                                 <li><a href="../classes/AxisChart.html">AxisChart</a></li>
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
+                                <li><a href="../classes/Chart.html">Chart</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
-                                <li><a href="../classes/Theia.html">Theia</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
-                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
-                                <li><a href="../modules/dTheia.html">dTheia</a></li>
+                                <li><a href="../modules/Theia.html">Theia</a></li>
+                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
 <div class="file">
     <pre class="code prettyprint linenums">
 const d3 = require(&#x27;d3&#x27;);
-const Theia = require(&#x27;./theia.js&#x27;);
+const Chart = require(&#x27;./chart.js&#x27;);
 const Axis = require(&#x27;./axis.js&#x27;);
 const Key = require(&#x27;./key.js&#x27;);
 
@@ -98,17 +98,17 @@ const Key = require(&#x27;./key.js&#x27;);
 * Create BubbleCharts from the supplied data, based on the supplied JSON config.
 *
 * @class BubbleChart
-* @extends Theia
+* @extends Chart
 * @constructor
 */
-export default class BubbleChart extends Theia {
+export default class BubbleChart extends Chart {
   aBubbles;
 
   /**
   * Constructor function supersedes parent class.
   *
   * @method constructor
-  * @param {Object} oParams same as Theia
+  * @param {Object} oParams same as Chart
   */
   constructor(oParams = {}) {
     super(oParams);
@@ -160,7 +160,7 @@ export default class BubbleChart extends Theia {
     // Initialise the d3 force calculations
     this.oForce = d3.forceSimulation()
       .nodes(JSON.parse(JSON.stringify(this.aData)))
-      .force(&#x27;charge&#x27;, d3.forceManyBody().strength(d =&gt; (d[sKey1] * (d[sKey1] / 2)) / -100))
+      .force(&#x27;charge&#x27;, d3.forceManyBody().strength(d =&gt; (d[sKey1] * (d[sKey1] / 2)) / -150))
       .force(&#x27;center&#x27;, d3.forceCenter(this.iWidth / 2, this.iHeight / 2))
       .on(&#x27;tick&#x27;, () =&gt; {
         fnTicked();
@@ -175,7 +175,7 @@ export default class BubbleChart extends Theia {
         .enter()
         .append(&#x27;circle&#x27;)
         .on(&#x27;mousemove&#x27;, (d) =&gt; {
-          this.oToolTip.ping(d3.event.clientX, d3.event.clientY + document.body.scrollTop + 20,
+          this.oToolTip.ping(d3.event.clientX, d3.event.clientY + 20,
             &#x60;&lt;strong&gt;${d[aAxisKeys[0]]}&lt;/strong&gt;&lt;br&gt;${sName1}: &lt;em&gt;${d[sKey1]}&lt;/em&gt;&lt;br&gt;${sName2}: &lt;em&gt;${d[sKey2]}&lt;/em&gt;&#x60;);
         })
         .on(&#x27;mouseout&#x27;, () =&gt; this.oToolTip.hide())
@@ -204,7 +204,8 @@ export default class BubbleChart extends Theia {
         }
       ],
       iOffsetX: (this.iInnerWidth / 2) + this.jPadding.l + 10,
-      iOffsetY: this.iHeight - 15
+      iOffsetY: this.iHeight - 15,
+      sType: &#x27;range&#x27;
     }).render();
   }
 

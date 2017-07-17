@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src\components\key.js - dTheia</title>
+    <title>Theia - dTheia</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -85,97 +85,74 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: src\components\key.js</h1>
-
-<div class="file">
-    <pre class="code prettyprint linenums">
-/**
-* The Key shows how the colours represent the data
-*
-* @class Key
-* @constructor
-*/
-export default class Key {
-  oContainer;
-  aValues;
-  iOffsetX;
-  iOffsetY;
-
-  /**
-  * Constructor function that sets up the local object.
-  *
-  * @method constructor
-  * @param {DOM Element} oContainer DOM object
-  * @param {Array} aValues the data to be displayed
-  * @param {Integer} iOffsetX optional x offset
-  * @param {Integer} iOffsetY optional y offset
-  */
-  constructor({ oContainer, aValues, iOffsetX = 0, iOffsetY = 0 }) {
-    if (oContainer &amp;&amp; aValues) {
-      this.oContainer = oContainer;
-      this.aValues = aValues.slice(aValues);
-      this.iOffsetX = iOffsetX;
-      this.iOffsetY = iOffsetY;
-    } else {
-      throw new Error(&#x27;Incorrect parameters provided to Key constructor.&#x27;);
-    }
-  }
-
-  /**
-  * Render the key showing the labels for the colour values
-  *
-  * @method render
-  */
-  render() {
-    this.oContainer.selectAll(&#x27;g.key&#x27;).remove();
-    let iGroupOffset = 0;
-    const oKeyG = this.oContainer.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;key&#x27;);
-    const aLabels = oKeyG.selectAll(&#x27;text.label&#x27;).data(this.aValues);
-    const calculateMargin = (aValues, i) =&gt; {
-      let iMargin = 0;
-      if (i) {
-        for (let l = 0; l &lt; i; l++) {
-          iMargin += aValues[l].iLabelWidth;
-        }
-      }
-      return iMargin;
-    };
-    aLabels.enter()
-      .append(&#x27;text&#x27;)
-      .text(d =&gt; d.sName)
-      .each((d, i, nodes) =&gt; {
-        const iLabelWidth = nodes[i].getBoundingClientRect().width + 15;
-        this.aValues[i].iLabelWidth = iLabelWidth;
-        iGroupOffset += iLabelWidth - 2;
-      })
-      .attr(&#x27;class&#x27;, &#x27;label&#x27;)
-      .attr(&#x27;x&#x27;, (d, i) =&gt; calculateMargin(this.aValues, i))
-      .attr(&#x27;y&#x27;, 8)
-      .attr(&#x27;width&#x27;, 10)
-      .attr(&#x27;height&#x27;, 10)
-      .attr(&#x27;font-family&#x27;, &#x27;sans-serif&#x27;)
-      .attr(&#x27;font-size&#x27;, &#x27;10px&#x27;)
-      .attr(&#x27;fill&#x27;, &#x27;#222222&#x27;);
-    const aKeys = oKeyG.selectAll(&#x27;rect.key&#x27;).data(this.aValues);
-    aKeys.enter()
-      .append(&#x27;rect&#x27;)
-      .attr(&#x27;class&#x27;, &#x27;key&#x27;)
-      .attr(&#x27;fill&#x27;, d =&gt; d.sColour)
-      .attr(&#x27;x&#x27;, (d, i) =&gt; calculateMargin(this.aValues, i) - 12)
-      .attr(&#x27;y&#x27;, 0)
-      .attr(&#x27;width&#x27;, 10)
-      .attr(&#x27;height&#x27;, 10);
-    iGroupOffset = this.iOffsetX - (iGroupOffset / 2);
-    oKeyG.attr(&#x27;transform&#x27;, &#x60;translate(${iGroupOffset},${this.iOffsetY})&#x60;);
-    return this;
-  }
+<h1>Theia Module</h1>
+<div class="box clearfix meta">
 
 
-}
+        <div class="foundat">
+            Defined in: <a href="../files/src_components_tooltip.js.html#l1"><code>src\components\tooltip.js:1</code></a>
+        </div>
 
-module.exports = Key;
+</div>
 
-    </pre>
+
+<div class="box intro">
+    <p>Theia is the main API for dTheia - a reusable charting library built using d3 v.4 and ES6</p>
+
+</div>
+
+
+<div class="yui3-g">
+    <div class="yui3-u-1-2">
+            <p>This module provides the following classes:</p>
+
+            <ul class="module-classes">
+                <li class="module-class">
+                    <a href="../classes/Axis.html">
+                        Axis
+                    </a>
+                </li>
+                <li class="module-class">
+                    <a href="../classes/AxisChart.html">
+                        AxisChart
+                    </a>
+                </li>
+                <li class="module-class">
+                    <a href="../classes/BarChart.html">
+                        BarChart
+                    </a>
+                </li>
+                <li class="module-class">
+                    <a href="../classes/BubbleChart.html">
+                        BubbleChart
+                    </a>
+                </li>
+                <li class="module-class">
+                    <a href="../classes/Chart.html">
+                        Chart
+                    </a>
+                </li>
+                <li class="module-class">
+                    <a href="../classes/Key.html">
+                        Key
+                    </a>
+                </li>
+                <li class="module-class">
+                    <a href="../classes/LineChart.html">
+                        LineChart
+                    </a>
+                </li>
+                <li class="module-class">
+                    <a href="../classes/Tooltip.html">
+                        Tooltip
+                    </a>
+                </li>
+            </ul>
+    </div>
+
+
+    <div class="yui3-u-1-2">
+    </div>
 </div>
                     </div>
                 </div>
