@@ -113,7 +113,8 @@ export default class BubbleChart extends Chart {
         }
       ],
       iOffsetX: (this.iInnerWidth / 2) + this.jPadding.l + 10,
-      iOffsetY: this.iHeight - 15
+      iOffsetY: this.iHeight - 15,
+      sType: 'range'
     }).render();
   }
 

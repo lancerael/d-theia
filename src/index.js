@@ -25,7 +25,7 @@ Utilities.getPromiseJSON('./data/cycles.json').then((data) => {
  Display a bar chart from retrieved and transfromed data.
 */
 Utilities.getPromiseJSON('./data/formula1.json').then((data) => {
-  Theia.createBubbleChart({
+  Theia.createBarChart({
     sContainer: 'container-bar-2',
     jConfig: Config.jBarConfig2,
     aData: (() => {

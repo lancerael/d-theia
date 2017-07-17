@@ -65,7 +65,7 @@ export default class Axis {
           .style('text-anchor', 'end')
           .on('mousemove', (d) => {
             if (this.oToolTip && d.length > this.iTruncate) {
-              this.oToolTip.ping(d3.event.clientX + 8, d3.event.clientY + 5 + document.body.scrollTop, `<strong>${d}</strong>`);
+              this.oToolTip.ping(d3.event.clientX + 8, d3.event.clientY + 5, `<strong>${d}</strong>`);
             }
           });
   }

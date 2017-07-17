@@ -64,7 +64,7 @@ const Utilities = {
   },
 
   /**
-  * Returns a sample selection from an array.
+  * Returns a sample selection from an array (minmum length 3).
   *
   * @method sliceSampleData
   * @param {Array} aData the complete data set
@@ -72,7 +72,7 @@ const Utilities = {
   */
   sliceSampleData(aData, iMaxLength = 50) {
     const iStart = this.generateRandomInteger(0, aData.length - iMaxLength);
-    const iEnd = iStart + this.generateRandomInteger(1, iMaxLength);
+    const iEnd = iStart + this.generateRandomInteger(3, iMaxLength);
     return aData.slice(iStart, iEnd);
   },
 
