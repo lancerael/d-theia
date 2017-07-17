@@ -14,13 +14,25 @@ const Theia = {
   aLineCharts: [],
   aBubbleCharts: [],
 
-  createBarChart(jParams) {
-    const oBarChart = new BarChart(jParams).init();
+  /**
+  * Create a bar chart and return object
+  *
+  * @method createBarChart
+  * @param {Object} oParams includes target DOM object, JSON config and array of data
+  */
+  createBarChart(oParams) {
+    const oBarChart = new BarChart(oParams).init();
     this.aCharts.push(oBarChart);
     this.aBarCharts.push(oBarChart);
     return oBarChart;
   },
 
+  /**
+  * Create a line chart and return object
+  *
+  * @method createLineChart
+  * @param {Object} oParams includes target DOM object, JSON config and array of data
+  */
   createLineChart(jParams) {
     const oLineChart = new LineChart(jParams).init();
     this.aCharts.push(oLineChart);
@@ -28,6 +40,12 @@ const Theia = {
     return oLineChart;
   },
 
+  /**
+  * Create a line chart and return object
+  *
+  * @method createLineChart
+  * @param {Object} oParams includes target DOM object, JSON config and array of data
+  */
   createBubbleChart(jParams) {
     const oBubbleChart = new BubbleChart(jParams).init();
     this.aCharts.push(oBubbleChart);
