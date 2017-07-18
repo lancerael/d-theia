@@ -44,24 +44,29 @@ Chart creation methods:
 
 Dev Installation:
 
-Install Node.JS (https://nodejs.org/) and NPM:
+- Install Node.JS (https://nodejs.org/) and NPM:
+
 ```npm install npm -g```
 
-Navigate to folder and install app:
+- Navigate to folder and install app:
+
 ```npm install```
 
 You can then use NPM to manage project tasks:
 
-TESTING (Uses Karma to run Jasmine TDD tests and generate code coverage - watcher):
+- TESTING (Uses Karma to run Jasmine TDD tests and generate code coverage - watcher):
+
 ```npm run test```
 
-DEV SERVER (Uses Webpack/Babel with plugins, performs linting on build - watcher):
+- DEV SERVER (Uses Webpack/Babel with plugins, performs linting on build - watcher):
+
 ```npm run serve```
+
 You can then access the server at http://localhost:8081 which launches the contents of the demo folder.
 
-BUILD DISTRIBUTION:
-```npm run dist```
+- BUILD DISTRIBUTION:
 
+```npm run dist```
 
 API Documentation: http://79.170.40.52/ui-dev.lt/d-theia/documentation/
 
