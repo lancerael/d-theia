@@ -18,37 +18,49 @@ Demo App: http://79.170.40.52/ui-dev.lt/d-theia/
 
 Usage:
 
-* npm install d-theia
+For non-Node projects simply include dist/d-theia.min.js in your project.
+
+If you are using Node, install ass follows:
+
+```npm install d-theia```
+
+You can then instantiate a new chart by supplying:
+- sContainer - the ID of (or oContainer - DOM reference to) a container node.
+- jConfig - a JSON configuration object - see examples in demo/config.js
+- aData - Chart data array - see examples in demo/data
 
 ```
-Theia.create*Chart({
+Theia.create[Bar/Line/Bubble]Chart({
   sContainer: 'container-bar-1',  // ID of target DOM element
-  jConfig: jConfig1, // Chart config - see examples in demo/config.js
-  aData: aData1 // Chart data - see examples in demo/data
+  jConfig: jConfig1, // Chart config
+  aData: aData1 // Chart data
 });
 ```
+
+Chart creation methods:
 * createBarChart
 * createLineChart
 * createBubbleChart
 
-Installation:
+Dev Installation:
 
 Install Node.JS (https://nodejs.org/) and NPM:
-* npm install npm -g
+```npm install npm -g```
 
 Navigate to folder and install app:
-* npm install
+```npm install```
 
 You can then use NPM to manage project tasks:
 
 TESTING (Uses Karma to run Jasmine TDD tests and generate code coverage - watcher):
-- npm run test
+```npm run test```
 
 DEV SERVER (Uses Webpack/Babel with plugins, performs linting on build - watcher):
-- npm run serve
+```npm run serve```
+You can then access the server at http://localhost:8081 which launches the contents of the demo folder.
 
 BUILD DISTRIBUTION:
-- npm run dist
+```npm run dist```
 
 
 API Documentation: http://79.170.40.52/ui-dev.lt/d-theia/documentation/
