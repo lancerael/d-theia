@@ -20,7 +20,7 @@ Usage:
 
 For non-Node projects simply include dist/d-theia.min.js in your project.
 
-If you are using Node, install ass follows:
+If you are using Node, install as follows:
 
 ```npm install d-theia```
 
