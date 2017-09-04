@@ -46,18 +46,22 @@ export default class Tooltip {
   * @param {String} sContent inner html content
   */
   ping(x, y, sContent) {
+    const iPageOffsetX = window.pageXOffset
+      || document.documentElement.scrollLeft
+      || document.body.scrollLeft || 0;
     const iPageOffsetY = window.pageYOffset
       || document.documentElement.scrollTop
       || document.body.scrollTop || 0;
+    const iZoomDivider = 1 + (window.devicePixelRatio > 1 ? (window.devicePixelRatio / 20) : 0);
     this.oTooltip.innerHTML = sContent;
     this.oTooltip.className = 'tooltip is-transparent';
     this.oTooltip.className = 'tooltip';
-    this.oTooltip.style.left = `${x}px`;
-    this.oTooltip.style.top = `${y + iPageOffsetY}px`;
+    this.oTooltip.style.left = `${x + iPageOffsetX}px`;
+    this.oTooltip.style.top = `${(y / iZoomDivider) + iPageOffsetY}px`;
     clearTimeout(this.oTooltipTimeout);
     clearTimeout(this.oTooltipSubTimeout);
     this.oTooltipTimeout = setTimeout(() => {
-      this.hideTooltip();
+      this.hide();
     }, 5000);
   }
 

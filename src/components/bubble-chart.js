@@ -84,7 +84,7 @@ export default class BubbleChart extends Chart {
         .enter()
         .append('circle')
         .on('mousemove', (d) => {
-          this.oToolTip.ping(d3.event.clientX, d3.event.clientY + 20,
+          this.oToolTip.ping(d3.event.clientX, d3.event.clientY + 30,
             `<strong>${d[aAxisKeys[0]]}</strong><br>${sName1}: <em>${d[sKey1]}</em><br>${sName2}: <em>${d[sKey2]}</em>`);
         })
         .on('mouseout', () => this.oToolTip.hide())

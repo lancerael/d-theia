@@ -56,7 +56,7 @@ export default class LineChart extends AxisChart {
           .enter()
           .append('circle')
           .on('mousemove', (d) => {
-            this.oToolTip.ping(d3.event.clientX, d3.event.clientY + 20,
+            this.oToolTip.ping(d3.event.clientX, d3.event.clientY + 25,
               `<strong>${d[aAxisKeys[0]]}</strong><br>${oValues.sName}: <em>${d[oValues.sKey]}</em>`);
           })
           .on('mousedown', (d) => {
