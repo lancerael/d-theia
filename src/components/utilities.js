@@ -58,7 +58,7 @@ const Utilities = {
   generateRandomInteger(iMin, iMax, iOmit) {
     let iInt = Math.floor(Math.random() * (iMin - iMax - 1)) + iMax + 1;
     while (iInt === iOmit) {
-      iInt = this.fnGntRandInt(iMin, iMax);
+      iInt = this.generateRandomInteger(iMin, iMax);
     }
     return iInt;
   },
