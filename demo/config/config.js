@@ -41,18 +41,9 @@ const Config = {
   jBarConfig2: {
     sTitle: 'Race Results by Driver',
     aValues: [
-      {
-        sKey: 'position',
-        sName: 'Position',
-        sColour: 'green',
-      },
-      {
-        sKey: 'points',
-        sName: 'Points',
-        sColour: 'blue',
-      }
+      { sName: 'Position', sColour: 'green' },
+      { sName: 'Points', sColour: 'blue' }
     ],
-    aAxisKeys: ['name'],
     aAxisLabels: ['Position / Points', 'Driver Name'],
     sBarType: 'side', // "stack","nest"
     iTruncate: 15

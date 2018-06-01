@@ -1,8 +1,8 @@
-const d3 = require('d3');
-const AxisChart = require('./axis-chart.js');
+import * as d3 from 'd3';
+import AxisChart from './axis-chart';
 
 /**
-* Create BarCharts from the supplied data, based on the supplied JSON config.
+* Create BarCharts from the supplied data, based on the JSON config.
 *
 * @class BarChart
 * @extends AxisChart
@@ -19,17 +19,17 @@ export default class BarChart extends AxisChart {
   */
   renderChart(bReset) {
     super.renderChart();
-    const { aAxisKeys, aValues, sBarType } = this.jConfig;
+    const { aValues, sBarType = 'side' } = this.jConfig;
     const { iInnerHeight, oScaleX, oScaleY } = this;
     const iBarWidth = oScaleX.bandwidth() / aValues.length;
 
     // Iterate through config value keys
     aValues.forEach((oValues, i) => {
-      const { sKey, sColour } = oValues;
+      const { sColour } = oValues;
       const iBarOffset = sBarType === 'side' ? (iBarWidth * i) : 0;
       // Reset bars data and clear graph
       if (bReset) {
-        this.aBars[i] = this.oChartG.selectAll('rect.bars').data({});
+        this.aBars[i] = this.d3ChartGroup.selectAll('rect.bars').data({});
         this.aBars[i].exit().remove();
         this.aBars[i] = undefined;
       }
@@ -37,25 +37,30 @@ export default class BarChart extends AxisChart {
       // Add bars for each value
       if (!this.aBars[i]) {
         // Bind bars data
-        this.aBars[i] = this.oChartG.selectAll(`rect.bars-${i}`).data(this.aData);
+        this.aBars[i] = this.d3ChartGroup.selectAll(`rect.bars-${i}`).data(this.aData);
         // Add new rect elements and set base attributes
         this.aBars[i]
           .enter()
           .append('rect')
           .on('mousemove', (d) => {
-            this.oToolTip.ping(d3.event.clientX, d3.event.clientY + 25,
-              `<strong>${d[aAxisKeys[0]]}</strong><br>${oValues.sName}: <em>${d[oValues.sKey]}</em>`);
+            this.oToolTip.ping([d.sLabel, oValues.sName, d.aValues[i]]);
+          })
+          .on('mouseover', (d) => {
+            d.oColour = this.jConfig.aValues[i].oColour;
+            d3.select(d3.event.target).attr('fill', d.oColour.darker(1));
           })
           .on('mousedown', (d) => {
             if (this.jConfig.fnClickCallback) {
               this.jConfig.fnClickCallback({
                 oEvent: d3.event,
-                jData: d,
-                sKey
+                jData: d
               });
             }
           })
-          .on('mouseout', () => this.oToolTip.hide())
+          .on('mouseout', (d) => {
+            this.oToolTip.hide();
+            d3.select(d3.event.target).attr('fill', d.oColour);
+          })
           .attr('class', `bars bars-${i}`)
           .attr('fill', sColour)
           .attr('y', iInnerHeight)
@@ -63,14 +68,14 @@ export default class BarChart extends AxisChart {
       }
 
       // Update bars
-      this.oChartG.selectAll(`rect.bars-${i}`)
-        .attr('x', d => oScaleX(d[aAxisKeys[0]]) + iBarOffset)
+      this.d3ChartGroup.selectAll(`rect.bars-${i}`)
+        .attr('x', d => oScaleX(d.sLabel) + iBarOffset)
         .attr('width', iBarWidth)
         .transition()
         .ease(d3.easeLinear)
         .duration(this.iTransitionTime)
-        .attr('y', d => oScaleY(d[sKey]))
-        .attr('height', d => iInnerHeight - oScaleY(d[sKey]));
+        .attr('y', d => oScaleY(d.aValues[i]))
+        .attr('height', d => iInnerHeight - oScaleY(d.aValues[i]));
     });
   }
 

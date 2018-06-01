@@ -8,17 +8,20 @@ Current available charts:
 
 The library is purely JavaScript but does include a simple app and associated HTML/CSS for demonstration and development.
 Demo App: http://79.170.40.52/ui-dev.lt/d-theia/
+
+- Shows basic dummy bar and line charts.
 - Shows randomised cycle docking station data.
-- Refresh page for new random data:
+- Refresh page for new random section of cycle data:
 -- bar chart
 -- line chart
 -- bubble chart.
-- Secondary bar chart shows race data.
+- Another bar chart shows race data.
 - Responsive design (resize browser window)
 
 Usage:
 
 For non-Node projects simply include dist/d-theia.min.js in your project.
+You will also need to include the d3 library https://d3js.org/d3.v4.min.js
 
 If you are using Node, install as follows:
 
@@ -94,11 +97,7 @@ Technologies Used:
 TDD Unit tests:
 
 - 29 tests cover all available classes.
-- More tests to be added on completion of code coverage reporting.
 
 In progress:
 
-- Colour range key.
-- Implement TDD code coverage reporting.
-- Evaluate Functional Programming enhancements.
-- Create React and Angular 2 sandbox environments.
+- Create React sandbox environment.

@@ -43,15 +43,16 @@
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Chart.html">Chart</a></li>
+                                <li><a href="../classes/Colors.html">Colors</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
+                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Theia.html">Theia</a></li>
-                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -90,7 +91,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_components_chart.js.html#l4"><code>src\components\chart.js:4</code></a>
+            Defined in: <a href="../files/src_components_chart.js.html#l5"><code>src\components\chart.js:5</code></a>
         </div>
 
             Module: <a href="../modules/Theia.html">Theia</a>
@@ -120,7 +121,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_components_chart.js.html#l4"><code>src\components\chart.js:4</code></a>
+        <a href="../files/src_components_chart.js.html#l5"><code>src\components\chart.js:5</code></a>
         </p>
 
 
@@ -176,6 +177,10 @@
                                 <a href="#method_setDimensions">setDimensions</a>
 
                             </li>
+                            <li class="index-item method">
+                                <a href="#method_transformDataKeys">transformDataKeys</a>
+
+                            </li>
                     </ul>
                 </div>
 
@@ -192,16 +197,16 @@
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
-                        <code>oParams</code>
-                </li>
-                <li class="arg">
-                        <code>oContainer</code>
-                </li>
-                <li class="arg">
                         <code>jConfig</code>
                 </li>
                 <li class="arg">
                         <code>aData</code>
+                </li>
+                <li class="arg">
+                        <code>sContainer</code>
+                </li>
+                <li class="arg">
+                        <code>dContainer</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -216,7 +221,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_components_chart.js.html#l26"><code>src\components\chart.js:26</code></a>
+        <a href="../files/src_components_chart.js.html#l28"><code>src\components\chart.js:28</code></a>
         </p>
 
 
@@ -232,28 +237,6 @@
             <h4>Parameters:</h4>
 
             <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">oParams</code>
-                        <span class="type">Object</span>
-
-
-                    <div class="param-description">
-                        <p>(may contain any of the below values)</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">oContainer</code>
-                        <span class="type">DOM Element</span>
-
-
-                    <div class="param-description">
-                        <p>Optional DOM object</p>
-
-                    </div>
-
-                </li>
                 <li class="param">
                         <code class="param-name">jConfig</code>
                         <span class="type">JSON Object</span>
@@ -272,6 +255,28 @@
 
                     <div class="param-description">
                         <p>the data to be displayed</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">sContainer</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>Optional ID to select DOM object</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">dContainer</code>
+                        <span class="type">DOM Element</span>
+
+
+                    <div class="param-description">
+                        <p>Optional DOM object in place of ID</p>
 
                     </div>
 
@@ -297,7 +302,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_components_chart.js.html#l121"><code>src\components\chart.js:121</code></a>
+        <a href="../files/src_components_chart.js.html#l159"><code>src\components\chart.js:159</code></a>
         </p>
 
 
@@ -343,7 +348,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_components_chart.js.html#l74"><code>src\components\chart.js:74</code></a>
+        <a href="../files/src_components_chart.js.html#l77"><code>src\components\chart.js:77</code></a>
         </p>
 
 
@@ -391,7 +396,7 @@
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
-                        <code>oContainer</code>
+                        <code>dContainer</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -406,7 +411,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_components_chart.js.html#l59"><code>src\components\chart.js:59</code></a>
+        <a href="../files/src_components_chart.js.html#l61"><code>src\components\chart.js:61</code></a>
         </p>
 
 
@@ -423,7 +428,7 @@
 
             <ul class="params-list">
                 <li class="param">
-                        <code class="param-name">oContainer</code>
+                        <code class="param-name">dContainer</code>
                         <span class="type">DOM Element</span>
 
 
@@ -469,7 +474,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_components_chart.js.html#l89"><code>src\components\chart.js:89</code></a>
+        <a href="../files/src_components_chart.js.html#l95"><code>src\components\chart.js:95</code></a>
         </p>
 
 
@@ -526,7 +531,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_components_chart.js.html#l104"><code>src\components\chart.js:104</code></a>
+        <a href="../files/src_components_chart.js.html#l113"><code>src\components\chart.js:113</code></a>
         </p>
 
 
@@ -549,6 +554,37 @@
 
             </div>
         </div>
+
+</div>
+<div id="method_transformDataKeys" class="method item">
+    <h3 class="name"><code>transformDataKeys</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_components_chart.js.html#l130"><code>src\components\chart.js:130</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Maps custom data keys into standard structure.</p>
+
+    </div>
+
+
+
 
 </div>
             </div>

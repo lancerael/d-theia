@@ -43,15 +43,16 @@
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Chart.html">Chart</a></li>
+                                <li><a href="../classes/Colors.html">Colors</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
+                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Theia.html">Theia</a></li>
-                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -102,7 +103,7 @@
 
 
 <div class="box intro">
-    <p>Create BarCharts from the supplied data, based on the supplied JSON config.</p>
+    <p>Create BarCharts from the supplied data, based on the JSON config.</p>
 
 </div>
 
@@ -181,6 +182,10 @@
                             </li>
                             <li class="index-item method inherited inherited">
                                 <a href="#method_setDimensions">setDimensions</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_transformDataKeys">transformDataKeys</a>
 
                             </li>
                     </ul>
@@ -265,7 +270,7 @@
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/Chart.html#method_init">Chart</a>:
-        <a href="../files/src_components_chart.js.html#l121"><code>src\components\chart.js:121</code></a>
+        <a href="../files/src_components_chart.js.html#l159"><code>src\components\chart.js:159</code></a>
         </p>
 
 
@@ -366,7 +371,7 @@
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/Chart.html#method_setConfig">Chart</a>:
-        <a href="../files/src_components_chart.js.html#l74"><code>src\components\chart.js:74</code></a>
+        <a href="../files/src_components_chart.js.html#l77"><code>src\components\chart.js:77</code></a>
         </p>
 
 
@@ -411,7 +416,7 @@
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
-                        <code>oContainer</code>
+                        <code>dContainer</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -426,7 +431,7 @@
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/Chart.html#method_setContainer">Chart</a>:
-        <a href="../files/src_components_chart.js.html#l59"><code>src\components\chart.js:59</code></a>
+        <a href="../files/src_components_chart.js.html#l61"><code>src\components\chart.js:61</code></a>
         </p>
 
 
@@ -442,7 +447,7 @@
 
             <ul class="params-list">
                 <li class="param">
-                        <code class="param-name">oContainer</code>
+                        <code class="param-name">dContainer</code>
                         <span class="type">DOM Element</span>
 
 
@@ -486,7 +491,7 @@
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/Chart.html#method_setData">Chart</a>:
-        <a href="../files/src_components_chart.js.html#l89"><code>src\components\chart.js:89</code></a>
+        <a href="../files/src_components_chart.js.html#l95"><code>src\components\chart.js:95</code></a>
         </p>
 
 
@@ -553,6 +558,36 @@
     <div class="description">
         <p>Supersede the parent method to update local scaling objects</p>
 
+    </div>
+
+
+
+
+</div>
+<div id="method_transformDataKeys" class="method item inherited">
+    <h3 class="name"><code>transformDataKeys</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Chart.html#method_transformDataKeys">Chart</a>:
+        <a href="../files/src_components_chart.js.html#l130"><code>src\components\chart.js:130</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Maps custom data keys into standard structure.
     </div>
 
 

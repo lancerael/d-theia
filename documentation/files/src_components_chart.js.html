@@ -43,15 +43,16 @@
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Chart.html">Chart</a></li>
+                                <li><a href="../classes/Colors.html">Colors</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
+                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Theia.html">Theia</a></li>
-                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -89,8 +90,9 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-const d3 = require(&#x27;d3&#x27;);
-const ToolTip = require(&#x27;./tooltip.js&#x27;);
+import * as d3 from &#x27;d3&#x27;;
+import ToolTip from &#x27;./tooltip&#x27;;
+import Colors from &#x27;./colors&#x27;;
 
 /**
 * The Chart object is the parent class for all types of Chart.
@@ -100,9 +102,10 @@ const ToolTip = require(&#x27;./tooltip.js&#x27;);
 */
 export default class Chart {
   oSvg;
-  oD3Svg;
+  d3Svg;
   iTransitionTime;
-  oContainer;
+  dContainer;
+  dLoader;
   oToolTip;
   iWidth;
   iHeight;
@@ -118,26 +121,26 @@ export default class Chart {
   * Constructor function that sets up the local object.
   *
   * @method constructor
-  * @param {Object} oParams (may contain any of the below values)
-  * @param {DOM Element} oContainer Optional DOM object
   * @param {JSON Object} jConfig JSON configuration object
   * @param {Array} aData the data to be displayed
+  * @param {String} sContainer Optional ID to select DOM object
+  * @param {DOM Element} dContainer Optional DOM object in place of ID
   */
-  constructor(oParams = {}) {
-    const { jConfig, aData, sContainer } = oParams;
-    let { oContainer } = oParams;
+  constructor({ jConfig, aData, sContainer, dContainer }) {
     this.oSvg = document.createElementNS(&#x27;http://www.w3.org/2000/svg&#x27;, &#x27;svg&#x27;);
-    this.oD3Svg = d3.select(this.oSvg);
+    this.d3Svg = d3.select(this.oSvg);
     this.iTransitionTime = 500;
     this.jPadding = { l: 5, r: 5, t: 5, b: 5 };
-    if (!oContainer &amp;&amp; sContainer) {
-      oContainer = document.getElementById(sContainer);
-      if (!oContainer) {
+    this.dLoader = document.createElement(&#x27;div&#x27;);
+    this.dLoader.className = &#x27;dt-loader&#x27;;
+    if (!dContainer &amp;&amp; sContainer) {
+      dContainer = document.getElementById(sContainer);
+      if (!dContainer.nodeName) {
         throw new Error(&#x27;No valid element ID provided for chart.&#x27;);
       }
     }
-    if (oContainer) {
-      this.setContainer(oContainer);
+    if (dContainer) {
+      this.setContainer(dContainer);
     }
     if (jConfig) {
       this.setConfig(jConfig);
@@ -151,12 +154,13 @@ export default class Chart {
   * Sets the local container object.
   *
   * @method setContainer
-  * @param {DOM Element} oContainer Required DOM element
+  * @param {DOM Element} dContainer Required DOM element
   * @throws {Error} invalid DOM element
   */
-  setContainer(oContainer) {
-    if (oContainer.nodeName) {
-      this.oContainer = oContainer;
+  setContainer(dContainer) {
+    if (dContainer.nodeName) {
+      dContainer.appendChild(this.dLoader);
+      this.dContainer = dContainer;
     } else {
       throw new Error(&#x27;No valid DOM element provided for chart.&#x27;);
     }
@@ -171,7 +175,10 @@ export default class Chart {
   */
   setConfig(jConfig) {
     if (jConfig &amp;&amp; jConfig.toString() === &#x27;[object Object]&#x27;) {
-      this.jConfig = Object.assign({}, jConfig);
+      this.jConfig = { ...jConfig };
+      if (this.aData) {
+        this.transformDataKeys();
+      }
     } else {
       throw new Error(&#x27;No valid configuration provided for chart.&#x27;);
     }
@@ -187,6 +194,9 @@ export default class Chart {
   setData(aData) {
     if (aData &amp;&amp; Array.isArray(aData) === true) {
       this.aData = aData.slice(aData);
+      if (this.jConfig) {
+        this.transformDataKeys();
+      }
     } else {
       throw new Error(&#x27;No valid data provided for chart.&#x27;);
     }
@@ -199,13 +209,42 @@ export default class Chart {
   * @throws {Error} missing DOM element
   */
   setDimensions() {
-    if (this.oContainer &amp;&amp; this.oContainer.nodeName) {
-      this.iWidth = this.oContainer.clientWidth;
-      this.iHeight = this.oContainer.clientHeight;
+    if (this.dContainer &amp;&amp; this.dContainer.nodeName) {
+      this.iWidth = this.dContainer.clientWidth;
+      this.iHeight = this.dContainer.clientHeight;
       this.iInnerWidth = this.iWidth - this.jPadding.l - this.jPadding.r;
       this.iInnerHeight = this.iHeight - this.jPadding.t - this.jPadding.b;
     } else {
       throw new Error(&#x27;Cannot set dimensions of chart without container element.&#x27;);
+    }
+  }
+
+  /**
+  * Maps custom data keys into standard structure.
+  *
+  * @method transformDataKeys
+  */
+  transformDataKeys() {
+    if (this.jConfig.aValues || this.jConfig.aAxisKeys) {
+      this.aData.map((hItem) =&gt; {
+        if (this.jConfig.aValues &amp;&amp; !hItem.aValues) {
+          hItem.aValues = [];
+          this.jConfig.aValues.forEach((jValue) =&gt; {
+            hItem.aValues.push(hItem[jValue.sKey]);
+          });
+        }
+        if (this.jConfig.aAxisKeys &amp;&amp; !hItem.sLabel) {
+          hItem.sLabel = hItem[this.jConfig.aAxisKeys[0]];
+        }
+        return hItem;
+      });
+      this.jConfig.aValues.map((jValue) =&gt; {
+        if (!jValue.sColour) {
+          jValue.sColour = Colors.getRandomColor();
+        }
+        jValue.oColour = d3.rgb(jValue.sColour);
+        return jValue;
+      });
     }
   }
 
@@ -219,10 +258,10 @@ export default class Chart {
     this.setDimensions();
     if (this.aData &amp;&amp; this.jConfig &amp;&amp; !isNaN(this.iWidth) &amp;&amp; !isNaN(this.iHeight)) {
       this.iInitialWidth = this.iWidth;
-      this.oToolTip = new ToolTip(this.oContainer).create();
-      d3.select(this.oContainer).append(&#x27;div&#x27;).attr(&#x27;class&#x27;, &#x27;title&#x27;).text(this.jConfig.sTitle);
+      this.oToolTip = new ToolTip(this.dContainer).create();
+      d3.select(this.dContainer).append(&#x27;div&#x27;).attr(&#x27;class&#x27;, &#x27;title&#x27;).text(this.jConfig.sTitle);
       this.oSvg.setAttribute(&#x27;class&#x27;, &#x27;chart&#x27;);
-      this.oContainer.appendChild(this.oSvg);
+      this.dContainer.appendChild(this.oSvg);
       this.oResizeWatcher = this.oResizeWatcher || window.addEventListener(&#x27;resize&#x27;, () =&gt; {
         this.setDimensions();
         this.iResizeOffset = this.iWidth - this.iInitialWidth;
@@ -237,6 +276,7 @@ export default class Chart {
       if (this.renderChart) {
         this.renderChart();
       }
+      this.dContainer.removeChild(this.dLoader);
     } else {
       throw new Error(&#x27;The chart is not ready for initialisation.&#x27;);
     }

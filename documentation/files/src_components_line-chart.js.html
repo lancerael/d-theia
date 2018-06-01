@@ -43,15 +43,16 @@
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Chart.html">Chart</a></li>
+                                <li><a href="../classes/Colors.html">Colors</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
+                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Theia.html">Theia</a></li>
-                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -89,11 +90,11 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-const d3 = require(&#x27;d3&#x27;);
-const AxisChart = require(&#x27;./axis-chart.js&#x27;);
+import * as d3 from &#x27;d3&#x27;;
+import AxisChart from &#x27;./axis-chart&#x27;;
 
 /**
-* Create LineCharts from the supplied data, based on the supplied JSON config.
+* Create LineCharts from the supplied data, based on the JSON config.
 *
 * @class LineChart
 * @extends AxisChart
@@ -110,57 +111,69 @@ export default class LineChart extends AxisChart {
   */
   renderChart() {
     super.renderChart();
-    const { aAxisKeys, aValues } = this.jConfig;
+    const { aValues } = this.jConfig;
     const { oScaleX, oScaleY } = this;
 
     this.aLines = this.aLines || [];
-    this.oChartG.selectAll(&#x27;path.line&#x27;).remove();
+    this.aCircles = this.aCircles || [];
 
     // Iterate through config value keys
     aValues.forEach((oValues, i) =&gt; {
-      const { sKey, sColour } = oValues;
+      const { sColour } = oValues;
 
-      // define the line
-      this.aLines[i] = d3.line()
-        .x(d =&gt; oScaleX(d[aAxisKeys[0]]) + (oScaleX.bandwidth() / 2))
-        .y(d =&gt; oScaleY(d[sKey]));
+      if (!this.aLines[i]) {
+        // define the line
+        this.aLines[i] = d3.line();
 
         // Add the valueline path.
-      this.oChartG.append(&#x27;path&#x27;)
-          .data([this.aData])
-          .attr(&#x27;class&#x27;, &#x27;line&#x27;)
-          .attr(&#x27;stroke&#x27;, sColour)
-          .attr(&#x27;d&#x27;, this.aLines[i]);
+        this.d3ChartGroup.append(&#x27;path&#x27;)
+            .data([this.aData])
+            .attr(&#x27;class&#x27;, &#x60;line lines-${i}&#x60;)
+            .attr(&#x27;stroke&#x27;, sColour);
+      }
 
-      this.aCircles = this.aCircles || [];
+      // Update lines
+      this.aLines[i]
+        .x(d =&gt; oScaleX(d.sLabel) + (oScaleX.bandwidth() / 2))
+        .y(d =&gt; oScaleY(d.aValues[i]));
+      this.d3ChartGroup.selectAll(&#x60;path.lines-${i}&#x60;).attr(&#x27;d&#x27;, this.aLines[i]);
+
       // Add circles for each value
       if (!this.aCircles[i]) {
         // Bind circles data
-        this.aCircles[i] = this.oChartG.selectAll(&#x60;circle.circles-${i}&#x60;).data(this.aData);
+        this.aCircles[i] = this.d3ChartGroup.selectAll(&#x60;circle.circles-${i}&#x60;).data(this.aData);
         // Add new circle elements and set base attributes
         this.aCircles[i]
           .enter()
           .append(&#x27;circle&#x27;)
           .on(&#x27;mousemove&#x27;, (d) =&gt; {
-            this.oToolTip.ping(d3.event.clientX, d3.event.clientY + 20,
-              &#x60;&lt;strong&gt;${d[aAxisKeys[0]]}&lt;/strong&gt;&lt;br&gt;${oValues.sName}: &lt;em&gt;${d[oValues.sKey]}&lt;/em&gt;&#x60;);
+            this.oToolTip.ping([d.sLabel, oValues.sName, d.aValues[i]]);
+          })
+          .on(&#x27;mouseover&#x27;, (d) =&gt; {
+            d.oColour = this.jConfig.aValues[i].oColour;
+            d3.select(d3.event.target).attr(&#x27;fill&#x27;, d.oColour.darker(1));
           })
           .on(&#x27;mousedown&#x27;, (d) =&gt; {
             if (this.jConfig.fnClickCallback) {
               this.jConfig.fnClickCallback({
                 oEvent: d3.event,
-                jData: d,
-                sKey
+                jData: d
               });
             }
           })
-          .on(&#x27;mouseout&#x27;, () =&gt; this.oToolTip.hide())
+          .on(&#x27;mouseout&#x27;, (d) =&gt; {
+            this.oToolTip.hide();
+            d3.select(d3.event.target).attr(&#x27;fill&#x27;, d.oColour);
+          })
           .attr(&#x27;class&#x27;, &#x60;circles circles-${i}&#x60;)
           .attr(&#x27;fill&#x27;, sColour)
-          .attr(&#x27;r&#x27;, 3)
-          .attr(&#x27;cx&#x27;, d =&gt; oScaleX(d[aAxisKeys[0]]) + (oScaleX.bandwidth() / 2))
-          .attr(&#x27;cy&#x27;, d =&gt; oScaleY(d[sKey]));
+          .attr(&#x27;r&#x27;, 5)
+          .attr(&#x27;cy&#x27;, d =&gt; oScaleY(d.aValues[i]));
       }
+
+      // Update circles
+      this.d3ChartGroup.selectAll(&#x60;circle.circles-${i}&#x60;)
+      .attr(&#x27;cx&#x27;, d =&gt; oScaleX(d.sLabel) + (oScaleX.bandwidth() / 2));
     });
   }
 

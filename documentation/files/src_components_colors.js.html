@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Utilities - dTheia</title>
+    <title>src\components\colors.js - dTheia</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -43,15 +43,16 @@
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Chart.html">Chart</a></li>
+                                <li><a href="../classes/Colors.html">Colors</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
+                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Theia.html">Theia</a></li>
-                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -85,30 +86,63 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>Utilities Module</h1>
-<div class="box clearfix meta">
+<h1 class="file-heading">File: src\components\colors.js</h1>
 
+<div class="file">
+    <pre class="code prettyprint linenums">
+import { rgb } from &#x27;d3&#x27;;
+import Utilities from &#x27;./utilities&#x27;;
 
-        <div class="foundat">
-            Defined in: <a href="../files/src_components_utilities.js.html#l3"><code>src\components\utilities.js:3</code></a>
-        </div>
+/**
+* The Colors object is is a class containing reusable static methods
+*
+* @class Colors
+*/
+class Colors {
 
-</div>
+  /**
+  * Returns a random color
+  *
+  * @method getRandomColor
+  * @return {RGB object} randomly generated RGB object
+  */
+  static getRandomColor() {
+    const iRGB = () =&gt; Utilities.getRandomInteger(0, 255);
+    return rgb(iRGB(), iRGB(), iRGB());
+  }
 
+  /**
+  * Returns a random color palette
+  *
+  * @method getRandomPalette
+  * @param {Integer} iLength the size of the palette
+  * @return {Array} list of randomly generated RGB objects
+  */
+  static getRandomPalette(iLength = 10) {
+    let iCount = iLength;
+    const aPalette = [];
+    while (iCount--) {
+      aPalette.push(this.getRandomColor());
+    }
+    return aPalette;
+  }
 
-<div class="box intro">
-    <p>The Utilities object is is a module containing reusable static methods</p>
+  /**
+  * Returns a darker version of a color
+  *
+  * @method getDarkerColor
+  * @param {RGB object} oColor RGB object
+  * @return {RGB object} darker RGB object
+  */
+  static getDarkerColor(oColor) {
+    return oColor.darker(0.5);
+  }
 
-</div>
+}
 
+module.exports = Colors;
 
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-    </div>
-
-
-    <div class="yui3-u-1-2">
-    </div>
+    </pre>
 </div>
                     </div>
                 </div>
