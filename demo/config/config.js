@@ -38,17 +38,6 @@ const Config = {
     */
   },
 
-  jBarConfig2: {
-    sTitle: 'Race Results by Driver',
-    aValues: [
-      { sName: 'Position', sColour: 'green' },
-      { sName: 'Points', sColour: 'blue' }
-    ],
-    aAxisLabels: ['Position / Points', 'Driver Name'],
-    sBarType: 'side', // "stack","nest"
-    iTruncate: 15
-  },
-
   jBubbleConfig1: {
     sTitle: 'Bike Docking Stations by Availability',
     aValues: [
@@ -64,6 +53,17 @@ const Config = {
     ],
     aAxisKeys: ['stationName'],
     aAxisLabels: ['Sized by Total Docks', 'Coloured by Available Bikes']
+  },
+
+  jBarConfig2: {
+    sTitle: 'Race Results by Driver',
+    aValues: [
+      { sName: 'Position', sColour: 'green' },
+      { sName: 'Points', sColour: 'blue' }
+    ],
+    aAxisLabels: ['Position / Points', 'Driver Name'],
+    sBarType: 'side', // "stack","nest"
+    iTruncate: 15
   }
 
 }

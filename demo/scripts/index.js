@@ -36,17 +36,3 @@ Utilities.getPromiseJSON('./data/formula1.json').then((data) => {
     })
   });
 });
-
-/*
-  Refresh the page with random data unless user cancels
-*/
-let iCoundown = 9;
-let reloadTimeout = setTimeout(() => window.location.reload(), 10000);
-let reloadInterval = setInterval(() => document.querySelector('#message strong').innerHTML = iCoundown--, 1000);
-function stopReload(e) {
-  clearTimeout(reloadTimeout);
-  clearInterval(reloadInterval);
-  e.preventDefault();
-  document.querySelector('#message').style.visibility = 'hidden';
-}
-document.querySelector('#message a').addEventListener('click', stopReload);
