@@ -1,4 +1,4 @@
-# dTheia v1.0.0
+# dTheia v1.1.0
 dTheia is a reusable charting library built using d3 v.4 and ES6. Code is transpiled into ES5 for distribution. The aim of this project is to provide a simple API for the creation of D3 charts within any client side framework.
 
 Current available charts:
