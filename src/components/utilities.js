@@ -1,4 +1,4 @@
-require('../../node_modules/whatwg-fetch/fetch.js');
+import { json } from 'd3';
 
 /**
 * The Utilities object is is a class containing reusable static methods
@@ -16,19 +16,7 @@ class Utilities {
   */
   static getPromiseJSON(sUrl) {
     if (typeof sUrl === 'string') {
-      return new Promise((resolve, reject) => {
-        fetch(sUrl, {
-          mode: 'no-cors',
-        }).then((response) => {
-          response.json().then((data) => {
-            resolve(data);
-          }).catch((error) => {
-            reject(error);
-          });
-        }).catch((error) => {
-          reject(error);
-        });
-      });
+      return json(sUrl);
     }
     throw new Error('No valid data API string provided.');
   }
