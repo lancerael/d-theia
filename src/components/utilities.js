@@ -1,11 +1,11 @@
-require('../../node_modules/whatwg-fetch/fetch.js');
+import { json } from 'd3';
 
 /**
-* The Utilities object is is a module containing reusable static methods
+* The Utilities object is is a class containing reusable static methods
 *
-* @module Utilities
+* @class Utilities
 */
-const Utilities = {
+class Utilities {
 
   /**
   * Returns a promise resolving with JSON when supplied with a valid URL
@@ -14,24 +14,12 @@ const Utilities = {
   * @param {String} sUrl Required URL to make request
   * @throws {Error} invalid api string
   */
-  getPromiseJSON(sUrl) {
+  static getPromiseJSON(sUrl) {
     if (typeof sUrl === 'string') {
-      return new Promise((resolve, reject) => {
-        fetch(sUrl, {
-          mode: 'no-cors',
-        }).then((response) => {
-          response.json().then((data) => {
-            resolve(data);
-          }).catch((error) => {
-            reject(error);
-          });
-        }).catch((error) => {
-          reject(error);
-        });
-      });
+      return json(sUrl);
     }
     throw new Error('No valid data API string provided.');
-  },
+  }
 
   /**
   * Truncates a string and adds ellipsis.
@@ -39,29 +27,31 @@ const Utilities = {
   * @method truncateString
   * @param {String} sString string to be truncated
   * @param {Integer} iMaxLength max length of string before truncation
+  * @return {String} truncated string
   */
-  truncateString(sString, iMaxLength) {
+  static truncateString(sString, iMaxLength) {
     if (sString.length > iMaxLength) {
       return `${sString.slice(0, iMaxLength - 3)}[...]`;
     }
     return sString;
-  },
+  }
 
   /**
   * Generates a random integer within a range.
   *
-  * @method generateRandomInteger
+  * @method getRandomInteger
   * @param {Integer} iMin minimum random value
   * @param {Integer} iMax max random value
   * @param {Integer} iOmit optional excempt integer
+  * @return {Integer} new random integer
   */
-  generateRandomInteger(iMin, iMax, iOmit) {
+  static getRandomInteger(iMin, iMax, iOmit) {
     let iInt = Math.floor(Math.random() * (iMin - iMax - 1)) + iMax + 1;
     while (iInt === iOmit) {
-      iInt = this.generateRandomInteger(iMin, iMax);
+      iInt = this.getRandomInteger(iMin, iMax);
     }
     return iInt;
-  },
+  }
 
   /**
   * Returns a sample selection from an array (minmum length 3).
@@ -69,13 +59,59 @@ const Utilities = {
   * @method sliceSampleData
   * @param {Array} aData the complete data set
   * @param {Integer} iMaxLength max length of sample
+  * @return {Array} sliced section of data
   */
-  sliceSampleData(aData, iMaxLength = 50) {
-    const iStart = this.generateRandomInteger(0, aData.length - iMaxLength);
-    const iEnd = iStart + this.generateRandomInteger(3, iMaxLength);
+  static sliceSampleData(aData, iMaxLength = 50) {
+    const iStart = this.getRandomInteger(0, aData.length - iMaxLength);
+    const iEnd = iStart + this.getRandomInteger(3, iMaxLength);
     return aData.slice(iStart, iEnd);
-  },
+  }
 
-};
+  /**
+  * Returns random data and config for demo purposes.
+  *
+  * @method getRandomChart
+  * @return {JSON} JSON style data structure
+  */
+  static getRandomData() {
+    const iLength = this.getRandomInteger(3, 10);
+    const iGroupSize = this.getRandomInteger(1, 4);
+    const iRangeLow = this.getRandomInteger(1, 50);
+    const iRangeHigh = this.getRandomInteger(iRangeLow, 200);
+    const jChart = {};
+    jChart.jConfig = {
+      sTitle: 'Random Chart Data',
+      aAxisLabels: ['Y Axis', 'X Axis'],
+      aValues: (() => {
+        const aValues = [];
+        let iCounter = iGroupSize;
+        while (iCounter--) {
+          aValues.push({ sName: `Type ${iGroupSize - iCounter}` });
+        }
+        return aValues;
+      })()
+    };
+    jChart.aData = (() => {
+      const aData = [];
+      let iCounter = iLength;
+      while (iCounter--) {
+        aData.push({
+          sLabel: `Item ${iLength - iCounter}`,
+          aValues: (() => {
+            const aValues = [];
+            let iSubCounter = iGroupSize;
+            while (iSubCounter--) {
+              aValues.push(this.getRandomInteger(iRangeLow, iRangeHigh))
+            }
+            return aValues;
+          })()
+        });
+      }
+      return aData;
+    })();
+    return jChart;
+  }
+
+}
 
 module.exports = Utilities;

@@ -1,3 +1,4 @@
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
@@ -20,6 +21,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        exclude: [/dist/],
         query: {
           presets: ['env'],
           plugins: ['transform-class-properties'],
@@ -32,10 +34,24 @@ module.exports = {
       options: {
         eslint: {
           failOnWarning: false,
-          failOnError: false,
+          failOnError: true,
         },
       },
     }),
-    new UglifyJSPlugin()
+    //new UglifyJSPlugin(),
+    //new BundleAnalyzerPlugin({
+    //  analyzerMode: 'static'
+    //}),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'node-static',
+      filename: 'vendor.js',
+      minChunks(module) {
+        var context = module.context;
+        return context && context.indexOf('node_modules') >= 0;
+      }
+    })
   ],
+  devServer: {
+    contentBase: './demo'
+  }
 };

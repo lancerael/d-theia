@@ -43,15 +43,16 @@
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Chart.html">Chart</a></li>
+                                <li><a href="../classes/Colors.html">Colors</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
+                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Theia.html">Theia</a></li>
-                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -89,10 +90,10 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-const d3 = require(&#x27;d3&#x27;);
-const Chart = require(&#x27;./chart.js&#x27;);
-const Key = require(&#x27;./key.js&#x27;);
-const Axis = require(&#x27;./axis.js&#x27;);
+import * as d3 from &#x27;d3&#x27;;
+import Chart from &#x27;./chart&#x27;;
+import Key from &#x27;./key&#x27;;
+import Axis from &#x27;./axis&#x27;;
 
 /**
 * Create AxisChart from the supplied data, based on the supplied JSON config.
@@ -102,8 +103,8 @@ const Axis = require(&#x27;./axis.js&#x27;);
 * @constructor
 */
 export default class AxisChart extends Chart {
-  oChartG;
-  oAxisG;
+  d3ChartGroup;
+  d3AxisGroup;
   oAxis;
   oKey;
 
@@ -115,7 +116,7 @@ export default class AxisChart extends Chart {
   */
   constructor(oParams = {}) {
     super(oParams);
-    this.jPadding = { l: 35, r: 15, t: 25, b: 90 };
+    this.jPadding = { l: 45, r: 15, t: 25, b: 90 };
     this.oScaleX = d3.scaleBand().padding(0.2);
     this.oScaleY = d3.scaleLinear();
   }
@@ -128,16 +129,10 @@ export default class AxisChart extends Chart {
   setDimensions() {
     super.setDimensions();
     this.oScaleX
-      .domain(this.aData.map(d =&gt; d[this.jConfig.aAxisKeys[0]]))
+      .domain(this.aData.map(d =&gt; d.sLabel))
       .range([0, this.iInnerWidth]);
     this.oScaleY
-      .domain([0, d3.max(this.aData, (d) =&gt; {
-        const aValues = [];
-        this.jConfig.aValues.forEach((oValue) =&gt; {
-          aValues.push(parseInt(d[oValue.sKey]));
-        });
-        return d3.max(aValues);
-      })])
+      .domain([0, d3.max(this.aData, d =&gt; d3.max(d.aValues))])
       .range([this.iInnerHeight, this.jPadding.t]);
   }
 
@@ -151,9 +146,9 @@ export default class AxisChart extends Chart {
     const { iInnerWidth, iInnerHeight, oScaleX, oScaleY, jPadding } = this;
 
     // Add chart scale axes
-    this.oAxisG = this.oAxisG || this.oD3Svg.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;axes-g&#x27;);
+    this.d3AxisGroup = this.d3AxisGroup || this.d3Svg.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;axes-g&#x27;);
     this.oAxis = new Axis({
-      oContainer: this.oAxisG,
+      d3Container: this.d3AxisGroup,
       iTruncate,
       aAxisLabels,
       oScaleX,
@@ -164,14 +159,14 @@ export default class AxisChart extends Chart {
       oToolTip: this.oToolTip }).render();
 
     // Add chart container group
-    this.oChartG = this.oChartG || this.oD3Svg.append(&#x27;g&#x27;).attr(&#x27;transform&#x27;, &#x60;translate(${this.jPadding.l}, 0)&#x60;);
+    this.d3ChartGroup = this.d3ChartGroup || this.d3Svg.append(&#x27;g&#x27;).attr(&#x27;transform&#x27;, &#x60;translate(${this.jPadding.l}, 0)&#x60;);
 
     // Render the key for the data
     this.oKey = new Key({
-      oContainer: d3.select(this.oSvg),
+      d3Container: d3.select(this.oSvg),
       aValues: this.jConfig.aValues,
       iOffsetX: (this.iInnerWidth / 2) + this.jPadding.l,
-      iOffsetY: this.iHeight - 15
+      iOffsetY: this.iHeight - 20
     }).render();
   }
 

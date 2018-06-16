@@ -43,15 +43,16 @@
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Chart.html">Chart</a></li>
+                                <li><a href="../classes/Colors.html">Colors</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
+                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Theia.html">Theia</a></li>
-                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -89,6 +90,8 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
+import { event } from &#x27;d3&#x27;;
+
 /**
 * The Tooltip
 *
@@ -136,19 +139,23 @@ export default class Tooltip {
   * @param {Integer} y Location of y tooltip position
   * @param {String} sContent inner html content
   */
-  ping(x, y, sContent) {
-    const iPageOffsetY = window.pageYOffset
-      || document.documentElement.scrollTop
-      || document.body.scrollTop || 0;
+  ping(mContent) {
+    const sContent = mContent.constructor === Array
+      ? &#x60;&lt;strong&gt;${mContent[0]}&lt;/strong&gt;&lt;br&gt;${mContent[1]}: &lt;em&gt;${mContent[2]}&lt;/em&gt;&#x60;
+      : mContent;
+    const iZoomDivider = 1 + (window.devicePixelRatio &gt; 1 ? (window.devicePixelRatio / 20) : 0);
+    const oContainerEdges = this.oContainer.getBoundingClientRect()
+    const iPageOffsetX = oContainerEdges.left - 15;
+    const iPageOffsetY = oContainerEdges.top;
     this.oTooltip.innerHTML = sContent;
     this.oTooltip.className = &#x27;tooltip is-transparent&#x27;;
     this.oTooltip.className = &#x27;tooltip&#x27;;
-    this.oTooltip.style.left = &#x60;${x}px&#x60;;
-    this.oTooltip.style.top = &#x60;${y + iPageOffsetY}px&#x60;;
+    this.oTooltip.style.left = &#x60;${event.clientX - iPageOffsetX}px&#x60;;
+    this.oTooltip.style.top = &#x60;${(event.clientY / iZoomDivider) - iPageOffsetY}px&#x60;;
     clearTimeout(this.oTooltipTimeout);
     clearTimeout(this.oTooltipSubTimeout);
     this.oTooltipTimeout = setTimeout(() =&gt; {
-      this.hideTooltip();
+      this.hide();
     }, 5000);
   }
 
@@ -158,7 +165,7 @@ export default class Tooltip {
     this.oTooltip.className = &#x27;tooltip is-transparent&#x27;;
     this.oTooltipSubTimeout = setTimeout(() =&gt; {
       this.oTooltip.className = &#x27;tooltip is-transparent is-hidden&#x27;;
-    }, 1000);
+    }, 300);
   }
 
 }

@@ -43,15 +43,16 @@
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Chart.html">Chart</a></li>
+                                <li><a href="../classes/Colors.html">Colors</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
+                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Theia.html">Theia</a></li>
-                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -89,9 +90,10 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-const BarChart = require(&#x27;./bar-chart.js&#x27;);
-const LineChart = require(&#x27;./line-chart.js&#x27;);
-const BubbleChart = require(&#x27;./bubble-chart.js&#x27;);
+import BarChart from &#x27;./bar-chart&#x27;;
+import LineChart from &#x27;./line-chart&#x27;;
+import BubbleChart from &#x27;./bubble-chart&#x27;;
+import Utilities from &#x27;./utilities&#x27;;
 
 /**
 * Theia is the main API for dTheia - a reusable charting library built using d3 v.4 and ES6
@@ -100,48 +102,75 @@ const BubbleChart = require(&#x27;./bubble-chart.js&#x27;);
 */
 
 const Theia = {
-  aCharts: [],
-  aBarCharts: [],
-  aLineCharts: [],
-  aBubbleCharts: [],
+
+  /**
+  * Create a chart and return object
+  *
+  * @method chart
+  * @param {String} sContainer ID to select container DOM object
+  * @param {String} sType string denoting the type of chart
+  * @param {Object} jParams includes target DOM object, JSON config and array of data
+  * @return {Chart object} oChart returns a chart object of the requested type
+  */
+  chart(sContainer, sType, jParams) {
+    let oChart = {};
+    const oAllParams = { sContainer, sType, ...jParams };
+    switch (sType) {
+      case &#x27;line&#x27;: {
+        oChart = this.createLineChart(oAllParams);
+        break;
+      }
+      case &#x27;bubble&#x27;: {
+        oChart = this.createBubbleChart(oAllParams);
+        break;
+      }
+      default: {
+        oChart = this.createBarChart(oAllParams);
+      }
+    }
+    return oChart;
+  },
 
   /**
   * Create a bar chart and return object
   *
   * @method createBarChart
-  * @param {Object} oParams includes target DOM object, JSON config and array of data
+  * @param {Object} oParams contains the configuration for the chart
+  * @return {BarChart object} returns a bar chart object
   */
   createBarChart(oParams) {
-    const oBarChart = new BarChart(oParams).init();
-    this.aCharts.push(oBarChart);
-    this.aBarCharts.push(oBarChart);
-    return oBarChart;
+    return new BarChart(oParams).init();
   },
 
   /**
   * Create a line chart and return object
   *
   * @method createLineChart
-  * @param {Object} oParams includes target DOM object, JSON config and array of data
+  * @param {Object} oParams contains the configuration for the chart
+  * @return {LineChart object} returns a line chart object
   */
-  createLineChart(jParams) {
-    const oLineChart = new LineChart(jParams).init();
-    this.aCharts.push(oLineChart);
-    this.aBarCharts.push(oLineChart);
-    return oLineChart;
+  createLineChart(oParams) {
+    return new LineChart(oParams).init();
   },
 
   /**
   * Create a line chart and return object
   *
-  * @method createLineChart
-  * @param {Object} oParams includes target DOM object, JSON config and array of data
+  * @method createBubbleChart
+  * @param {Object} oParams contains the configuration for the chart
+  * @return {BubbleChart object} returns a bubble chart object
   */
-  createBubbleChart(jParams) {
-    const oBubbleChart = new BubbleChart(jParams).init();
-    this.aCharts.push(oBubbleChart);
-    this.aBarCharts.push(oBubbleChart);
-    return oBubbleChart;
+  createBubbleChart(oParams) {
+    return new BubbleChart(oParams).init();
+  },
+
+  /**
+  * Return a public Utilities module
+  *
+  * @method getUtilities
+  */
+  getUtilities() {
+    return Utilities;
   }
 };
 

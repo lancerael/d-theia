@@ -1,7 +1,7 @@
-const d3 = require('d3');
-const Chart = require('./chart.js');
-const Key = require('./key.js');
-const Axis = require('./axis.js');
+import * as d3 from 'd3';
+import Chart from './chart';
+import Key from './key';
+import Axis from './axis';
 
 /**
 * Create AxisChart from the supplied data, based on the supplied JSON config.
@@ -11,8 +11,8 @@ const Axis = require('./axis.js');
 * @constructor
 */
 export default class AxisChart extends Chart {
-  oChartG;
-  oAxisG;
+  d3ChartGroup;
+  d3AxisGroup;
   oAxis;
   oKey;
 
@@ -24,7 +24,7 @@ export default class AxisChart extends Chart {
   */
   constructor(oParams = {}) {
     super(oParams);
-    this.jPadding = { l: 35, r: 15, t: 25, b: 90 };
+    this.jPadding = { l: 45, r: 15, t: 25, b: 90 };
     this.oScaleX = d3.scaleBand().padding(0.2);
     this.oScaleY = d3.scaleLinear();
   }
@@ -37,16 +37,10 @@ export default class AxisChart extends Chart {
   setDimensions() {
     super.setDimensions();
     this.oScaleX
-      .domain(this.aData.map(d => d[this.jConfig.aAxisKeys[0]]))
+      .domain(this.aData.map(d => d.sLabel))
       .range([0, this.iInnerWidth]);
     this.oScaleY
-      .domain([0, d3.max(this.aData, (d) => {
-        const aValues = [];
-        this.jConfig.aValues.forEach((oValue) => {
-          aValues.push(parseInt(d[oValue.sKey]));
-        });
-        return d3.max(aValues);
-      })])
+      .domain([0, d3.max(this.aData, d => d3.max(d.aValues))])
       .range([this.iInnerHeight, this.jPadding.t]);
   }
 
@@ -60,9 +54,9 @@ export default class AxisChart extends Chart {
     const { iInnerWidth, iInnerHeight, oScaleX, oScaleY, jPadding } = this;
 
     // Add chart scale axes
-    this.oAxisG = this.oAxisG || this.oD3Svg.append('g').attr('class', 'axes-g');
+    this.d3AxisGroup = this.d3AxisGroup || this.d3Svg.append('g').attr('class', 'axes-g');
     this.oAxis = new Axis({
-      oContainer: this.oAxisG,
+      d3Container: this.d3AxisGroup,
       iTruncate,
       aAxisLabels,
       oScaleX,
@@ -73,14 +67,14 @@ export default class AxisChart extends Chart {
       oToolTip: this.oToolTip }).render();
 
     // Add chart container group
-    this.oChartG = this.oChartG || this.oD3Svg.append('g').attr('transform', `translate(${this.jPadding.l}, 0)`);
+    this.d3ChartGroup = this.d3ChartGroup || this.d3Svg.append('g').attr('transform', `translate(${this.jPadding.l}, 0)`);
 
     // Render the key for the data
     this.oKey = new Key({
-      oContainer: d3.select(this.oSvg),
+      d3Container: d3.select(this.oSvg),
       aValues: this.jConfig.aValues,
       iOffsetX: (this.iInnerWidth / 2) + this.jPadding.l,
-      iOffsetY: this.iHeight - 15
+      iOffsetY: this.iHeight - 20
     }).render();
   }
 

@@ -1,5 +1,6 @@
-const d3 = require('d3');
-const ToolTip = require('./tooltip.js');
+import * as d3 from 'd3';
+import ToolTip from './tooltip';
+import Colors from './colors';
 
 /**
 * The Chart object is the parent class for all types of Chart.
@@ -9,9 +10,10 @@ const ToolTip = require('./tooltip.js');
 */
 export default class Chart {
   oSvg;
-  oD3Svg;
+  d3Svg;
   iTransitionTime;
-  oContainer;
+  dContainer;
+  dLoader;
   oToolTip;
   iWidth;
   iHeight;
@@ -27,26 +29,26 @@ export default class Chart {
   * Constructor function that sets up the local object.
   *
   * @method constructor
-  * @param {Object} oParams (may contain any of the below values)
-  * @param {DOM Element} oContainer Optional DOM object
   * @param {JSON Object} jConfig JSON configuration object
   * @param {Array} aData the data to be displayed
+  * @param {String} sContainer Optional ID to select DOM object
+  * @param {DOM Element} dContainer Optional DOM object in place of ID
   */
-  constructor(oParams = {}) {
-    const { jConfig, aData, sContainer } = oParams;
-    let { oContainer } = oParams;
+  constructor({ jConfig, aData, sContainer, dContainer }) {
     this.oSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    this.oD3Svg = d3.select(this.oSvg);
+    this.d3Svg = d3.select(this.oSvg);
     this.iTransitionTime = 500;
     this.jPadding = { l: 5, r: 5, t: 5, b: 5 };
-    if (!oContainer && sContainer) {
-      oContainer = document.getElementById(sContainer);
-      if (!oContainer) {
+    this.dLoader = document.createElement('div');
+    this.dLoader.className = 'dt-loader';
+    if (!dContainer && sContainer) {
+      dContainer = document.getElementById(sContainer);
+      if (!dContainer.nodeName) {
         throw new Error('No valid element ID provided for chart.');
       }
     }
-    if (oContainer) {
-      this.setContainer(oContainer);
+    if (dContainer) {
+      this.setContainer(dContainer);
     }
     if (jConfig) {
       this.setConfig(jConfig);
@@ -60,12 +62,13 @@ export default class Chart {
   * Sets the local container object.
   *
   * @method setContainer
-  * @param {DOM Element} oContainer Required DOM element
+  * @param {DOM Element} dContainer Required DOM element
   * @throws {Error} invalid DOM element
   */
-  setContainer(oContainer) {
-    if (oContainer.nodeName) {
-      this.oContainer = oContainer;
+  setContainer(dContainer) {
+    if (dContainer.nodeName) {
+      dContainer.appendChild(this.dLoader);
+      this.dContainer = dContainer;
     } else {
       throw new Error('No valid DOM element provided for chart.');
     }
@@ -80,7 +83,10 @@ export default class Chart {
   */
   setConfig(jConfig) {
     if (jConfig && jConfig.toString() === '[object Object]') {
-      this.jConfig = Object.assign({}, jConfig);
+      this.jConfig = { ...jConfig };
+      if (this.aData) {
+        this.transformDataKeys();
+      }
     } else {
       throw new Error('No valid configuration provided for chart.');
     }
@@ -96,6 +102,9 @@ export default class Chart {
   setData(aData) {
     if (aData && Array.isArray(aData) === true) {
       this.aData = aData.slice(aData);
+      if (this.jConfig) {
+        this.transformDataKeys();
+      }
     } else {
       throw new Error('No valid data provided for chart.');
     }
@@ -108,13 +117,42 @@ export default class Chart {
   * @throws {Error} missing DOM element
   */
   setDimensions() {
-    if (this.oContainer && this.oContainer.nodeName) {
-      this.iWidth = this.oContainer.clientWidth;
-      this.iHeight = this.oContainer.clientHeight;
+    if (this.dContainer && this.dContainer.nodeName) {
+      this.iWidth = this.dContainer.clientWidth;
+      this.iHeight = this.dContainer.clientHeight;
       this.iInnerWidth = this.iWidth - this.jPadding.l - this.jPadding.r;
       this.iInnerHeight = this.iHeight - this.jPadding.t - this.jPadding.b;
     } else {
       throw new Error('Cannot set dimensions of chart without container element.');
+    }
+  }
+
+  /**
+  * Maps custom data keys into standard structure.
+  *
+  * @method transformDataKeys
+  */
+  transformDataKeys() {
+    if (this.jConfig.aValues || this.jConfig.aAxisKeys) {
+      this.aData.map((hItem) => {
+        if (this.jConfig.aValues && !hItem.aValues) {
+          hItem.aValues = [];
+          this.jConfig.aValues.forEach((jValue) => {
+            hItem.aValues.push(hItem[jValue.sKey]);
+          });
+        }
+        if (this.jConfig.aAxisKeys && !hItem.sLabel) {
+          hItem.sLabel = hItem[this.jConfig.aAxisKeys[0]];
+        }
+        return hItem;
+      });
+      this.jConfig.aValues.map((jValue) => {
+        if (!jValue.sColour) {
+          jValue.sColour = Colors.getRandomColor();
+        }
+        jValue.oColour = d3.rgb(jValue.sColour);
+        return jValue;
+      });
     }
   }
 
@@ -128,10 +166,10 @@ export default class Chart {
     this.setDimensions();
     if (this.aData && this.jConfig && !isNaN(this.iWidth) && !isNaN(this.iHeight)) {
       this.iInitialWidth = this.iWidth;
-      this.oToolTip = new ToolTip(this.oContainer).create();
-      d3.select(this.oContainer).append('div').attr('class', 'title').text(this.jConfig.sTitle);
+      this.oToolTip = new ToolTip(this.dContainer).create();
+      d3.select(this.dContainer).append('div').attr('class', 'title').text(this.jConfig.sTitle);
       this.oSvg.setAttribute('class', 'chart');
-      this.oContainer.appendChild(this.oSvg);
+      this.dContainer.appendChild(this.oSvg);
       this.oResizeWatcher = this.oResizeWatcher || window.addEventListener('resize', () => {
         this.setDimensions();
         this.iResizeOffset = this.iWidth - this.iInitialWidth;
@@ -146,6 +184,7 @@ export default class Chart {
       if (this.renderChart) {
         this.renderChart();
       }
+      this.dContainer.removeChild(this.dLoader);
     } else {
       throw new Error('The chart is not ready for initialisation.');
     }

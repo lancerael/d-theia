@@ -1,7 +1,7 @@
-const d3 = require('d3');
-const Chart = require('./chart.js');
-const Axis = require('./axis.js');
-const Key = require('./key.js');
+import * as d3 from 'd3';
+import Chart from './chart';
+import Axis from './axis';
+import Key from './key';
 
 /**
 * Create BubbleCharts from the supplied data, based on the supplied JSON config.
@@ -42,26 +42,26 @@ export default class BubbleChart extends Chart {
   * @method renderChart
   */
   renderChart() {
-    const { aAxisKeys, aAxisLabels, aValues } = this.jConfig;
+    const { aAxisLabels, aValues } = this.jConfig;
     const { iInnerWidth, iInnerHeight, jPadding } = this;
     const { sKey: sKey1, sName: sName1 } = aValues[0];
     const { sKey: sKey2, sName: sName2, aColours } = aValues[1];
 
     // Add chart scale axes
-    this.oAxisG = this.oAxisG || this.oD3Svg.append('g').attr('class', 'axes-g');
+    this.d3AxisGroup = this.d3AxisGroup || this.d3Svg.append('g').attr('class', 'axes-g');
     this.oAxis = new Axis({
-      oContainer: this.oAxisG,
+      d3Container: this.d3AxisGroup,
       aAxisLabels,
       jPadding,
       iWidth: iInnerWidth,
       iHeight: iInnerHeight - 25 }).renderLabels();
 
     // Add the group container for bubbles
-    this.oBubblesG = this.oBubblesG || this.oD3Svg.append('g').attr('transform', `translate(${this.jPadding.l}, 0)`);
+    this.d3BubblesGroup = this.d3BubblesGroup || this.d3Svg.append('g').attr('transform', `translate(${this.jPadding.l}, 0)`);
 
     // The method runs on each tick of the force calculation to reposition the bubbles
     const fnTicked = () => {
-      this.oBubblesG.selectAll('circle')
+      this.d3BubblesGroup.selectAll('circle')
         .attr('cx', d => d.x)
         .attr('cy', d => d.y);
     };
@@ -76,16 +76,15 @@ export default class BubbleChart extends Chart {
       });
 
     // Add circles for each value
-    if (!this.aCircles) {
+    if (!this.d3Circles) {
       // Bind bars data
-      this.aCircles = this.oBubblesG.selectAll('circle.circles').data(this.oForce.nodes());
+      this.d3Circles = this.d3BubblesGroup.selectAll('circle.circles').data(this.oForce.nodes());
       // Add new rect elements and set base attributes
-      this.aCircles
+      this.d3Circles
         .enter()
         .append('circle')
         .on('mousemove', (d) => {
-          this.oToolTip.ping(d3.event.clientX, d3.event.clientY + 30,
-            `<strong>${d[aAxisKeys[0]]}</strong><br>${sName1}: <em>${d[sKey1]}</em><br>${sName2}: <em>${d[sKey2]}</em>`);
+          this.oToolTip.ping(`<strong>${d.sLabel}</strong><br>${sName1}: <em>${d[sKey1]}</em><br>${sName2}: <em>${d[sKey2]}</em>`);
         })
         .on('mouseout', () => this.oToolTip.hide())
         .attr('class', 'circles')
@@ -96,12 +95,12 @@ export default class BubbleChart extends Chart {
         .duration(this.iTransitionTime)
         .attr('r', d => d[sKey1] / 2);
     } else {
-      this.oBubblesG.attr('transform', `translate(${this.iResizeOffset / 2}, 0)`);
+      this.d3BubblesGroup.attr('transform', `translate(${this.iResizeOffset / 2}, 0)`);
     }
 
     // Render the key for the data
     this.oKey = new Key({
-      oContainer: d3.select(this.oSvg),
+      d3Container: d3.select(this.oSvg),
       aValues: [
         {
           sName: 0,
@@ -113,7 +112,7 @@ export default class BubbleChart extends Chart {
         }
       ],
       iOffsetX: (this.iInnerWidth / 2) + this.jPadding.l + 10,
-      iOffsetY: this.iHeight - 15,
+      iOffsetY: this.iHeight - 20,
       sType: 'range'
     }).render();
   }

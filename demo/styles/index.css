@@ -5,15 +5,55 @@ body {
   font-size: 12px;
 }
 
+.message {
+  padding-bottom: 5px;
+}
+
 .container {
-  width: 100%;
   height: 320px;
-  padding: 1px;
   background-color: #c5d9f7;
   border: 1px solid #b8d2f9;
   box-shadow: 2px 2px 5px grey;
   margin-bottom: 15px;
   min-width: 350px;
+  position: relative;
+}
+
+.dt-loader {
+  width: 32px;
+  height: 32px;
+  background-image: url(../images/loader.png);
+  position: absolute;
+  left: calc(50% - 16px);
+  top: calc(50% - 16px);
+	animation:spin 2s linear infinite;
+}
+
+@keyframes spin{
+	from{transform:rotate(0deg)}
+	to{transform:rotate(360deg)}
+}
+
+.test-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.test-row .container {
+  flex-grow: 1;
+  max-width: 49%
+}
+
+.test-row .container:first-of-type {
+  margin-right: 15px;
+}
+
+@media only screen and (max-width: 800px) {
+  .test-row .container {
+    max-width: 100%;
+    margin-right: 0 !important;
+  }
 }
 
 .x-labels {
@@ -45,8 +85,8 @@ body {
   border-radius: 5px;
   position: absolute;
   opacity: 0.9;
-  -webkit-transition: opacity 1s;
-  transition: opacity 1s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
   background: linear-gradient(#f2f7ff, white);
   box-shadow: 2px 2px 2px grey;
 }
@@ -75,13 +115,13 @@ g.key {
   transition: fill 0.2s;
 }
 
-path.lines {
+path.line {
   fill: none;
   stroke-width: 2px;
 }
 
 .bars:hover, .circles:hover {
-  fill: #444444;
+  /* fill: #444444; */
   cursor: pointer;
 }
 

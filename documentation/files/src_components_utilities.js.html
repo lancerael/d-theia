@@ -43,15 +43,16 @@
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Chart.html">Chart</a></li>
+                                <li><a href="../classes/Colors.html">Colors</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
+                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Theia.html">Theia</a></li>
-                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -92,11 +93,11 @@
 require(&#x27;../../node_modules/whatwg-fetch/fetch.js&#x27;);
 
 /**
-* The Utilities object is is a module containing reusable static methods
+* The Utilities object is is a class containing reusable static methods
 *
-* @module Utilities
+* @class Utilities
 */
-const Utilities = {
+class Utilities {
 
   /**
   * Returns a promise resolving with JSON when supplied with a valid URL
@@ -105,7 +106,7 @@ const Utilities = {
   * @param {String} sUrl Required URL to make request
   * @throws {Error} invalid api string
   */
-  getPromiseJSON(sUrl) {
+  static getPromiseJSON(sUrl) {
     if (typeof sUrl === &#x27;string&#x27;) {
       return new Promise((resolve, reject) =&gt; {
         fetch(sUrl, {
@@ -122,7 +123,7 @@ const Utilities = {
       });
     }
     throw new Error(&#x27;No valid data API string provided.&#x27;);
-  },
+  }
 
   /**
   * Truncates a string and adds ellipsis.
@@ -130,29 +131,31 @@ const Utilities = {
   * @method truncateString
   * @param {String} sString string to be truncated
   * @param {Integer} iMaxLength max length of string before truncation
+  * @return {String} truncated string
   */
-  truncateString(sString, iMaxLength) {
+  static truncateString(sString, iMaxLength) {
     if (sString.length &gt; iMaxLength) {
       return &#x60;${sString.slice(0, iMaxLength - 3)}[...]&#x60;;
     }
     return sString;
-  },
+  }
 
   /**
   * Generates a random integer within a range.
   *
-  * @method generateRandomInteger
+  * @method getRandomInteger
   * @param {Integer} iMin minimum random value
   * @param {Integer} iMax max random value
   * @param {Integer} iOmit optional excempt integer
+  * @return {Integer} new random integer
   */
-  generateRandomInteger(iMin, iMax, iOmit) {
+  static getRandomInteger(iMin, iMax, iOmit) {
     let iInt = Math.floor(Math.random() * (iMin - iMax - 1)) + iMax + 1;
     while (iInt === iOmit) {
-      iInt = this.fnGntRandInt(iMin, iMax);
+      iInt = this.getRandomInteger(iMin, iMax);
     }
     return iInt;
-  },
+  }
 
   /**
   * Returns a sample selection from an array (minmum length 3).
@@ -160,14 +163,60 @@ const Utilities = {
   * @method sliceSampleData
   * @param {Array} aData the complete data set
   * @param {Integer} iMaxLength max length of sample
+  * @return {Array} sliced section of data
   */
-  sliceSampleData(aData, iMaxLength = 50) {
-    const iStart = this.generateRandomInteger(0, aData.length - iMaxLength);
-    const iEnd = iStart + this.generateRandomInteger(3, iMaxLength);
+  static sliceSampleData(aData, iMaxLength = 50) {
+    const iStart = this.getRandomInteger(0, aData.length - iMaxLength);
+    const iEnd = iStart + this.getRandomInteger(3, iMaxLength);
     return aData.slice(iStart, iEnd);
-  },
+  }
 
-};
+  /**
+  * Returns random data and config for demo purposes.
+  *
+  * @method getRandomChart
+  * @return {JSON} JSON style data structure
+  */
+  static getRandomData() {
+    const iLength = this.getRandomInteger(3, 10);
+    const iGroupSize = this.getRandomInteger(1, 4);
+    const iRangeLow = this.getRandomInteger(1, 50);
+    const iRangeHigh = this.getRandomInteger(iRangeLow, 200);
+    const jChart = {};
+    jChart.jConfig = {
+      sTitle: &#x27;Random Chart Data&#x27;,
+      aAxisLabels: [&#x27;Y Axis&#x27;, &#x27;X Axis&#x27;],
+      aValues: (() =&gt; {
+        const aValues = [];
+        let iCounter = iGroupSize;
+        while (iCounter--) {
+          aValues.push({ sName: &#x60;Type ${iGroupSize - iCounter}&#x60; });
+        }
+        return aValues;
+      })()
+    };
+    jChart.aData = (() =&gt; {
+      const aData = [];
+      let iCounter = iLength;
+      while (iCounter--) {
+        aData.push({
+          sLabel: &#x60;Item ${iLength - iCounter}&#x60;,
+          aValues: (() =&gt; {
+            const aValues = [];
+            let iSubCounter = iGroupSize;
+            while (iSubCounter--) {
+              aValues.push(this.getRandomInteger(iRangeLow, iRangeHigh))
+            }
+            return aValues;
+          })()
+        });
+      }
+      return aData;
+    })();
+    return jChart;
+  }
+
+}
 
 module.exports = Utilities;
 

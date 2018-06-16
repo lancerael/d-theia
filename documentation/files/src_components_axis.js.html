@@ -43,15 +43,16 @@
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Chart.html">Chart</a></li>
+                                <li><a href="../classes/Colors.html">Colors</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
+                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Theia.html">Theia</a></li>
-                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -89,8 +90,9 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-const d3 = require(&#x27;d3&#x27;);
-const Utilities = require(&#x27;./utilities.js&#x27;);
+import * as d3 from &#x27;d3&#x27;;
+import Utilities from &#x27;./utilities&#x27;;
+
 /**
 * The Axis object is used to instantiate x and y axes, as well as labels
 *
@@ -98,7 +100,7 @@ const Utilities = require(&#x27;./utilities.js&#x27;);
 * @constructor
 */
 export default class Axis {
-  oContainer;
+  d3Container;
   iTruncate;
   aAxisLabels;
   oScaleX;
@@ -112,12 +114,12 @@ export default class Axis {
   * Constructor function which sets up the local object.
   *
   * @method constructor
-  * @param {JSON Object} jParams JSON configuration parameters object
+  * @param {Object} oParams configuration parameters object
   * @throws {Error} invalid parameters
   */
-  constructor(jParams) {
-    if (jParams.oContainer) {
-      Object.assign(this, jParams);
+  constructor(oParams) {
+    if (oParams.d3Container) {
+      Object.assign(this, oParams);
     } else {
       throw new Error(&#x27;Incorrect parameters provided to Axis constructor.&#x27;);
     }
@@ -142,8 +144,8 @@ export default class Axis {
   * @method renderAxisX
   */
   renderAxisX() {
-    this.oContainer.selectAll(&#x27;g.x-axis&#x27;).remove();
-    this.oContainer.append(&#x27;g&#x27;)
+    this.d3Container.selectAll(&#x27;g.x-axis&#x27;).remove();
+    this.d3Container.append(&#x27;g&#x27;)
         .attr(&#x27;class&#x27;, &#x27;x-axis&#x27;)
         .call(d3.axisBottom(this.oScaleX))
         .attr(&#x27;transform&#x27;, &#x60;translate(${this.jPadding.l},${this.iHeight})&#x60;)
@@ -156,7 +158,7 @@ export default class Axis {
           .style(&#x27;text-anchor&#x27;, &#x27;end&#x27;)
           .on(&#x27;mousemove&#x27;, (d) =&gt; {
             if (this.oToolTip &amp;&amp; d.length &gt; this.iTruncate) {
-              this.oToolTip.ping(d3.event.clientX + 8, d3.event.clientY + 5, &#x60;&lt;strong&gt;${d}&lt;/strong&gt;&#x60;);
+              this.oToolTip.ping(&#x60;&lt;strong&gt;${d}&lt;/strong&gt;&#x60;);
             }
           });
   }
@@ -167,8 +169,8 @@ export default class Axis {
   * @method renderAxisY
   */
   renderAxisY() {
-    this.oContainer.selectAll(&#x27;g.y-axis&#x27;).remove();
-    this.oContainer.append(&#x27;g&#x27;)
+    this.d3Container.selectAll(&#x27;g.y-axis&#x27;).remove();
+    this.d3Container.append(&#x27;g&#x27;)
         .attr(&#x27;class&#x27;, &#x27;y-axis&#x27;)
         .call(d3.axisLeft(this.oScaleY))
         .attr(&#x27;transform&#x27;, &#x60;translate(${this.jPadding.l},0)&#x60;)
@@ -182,15 +184,15 @@ export default class Axis {
   * @method renderLabels
   */
   renderLabels() {
-    this.oContainer.selectAll(&#x27;text.labels&#x27;).remove();
-    this.oContainer.append(&#x27;text&#x27;)
+    this.d3Container.selectAll(&#x27;text.labels&#x27;).remove();
+    this.d3Container.append(&#x27;text&#x27;)
         .attr(&#x27;class&#x27;, &#x27;labels&#x27;)
         .attr(&#x27;x&#x27;, (this.iHeight / -2) - (this.jPadding.t / 2))// - ((this.jConfig.aAxisLabels[0].length / 2) * 7))
         .attr(&#x27;y&#x27;, 10)
         .attr(&#x27;transform&#x27;, &#x27;rotate(-90)&#x27;)
         .attr(&#x27;text-anchor&#x27;, &#x27;middle&#x27;)
         .text(this.aAxisLabels[0]);
-    this.oContainer.append(&#x27;text&#x27;)
+    this.d3Container.append(&#x27;text&#x27;)
         .attr(&#x27;class&#x27;, &#x27;labels&#x27;)
         .attr(&#x27;x&#x27;, ((this.iWidth + this.jPadding.l + this.jPadding.r) / 2))// - ((this.aAxisLabels[1].length / 2) * 2))
         .attr(&#x27;y&#x27;, this.iHeight + (this.jPadding.b - 5))

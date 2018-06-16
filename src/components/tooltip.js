@@ -1,3 +1,5 @@
+import { event } from 'd3';
+
 /**
 * The Tooltip
 *
@@ -45,19 +47,19 @@ export default class Tooltip {
   * @param {Integer} y Location of y tooltip position
   * @param {String} sContent inner html content
   */
-  ping(x, y, sContent) {
-    const iPageOffsetX = window.pageXOffset
-      || document.documentElement.scrollLeft
-      || document.body.scrollLeft || 0;
-    const iPageOffsetY = window.pageYOffset
-      || document.documentElement.scrollTop
-      || document.body.scrollTop || 0;
+  ping(mContent) {
+    const sContent = mContent.constructor === Array
+      ? `<strong>${mContent[0]}</strong><br>${mContent[1]}: <em>${mContent[2]}</em>`
+      : mContent;
     const iZoomDivider = 1 + (window.devicePixelRatio > 1 ? (window.devicePixelRatio / 20) : 0);
+    const oContainerEdges = this.oContainer.getBoundingClientRect()
+    const iPageOffsetX = oContainerEdges.left - 15;
+    const iPageOffsetY = oContainerEdges.top;
     this.oTooltip.innerHTML = sContent;
     this.oTooltip.className = 'tooltip is-transparent';
     this.oTooltip.className = 'tooltip';
-    this.oTooltip.style.left = `${x + iPageOffsetX}px`;
-    this.oTooltip.style.top = `${(y / iZoomDivider) + iPageOffsetY}px`;
+    this.oTooltip.style.left = `${event.clientX - iPageOffsetX}px`;
+    this.oTooltip.style.top = `${(event.clientY / iZoomDivider) - iPageOffsetY}px`;
     clearTimeout(this.oTooltipTimeout);
     clearTimeout(this.oTooltipSubTimeout);
     this.oTooltipTimeout = setTimeout(() => {
@@ -71,7 +73,7 @@ export default class Tooltip {
     this.oTooltip.className = 'tooltip is-transparent';
     this.oTooltipSubTimeout = setTimeout(() => {
       this.oTooltip.className = 'tooltip is-transparent is-hidden';
-    }, 1000);
+    }, 300);
   }
 
 }

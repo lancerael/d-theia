@@ -43,15 +43,16 @@
                                 <li><a href="../classes/BarChart.html">BarChart</a></li>
                                 <li><a href="../classes/BubbleChart.html">BubbleChart</a></li>
                                 <li><a href="../classes/Chart.html">Chart</a></li>
+                                <li><a href="../classes/Colors.html">Colors</a></li>
                                 <li><a href="../classes/Key.html">Key</a></li>
                                 <li><a href="../classes/LineChart.html">LineChart</a></li>
                                 <li><a href="../classes/Tooltip.html">Tooltip</a></li>
+                                <li><a href="../classes/Utilities.html">Utilities</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Theia.html">Theia</a></li>
-                                <li><a href="../modules/Utilities.html">Utilities</a></li>
                             </ul>
                         </div>
                     </div>
@@ -96,7 +97,7 @@
 * @constructor
 */
 export default class Key {
-  oContainer;
+  d3Container;
   aValues;
   iOffsetX;
   iOffsetY;
@@ -105,14 +106,14 @@ export default class Key {
   * Constructor function that sets up the local object.
   *
   * @method constructor
-  * @param {DOM Element} oContainer DOM object
+  * @param {d3 Collection} d3Container A d3 wrapped container element
   * @param {Array} aValues the data to be displayed
   * @param {Integer} iOffsetX optional x offset
   * @param {Integer} iOffsetY optional y offset
   */
-  constructor({ oContainer, aValues, iOffsetX = 0, iOffsetY = 0 }) {
-    if (oContainer &amp;&amp; aValues) {
-      this.oContainer = oContainer;
+  constructor({ d3Container, aValues, iOffsetX = 0, iOffsetY = 0 }) {
+    if (d3Container &amp;&amp; aValues) {
+      this.d3Container = d3Container;
       this.aValues = aValues.slice(aValues);
       this.iOffsetX = iOffsetX;
       this.iOffsetY = iOffsetY;
@@ -125,13 +126,14 @@ export default class Key {
   * Render the key showing the labels for the colour values
   *
   * @method render
+  * @chainable
   */
   render() {
-    this.oContainer.selectAll(&#x27;g.key&#x27;).remove();
+    this.d3Container.selectAll(&#x27;g.key&#x27;).remove();
     let iGroupOffset = 0;
-    const oKeyG = this.oContainer.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;key&#x27;);
-    const aLabels = oKeyG.selectAll(&#x27;text.label&#x27;).data(this.aValues);
-    const calculateMargin = (aValues, i) =&gt; {
+    const d3KeyGroup = this.d3Container.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;key&#x27;);
+    const d3Labels = d3KeyGroup.selectAll(&#x27;text.label&#x27;).data(this.aValues);
+    const fnCalculateMargin = (aValues, i) =&gt; {
       let iMargin = 0;
       if (i) {
         for (let l = 0; l &lt; i; l++) {
@@ -140,7 +142,7 @@ export default class Key {
       }
       return iMargin;
     };
-    aLabels.enter()
+    d3Labels.enter()
       .append(&#x27;text&#x27;)
       .text(d =&gt; d.sName)
       .each((d, i, nodes) =&gt; {
@@ -149,24 +151,24 @@ export default class Key {
         iGroupOffset += iLabelWidth - 2;
       })
       .attr(&#x27;class&#x27;, &#x27;label&#x27;)
-      .attr(&#x27;x&#x27;, (d, i) =&gt; calculateMargin(this.aValues, i))
+      .attr(&#x27;x&#x27;, (d, i) =&gt; fnCalculateMargin(this.aValues, i))
       .attr(&#x27;y&#x27;, 8)
       .attr(&#x27;width&#x27;, 10)
       .attr(&#x27;height&#x27;, 10)
       .attr(&#x27;font-family&#x27;, &#x27;sans-serif&#x27;)
       .attr(&#x27;font-size&#x27;, &#x27;10px&#x27;)
       .attr(&#x27;fill&#x27;, &#x27;#222222&#x27;);
-    const aKeys = oKeyG.selectAll(&#x27;rect.key&#x27;).data(this.aValues);
-    aKeys.enter()
+    const d3Keys = d3KeyGroup.selectAll(&#x27;rect.key&#x27;).data(this.aValues);
+    d3Keys.enter()
       .append(&#x27;rect&#x27;)
       .attr(&#x27;class&#x27;, &#x27;key&#x27;)
       .attr(&#x27;fill&#x27;, d =&gt; d.sColour)
-      .attr(&#x27;x&#x27;, (d, i) =&gt; calculateMargin(this.aValues, i) - 12)
+      .attr(&#x27;x&#x27;, (d, i) =&gt; fnCalculateMargin(this.aValues, i) - 12)
       .attr(&#x27;y&#x27;, 0)
       .attr(&#x27;width&#x27;, 10)
       .attr(&#x27;height&#x27;, 10);
     iGroupOffset = this.iOffsetX - (iGroupOffset / 2);
-    oKeyG.attr(&#x27;transform&#x27;, &#x60;translate(${iGroupOffset},${this.iOffsetY})&#x60;);
+    d3KeyGroup.attr(&#x27;transform&#x27;, &#x60;translate(${iGroupOffset},${this.iOffsetY})&#x60;);
     return this;
   }
 
