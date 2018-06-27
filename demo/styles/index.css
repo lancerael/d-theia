@@ -11,12 +11,15 @@ body {
 
 .container {
   height: 320px;
-  background-color: #c5d9f7;
-  border: 1px solid #b8d2f9;
-  box-shadow: 2px 2px 5px grey;
   margin-bottom: 15px;
   min-width: 350px;
   position: relative;
+}
+
+.container svg {
+  background-color: #c5d9f7;
+  border: 1px solid #b8d2f9;
+  box-shadow: 2px 2px 5px grey;  
 }
 
 .dt-loader {

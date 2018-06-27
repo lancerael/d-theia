@@ -1,8 +1,8 @@
 {
   "name": "d-theia",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
-  "main": "./dist/d-theia.min.js",
+  "main": "./src/theia.js",
   "scripts": {
     "test": "karma start karma.config.js",
     "serve": "webpack-dev-server --progress --colors --output-public-path=/dist/ --host localhost --port 8081 --open --hot",
@@ -45,7 +45,6 @@
     "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
-    "d3": "^5.0.0",
-    "whatwg-fetch": "^2.0.3"
+    "d3": "^5.0.0"
   }
 }

@@ -25,7 +25,6 @@ export default class AxisChart extends Chart {
   constructor(oParams = {}) {
     super(oParams);
     this.jPadding = { l: 45, r: 15, t: 25, b: 90 };
-    this.oScaleX = d3.scaleBand().padding(0.2);
     this.oScaleY = d3.scaleLinear();
   }
 
@@ -36,12 +35,25 @@ export default class AxisChart extends Chart {
   */
   setDimensions() {
     super.setDimensions();
+    const bTrim = this.jConfig.bTrim;
+    let iMinValue = bTrim ? d3.min(this.aData, d => d3.min(d.aValues)) : 0;
+    let iMaxValue = d3.max(this.aData, d => d3.max(d.aValues));
+    const iSection = Math.ceil(iMaxValue / 15);
+    if (bTrim) {
+      const iLowerSection = iMinValue > iSection ? iMinValue - iSection : 0;
+      iMinValue = iMinValue > 0 ? iLowerSection : iMinValue;
+      iMinValue = iMinValue < 0 ? iMinValue - iSection : iMinValue;
+      iMaxValue += iSection;
+    }
     this.oScaleX
       .domain(this.aData.map(d => d.sLabel))
       .range([0, this.iInnerWidth]);
     this.oScaleY
-      .domain([0, d3.max(this.aData, d => d3.max(d.aValues))])
+      .domain([iMinValue, iMaxValue])
       .range([this.iInnerHeight, this.jPadding.t]);
+    this.iMinValue = iMinValue;
+    this.iMaxValue = iMaxValue;
+    this.iSection = iSection;
   }
 
   /**
@@ -50,7 +62,7 @@ export default class AxisChart extends Chart {
   * @method renderChart
   */
   renderChart() {
-    const { aAxisLabels, iTruncate } = this.jConfig;
+    const { aAxisLabels, iTruncate = 15 } = this.jConfig;
     const { iInnerWidth, iInnerHeight, oScaleX, oScaleY, jPadding } = this;
 
     // Add chart scale axes

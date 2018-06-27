@@ -89,7 +89,8 @@ class Utilities {
           aValues.push({ sName: `Type ${iGroupSize - iCounter}` });
         }
         return aValues;
-      })()
+      })(),
+      bTrim: true
     };
     jChart.aData = (() => {
       const aData = [];

@@ -99,14 +99,31 @@ export default class Chart {
   * @param {Array} aData array of JSON objects
   * @throws {Error} missing data
   */
-  setData(aData) {
+  setData(aData, bSkipTransform) {
     if (aData && Array.isArray(aData) === true) {
       this.aData = aData.slice(aData);
-      if (this.jConfig) {
+      if (this.jConfig && !bSkipTransform) {
         this.transformDataKeys();
       }
     } else {
       throw new Error('No valid data provided for chart.');
+    }
+  }
+
+  /**
+  * Updates the local data for the chart.
+  *
+  * @method updateData
+  * @param {Array} aData array of JSON objects
+  */
+  updateData(aData) {
+    this.setData(aData, true);
+    this.setDimensions();
+    if (this.oAxis) {
+      this.oAxis.render();
+    }
+    if (this.renderChart) {
+      this.renderChart();
     }
   }
 
@@ -161,6 +178,7 @@ export default class Chart {
   *
   * @method init
   * @throws {Error} chart not ready for initialisation
+  * @chainable
   */
   init() {
     this.setDimensions();
@@ -185,9 +203,9 @@ export default class Chart {
         this.renderChart();
       }
       this.dContainer.removeChild(this.dLoader);
-    } else {
-      throw new Error('The chart is not ready for initialisation.');
+      return this;
     }
+    throw new Error('The chart is not ready for initialisation.');
   }
 
 }
