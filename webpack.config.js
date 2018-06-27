@@ -1,10 +1,10 @@
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  entry: './src/components/theia.js',
+  entry: './src/theia.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'd-theia.min.js',
@@ -38,13 +38,13 @@ module.exports = {
         },
       },
     }),
-    //new UglifyJSPlugin(),
+    new UglifyJSPlugin(),
     //new BundleAnalyzerPlugin({
     //  analyzerMode: 'static'
     //}),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'node-static',
-      filename: 'vendor.js',
+      filename: 'd-theia.vendor.min.js',
       minChunks(module) {
         var context = module.context;
         return context && context.indexOf('node_modules') >= 0;

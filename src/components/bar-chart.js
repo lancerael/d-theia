@@ -12,6 +12,17 @@ export default class BarChart extends AxisChart {
   aBars;
 
   /**
+  * Constructor used to set chart type
+  *
+  * @method constructor
+  */
+  constructor(oParams = {}) {
+    super(oParams);
+    this.sChartType = 'bar';
+    this.oScaleX = d3.scaleBand().padding(0.2);
+  }
+
+  /**
   * Render the chart including bars, axes and labels
   *
   * @method renderChart
@@ -74,8 +85,15 @@ export default class BarChart extends AxisChart {
         .transition()
         .ease(d3.easeLinear)
         .duration(this.iTransitionTime)
-        .attr('y', d => oScaleY(d.aValues[i]))
-        .attr('height', d => iInnerHeight - oScaleY(d.aValues[i]));
+        .attr('y', (d) => {
+          let iValue = d.aValues[i];
+          iValue = iValue < 0 ? Math.abs(iValue) : 0;
+          return oScaleY(d.aValues[i] + iValue);
+        })
+        .attr('height', (d) => {
+          const iModifier = this.iMinValue < 0 ? Math.abs(this.iMinValue) : 0;
+          return iInnerHeight - oScaleY(Math.abs(d.aValues[i]) - iModifier);
+        });
     });
   }
 

@@ -22,6 +22,7 @@ export default class BubbleChart extends Chart {
   constructor(oParams = {}) {
     super(oParams);
     this.oScaleColour = d3.scaleLinear();
+    this.sChartType = 'bubble';
   }
 
   /**

@@ -1,7 +1,7 @@
-import BarChart from './bar-chart';
-import LineChart from './line-chart';
-import BubbleChart from './bubble-chart';
-import Utilities from './utilities';
+import BarChart from './components/bar-chart';
+import LineChart from './components/line-chart';
+import BubbleChart from './components/bubble-chart';
+import Utilities from './components/utilities';
 
 /**
 * Theia is the main API for dTheia - a reusable charting library built using d3 v.4 and ES6

@@ -81,6 +81,17 @@ export default class Key {
   }
 
 
+  /**
+  * Set the position of the key
+  *
+  * @method position
+  * @chainable
+  */
+  position() {
+    // placeholder
+    return this;
+  }
+
 }
 
 module.exports = Key;

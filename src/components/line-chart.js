@@ -13,6 +13,17 @@ export default class LineChart extends AxisChart {
   aCircles;
 
   /**
+  * Constructor used to set chart type
+  *
+  * @method constructor
+  */
+  constructor(oParams = {}) {
+    super(oParams);
+    this.sChartType = 'line';
+    this.oScaleX = d3.scalePoint();
+  }
+
+  /**
   * Render the chart including lines, axes and labels
   *
   * @method renderChart
@@ -75,13 +86,13 @@ export default class LineChart extends AxisChart {
           })
           .attr('class', `circles circles-${i}`)
           .attr('fill', sColour)
-          .attr('r', 5)
-          .attr('cy', d => oScaleY(d.aValues[i]));
+          .attr('r', 5);
       }
 
       // Update circles
       this.d3ChartGroup.selectAll(`circle.circles-${i}`)
-      .attr('cx', d => oScaleX(d.sLabel) + (oScaleX.bandwidth() / 2));
+        .attr('cy', d => oScaleY(d.aValues[i]))
+        .attr('cx', d => oScaleX(d.sLabel) + (oScaleX.bandwidth() / 2));
     });
   }
 

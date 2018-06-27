@@ -43,9 +43,7 @@ export default class Tooltip {
   * Ping the tooltip with data and location
   *
   * @method ping
-  * @param {Integer} x Location of x tooltip position
-  * @param {Integer} y Location of y tooltip position
-  * @param {String} sContent inner html content
+  * @param {Mixed (Array/String)} mContent values or string for content
   */
   ping(mContent) {
     const sContent = mContent.constructor === Array
@@ -55,10 +53,16 @@ export default class Tooltip {
     const oContainerEdges = this.oContainer.getBoundingClientRect()
     const iPageOffsetX = oContainerEdges.left - 15;
     const iPageOffsetY = oContainerEdges.top;
+    const iMouseX = event.clientX;
     this.oTooltip.innerHTML = sContent;
-    this.oTooltip.className = 'tooltip is-transparent';
     this.oTooltip.className = 'tooltip';
-    this.oTooltip.style.left = `${event.clientX - iPageOffsetX}px`;
+    if ((oContainerEdges.width + iPageOffsetX) - iMouseX < 90) {
+      this.oTooltip.style.left = 'auto';
+      this.oTooltip.style.right = `${(oContainerEdges.width - iMouseX) + iPageOffsetX + 25}px`;
+    } else {
+      this.oTooltip.style.left = `${iMouseX - iPageOffsetX}px`;
+      this.oTooltip.style.right = 'auto';
+    }
     this.oTooltip.style.top = `${(event.clientY / iZoomDivider) - iPageOffsetY}px`;
     clearTimeout(this.oTooltipTimeout);
     clearTimeout(this.oTooltipSubTimeout);
