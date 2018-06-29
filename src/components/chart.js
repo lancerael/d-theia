@@ -9,7 +9,7 @@ import Colors from './colors';
 * @constructor
 */
 export default class Chart {
-  oSvg;
+  dSvg;
   d3Svg;
   iTransitionTime;
   dContainer;
@@ -35,16 +35,16 @@ export default class Chart {
   * @param {DOM Element} dContainer Optional DOM object in place of ID
   */
   constructor({ jConfig, aData, sContainer, dContainer }) {
-    this.oSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    this.d3Svg = d3.select(this.oSvg);
+    this.dSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    this.d3Svg = d3.select(this.dSvg);
     this.iTransitionTime = 500;
     this.jPadding = { l: 5, r: 5, t: 5, b: 5 };
     this.dLoader = document.createElement('div');
     this.dLoader.className = 'dt-loader';
     if (!dContainer && sContainer) {
       dContainer = document.getElementById(sContainer);
-      if (!dContainer.nodeName) {
-        throw new Error('No valid element ID provided for chart.');
+      if (!dContainer || !dContainer.nodeName) {
+        throw new Error('No valid element or ID provided for chart.');
       }
     }
     if (dContainer) {
@@ -97,12 +97,13 @@ export default class Chart {
   *
   * @method setData
   * @param {Array} aData array of JSON objects
+  * @param {Boolean} bTransform transform mapped data
   * @throws {Error} missing data
   */
-  setData(aData, bSkipTransform) {
+  setData(aData, bTransform = true) {
     if (aData && Array.isArray(aData) === true) {
-      this.aData = aData.slice(aData);
-      if (this.jConfig && !bSkipTransform) {
+      this.aData = [...aData];
+      if (this.jConfig && bTransform) {
         this.transformDataKeys();
       }
     } else {
@@ -115,9 +116,10 @@ export default class Chart {
   *
   * @method updateData
   * @param {Array} aData array of JSON objects
+  * @param {Boolean} bTransform transform mapped data
   */
-  updateData(aData) {
-    this.setData(aData, true);
+  updateData(aData, bTransform = false) {
+    this.setData(aData, bTransform);
     this.setDimensions();
     if (this.oAxis) {
       this.oAxis.render();
@@ -155,7 +157,7 @@ export default class Chart {
         if (this.jConfig.aValues && !hItem.aValues) {
           hItem.aValues = [];
           this.jConfig.aValues.forEach((jValue) => {
-            hItem.aValues.push(hItem[jValue.sKey]);
+            hItem.aValues.push(parseInt(hItem[jValue.sKey]));
           });
         }
         if (this.jConfig.aAxisKeys && !hItem.sLabel) {
@@ -186,8 +188,8 @@ export default class Chart {
       this.iInitialWidth = this.iWidth;
       this.oToolTip = new ToolTip(this.dContainer).create();
       d3.select(this.dContainer).append('div').attr('class', 'title').text(this.jConfig.sTitle);
-      this.oSvg.setAttribute('class', 'chart');
-      this.dContainer.appendChild(this.oSvg);
+      this.dSvg.setAttribute('class', 'chart');
+      this.dContainer.appendChild(this.dSvg);
       this.oResizeWatcher = this.oResizeWatcher || window.addEventListener('resize', () => {
         this.setDimensions();
         this.iResizeOffset = this.iWidth - this.iInitialWidth;
@@ -196,7 +198,7 @@ export default class Chart {
         }
         this.oToolTip.hide();
       });
-      this.oChartOutWatcher = this.oChartOutWatcher || this.oSvg.addEventListener('mouseout', () => {
+      this.oChartOutWatcher = this.oChartOutWatcher || this.dSvg.addEventListener('mouseout', () => {
         this.oToolTip.hide();
       });
       if (this.renderChart) {

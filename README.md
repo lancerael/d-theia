@@ -34,7 +34,7 @@ http://79.170.40.52/ui-dev.lt/d-theia/
 
 There is a separate repository in progress, using React to create a sandbox app.
 
-d-theia-react-app - https://github.com/lancerael/d-theia-react-app
+d-theia-react-app - https://github.com/lancerael/d-theia-sandbox-react
 
 ## Usage
 
