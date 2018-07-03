@@ -83,7 +83,7 @@ export default class AxisChart extends Chart {
 
     // Render the key for the data
     this.oKey = new Key({
-      d3Container: d3.select(this.oSvg),
+      d3Container: d3.select(this.dSvg),
       aValues: this.jConfig.aValues,
       iOffsetX: (this.iInnerWidth / 2) + this.jPadding.l,
       iOffsetY: this.iHeight - 20
