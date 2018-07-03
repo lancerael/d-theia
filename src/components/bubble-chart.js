@@ -101,7 +101,7 @@ export default class BubbleChart extends Chart {
 
     // Render the key for the data
     this.oKey = new Key({
-      d3Container: d3.select(this.oSvg),
+      d3Container: d3.select(this.dSvg),
       aValues: [
         {
           sName: 0,
