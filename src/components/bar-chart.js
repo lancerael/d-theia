@@ -80,6 +80,7 @@ export default class BarChart extends AxisChart {
 
       // Update bars
       this.d3ChartGroup.selectAll(`rect.bars-${i}`)
+        .data(this.aData)
         .attr('x', d => oScaleX(d.sLabel) + iBarOffset)
         .attr('width', iBarWidth)
         .transition()
