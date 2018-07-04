@@ -1,4 +1,4 @@
-# dTheia v1.2.1
+# dTheia v1.2.2
 
 dTheia is a reusable charting library
 
