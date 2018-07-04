@@ -55,7 +55,9 @@ export default class LineChart extends AxisChart {
       this.aLines[i]
         .x(d => oScaleX(d.sLabel) + (oScaleX.bandwidth() / 2))
         .y(d => oScaleY(d.aValues[i]));
-      this.d3ChartGroup.selectAll(`path.lines-${i}`).attr('d', this.aLines[i]);
+      this.d3ChartGroup.selectAll(`path.lines-${i}`)
+        .data([this.aData])
+        .attr('d', this.aLines[i]);
 
       // Add circles for each value
       if (!this.aCircles[i]) {
@@ -91,6 +93,7 @@ export default class LineChart extends AxisChart {
 
       // Update circles
       this.d3ChartGroup.selectAll(`circle.circles-${i}`)
+        .data(this.aData)
         .attr('cy', d => oScaleY(d.aValues[i]))
         .attr('cx', d => oScaleX(d.sLabel) + (oScaleX.bandwidth() / 2));
     });
