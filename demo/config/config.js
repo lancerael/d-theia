@@ -6,22 +6,22 @@ const Config = {
       {
         sKey: 'totalDocks',
         sName: 'Total Docks',
-        sColour: '#204787',
+        sColor: '#204787',
       },
       {
         sKey: 'availableDocks',
         sName: 'Available Docks',
-        sColour: '#9aa4bc',
+        sColor: '#9aa4bc',
       },
       {
         sKey: 'availableBikes',
         sName: 'Available Bikes',
-        sColour: '#aa1b76',
+        sColor: '#aa1b76',
       },
       {
         sKey: 'statusKey',
         sName: 'Faulty Bikes',
-        sColour: 'red',
+        sColor: 'red',
       },
     ],
     aAxisKeys: ['stationName'],
@@ -48,7 +48,7 @@ const Config = {
       {
         sKey: 'availableBikes',
         sName: 'Available Bikes',
-        aColours: ['red', '#aa1b76']
+        aColors: ['red', '#aa1b76']
       },
     ],
     aAxisKeys: ['stationName'],
@@ -58,8 +58,8 @@ const Config = {
   jBarConfig2: {
     sTitle: 'Race Results by Driver',
     aValues: [
-      { sName: 'Position', sColour: 'green' },
-      { sName: 'Points', sColour: 'blue' }
+      { sName: 'Position', sColor: 'green' },
+      { sName: 'Points', sColor: 'blue' }
     ],
     aAxisLabels: ['Position / Points', 'Driver Name'],
     sBarType: 'side', // "stack","nest"

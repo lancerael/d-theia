@@ -1,13 +1,13 @@
-const d3 = require('d3');
-const Key = require('../src/components/key.js');
+import * as d3 from 'd3';
+import Key from '../src/components/Key.js';
 
 describe('Key', () => {
   let oKey;
 
   beforeEach(() => {
-    const oDiv = document.createElement('div');
+    const dDiv = document.createElement('div');
     oKey = new Key({
-      oContainer: d3.select(oDiv).append('g'),
+      d3Container: d3.select(dDiv).append('g'),
       aValues: [
         {
           sKey: 'k1',
@@ -25,6 +25,6 @@ describe('Key', () => {
 
   it('should render the key', () => {
     oKey.render();
-    expect(oKey.oContainer.selectAll('text.label').size()).toBe(2);
+    expect(oKey.d3Container.selectAll('text.label').size()).toBe(2);
   });
 });

@@ -1,20 +1,48 @@
 /**
-* The Key shows how the colours represent the data
+* The Key shows how the colors represent the data
 *
 * @class Key
 * @constructor
 */
 export default class Key {
+
+  /**
+  * d3 object for axis container
+  *
+  * @property d3Container
+  * @type {Object}
+  */
   d3Container;
+
+  /**
+  * The key's values
+  *
+  * @property aValues
+  * @type {Array}
+  */
   aValues;
+
+  /**
+  * The x offset for the key
+  *
+  * @property iOffsetX
+  * @type {Number}
+  */
   iOffsetX;
+
+  /**
+  * The y offset for the key
+  *
+  * @property iOffsetY
+  * @type {Number}
+  */
   iOffsetY;
 
   /**
   * Constructor function that sets up the local object.
   *
   * @method constructor
-  * @param {d3 Collection} d3Container A d3 wrapped container element
+  * @param {Object} d3Container A d3 wrapped container element
   * @param {Array} aValues the data to be displayed
   * @param {Integer} iOffsetX optional x offset
   * @param {Integer} iOffsetY optional y offset
@@ -31,7 +59,7 @@ export default class Key {
   }
 
   /**
-  * Render the key showing the labels for the colour values
+  * Render the key showing the labels for the color values
   *
   * @method render
   * @chainable
@@ -70,7 +98,7 @@ export default class Key {
     d3Keys.enter()
       .append('rect')
       .attr('class', 'key')
-      .attr('fill', d => d.sColour)
+      .attr('fill', d => d.sColor)
       .attr('x', (d, i) => fnCalculateMargin(this.aValues, i) - 12)
       .attr('y', 0)
       .attr('width', 10)

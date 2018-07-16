@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/Theia.js | d-theia</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./"><img src="./image/dt-logo.png" title='dTheia'></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Theia.js~Theia.html">Theia</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Axis.js~Axis.html">Axis</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/AxisChart.js~AxisChart.html">AxisChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BarChart.js~BarChart.html">BarChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BubbleChart.js~BubbleChart.html">BubbleChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Chart.js~Chart.html">Chart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Colors.js~Colors.html">Colors</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/DataOps.js~DataOps.html">DataOps</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LineChart.js~LineChart.html">LineChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Tooltip.js~Tooltip.html">Tooltip</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Utilities.js~Utilities.html">Utilities</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/Theia.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** @license dTheia v2.0.0
+ *
+ * Copyright (c) 2017-present, Lance Taylor.
+ *
+ * This source code is licensed under the GNU public license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+import BarChart from &apos;./components/BarChart&apos;;
+import LineChart from &apos;./components/LineChart&apos;;
+import BubbleChart from &apos;./components/BubbleChart&apos;;
+import Utilities from &apos;./components/Utilities&apos;;
+import DataOps from &apos;./components/DataOps&apos;;
+
+/**
+* Theia is the main API for dTheia - a reusable charting library built using d3 v.4 and ES6
+*
+* @module dTheia
+* @class Theia
+* @static
+* @main
+*/
+
+export default class Theia {
+
+  /**
+  * Create a chart and return object
+  *
+  * @method chart
+  * @static
+  * @param {String} sContainer ID to select container DOM object
+  * @param {String} sType string denoting the type of chart
+  * @param {Object} oParams includes target DOM object, JSON config and array of data
+  * @return {Object} oChart returns a chart object of the requested type
+  */
+  static chart(sContainer, sType, oParams) {
+    let oChart = {};
+    const oAllParams = { sContainer, ...oParams };
+    switch (sType) {
+      case &apos;line&apos;: {
+        oChart = this.createLineChart(oAllParams);
+        break;
+      }
+      case &apos;bubble&apos;: {
+        oChart = this.createBubbleChart(oAllParams);
+        break;
+      }
+      default: {
+        oChart = this.createBarChart(oAllParams);
+      }
+    }
+    return oChart;
+  }
+
+  /**
+  * Create a bar chart and return object
+  *
+  * @method createBarChart
+  * @static
+  * @param {Object} oParams contains the configuration for the chart
+  * @return {Object} returns a bar chart object
+  */
+  static createBarChart(oParams) {
+    return new BarChart(oParams).init();
+  }
+
+  /**
+  * Create a line chart and return object
+  *
+  * @method createLineChart
+  * @static
+  * @param {Object} oParams contains the configuration for the chart
+  * @return {Object} returns a line chart object
+  */
+  static createLineChart(oParams) {
+    return new LineChart(oParams).init();
+  }
+
+  /**
+  * Create a line chart and return object
+  *
+  * @method createBubbleChart
+  * @static
+  * @param {Object} oParams contains the configuration for the chart
+  * @return {Object} returns a bubble chart object
+  */
+  static createBubbleChart(oParams) {
+    return new BubbleChart(oParams).init();
+  }
+
+  /**
+  * Return a public Utilities module
+  *
+  * @method getUtilities
+  * @static
+  */
+  static getUtilities() {
+    return Utilities;
+  }
+
+  /**
+  * Return a public DataOps module
+  *
+  * @method getDataOps
+  * @static
+  */
+  static getDataOps() {
+    return DataOps;
+  }
+}
+
+module.exports = Theia;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

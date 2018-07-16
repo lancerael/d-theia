@@ -1,4 +1,4 @@
-var Utilities = Theia.getUtilities();
+var getPromiseJSON = Theia.getUtilities().getPromiseJSON;
 
 var aDummyData = [
   { 'redItem': 4, 'blueItem': 6, 'greenItem': 5, 'label': 'First' },
@@ -24,8 +24,8 @@ Theia.createLineChart({
  Display a bar chart, line chart and bubble chart from a subsection
  of retrieved data.
 */
-Utilities.getPromiseJSON('./data/cycles.json').then( function(data) {
-  var aCycleData = Utilities.sliceSampleData(data.stationBeanList, 15);
+getPromiseJSON('./data/cycles.json').then( function(data) {
+  var aCycleData = Theia.getDataOps().sliceSampleData(data.stationBeanList, 15);
   Theia.createBarChart({
 	  sContainer: 'container-bar-1',
     jConfig: Config.jAxisConfig1,
@@ -46,7 +46,7 @@ Utilities.getPromiseJSON('./data/cycles.json').then( function(data) {
 /*
  Display a bar chart from retrieved and transfromed data.
 */
-Utilities.getPromiseJSON('./data/formula1.json').then( function(data) {
+getPromiseJSON('./data/formula1.json').then( function(data) {
   Theia.createBarChart({
     sContainer: 'container-bar-2',
     jConfig: Config.jBarConfig2,

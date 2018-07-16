@@ -1,5 +1,6 @@
-const Utilities = Theia.getUtilities();
-let jTest = Utilities.getRandomData();
+const getPromiseJSON = Theia.getUtilities().getPromiseJSON;
+const DataOps = Theia.getDataOps();
+let jTest = DataOps.getRandomData();
 
 // Display dummy bar chart
 Theia.chart('container-bar-test', 'bar', jTest);
@@ -8,8 +9,8 @@ Theia.chart('container-bar-test', 'bar', jTest);
 Theia.chart('container-line-test', 'line', jTest);
 
 // Display a bar chart, line chart and bubble chart from a subsection of retrieved data.
-Utilities.getPromiseJSON('./data/cycles.json').then((data) => {
-  const aCycleData = Utilities.sliceSampleData(data.stationBeanList, 15);
+getPromiseJSON('./data/cycles.json').then((data) => {
+  const aCycleData = DataOps.sliceSampleData(data.stationBeanList, 15);
   const jCycleTest = {
     jConfig: Config.jAxisConfig1,
     aData: aCycleData,
@@ -20,7 +21,7 @@ Utilities.getPromiseJSON('./data/cycles.json').then((data) => {
 });
 
 // Display a bar chart from retrieved and transfromed data.
-Utilities.getPromiseJSON('./data/formula1.json').then((data) => {
+getPromiseJSON('./data/formula1.json').then((data) => {
   Theia.chart('container-bar-2', 'line', {
     jConfig: Config.jBarConfig2,
     aData: data.MRData.RaceTable.Races[0].Results.map((jItem) => {

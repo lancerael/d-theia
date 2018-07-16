@@ -1,4 +1,4 @@
-import { event } from 'd3';
+import { event } from 'd3-selection';
 
 /**
 * The Tooltip
@@ -7,20 +7,48 @@ import { event } from 'd3';
 * @constructor
 */
 export default class Tooltip {
+
+  /**
+  * DOM reference to container element
+  *
+  * @property dContainer
+  * @type {Object}
+  */
   oContainer;
-  oTooltip;
+
+  /**
+  * DOM reference to tooltip's main element
+  *
+  * @property dTooltip
+  * @type {Object}
+  */
+  dTooltip;
+
+  /**
+  * Tooltip's main timeout to close tooltip
+  *
+  * @property oTooltipTimeout
+  * @type {Object}
+  */
   oTooltipTimeout;
+
+  /**
+  * Tooltip's sub timeout to hide tooltip
+  *
+  * @property oTooltipSubTimeout
+  * @type {Object}
+  */
   oTooltipSubTimeout;
 
   /**
   * Constructor function that sets up the local object.
   *
   * @method constructor
-  * @param {DOM Element} oContainer DOM object
+  * @param {Object} dContainer DOM object
   */
-  constructor(oContainer) {
-    if (oContainer.nodeName) {
-      this.oContainer = oContainer;
+  constructor(dContainer) {
+    if (dContainer.nodeName) {
+      this.dContainer = dContainer;
     } else {
       throw new Error('The tooltip has no valid container element.');
     }
@@ -33,9 +61,9 @@ export default class Tooltip {
   * @chainable
   */
   create() {
-    this.oTooltip = document.createElement('div');
-    this.oTooltip.className = 'tooltip is-transparent is-hidden';
-    this.oContainer.appendChild(this.oTooltip);
+    this.dTooltip = document.createElement('div');
+    this.dTooltip.className = 'tooltip is-transparent is-hidden';
+    this.dContainer.appendChild(this.dTooltip);
     return this;
   }
 
@@ -43,27 +71,28 @@ export default class Tooltip {
   * Ping the tooltip with data and location
   *
   * @method ping
-  * @param {Mixed (Array/String)} mContent values or string for content
+  * @param {Array} mContent values or string for content
   */
   ping(mContent) {
     const sContent = mContent.constructor === Array
       ? `<strong>${mContent[0]}</strong><br>${mContent[1]}: <em>${mContent[2]}</em>`
       : mContent;
     const iZoomDivider = 1 + (window.devicePixelRatio > 1 ? (window.devicePixelRatio / 20) : 0);
-    const oContainerEdges = this.oContainer.getBoundingClientRect()
+    const oContainerEdges = this.dContainer.getBoundingClientRect()
     const iPageOffsetX = oContainerEdges.left - 15;
     const iPageOffsetY = oContainerEdges.top;
-    const iMouseX = event.clientX;
-    this.oTooltip.innerHTML = sContent;
-    this.oTooltip.className = 'tooltip';
+    const iMouseX = event ? event.clientX : 0;
+    const iMouseY = event ? event.clientY : 0;
+    this.dTooltip.innerHTML = sContent;
+    this.dTooltip.className = 'tooltip';
     if ((oContainerEdges.width + iPageOffsetX) - iMouseX < 90) {
-      this.oTooltip.style.left = 'auto';
-      this.oTooltip.style.right = `${(oContainerEdges.width - iMouseX) + iPageOffsetX + 25}px`;
+      this.dTooltip.style.left = 'auto';
+      this.dTooltip.style.right = `${(oContainerEdges.width - iMouseX) + iPageOffsetX + 25}px`;
     } else {
-      this.oTooltip.style.left = `${iMouseX - iPageOffsetX}px`;
-      this.oTooltip.style.right = 'auto';
+      this.dTooltip.style.left = `${iMouseX - iPageOffsetX}px`;
+      this.dTooltip.style.right = 'auto';
     }
-    this.oTooltip.style.top = `${(event.clientY / iZoomDivider) - iPageOffsetY}px`;
+    this.dTooltip.style.top = `${(iMouseY / iZoomDivider) - iPageOffsetY}px`;
     clearTimeout(this.oTooltipTimeout);
     clearTimeout(this.oTooltipSubTimeout);
     this.oTooltipTimeout = setTimeout(() => {
@@ -74,12 +103,10 @@ export default class Tooltip {
   hide() {
     clearTimeout(this.oTooltipTimeout);
     clearTimeout(this.oTooltipSubTimeout);
-    this.oTooltip.className = 'tooltip is-transparent';
+    this.dTooltip.className = 'tooltip is-transparent';
     this.oTooltipSubTimeout = setTimeout(() => {
-      this.oTooltip.className = 'tooltip is-transparent is-hidden';
+      this.dTooltip.className = 'tooltip is-transparent is-hidden';
     }, 300);
   }
 
 }
-
-module.exports = Tooltip;

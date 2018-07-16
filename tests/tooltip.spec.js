@@ -1,26 +1,26 @@
-const d3 = require('d3');
-const Tooltip = require('../src/components/tooltip.js');
+import * as d3 from 'd3';
+import Tooltip from '../src/components/Tooltip';
 
 describe('Key', () => {
   let oTooltip;
-  let oDiv;
+  let dDiv;
 
   beforeEach(() => {
-    oDiv = document.createElement('div');
-    oTooltip = new Tooltip(oDiv);
+    dDiv = document.createElement('div');
+    oTooltip = new Tooltip(dDiv);
   });
 
   it('should create the tooltip and return chained object', () => {
     const oChainedTooltip = oTooltip.create();
-    expect(d3.select(oDiv).selectAll('.tooltip.is-transparent').size()).toBe(1);
+    expect(d3.select(dDiv).selectAll('.tooltip.is-transparent').size()).toBe(1);
     expect(oChainedTooltip).toEqual(oTooltip);
   });
 
   it('should ping the tooltip in location with correct content', () => {
     oTooltip.create();
-    oTooltip.ping(10, 10, 'test');
-    expect(d3.select(oDiv).selectAll('.tooltip.is-transparent').size()).toBe(0);
-    expect(oTooltip.oTooltip.style.left).toBe('10px');
-    expect(oTooltip.oTooltip.style.top).toBe('10px');
+    oTooltip.ping('test');
+    expect(d3.select(dDiv).selectAll('.tooltip.is-transparent').size()).toBe(0);
+    expect(oTooltip.dTooltip.style.left).toBe('auto');
+    expect(oTooltip.dTooltip.style.top).toBe('0px');
   });
 });

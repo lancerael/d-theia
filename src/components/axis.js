@@ -1,5 +1,5 @@
-import * as d3 from 'd3';
-import Utilities from './utilities';
+import { axisBottom, axisLeft } from 'd3-axis';
+import Utilities from './Utilities';
 
 /**
 * The Axis object is used to instantiate x and y axes, as well as labels
@@ -8,14 +8,77 @@ import Utilities from './utilities';
 * @constructor
 */
 export default class Axis {
+
+  /**
+  * d3 object for axis container
+  *
+  * @property d3Container
+  * @type {Object}
+  */
   d3Container;
+
+  /**
+  * Amount to truncate axis labels to
+  *
+  * @property iTruncate
+  * @type {Object}
+  */
   iTruncate;
+
+  /**
+  * Collection of axis labels
+  *
+  * @property aAxisLabels
+  * @type {Array}
+  */
   aAxisLabels;
+
+  /**
+  * Scale object for the x axis
+  *
+  * @property oScaleX
+  * @type {Object}
+  */
   oScaleX;
+
+  /**
+  * Scale object for the y axis
+  *
+  * @property oScaleY
+  * @type {Object}
+  */
   oScaleY;
-  oToolTip;
+
+  /**
+  * Chart's tooltip object
+  *
+  * @property oTooltip
+  * @type {Object}
+  */
+  oTooltip;
+
+  /**
+  * The current calculated width of the chart
+  *
+  * @property iWidth
+  * @type {Number}
+  */
   iWidth;
+
+  /**
+  * The current calculated height of the chart
+  *
+  * @property iHeight
+  * @type {Number}
+  */
   iHeight;
+
+  /**
+  * The padding for the chart within the container
+  *
+  * @property jPadding
+  * @type {Object}
+  */
   jPadding;
 
   /**
@@ -55,7 +118,7 @@ export default class Axis {
     this.d3Container.selectAll('g.x-axis').remove();
     this.d3Container.append('g')
         .attr('class', 'x-axis')
-        .call(d3.axisBottom(this.oScaleX))
+        .call(axisBottom(this.oScaleX))
         .attr('transform', `translate(${this.jPadding.l},${this.iHeight})`)
         .selectAll('text')
           .attr('x', -5)
@@ -65,8 +128,8 @@ export default class Axis {
           .text(d => Utilities.truncateString(d, this.iTruncate))
           .style('text-anchor', 'end')
           .on('mousemove', (d) => {
-            if (this.oToolTip && d.length > this.iTruncate) {
-              this.oToolTip.ping(`<strong>${d}</strong>`);
+            if (this.oTooltip && d.length > this.iTruncate) {
+              this.oTooltip.ping(`<strong>${d}</strong>`);
             }
           });
   }
@@ -80,7 +143,7 @@ export default class Axis {
     this.d3Container.selectAll('g.y-axis').remove();
     this.d3Container.append('g')
         .attr('class', 'y-axis')
-        .call(d3.axisLeft(this.oScaleY))
+        .call(axisLeft(this.oScaleY))
         .attr('transform', `translate(${this.jPadding.l},0)`)
         .selectAll('.y-axis .tick line')
           .attr('x2', () => this.iWidth);
