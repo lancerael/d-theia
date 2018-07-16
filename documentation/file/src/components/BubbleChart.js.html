@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/components/BubbleChart.js | d-theia</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./"><img src="./image/dt-logo.png" title='dTheia'></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Theia.js~Theia.html">Theia</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Axis.js~Axis.html">Axis</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/AxisChart.js~AxisChart.html">AxisChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BarChart.js~BarChart.html">BarChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BubbleChart.js~BubbleChart.html">BubbleChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Chart.js~Chart.html">Chart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Colors.js~Colors.html">Colors</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/DataOps.js~DataOps.html">DataOps</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LineChart.js~LineChart.html">LineChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Tooltip.js~Tooltip.html">Tooltip</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Utilities.js~Utilities.html">Utilities</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/BubbleChart.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { forceSimulation, forceManyBody, forceCenter } from &apos;d3-force&apos;;
+import { max } from &apos;d3-array&apos;;
+import { select } from &apos;d3-selection&apos;;
+import { easeLinear } from &apos;d3-ease&apos;;
+import { scaleLinear } from &apos;d3-scale&apos;;
+import Chart from &apos;./Chart&apos;;
+import Axis from &apos;./Axis&apos;;
+import Key from &apos;./Key&apos;;
+
+/**
+* Create BubbleCharts from the supplied data, based on the supplied JSON config.
+*
+* @class BubbleChart
+* @extends {Chart}
+* @constructor
+*/
+export default class BubbleChart extends Chart {
+
+  /**
+  * The local collection of bubbles
+  *
+  * @property aBubbles
+  * @type {Array}
+  */
+  aBubbles;
+
+  /**
+  * Constructor function supersedes parent class.
+  *
+  * @method constructor
+  * @param {Object} oParams same as Chart
+  */
+  constructor(oParams = {}) {
+    super(oParams);
+    this.oScaleColor = scaleLinear();
+    this.sChartType = &apos;bubble&apos;;
+  }
+
+  /**
+  * Supersede the parent method to update local scaling objects
+  *
+  * @method setDimensions
+  */
+  setDimensions() {
+    super.setDimensions();
+    this.oScaleColor
+      .domain([0, max(this.aData, d =&gt; d[this.jConfig.aValues[1].sKey])])
+      .range(this.jConfig.aValues[1].aColors);
+  }
+
+  /**
+  * Render the chart including bubbles, axes and labels
+  *
+  * @method renderChart
+  */
+  renderChart() {
+    const { aAxisLabels, aValues } = this.jConfig;
+    const { iInnerWidth, iInnerHeight, jPadding } = this;
+    const { sKey: sKey1, sName: sName1 } = aValues[0];
+    const { sKey: sKey2, sName: sName2, aColors } = aValues[1];
+
+    // Add chart scale axes
+    this.d3AxisGroup = this.d3AxisGroup || this.d3Svg.append(&apos;g&apos;).attr(&apos;class&apos;, &apos;axes-g&apos;);
+    this.oAxis = new Axis({
+      d3Container: this.d3AxisGroup,
+      aAxisLabels,
+      jPadding,
+      iWidth: iInnerWidth,
+      iHeight: iInnerHeight - 25 }).renderLabels();
+
+    // Add the group container for bubbles
+    this.d3BubblesGroup = this.d3BubblesGroup || this.d3Svg.append(&apos;g&apos;).attr(&apos;transform&apos;, `translate(${this.jPadding.l}, 0)`);
+
+    // The method runs on each tick of the force calculation to reposition the bubbles
+    const fnTicked = () =&gt; {
+      this.d3BubblesGroup.selectAll(&apos;circle&apos;)
+        .attr(&apos;cx&apos;, d =&gt; d.x)
+        .attr(&apos;cy&apos;, d =&gt; d.y);
+    };
+
+    // Initialise the d3 force calculations
+    this.oForce = forceSimulation()
+      .nodes(JSON.parse(JSON.stringify(this.aData)))
+      .force(&apos;charge&apos;, forceManyBody().strength(d =&gt; (d[sKey1] * (d[sKey1] / 2)) / -150))
+      .force(&apos;center&apos;, forceCenter(this.iWidth / 2, this.iHeight / 2))
+      .on(&apos;tick&apos;, () =&gt; {
+        fnTicked();
+      });
+
+    // Add circles for each value
+    if (!this.d3Circles) {
+      // Bind bars data
+      this.d3Circles = this.d3BubblesGroup.selectAll(&apos;circle.circles&apos;).data(this.oForce.nodes());
+      // Add new rect elements and set base attributes
+      this.d3Circles
+        .enter()
+        .append(&apos;circle&apos;)
+        .on(&apos;mousemove&apos;, (d) =&gt; {
+          this.oTooltip.ping(`&lt;strong&gt;${d.sLabel}&lt;/strong&gt;&lt;br&gt;${sName1}: &lt;em&gt;${d[sKey1]}&lt;/em&gt;&lt;br&gt;${sName2}: &lt;em&gt;${d[sKey2]}&lt;/em&gt;`);
+        })
+        .on(&apos;mouseout&apos;, () =&gt; this.oTooltip.hide())
+        .attr(&apos;class&apos;, &apos;circles&apos;)
+        .attr(&apos;fill&apos;, d =&gt; this.oScaleColor(d[sKey2]))
+        .attr(&apos;r&apos;, 0)
+        .transition()
+        .ease(easeLinear)
+        .duration(this.iTransitionTime)
+        .attr(&apos;r&apos;, d =&gt; d[sKey1] / 2);
+    } else {
+      this.d3BubblesGroup.attr(&apos;transform&apos;, `translate(${this.iResizeOffset / 2}, 0)`);
+    }
+
+    // Render the key for the data
+    this.oKey = new Key({
+      d3Container: select(this.dSvg),
+      aValues: [
+        {
+          sName: 0,
+          sColor: aColors[0]
+        },
+        {
+          sName: this.oScaleColor.domain()[1],
+          sColor: aColors[1]
+        }
+      ],
+      iOffsetX: (this.iInnerWidth / 2) + this.jPadding.l + 10,
+      iOffsetY: this.iHeight - 20,
+      sType: &apos;range&apos;
+    }).render();
+  }
+
+}
+
+module.exports = BubbleChart;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

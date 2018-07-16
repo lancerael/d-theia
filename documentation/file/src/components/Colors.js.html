@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/components/Colors.js | d-theia</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./"><img src="./image/dt-logo.png" title='dTheia'></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Theia.js~Theia.html">Theia</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Axis.js~Axis.html">Axis</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/AxisChart.js~AxisChart.html">AxisChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BarChart.js~BarChart.html">BarChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BubbleChart.js~BubbleChart.html">BubbleChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Chart.js~Chart.html">Chart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Colors.js~Colors.html">Colors</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/DataOps.js~DataOps.html">DataOps</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LineChart.js~LineChart.html">LineChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Tooltip.js~Tooltip.html">Tooltip</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Utilities.js~Utilities.html">Utilities</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/Colors.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { rgb } from &apos;d3-color&apos;;
+import Utilities from &apos;./Utilities&apos;;
+
+/**
+* The Colors object is is a class containing reusable static methods
+*
+* @class Colors
+* @static
+*/
+export default class Colors {
+
+  /**
+  * Returns a random color (D3 object)
+  *
+  * @method getRandomColor
+  * @static
+  * @param {String} sBackground the type of background light/dark to filter for contrast
+  * @param {Integer} iBoundary the brightness value to filter
+  * @return {Object} randomly generated RGB object
+  */
+  static getRandomColor(sBackground = &apos;light&apos;, iBoundary = 170) {
+    const iRGB = () =&gt; Utilities.getRandomInteger(0, 255);
+    let aValues = [];
+    while (!aValues.length || !this.colorFilter(sBackground, iBoundary, aValues)) {
+      aValues = [iRGB(), iRGB(), iRGB()];
+    }
+    return rgb(aValues[0], aValues[1], aValues[2]);
+  }
+
+  /**
+  * Used to filter random colour values and ensure high contrast against background
+  *
+  * @method colorFilter
+  * @static
+  * @param {String} sBackground the type of background light/dark to filter for contrast
+  * @param {Integer} iBoundary the brightness value to filter
+  * @param {Array} aValues array of RGB values
+  * @return {Boolean} specify whether the values pass or fail
+  */
+  static colorFilter(sBackground, iBoundary, aValues) {
+    let bPass = false;
+    if (!aValues.length) {
+      bPass = false;
+    } else if (!sBackground) {
+      bPass = true
+    } else {
+      const iBrightness = ((aValues[0] * 299) + (aValues[1] * 587) + (aValues[2] * 114)) / 1000;
+      if (sBackground === &apos;light&apos;) {
+        bPass = iBrightness &lt; iBoundary;
+      } else if (sBackground === &apos;dark&apos;) {
+        bPass = iBrightness &gt; iBoundary;
+      }
+    }
+    return bPass;
+  }
+
+  /**
+  * Converts a HEX string to an RGB value
+  *
+  * @method convertHexToRgb
+  * @static
+  * @param {String} sColor the HEX colour
+  * @return {Object} RGB color object
+  */
+  static convertHexToRgb(sColor) {
+    return rgb(sColor);
+  }
+
+  /**
+  * Returns a random color palette
+  *
+  * @method getRandomPalette
+  * @static
+  * @param {Integer} iLength the size of the palette
+  * @return {Array} list of randomly generated RGB objects
+  */
+  static getRandomPalette(iLength = 10) {
+    let iCount = iLength;
+    const aPalette = [];
+    while (iCount--) {
+      aPalette.push(this.getRandomColor());
+    }
+    return aPalette;
+  }
+
+  /**
+  * Returns a darker version of a color
+  *
+  * @method getDarkerColor
+  * @static
+  * @param {Object} oColor RGB object
+  * @return {Object} darker RGB object
+  */
+  static getDarkerColor(oColor) {
+    return oColor.darker(0.5);
+  }
+
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

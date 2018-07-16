@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/components/Key.js | d-theia</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./"><img src="./image/dt-logo.png" title='dTheia'></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Theia.js~Theia.html">Theia</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Axis.js~Axis.html">Axis</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/AxisChart.js~AxisChart.html">AxisChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BarChart.js~BarChart.html">BarChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BubbleChart.js~BubbleChart.html">BubbleChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Chart.js~Chart.html">Chart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Colors.js~Colors.html">Colors</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/DataOps.js~DataOps.html">DataOps</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LineChart.js~LineChart.html">LineChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Tooltip.js~Tooltip.html">Tooltip</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Utilities.js~Utilities.html">Utilities</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/Key.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+* The Key shows how the colors represent the data
+*
+* @class Key
+* @constructor
+*/
+export default class Key {
+
+  /**
+  * d3 object for axis container
+  *
+  * @property d3Container
+  * @type {Object}
+  */
+  d3Container;
+
+  /**
+  * The key&apos;s values
+  *
+  * @property aValues
+  * @type {Array}
+  */
+  aValues;
+
+  /**
+  * The x offset for the key
+  *
+  * @property iOffsetX
+  * @type {Number}
+  */
+  iOffsetX;
+
+  /**
+  * The y offset for the key
+  *
+  * @property iOffsetY
+  * @type {Number}
+  */
+  iOffsetY;
+
+  /**
+  * Constructor function that sets up the local object.
+  *
+  * @method constructor
+  * @param {Object} d3Container A d3 wrapped container element
+  * @param {Array} aValues the data to be displayed
+  * @param {Integer} iOffsetX optional x offset
+  * @param {Integer} iOffsetY optional y offset
+  */
+  constructor({ d3Container, aValues, iOffsetX = 0, iOffsetY = 0 }) {
+    if (d3Container &amp;&amp; aValues) {
+      this.d3Container = d3Container;
+      this.aValues = aValues.slice(aValues);
+      this.iOffsetX = iOffsetX;
+      this.iOffsetY = iOffsetY;
+    } else {
+      throw new Error(&apos;Incorrect parameters provided to Key constructor.&apos;);
+    }
+  }
+
+  /**
+  * Render the key showing the labels for the color values
+  *
+  * @method render
+  * @chainable
+  */
+  render() {
+    this.d3Container.selectAll(&apos;g.key&apos;).remove();
+    let iGroupOffset = 0;
+    const d3KeyGroup = this.d3Container.append(&apos;g&apos;).attr(&apos;class&apos;, &apos;key&apos;);
+    const d3Labels = d3KeyGroup.selectAll(&apos;text.label&apos;).data(this.aValues);
+    const fnCalculateMargin = (aValues, i) =&gt; {
+      let iMargin = 0;
+      if (i) {
+        for (let l = 0; l &lt; i; l++) {
+          iMargin += aValues[l].iLabelWidth;
+        }
+      }
+      return iMargin;
+    };
+    d3Labels.enter()
+      .append(&apos;text&apos;)
+      .text(d =&gt; d.sName)
+      .each((d, i, nodes) =&gt; {
+        const iLabelWidth = nodes[i].getBoundingClientRect().width + 15;
+        this.aValues[i].iLabelWidth = iLabelWidth;
+        iGroupOffset += iLabelWidth - 2;
+      })
+      .attr(&apos;class&apos;, &apos;label&apos;)
+      .attr(&apos;x&apos;, (d, i) =&gt; fnCalculateMargin(this.aValues, i))
+      .attr(&apos;y&apos;, 8)
+      .attr(&apos;width&apos;, 10)
+      .attr(&apos;height&apos;, 10)
+      .attr(&apos;font-family&apos;, &apos;sans-serif&apos;)
+      .attr(&apos;font-size&apos;, &apos;10px&apos;)
+      .attr(&apos;fill&apos;, &apos;#222222&apos;);
+    const d3Keys = d3KeyGroup.selectAll(&apos;rect.key&apos;).data(this.aValues);
+    d3Keys.enter()
+      .append(&apos;rect&apos;)
+      .attr(&apos;class&apos;, &apos;key&apos;)
+      .attr(&apos;fill&apos;, d =&gt; d.sColor)
+      .attr(&apos;x&apos;, (d, i) =&gt; fnCalculateMargin(this.aValues, i) - 12)
+      .attr(&apos;y&apos;, 0)
+      .attr(&apos;width&apos;, 10)
+      .attr(&apos;height&apos;, 10);
+    iGroupOffset = this.iOffsetX - (iGroupOffset / 2);
+    d3KeyGroup.attr(&apos;transform&apos;, `translate(${iGroupOffset},${this.iOffsetY})`);
+    return this;
+  }
+
+
+  /**
+  * Set the position of the key
+  *
+  * @method position
+  * @chainable
+  */
+  position() {
+    // placeholder
+    return this;
+  }
+
+}
+
+module.exports = Key;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

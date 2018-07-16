@@ -1,13 +1,13 @@
-const d3 = require('d3');
-const Axis = require('../src/components/axis.js');
+import * as d3 from 'd3';
+import Axis from '../src/components/Axis';
 
 describe('Axis', () => {
   let oAxis;
 
   beforeEach(() => {
-    const oDiv = document.createElement('div');
+    const dDiv = document.createElement('div');
     oAxis = new Axis({
-      oContainer: d3.select(oDiv).append('g'),
+      d3Container: d3.select(dDiv),
       oScaleX: d3.scaleBand().padding(0.2),
       oScaleY: d3.scaleLinear(),
       jPadding: { l: 5, r: 5, t: 5, b: 5 },
@@ -28,17 +28,17 @@ describe('Axis', () => {
 
   it('should render the x axis', () => {
     oAxis.renderAxisX();
-    expect(oAxis.oContainer.selectAll('g.x-axis').size()).toBe(1);
+    expect(oAxis.d3Container.selectAll('g.x-axis').size()).toBe(1);
   });
 
   it('should render the y axis', () => {
     oAxis.renderAxisY();
-    expect(oAxis.oContainer.selectAll('g.y-axis').size()).toBe(1);
+    expect(oAxis.d3Container.selectAll('g.y-axis').size()).toBe(1);
   });
 
   it('should render the labels', () => {
     oAxis.renderLabels();
-    const oLabels = oAxis.oContainer.selectAll('text.labels');
+    const oLabels = oAxis.d3Container.selectAll('text.labels');
     expect(oLabels.size()).toBe(2);
     oLabels.each((d, i, elems) => {
       expect(elems[i].innerHTML).toBe(oAxis.aAxisLabels[i]);

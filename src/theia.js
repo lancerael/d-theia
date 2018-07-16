@@ -1,28 +1,41 @@
-import BarChart from './components/bar-chart';
-import LineChart from './components/line-chart';
-import BubbleChart from './components/bubble-chart';
-import Utilities from './components/utilities';
+/** @license dTheia v2.0.0
+ *
+ * Copyright (c) 2017-present, Lance Taylor.
+ *
+ * This source code is licensed under the GNU public license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+import BarChart from './components/BarChart';
+import LineChart from './components/LineChart';
+import BubbleChart from './components/BubbleChart';
+import Utilities from './components/Utilities';
+import DataOps from './components/DataOps';
 
 /**
 * Theia is the main API for dTheia - a reusable charting library built using d3 v.4 and ES6
 *
-* @module Theia
+* @module dTheia
+* @class Theia
+* @static
+* @main
 */
 
-const Theia = {
+export default class Theia {
 
   /**
   * Create a chart and return object
   *
   * @method chart
+  * @static
   * @param {String} sContainer ID to select container DOM object
   * @param {String} sType string denoting the type of chart
-  * @param {Object} jParams includes target DOM object, JSON config and array of data
-  * @return {Chart object} oChart returns a chart object of the requested type
+  * @param {Object} oParams includes target DOM object, JSON config and array of data
+  * @return {Object} oChart returns a chart object of the requested type
   */
-  chart(sContainer, sType, jParams) {
+  static chart(sContainer, sType, oParams) {
     let oChart = {};
-    const oAllParams = { sContainer, sType, ...jParams };
+    const oAllParams = { sContainer, ...oParams };
     switch (sType) {
       case 'line': {
         oChart = this.createLineChart(oAllParams);
@@ -37,49 +50,63 @@ const Theia = {
       }
     }
     return oChart;
-  },
+  }
 
   /**
   * Create a bar chart and return object
   *
   * @method createBarChart
+  * @static
   * @param {Object} oParams contains the configuration for the chart
-  * @return {BarChart object} returns a bar chart object
+  * @return {Object} returns a bar chart object
   */
-  createBarChart(oParams) {
+  static createBarChart(oParams) {
     return new BarChart(oParams).init();
-  },
+  }
 
   /**
   * Create a line chart and return object
   *
   * @method createLineChart
+  * @static
   * @param {Object} oParams contains the configuration for the chart
-  * @return {LineChart object} returns a line chart object
+  * @return {Object} returns a line chart object
   */
-  createLineChart(oParams) {
+  static createLineChart(oParams) {
     return new LineChart(oParams).init();
-  },
+  }
 
   /**
   * Create a line chart and return object
   *
   * @method createBubbleChart
+  * @static
   * @param {Object} oParams contains the configuration for the chart
-  * @return {BubbleChart object} returns a bubble chart object
+  * @return {Object} returns a bubble chart object
   */
-  createBubbleChart(oParams) {
+  static createBubbleChart(oParams) {
     return new BubbleChart(oParams).init();
-  },
+  }
 
   /**
   * Return a public Utilities module
   *
   * @method getUtilities
+  * @static
   */
-  getUtilities() {
+  static getUtilities() {
     return Utilities;
   }
-};
+
+  /**
+  * Return a public DataOps module
+  *
+  * @method getDataOps
+  * @static
+  */
+  static getDataOps() {
+    return DataOps;
+  }
+}
 
 module.exports = Theia;

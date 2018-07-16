@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/components/BarChart.js | d-theia</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./"><img src="./image/dt-logo.png" title='dTheia'></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Theia.js~Theia.html">Theia</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Axis.js~Axis.html">Axis</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/AxisChart.js~AxisChart.html">AxisChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BarChart.js~BarChart.html">BarChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BubbleChart.js~BubbleChart.html">BubbleChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Chart.js~Chart.html">Chart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Colors.js~Colors.html">Colors</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/DataOps.js~DataOps.html">DataOps</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LineChart.js~LineChart.html">LineChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Tooltip.js~Tooltip.html">Tooltip</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Utilities.js~Utilities.html">Utilities</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/BarChart.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { easeLinear } from &apos;d3-ease&apos;;
+import { select, event } from &apos;d3-selection&apos;;
+import &apos;d3-transition&apos;;
+import AxisChart from &apos;./AxisChart&apos;;
+
+/**
+* Create BarCharts from the supplied data, based on the JSON config.
+*
+* @class BarChart
+* @extends {AxisChart}
+* @constructor
+*/
+export default class BarChart extends AxisChart {
+
+  /**
+  * The local collection of bars
+  *
+  * @property aBars
+  * @type {Array}
+  */
+  aBars;
+
+  /**
+  * Constructor used to set chart type
+  *
+  * @method constructor
+  */
+  constructor(oParams = {}) {
+    super(oParams);
+    this.sChartType = &apos;bar&apos;;
+  }
+
+  /**
+  * Render the chart including bars, axes and labels
+  *
+  * @method renderChart
+  * @param {Boolean} bReset optionally reset the chart data
+  * @param {Boolean} bHeightTransition optionally transition height
+  */
+  renderChart(bReset = false, bHeightTransition = true) {
+    super.renderChart();
+    const { aValues, sBarType = &apos;side&apos; } = this.jConfig;
+    const { iInnerHeight, oScaleX, oScaleY } = this;
+    const iBarWidth = oScaleX.bandwidth() / aValues.length;
+
+    this.aBars = this.aBars || [];
+
+    // Iterate through config value keys
+    aValues.forEach((oValues, i) =&gt; {
+      const { oColor } = oValues;
+      const iBarOffset = sBarType === &apos;side&apos; ? (iBarWidth * i) : 0;
+      // Reset bars data and clear graph
+      if (bReset &amp;&amp; this.aBars[i]) {
+        this.aBars[i] = this.d3ChartGroup.selectAll(`rect.bars-${i}`).data({});
+        this.aBars[i].exit().remove();
+        this.aBars[i] = undefined;
+      }
+      // Add bars for each value
+      if (!this.aBars[i]) {
+        // Bind bars data
+        this.aBars[i] = this.d3ChartGroup.selectAll(`rect.bars-${i}`).data(this.aData);
+        // Add new rect elements and set base attributes
+        this.aBars[i]
+          .enter()
+          .append(&apos;rect&apos;)
+          .on(&apos;mousemove&apos;, (d) =&gt; {
+            this.oTooltip.ping([d.sLabel, oValues.sName, d.aValues[i]]);
+          })
+          .on(&apos;mouseover&apos;, (d) =&gt; {
+            d.oColor = oColor;
+            select(event.target).attr(&apos;fill&apos;, d.oColor.darker(1));
+          })
+          .on(&apos;mousedown&apos;, (d) =&gt; {
+            if (this.jConfig.fnClickCallback) {
+              this.jConfig.fnClickCallback({
+                oEvent: event,
+                jData: d
+              });
+            }
+          })
+          .on(&apos;mouseout&apos;, (d) =&gt; {
+            this.oTooltip.hide();
+            select(event.target).attr(&apos;fill&apos;, d.oColor);
+          })
+          .attr(&apos;class&apos;, `bars bars-${i}`)
+          .attr(&apos;fill&apos;, oColor)
+          .attr(&apos;y&apos;, iInnerHeight)
+          .attr(&apos;height&apos;, 0);
+      }
+
+      // Update bars (IIFE used to allow for optional transition)
+      (() =&gt; {
+        const d3BarGroup = this.d3ChartGroup.selectAll(`rect.bars-${i}`);
+        d3BarGroup.data(this.aData)
+          .attr(&apos;x&apos;, d =&gt; oScaleX(d.sLabel) + iBarOffset)
+          .attr(&apos;width&apos;, iBarWidth);
+        if (bHeightTransition) {
+          return d3BarGroup.transition(false)
+          .ease(easeLinear)
+          .duration(this.iTransitionTime);
+        }
+        return d3BarGroup;
+      })().attr(&apos;y&apos;, (d) =&gt; {
+        let iValue = d.aValues[i];
+        iValue = iValue &lt; 0 ? Math.abs(iValue) : 0;
+        return oScaleY(d.aValues[i] + iValue);
+      })
+      .attr(&apos;height&apos;, (d) =&gt; {
+        const iModifier = this.iMinValue &lt; 0 ? Math.abs(this.iMinValue) : 0;
+        return iInnerHeight - oScaleY(Math.abs(d.aValues[i]) - iModifier);
+      });
+    });
+  }
+
+}
+
+module.exports = BarChart;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

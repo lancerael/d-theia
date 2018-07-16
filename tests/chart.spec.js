@@ -1,4 +1,4 @@
-const Chart = require('../src/components/chart.js');
+import Chart from '../src/components/Chart';
 
 describe('Chart', () => {
   let oChart;
@@ -8,20 +8,20 @@ describe('Chart', () => {
   });
 
   it('should use ID string to get DOM element', () => {
-    const oDiv = document.createElement('div');
-    oDiv.setAttribute('id', 'test');
-    document.body.appendChild(oDiv);
+    const dDiv = document.createElement('div');
+    dDiv.setAttribute('id', 'test');
+    document.body.appendChild(dDiv);
     oChart = new Chart({ sContainer: 'test' });
-    expect(oChart.oContainer).toEqual(oDiv);
+    expect(oChart.dContainer).toEqual(dDiv);
   });
 
   it('should set valid container node', () => {
-    const oDiv = document.createElement('div');
+    const dDiv = document.createElement('div');
     const fnUpdate = () => {
-      oChart.setContainer(oDiv);
+      oChart.setContainer(dDiv);
     };
-    expect(fnUpdate.bind(oDiv)).not.toThrow();
-    expect(oChart.oContainer).toEqual(oDiv);
+    expect(fnUpdate.bind(dDiv)).not.toThrow();
+    expect(oChart.dContainer).toEqual(dDiv);
   });
 
   it('should throw error message for invalid container node', () => {
@@ -81,16 +81,16 @@ describe('Chart', () => {
   });
 
   it('should initialise the chart correctly', () => {
-    const oDiv = document.createElement('div');
-    oChart.setContainer(oDiv);
+    const dDiv = document.createElement('div');
+    oChart.setContainer(dDiv);
     oChart.setConfig({ field: 'value' });
     oChart.setData([{ field: 'value' }]);
     const fnInit = () => {
       oChart.init();
     };
     expect(fnInit.bind()).not.toThrow();
-    expect(typeof oChart.oToolTip).toBe('object');
-    expect(oChart.oSvg.parentNode).toEqual(oDiv);
+    expect(typeof oChart.oTooltip).toBe('object');
+    expect(oChart.dSvg.parentNode).toEqual(dDiv);
   });
 
   it('should throw error message for incorrectly initialised chart', () => {
@@ -99,4 +99,5 @@ describe('Chart', () => {
     };
     expect(fnInit.bind()).toThrow();
   });
+
 });

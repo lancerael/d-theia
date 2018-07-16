@@ -1,7 +1,9 @@
-const Utilities = require('../src/components/utilities.js');
+import Utilities from '../src/components/Utilities';
+import 'd3-fetch';
 
 describe('Utilities', () => {
-  it('should return a promise', () => {
+
+  xit('should return a promise', () => {
     expect({}.toString.call(Utilities.getPromiseJSON('path'))).toContain('Promise');
   });
 
@@ -17,18 +19,10 @@ describe('Utilities', () => {
   });
 
   it('should generate a random integer', () => {
-    const iRandom = Utilities.generateRandomInteger(3, 6);
+    const iRandom = Utilities.getRandomInteger(3, 6);
     expect(typeof iRandom).toBe('number');
     expect(iRandom).toBeGreaterThanOrEqual(3);
     expect(iRandom).toBeLessThanOrEqual(6);
   });
 
-  it('should return a sample from a larger array', () => {
-    const aData = [2, 5, 8, 3, 4, 6];
-    const aSample = Utilities.sliceSampleData(aData, 3);
-    const iLength = aSample.length;
-    expect(Array.isArray(aSample)).toBe(true);
-    expect(iLength).toBeGreaterThan(0);
-    expect(iLength).toBeLessThanOrEqual(3);
-  });
 });

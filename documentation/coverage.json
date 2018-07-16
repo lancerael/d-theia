@@ -1,0 +1,95 @@
+{
+  "coverage": "81.66%",
+  "expectCount": 120,
+  "actualCount": 98,
+  "files": {
+    "src/components/Axis.js": {
+      "expectCount": 15,
+      "actualCount": 15,
+      "undocumentLines": []
+    },
+    "src/components/AxisChart.js": {
+      "expectCount": 14,
+      "actualCount": 8,
+      "undocumentLines": [
+        57,
+        58,
+        59,
+        85,
+        86,
+        87
+      ]
+    },
+    "src/components/BarChart.js": {
+      "expectCount": 5,
+      "actualCount": 4,
+      "undocumentLines": [
+        30
+      ]
+    },
+    "src/components/BubbleChart.js": {
+      "expectCount": 13,
+      "actualCount": 5,
+      "undocumentLines": [
+        35,
+        36,
+        63,
+        64,
+        72,
+        82,
+        93,
+        114
+      ]
+    },
+    "src/components/Chart.js": {
+      "expectCount": 26,
+      "actualCount": 23,
+      "undocumentLines": [
+        274,
+        276,
+        282
+      ]
+    },
+    "src/components/Colors.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "src/components/DataOps.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "src/components/Key.js": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    },
+    "src/components/LineChart.js": {
+      "expectCount": 7,
+      "actualCount": 5,
+      "undocumentLines": [
+        38,
+        39
+      ]
+    },
+    "src/components/Tooltip.js": {
+      "expectCount": 10,
+      "actualCount": 8,
+      "undocumentLines": [
+        51,
+        103
+      ]
+    },
+    "src/components/Utilities.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "src/Theia.js": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    }
+  }
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/components/Axis.js | d-theia</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./"><img src="./image/dt-logo.png" title='dTheia'></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Theia.js~Theia.html">Theia</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Axis.js~Axis.html">Axis</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/AxisChart.js~AxisChart.html">AxisChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BarChart.js~BarChart.html">BarChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BubbleChart.js~BubbleChart.html">BubbleChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Chart.js~Chart.html">Chart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Colors.js~Colors.html">Colors</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/DataOps.js~DataOps.html">DataOps</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LineChart.js~LineChart.html">LineChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Tooltip.js~Tooltip.html">Tooltip</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Utilities.js~Utilities.html">Utilities</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/Axis.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { axisBottom, axisLeft } from &apos;d3-axis&apos;;
+import Utilities from &apos;./Utilities&apos;;
+
+/**
+* The Axis object is used to instantiate x and y axes, as well as labels
+*
+* @class Axis
+* @constructor
+*/
+export default class Axis {
+
+  /**
+  * d3 object for axis container
+  *
+  * @property d3Container
+  * @type {Object}
+  */
+  d3Container;
+
+  /**
+  * Amount to truncate axis labels to
+  *
+  * @property iTruncate
+  * @type {Object}
+  */
+  iTruncate;
+
+  /**
+  * Collection of axis labels
+  *
+  * @property aAxisLabels
+  * @type {Array}
+  */
+  aAxisLabels;
+
+  /**
+  * Scale object for the x axis
+  *
+  * @property oScaleX
+  * @type {Object}
+  */
+  oScaleX;
+
+  /**
+  * Scale object for the y axis
+  *
+  * @property oScaleY
+  * @type {Object}
+  */
+  oScaleY;
+
+  /**
+  * Chart&apos;s tooltip object
+  *
+  * @property oTooltip
+  * @type {Object}
+  */
+  oTooltip;
+
+  /**
+  * The current calculated width of the chart
+  *
+  * @property iWidth
+  * @type {Number}
+  */
+  iWidth;
+
+  /**
+  * The current calculated height of the chart
+  *
+  * @property iHeight
+  * @type {Number}
+  */
+  iHeight;
+
+  /**
+  * The padding for the chart within the container
+  *
+  * @property jPadding
+  * @type {Object}
+  */
+  jPadding;
+
+  /**
+  * Constructor function which sets up the local object.
+  *
+  * @method constructor
+  * @param {Object} oParams configuration parameters object
+  * @throws {Error} invalid parameters
+  */
+  constructor(oParams) {
+    if (oParams.d3Container) {
+      Object.assign(this, oParams);
+    } else {
+      throw new Error(&apos;Incorrect parameters provided to Axis constructor.&apos;);
+    }
+  }
+
+  /**
+  * Master render to call all rendering methods
+  *
+  * @method render
+  * @chainable
+  */
+  render() {
+    this.renderAxisX();
+    this.renderAxisY();
+    this.renderLabels();
+    return this;
+  }
+
+  /**
+  * Render only the x axis
+  *
+  * @method renderAxisX
+  */
+  renderAxisX() {
+    this.d3Container.selectAll(&apos;g.x-axis&apos;).remove();
+    this.d3Container.append(&apos;g&apos;)
+        .attr(&apos;class&apos;, &apos;x-axis&apos;)
+        .call(axisBottom(this.oScaleX))
+        .attr(&apos;transform&apos;, `translate(${this.jPadding.l},${this.iHeight})`)
+        .selectAll(&apos;text&apos;)
+          .attr(&apos;x&apos;, -5)
+          .attr(&apos;y&apos;, 6)
+          .attr(&apos;transform&apos;, &apos;rotate(310)&apos;)
+          .attr(&apos;class&apos;, &apos;x-labels&apos;)
+          .text(d =&gt; Utilities.truncateString(d, this.iTruncate))
+          .style(&apos;text-anchor&apos;, &apos;end&apos;)
+          .on(&apos;mousemove&apos;, (d) =&gt; {
+            if (this.oTooltip &amp;&amp; d.length &gt; this.iTruncate) {
+              this.oTooltip.ping(`&lt;strong&gt;${d}&lt;/strong&gt;`);
+            }
+          });
+  }
+
+  /**
+  * Render only the y axis
+  *
+  * @method renderAxisY
+  */
+  renderAxisY() {
+    this.d3Container.selectAll(&apos;g.y-axis&apos;).remove();
+    this.d3Container.append(&apos;g&apos;)
+        .attr(&apos;class&apos;, &apos;y-axis&apos;)
+        .call(axisLeft(this.oScaleY))
+        .attr(&apos;transform&apos;, `translate(${this.jPadding.l},0)`)
+        .selectAll(&apos;.y-axis .tick line&apos;)
+          .attr(&apos;x2&apos;, () =&gt; this.iWidth);
+  }
+
+  /**
+  * Render only the labels
+  *
+  * @method renderLabels
+  */
+  renderLabels() {
+    this.d3Container.selectAll(&apos;text.labels&apos;).remove();
+    this.d3Container.append(&apos;text&apos;)
+        .attr(&apos;class&apos;, &apos;labels&apos;)
+        .attr(&apos;x&apos;, (this.iHeight / -2) - (this.jPadding.t / 2))// - ((this.jConfig.aAxisLabels[0].length / 2) * 7))
+        .attr(&apos;y&apos;, 10)
+        .attr(&apos;transform&apos;, &apos;rotate(-90)&apos;)
+        .attr(&apos;text-anchor&apos;, &apos;middle&apos;)
+        .text(this.aAxisLabels[0]);
+    this.d3Container.append(&apos;text&apos;)
+        .attr(&apos;class&apos;, &apos;labels&apos;)
+        .attr(&apos;x&apos;, ((this.iWidth + this.jPadding.l + this.jPadding.r) / 2))// - ((this.aAxisLabels[1].length / 2) * 2))
+        .attr(&apos;y&apos;, this.iHeight + (this.jPadding.b - 5))
+        .attr(&apos;text-anchor&apos;, &apos;middle&apos;)
+        .text(this.aAxisLabels[1]);
+  }
+
+}
+
+module.exports = Axis;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

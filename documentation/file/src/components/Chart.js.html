@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/components/Chart.js | d-theia</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./"><img src="./image/dt-logo.png" title='dTheia'></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Theia.js~Theia.html">Theia</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Axis.js~Axis.html">Axis</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/AxisChart.js~AxisChart.html">AxisChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BarChart.js~BarChart.html">BarChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BubbleChart.js~BubbleChart.html">BubbleChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Chart.js~Chart.html">Chart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Colors.js~Colors.html">Colors</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/DataOps.js~DataOps.html">DataOps</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LineChart.js~LineChart.html">LineChart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Tooltip.js~Tooltip.html">Tooltip</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Utilities.js~Utilities.html">Utilities</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/Chart.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { select } from &apos;d3-selection&apos;;
+import Tooltip from &apos;./Tooltip&apos;;
+import DataOps from &apos;./DataOps&apos;;
+
+/**
+* The Chart object is the parent class for all types of Chart.
+* It is used to initialise all of the base settings universal to all charts.
+*
+* @class Chart
+* @constructor
+*/
+export default class Chart {
+
+  /**
+  * SVG DOM object for displaying the chart
+  *
+  * @property dSvg
+  * @type {Object}
+  */
+  dSvg;
+
+  /**
+  * SVG d3 object for d3 operations on the chart
+  *
+  * @property d3Svg
+  * @type {Object}
+  */
+  d3Svg;
+
+  /**
+  * Default time for d3 transitions on the chart
+  *
+  * @property iTransitionTime
+  * @type {Number}
+  */
+  iTransitionTime;
+
+  /**
+  * DOM reference to container element that wraps SVG
+  *
+  * @property dContainer
+  * @type {Object}
+  */
+  dContainer;
+
+  /**
+  * DOM reference to loader display element
+  *
+  * @property dLoader
+  * @type {Object}
+  */
+  dLoader;
+
+  /**
+  * Chart&apos;s tooltip object
+  *
+  * @property oTooltip
+  * @type {Object}
+  */
+  oTooltip;
+
+  /**
+  * The current calculated width of the chart
+  *
+  * @property iWidth
+  * @type {Number}
+  */
+  iWidth;
+
+  /**
+  * The current calculated height of the chart
+  *
+  * @property iHeight
+  * @type {Number}
+  */
+  iHeight;
+
+  /**
+  * The current calculated inner width of the chart
+  *
+  * @property iInnerWidth
+  * @type {Number}
+  */
+  iInnerWidth;
+
+  /**
+  * The current calculated inner height of the chart
+  *
+  * @property iInnerHeight
+  * @type {Number}
+  */
+  iInnerHeight;
+
+  /**
+  * The width before any browser resize
+  *
+  * @property iInitialWidth
+  * @type {Number}
+  */
+  iInitialWidth;
+
+  /**
+  * The padding for the chart within the container
+  *
+  * @property jPadding
+  * @type {Object}
+  */
+  jPadding;
+
+  /**
+  * The chart&apos;s config object
+  *
+  * @property jConfig
+  * @type {Object}
+  */
+  jConfig;
+
+  /**
+  * The chart&apos;s data
+  *
+  * @property aData
+  * @type {Array}
+  */
+  aData;
+
+  /**
+  * Constructor function that sets up the local object.
+  *
+  * @method constructor
+  * @param {Object} jConfig JSON configuration object
+  * @param {Array} aData the data to be displayed
+  * @param {String} sContainer Optional ID to select DOM object
+  * @param {Object} dContainer Optional DOM object in place of ID
+  */
+  constructor(oParams = {}) {
+    const { jConfig, aData, sContainer } = oParams;
+    let { dContainer } = oParams;
+    this.dSvg = document.createElementNS(&apos;http://www.w3.org/2000/svg&apos;, &apos;svg&apos;);
+    this.d3Svg = select(this.dSvg);
+    this.iTransitionTime = 500;
+    this.jPadding = { l: 5, r: 5, t: 5, b: 5 };
+    this.dLoader = document.createElement(&apos;div&apos;);
+    this.dLoader.className = &apos;dt-loader&apos;;
+    if (!dContainer &amp;&amp; sContainer) {
+      dContainer = document.getElementById(sContainer);
+    }
+    if (dContainer) {
+      this.setContainer(dContainer);
+    }
+    if (jConfig) {
+      this.setConfig(jConfig);
+    }
+    if (aData) {
+      this.setData(aData);
+    }
+  }
+
+  /**
+  * Sets the local container object.
+  *
+  * @method setContainer
+  * @param {Object} dContainer Required DOM element
+  * @throws {Error} invalid DOM element
+  */
+  setContainer(dContainer) {
+    if (dContainer.nodeName) {
+      dContainer.appendChild(this.dLoader);
+      this.dContainer = dContainer;
+    } else {
+      throw new Error(&apos;No valid DOM element or ID provided for chart.&apos;);
+    }
+  }
+
+  /**
+  * Sets the local config options for the chart.
+  *
+  * @method setConfig
+  * @param {Object} jConfig JSON configuration object
+  * @throws {Error} missing configuration
+  */
+  setConfig(jConfig) {
+    if (jConfig &amp;&amp; jConfig.toString() === &apos;[object Object]&apos;) {
+      if (jConfig.aValues) {
+        jConfig.aValues = DataOps.addColoursToConfig(jConfig.aValues);
+      }
+      this.jConfig = jConfig;
+    } else {
+      throw new Error(&apos;No valid configuration provided for chart.&apos;);
+    }
+  }
+
+  /**
+  * Sets the local data for the chart.
+  *
+  * @method setData
+  * @param {Array} aData array of JSON objects
+  * @param {Boolean} bTransform transform mapped data
+  * @throws {Error} missing data
+  */
+  setData(aData, bTransform = true) {
+    if (aData &amp;&amp; Array.isArray(aData) === true) {
+      if (this.jConfig &amp;&amp; bTransform) {
+        aData = DataOps.transformDataKeys(this.jConfig, aData);
+      }
+      this.aData = aData;
+    } else {
+      throw new Error(&apos;No valid data provided for chart.&apos;);
+    }
+  }
+
+  /**
+  * Updates the local data for the chart.
+  *
+  * @method updateData
+  * @param {Array} aData array of JSON objects
+  * @param {Boolean} bTransform transform mapped data
+  */
+  updateData(aData, bTransform = true) {
+    this.setData(aData, bTransform);
+    this.setDimensions();
+    if (this.oAxis) {
+      this.oAxis.render();
+    }
+    if (this.renderChart) {
+      this.renderChart();
+    }
+  }
+
+  /**
+  * Updates the local config for the chart.
+  *
+  * @method updateConfig
+  * @param {JSON} jConfig config JSON style object
+  */
+  updateConfig(jConfig) {
+    this.setConfig(jConfig);
+    if (this.renderChart) {
+      this.renderChart(true, false);
+    }
+  }
+
+  /**
+  * Sets the local chart dimensions based on the size of the container.
+  *
+  * @method setDimensions
+  * @throws {Error} missing DOM element
+  */
+  setDimensions() {
+    if (this.dContainer &amp;&amp; this.dContainer.nodeName) {
+      this.iWidth = this.dContainer.clientWidth;
+      this.iHeight = this.dContainer.clientHeight;
+      this.iInnerWidth = this.iWidth - this.jPadding.l - this.jPadding.r;
+      this.iInnerHeight = this.iHeight - this.jPadding.t - this.jPadding.b;
+    } else {
+      throw new Error(&apos;Cannot set dimensions of chart without container element.&apos;);
+    }
+  }
+
+  /**
+  * Check chart is ready and render.
+  *
+  * @method init
+  * @throws {Error} chart not ready for initialisation
+  * @chainable
+  */
+  init() {
+    this.setDimensions();
+    if (this.aData &amp;&amp; this.jConfig &amp;&amp; !isNaN(this.iWidth) &amp;&amp; !isNaN(this.iHeight)) {
+      this.iInitialWidth = this.iWidth;
+      this.oTooltip = new Tooltip(this.dContainer).create();
+      select(this.dContainer).append(&apos;div&apos;).attr(&apos;class&apos;, &apos;title&apos;).text(this.jConfig.sTitle);
+      this.dSvg.setAttribute(&apos;class&apos;, &apos;chart&apos;);
+      this.dContainer.appendChild(this.dSvg);
+      this.oResizeWatcher = this.oResizeWatcher || window.addEventListener(&apos;resize&apos;, () =&gt; {
+        this.setDimensions();
+        this.iResizeOffset = this.iWidth - this.iInitialWidth;
+        if (this.renderChart) {
+          this.renderChart();
+        }
+        this.oTooltip.hide();
+      });
+      this.oChartOutWatcher = this.oChartOutWatcher || this.dSvg.addEventListener(&apos;mouseout&apos;, () =&gt; {
+        this.oTooltip.hide();
+      });
+      if (this.renderChart) {
+        this.renderChart();
+      }
+      this.dContainer.removeChild(this.dLoader);
+      return this;
+    }
+    throw new Error(&apos;The chart is not ready for initialisation.&apos;);
+  }
+
+}
+
+module.exports = Chart;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
