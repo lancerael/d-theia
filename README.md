@@ -158,7 +158,8 @@ If you are mapping another data structure from a JSON endpoint, eg:
 
 You would provide an array of keys for the axis, and additional sKey parameter with each value for mapping.
 
-```{
+```
+{
   aAxisKeys: ['k3'],
   aAxisLabels: ['y', 'x'],
   aValues: [
@@ -173,7 +174,8 @@ You would provide an array of keys for the axis, and additional sKey parameter w
       sColour: 'blue',
     }
   ]
-}```
+}
+```
 
 ## API Documentation
 

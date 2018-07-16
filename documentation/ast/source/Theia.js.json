@@ -101,7 +101,7 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "* @license dTheia v2.0.0\r\n *\r\n * Copyright (c) 2017-present, Lance Taylor.\r\n *\r\n * This source code is licensed under the GNU public license found in the\r\n * LICENSE file in the root directory of this source tree.\r\n ",
+            "value": "* @license dTheia v2.0.1\r\n *\r\n * Copyright (c) 2017-present, Lance Taylor.\r\n *\r\n * This source code is licensed under the GNU public license found in the\r\n * LICENSE file in the root directory of this source tree.\r\n ",
             "start": 0,
             "end": 220,
             "loc": {
@@ -2538,7 +2538,7 @@
   "comments": [
     {
       "type": "CommentBlock",
-      "value": "* @license dTheia v2.0.0\r\n *\r\n * Copyright (c) 2017-present, Lance Taylor.\r\n *\r\n * This source code is licensed under the GNU public license found in the\r\n * LICENSE file in the root directory of this source tree.\r\n ",
+      "value": "* @license dTheia v2.0.1\r\n *\r\n * Copyright (c) 2017-present, Lance Taylor.\r\n *\r\n * This source code is licensed under the GNU public license found in the\r\n * LICENSE file in the root directory of this source tree.\r\n ",
       "start": 0,
       "end": 220,
       "loc": {
@@ -2668,7 +2668,7 @@
   "tokens": [
     {
       "type": "CommentBlock",
-      "value": "* @license dTheia v2.0.0\r\n *\r\n * Copyright (c) 2017-present, Lance Taylor.\r\n *\r\n * This source code is licensed under the GNU public license found in the\r\n * LICENSE file in the root directory of this source tree.\r\n ",
+      "value": "* @license dTheia v2.0.1\r\n *\r\n * Copyright (c) 2017-present, Lance Taylor.\r\n *\r\n * This source code is licensed under the GNU public license found in the\r\n * LICENSE file in the root directory of this source tree.\r\n ",
       "start": 0,
       "end": 220,
       "loc": {
