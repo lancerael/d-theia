@@ -232,8 +232,11 @@ export default class Chart {
   * @method updateConfig
   * @param {JSON} jConfig config JSON style object
   */
-  updateConfig(jConfig) {
+  updateConfig(jConfig, bResetDimensions = false) {
     this.setConfig(jConfig);
+    if (bResetDimensions) {
+      this.setDimensions();
+    }
     if (this.renderChart) {
       this.renderChart(true, false);
     }
