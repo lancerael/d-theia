@@ -52,16 +52,29 @@ export default class LineChart extends AxisChart {
     this.aLines = this.aLines || [];
     this.aCircles = this.aCircles || [];
 
-    // Iterate through config value keys
-    aValues.forEach((oValues, i) => {
-      const { oColor } = oValues;
-
-      // Reset lines data and clear graph
-      if (bReset && this.aLines[i]) {
+    // Reset lines data and clear graph
+    if (bReset) {
+      this.aLines.forEach((dtLine, i) => {
         this.aLines[i] = this.d3ChartGroup.selectAll(`path.lines-${i}`).data([]);
         this.aLines[i].exit().remove();
         this.aLines[i] = undefined;
-      }
+      });
+      this.aLines = [];
+    }
+
+    // Reset circles data and clear graph
+    if (bReset) {
+      this.aCircles.forEach((dtLine, i) => {
+        this.aCircles[i] = this.d3ChartGroup.selectAll(`circle.circles-${i}`).data([]);
+        this.aCircles[i].exit().remove();
+        this.aCircles[i] = undefined;
+      });
+      this.aCircles = [];
+    }
+
+    // Iterate through config value keys
+    aValues.forEach((oValues, i) => {
+      const { oColor } = oValues;
 
       if (!this.aLines[i]) {
         // define the line
@@ -69,9 +82,9 @@ export default class LineChart extends AxisChart {
 
         // Add the valueline path.
         this.d3ChartGroup.append('path')
-            .data([this.aData])
-            .attr('class', `line lines-${i}`)
-            .attr('stroke', oColor);
+          .data([this.aData])
+          .attr('class', `line lines-${i}`)
+          .attr('stroke', oColor);
       }
 
       // Update lines
@@ -81,13 +94,6 @@ export default class LineChart extends AxisChart {
       this.d3ChartGroup.selectAll(`path.lines-${i}`)
         .data([this.aData])
         .attr('d', this.aLines[i]);
-
-      // Reset circles data and clear graph
-      if (bReset && this.aCircles[i]) {
-        this.aCircles[i] = this.d3ChartGroup.selectAll(`circle.circles-${i}`).data([]);
-        this.aCircles[i].exit().remove();
-        this.aCircles[i] = undefined;
-      }
 
       // Add circles for each value
       if (!this.aCircles[i]) {

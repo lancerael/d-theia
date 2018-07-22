@@ -1,4 +1,4 @@
-# dTheia v2.1.0
+# dTheia v2.2.0
 
 dTheia is a JavaScript charting library for visualization of complex data.
 

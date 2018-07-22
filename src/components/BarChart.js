@@ -45,16 +45,20 @@ export default class BarChart extends AxisChart {
 
     this.aBars = this.aBars || [];
 
+    // Reset bars data and clear graph
+    if (bReset) {
+      this.aBars.forEach((dtBar, i) => {
+        this.aBars[i] = this.d3ChartGroup.selectAll(`rect.bars-${i}`).data({});
+        this.aBars[i].exit().remove();
+        this.aBars[i] = undefined;
+      });
+      this.aBars = [];
+    }
+
     // Iterate through config value keys
     aValues.forEach((oValues, i) => {
       const { oColor } = oValues;
       const iBarOffset = sBarType === 'side' ? (iBarWidth * i) : 0;
-      // Reset bars data and clear graph
-      if (bReset && this.aBars[i]) {
-        this.aBars[i] = this.d3ChartGroup.selectAll(`rect.bars-${i}`).data({});
-        this.aBars[i].exit().remove();
-        this.aBars[i] = undefined;
-      }
       // Add bars for each value
       if (!this.aBars[i]) {
         // Bind bars data

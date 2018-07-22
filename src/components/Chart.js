@@ -52,6 +52,14 @@ export default class Chart {
   dLoader;
 
   /**
+  * d3 reference to chart title element
+  *
+  * @property d3Title
+  * @type {Object}
+  */
+  d3Title;
+
+  /**
   * Chart's tooltip object
   *
   * @property oTooltip
@@ -215,13 +223,13 @@ export default class Chart {
   * @param {Array} aData array of JSON objects
   * @param {Boolean} bTransform transform mapped data
   */
-  updateData(aData, bTransform = true) {
+  updateData(aData, bTransform = true, bRender = true) {
     this.setData(aData, bTransform);
     this.setDimensions();
     if (this.oAxis) {
       this.oAxis.render();
     }
-    if (this.renderChart) {
+    if (this.renderChart && bRender) {
       this.renderChart();
     }
   }
@@ -232,13 +240,13 @@ export default class Chart {
   * @method updateConfig
   * @param {JSON} jConfig config JSON style object
   */
-  updateConfig(jConfig, bResetDimensions = false) {
+  updateConfig(jConfig, bResetDimensions = false, bTransition = false) {
     this.setConfig(jConfig);
     if (bResetDimensions) {
       this.setDimensions();
     }
     if (this.renderChart) {
-      this.renderChart(true, false);
+      this.renderChart(true, bTransition);
     }
   }
 
@@ -260,6 +268,15 @@ export default class Chart {
   }
 
   /**
+  * Render the chart
+  *
+  * @method renderChart
+  */
+  renderChart() {
+    this.d3Title.text(this.jConfig.sTitle);
+  }
+
+  /**
   * Check chart is ready and render.
   *
   * @method init
@@ -271,7 +288,7 @@ export default class Chart {
     if (this.aData && this.jConfig && !isNaN(this.iWidth) && !isNaN(this.iHeight)) {
       this.iInitialWidth = this.iWidth;
       this.oTooltip = new Tooltip(this.dContainer).create();
-      select(this.dContainer).append('div').attr('class', 'title').text(this.jConfig.sTitle);
+      this.d3Title = select(this.dContainer).append('div').attr('class', 'title');
       this.dSvg.setAttribute('class', 'chart');
       this.dContainer.appendChild(this.dSvg);
       this.oResizeWatcher = this.oResizeWatcher || window.addEventListener('resize', () => {
