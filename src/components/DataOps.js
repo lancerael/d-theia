@@ -27,12 +27,12 @@ export default class DataOps {
   /**
   * Returns random data and config for demo purposes.
   *
-  * @method getRandomChart
+  * @method getRandomData
   * @static
-  * @return {JSON} JSON style data structure
+  * @return {JSON} JSON compatible data structure
   */
-  static getRandomData() {
-    const iLength = Utilities.getRandomInteger(3, 10);
+  static getRandomData(iMaxLength = 10) {
+    const iLength = Utilities.getRandomInteger(3, iMaxLength);
     const iGroupSize = Utilities.getRandomInteger(1, 4);
     const iRangeLow = Utilities.getRandomInteger(1, 50);
     const iRangeHigh = Utilities.getRandomInteger(iRangeLow, 200);
@@ -66,6 +66,28 @@ export default class DataOps {
         })()
       });
     }
+    return jChart;
+  }
+
+  /**
+  * Returns empty data and config for demo purposes.
+  *
+  * @method getEmptyData
+  * @static
+  * @return {JSON} JSON conpatible data structure
+  */
+  static getEmptyData() {
+    const jChart = {};
+    jChart.jConfig = {
+      sTitle: 'Title',
+      aAxisLabels: ['Y Axis', 'X Axis'],
+      aValues: [{ sName: 'Key Type', sColor: '#FF0000' }],
+      bTrim: true
+    };
+    jChart.aData = [{
+      sLabel: 'Value Label',
+      aValues: [10]
+    }];
     return jChart;
   }
 

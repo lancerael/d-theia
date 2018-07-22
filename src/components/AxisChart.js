@@ -93,6 +93,7 @@ export default class AxisChart extends Chart {
   * @method renderChart
   */
   renderChart() {
+    super.renderChart();
     const { aAxisLabels, iTruncate = 15 } = this.jConfig;
     const { iInnerWidth, iInnerHeight, oScaleX, oScaleY, jPadding } = this;
 
