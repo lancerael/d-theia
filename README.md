@@ -1,4 +1,4 @@
-# dTheia v2.2.0
+# dTheia v2.3.0
 
 dTheia is a JavaScript charting library for visualization of complex data.
 
@@ -74,7 +74,6 @@ You can then use NPM to manage project tasks.
 To generate the minified files run the build task:
 
 ```$npm run dist```
-
 
 #### TEST
 Uses Karma to run Jasmine TDD tests (watcher)
@@ -226,9 +225,10 @@ identifying different kinds of objects.
 ## Technologies Used
 
 - NodeJS/NPM
-- OOP JavaScript ES2015 (ES6)
-- d3 v4
-- Babel/Webpack
+- OOP JavaScript ES2015+ (ES6+)
+- d3 v5
+- Babel
+- Webpack
 - TDD Jasmine/Karma
 - YUIDoc
 

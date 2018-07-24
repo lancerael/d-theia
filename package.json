@@ -1,7 +1,8 @@
 {
   "name": "d-theia",
-  "version": "2.2.0",
-  "description": "",
+  "version": "2.3.0",
+  "description": "dTheia is a JavaScript charting library for visualization of complex data.",
+  "homepage": "http://www.dtheia.org",
   "main": "./src/Theia.js",
   "scripts": {
     "test": "karma start karma.config.js",
