@@ -1,4 +1,4 @@
-/** @license dTheia v2.2.0
+/** @license dTheia v2.3.1
  *
  * Copyright (c) 2017-present, Lance Taylor.
  *
