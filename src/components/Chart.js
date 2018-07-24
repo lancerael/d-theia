@@ -274,7 +274,7 @@ export default class Chart {
   */
   renderChart() {
     if (this.d3Title) {
-      this.d3Title.text(this.jConfig.sTitle);  
+      this.d3Title.text(this.jConfig.sTitle);
     }
   }
 
