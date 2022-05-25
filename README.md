@@ -32,9 +32,9 @@ http://dtheia.org/demo
 
 ### React demo App
 
-There is a separate repository in progress, using React to create a sandbox app for dTheia.
+There is a separate sandbox app for dTheia.
 
-d-theia-react-app - https://github.com/lancerael/d-theia-sandbox-react
+sandbox-react-demo -http://dtheia.org/sandbox-react-demo/
 
 ## Installation
 
