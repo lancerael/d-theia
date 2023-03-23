@@ -5,3 +5,5 @@ dist
 storybook-static
 pnpm-lock.yaml
 js
+vanilla
+documentation
