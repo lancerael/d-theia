@@ -4,8 +4,7 @@ dTheia is a JavaScript charting library for visualization of complex data.
 
 ## Overview
 
-Built using d3 and ES6. Code is transpiled into ES5 for distribution.
-The aim of this project is to provide a simple API for the creation of D3 charts within any client side framework.
+Built using d3 and ES6. A simple API for the creation of D3 charts within any client side framework.
 Charts are responsive in any device, providing additional detail via hover/touch tooltips.
 
 - Bar chart
@@ -38,61 +37,45 @@ sandbox-react-demo -http://dtheia.org/sandbox-react-demo/
 
 ## Installation
 
-You can include dTheia in your project as an NPM module, or you can check out the code and compile yourself.
+Recommended to use `PNPM` for tasks and contribution.
 
-### Install in Node projects
+Install `pnpm add d-theia`
 
-If you are using Node, install as follows:
+Import into TS projects - `import Theia from d-theia`
 
-```$npm install d-theia```
+Or vanilla projects - `import Theia from d-theia/vanilla`
 
-Import the module into your code:
+### Contribution
 
-```import Theia from 'd-theia';```
+If you want to work with the code...
 
-### Installing locally
+#### DEV SERVER
 
-For standalone projects you can build and include dist JS files in your project.
+Uses Vite for ESM dev server:
 
- - ./dist/d-theia.min.js - minified library
- - ./dist/d-theia.vendor.min.js - vendor (d3)
+`pnpm dev`
 
-Install Node.JS (https://nodejs.org/) and NPM:
-
-```$npm install npm -g```
-
-Navigate to folder and install app:
-
-```$npm install```
-
-### NPM tasks
-
-You can then use NPM to manage project tasks.
+You can then access the server at http://localhost:5173 which launches the contents of the demo folder.
 
 #### BUILD
 
-To generate the minified files run the build task:
+To generate the minified files:
 
-```$npm run dist```
+`pnpm build`
 
 #### TEST
-Uses Karma to run Jasmine TDD tests (watcher)
 
-```npm run test```
+Uses Vitest to run TDD tests:
 
-#### DEV SERVER
-Uses Webpack/Babel with plugins, performs linting on build (watcher)
+`pnpm test`
 
-```npm run serve```
-
-You can then access the server at http://localhost:8081 which launches the contents of the demo folder.
 
 ## Displaying charts
 
 You can instantiate a new chart by calling the appropriate method and supplying:
-- sContainer - the ID of (or dContainer - DOM reference to) a container node.
-- jConfig - a JSON configuration object - see examples in demo/config
-- aData - Chart data array - see examples in demo/data
+- `sContainer` - the ID of (or dContainer - DOM reference to) a container node.
+- `jConfig` - a JSON configuration object - see examples in demo/config
+- `aData` - Chart data array - see examples in demo/data
 
 ```
 Theia.create[Bar/Line/Bubble]Chart({
@@ -116,8 +99,8 @@ Data can be randomly generated, or loaded from a HTTP endpoint. When loading fro
 using specially constructed JSON chart data, or mapping any JSON structure from the response using the config.
 
 The default structure for the chart is an array of objects, each containing:
-- a label string
-- an array of integer values
+- `sLabel` - a label string
+- `aValues` - an array of integer values
 
 ```
 [
@@ -134,10 +117,10 @@ For unmodified endpoints with labels and values on other keys, you can map them 
 
 The config contains the basic info about how to display the chart. It contains:
 
-- sTitle - a string denoting the title of the charts
-- aAxisLabels - an array containing the x and y axis labels
-- aValues - an array of key values each with a name for its label and a HEX colour string
-- bTrim - optionally you can trim/pad the extremes of the chart for aethetic
+- `sTitle` - a string denoting the title of the charts
+- `aAxisLabels` - an array containing the x and y axis labels
+- `aValues` - an array of key values each with a name for its label and a HEX colour string
+- `bTrim` - optionally you can trim/pad the extremes of the chart for aethetic
 
 ```
 {
@@ -180,58 +163,26 @@ You would provide an array of keys for the axis, and additional sKey parameter w
 
 http://www.dtheia.org/
 
-This module provides the following ES6 classes:
+This module provides the following ES classes:
 
-- Theia - static chart parent object an main api
-- Chart - parent class for all types of chart
-- AxisChart - parent class for types of axis chart
-- BarChart - class for bar charts
-- LineChart class for line chart
-- BubbleChart - class for bubble chart
-- Axis - class for x/y axes and labels
-- Key - class for colour coded key
-- Tooltip - class for helper for displaying data on mouseover
-- Utilities - static helper methods
-- DataOps - static data operations
-
-### Variable Naming
-
-All variables use camel case. Classes have no prefix.
-All other types of variables use prefixes for a Hungarian style of notation.
-This allows easier learning of the code and faster debugging, particularly when
-identifying different kinds of objects.
-
-#### Simple Native JS
-
-- s String
-- i integer Number
-- f float Number
-- n Number (for unknown i/f)
-- b Boolean
-- m mixed or unknown
-
-#### Arrays
-
-- a Array - numerical array
-- h Hash table - an object used as an associative array with key/value pairs
-
-#### Objects
-
-- o Object any kind of JavaScript Object with properties and methods
-- j JSON a JavaScript Object that is a pure data structure safe to stringify or load from endpoint
-- d DOM object, a reference to a specific DOM node
-- d3 a d3 collection object
+- `Theia` - static chart parent object an main api
+- `Chart` - parent class for all types of chart
+- `AxisChart` - parent class for types of axis chart
+- `BarChart` - class for bar charts
+- `LineChart` class for line chart
+- `BubbleChart` - class for bubble chart
+- `Axis` - class for x/y axes and labels
+- `Key` - class for colour coded key
+- `Tooltip` - class for helper for displaying data on mouseover
+- `Utilities` - static helper methods
+- `DataOps` - static data operations
 
 ## Technologies Used
 
-- NodeJS/NPM
-- OOP JavaScript ES2015+ (ES6+)
-- d3 v5
-- Babel
-- Webpack
-- TDD Jasmine/Karma
+- TypeScript
+- PNPM
+- d3
+- Vite
+- Vitest
 - YUIDoc
 
-## TDD Unit tests
-
-- 29 tests cover all available classes.
