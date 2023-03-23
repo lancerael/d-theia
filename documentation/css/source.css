@@ -16,7 +16,7 @@ table.files-summary td:nth-of-type(2) {
   text-align: left;
 }
 
-table.files-summary[data-use-coverage="false"] td.coverage {
+table.files-summary[data-use-coverage='false'] td.coverage {
   display: none;
 }
 

@@ -1,659 +1,921 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">Colors | d-theia</title>
-  <link type="text/css" rel="stylesheet" href="css/style.css">
-  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
-  <script src="script/prettify/prettify.js"></script>
-  <script src="script/manual.js"></script>
-</head>
-<body class="layout-container" data-ice="rootContainer">
+  <head>
+    <meta charset="utf-8" />
+    <base data-ice="baseUrl" href="../../../" />
+    <title data-ice="title">Colors | d-theia</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css" />
+    <script src="script/prettify/prettify.js"></script>
+    <script src="script/manual.js"></script>
+  </head>
+  <body class="layout-container" data-ice="rootContainer">
+    <header>
+      <a href="./"><img src="./image/dt-logo.png" title="dTheia" /></a>
 
-<header>
-  <a href="./"><img src="./image/dt-logo.png" title='dTheia'></a>
-  
-  <a href="identifiers.html">Reference</a>
-  <a href="source.html">Source</a>
-  
-  <div class="search-box">
-  <span>
-    <img src="./image/search.png">
-    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
-  </span>
-    <ul class="search-result"></ul>
-  </div>
-</header>
+      <a href="identifiers.html">Reference</a>
+      <a href="source.html">Source</a>
 
-<nav class="navigation" data-ice="nav"><div>
-  <ul>
-    
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Theia.js~Theia.html">Theia</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Axis.js~Axis.html">Axis</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/AxisChart.js~AxisChart.html">AxisChart</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BarChart.js~BarChart.html">BarChart</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/BubbleChart.js~BubbleChart.html">BubbleChart</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Chart.js~Chart.html">Chart</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Colors.js~Colors.html">Colors</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/DataOps.js~DataOps.html">DataOps</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Key.js~Key.html">Key</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LineChart.js~LineChart.html">LineChart</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Tooltip.js~Tooltip.html">Tooltip</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/Utilities.js~Utilities.html">Utilities</a></span></span></li>
-</ul>
-</div>
-</nav>
-
-<div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Colors from &apos;<span><a href="file/src/components/Colors.js.html#lineNumber10">d-theia/src/components/Colors.js</a></span>&apos;</code></pre></div>
-  <span data-ice="access">public</span>
-  <span data-ice="kind">class</span>
-  
-  
-  
-  <span data-ice="source">| <span><a href="file/src/components/Colors.js.html#lineNumber10">source</a></span></span>
-</div>
-
-<div class="self-detail detail">
-  <h1 data-ice="name">Colors</h1>
-
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-  
-  <div class="description" data-ice="description"><p>The Colors object is is a class containing reusable static methods</p>
-</div>
-  
-
-  
-
-  
-
-  
-
-  
-</div>
-
-
-<div data-ice="staticMethodSummary"><h2>Static Method Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Static Public Methods</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      <span data-ice="static">static</span>
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/components/Colors.js~Colors.html#static-method-colorFilter">colorFilter</a></span></span><span class="code" data-ice="signature">(sBackground: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, iBoundary: <span>Integer</span>, aValues: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span>
-        </p>
+      <div class="search-box">
+        <span>
+          <img src="./image/search.png" />
+          <span class="search-input-edge"></span
+          ><input class="search-input" /><span class="search-input-edge"></span>
+        </span>
+        <ul class="search-result"></ul>
       </div>
+    </header>
+
+    <nav class="navigation" data-ice="nav">
       <div>
-        
-        
-        <div data-ice="description"><p>Used to filter random colour values and ensure high contrast against background</p>
-</div>
+        <ul>
+          <li data-ice="doc">
+            <span data-ice="kind" class="kind-class">C</span
+            ><span data-ice="name"
+              ><span
+                ><a href="class/src/Theia.js~Theia.html">Theia</a></span
+              ></span
+            >
+          </li>
+          <li data-ice="doc">
+            <a
+              data-ice="dirPath"
+              class="nav-dir-path"
+              href="identifiers.html#components"
+              >components</a
+            ><span data-ice="kind" class="kind-class">C</span
+            ><span data-ice="name"
+              ><span
+                ><a href="class/src/components/Axis.js~Axis.html">Axis</a></span
+              ></span
+            >
+          </li>
+          <li data-ice="doc">
+            <span data-ice="kind" class="kind-class">C</span
+            ><span data-ice="name"
+              ><span
+                ><a href="class/src/components/AxisChart.js~AxisChart.html"
+                  >AxisChart</a
+                ></span
+              ></span
+            >
+          </li>
+          <li data-ice="doc">
+            <span data-ice="kind" class="kind-class">C</span
+            ><span data-ice="name"
+              ><span
+                ><a href="class/src/components/BarChart.js~BarChart.html"
+                  >BarChart</a
+                ></span
+              ></span
+            >
+          </li>
+          <li data-ice="doc">
+            <span data-ice="kind" class="kind-class">C</span
+            ><span data-ice="name"
+              ><span
+                ><a href="class/src/components/BubbleChart.js~BubbleChart.html"
+                  >BubbleChart</a
+                ></span
+              ></span
+            >
+          </li>
+          <li data-ice="doc">
+            <span data-ice="kind" class="kind-class">C</span
+            ><span data-ice="name"
+              ><span
+                ><a href="class/src/components/Chart.js~Chart.html"
+                  >Chart</a
+                ></span
+              ></span
+            >
+          </li>
+          <li data-ice="doc">
+            <span data-ice="kind" class="kind-class">C</span
+            ><span data-ice="name"
+              ><span
+                ><a href="class/src/components/Colors.js~Colors.html"
+                  >Colors</a
+                ></span
+              ></span
+            >
+          </li>
+          <li data-ice="doc">
+            <span data-ice="kind" class="kind-class">C</span
+            ><span data-ice="name"
+              ><span
+                ><a href="class/src/components/DataOps.js~DataOps.html"
+                  >DataOps</a
+                ></span
+              ></span
+            >
+          </li>
+          <li data-ice="doc">
+            <span data-ice="kind" class="kind-class">C</span
+            ><span data-ice="name"
+              ><span
+                ><a href="class/src/components/Key.js~Key.html">Key</a></span
+              ></span
+            >
+          </li>
+          <li data-ice="doc">
+            <span data-ice="kind" class="kind-class">C</span
+            ><span data-ice="name"
+              ><span
+                ><a href="class/src/components/LineChart.js~LineChart.html"
+                  >LineChart</a
+                ></span
+              ></span
+            >
+          </li>
+          <li data-ice="doc">
+            <span data-ice="kind" class="kind-class">C</span
+            ><span data-ice="name"
+              ><span
+                ><a href="class/src/components/Tooltip.js~Tooltip.html"
+                  >Tooltip</a
+                ></span
+              ></span
+            >
+          </li>
+          <li data-ice="doc">
+            <span data-ice="kind" class="kind-class">C</span
+            ><span data-ice="name"
+              ><span
+                ><a href="class/src/components/Utilities.js~Utilities.html"
+                  >Utilities</a
+                ></span
+              ></span
+            >
+          </li>
+        </ul>
       </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      <span data-ice="static">static</span>
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/components/Colors.js~Colors.html#static-method-convertHexToRgb">convertHexToRgb</a></span></span><span class="code" data-ice="signature">(sColor: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
-        </p>
+    </nav>
+
+    <div class="content" data-ice="content">
+      <div class="header-notice">
+        <div data-ice="importPath" class="import-path">
+          <pre
+            class="prettyprint"
+          ><code data-ice="importPathCode">import Colors from &apos;<span><a href="file/src/components/Colors.js.html#lineNumber10">d-theia/src/components/Colors.js</a></span>&apos;</code></pre>
+        </div>
+        <span data-ice="access">public</span>
+        <span data-ice="kind">class</span>
+
+        <span data-ice="source"
+          >|
+          <span
+            ><a href="file/src/components/Colors.js.html#lineNumber10"
+              >source</a
+            ></span
+          ></span
+        >
       </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Converts a HEX string to an RGB value</p>
-</div>
+
+      <div class="self-detail detail">
+        <h1 data-ice="name">Colors</h1>
+
+        <div class="description" data-ice="description">
+          <p>
+            The Colors object is is a class containing reusable static methods
+          </p>
+        </div>
       </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      <span data-ice="static">static</span>
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/components/Colors.js~Colors.html#static-method-getDarkerColor">getDarkerColor</a></span></span><span class="code" data-ice="signature">(oColor: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
-        </p>
+
+      <div data-ice="staticMethodSummary">
+        <h2>Static Method Summary</h2>
+        <table class="summary" data-ice="summary">
+          <thead>
+            <tr>
+              <td data-ice="title" colspan="3">Static Public Methods</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-ice="target">
+              <td>
+                <span class="access" data-ice="access">public</span>
+                <span data-ice="static">static</span>
+
+                <span class="override" data-ice="override"></span>
+              </td>
+              <td>
+                <div>
+                  <p>
+                    <span class="code" data-ice="name"
+                      ><span
+                        ><a
+                          href="class/src/components/Colors.js~Colors.html#static-method-colorFilter"
+                          >colorFilter</a
+                        ></span
+                      ></span
+                    ><span class="code" data-ice="signature"
+                      >(sBackground:
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+                          >String</a
+                        ></span
+                      >, iBoundary: <span>Integer</span>, aValues:
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+                          >Array</a
+                        ></span
+                      >):
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"
+                          >Boolean</a
+                        ></span
+                      ></span
+                    >
+                  </p>
+                </div>
+                <div>
+                  <div data-ice="description">
+                    <p>
+                      Used to filter random colour values and ensure high
+                      contrast against background
+                    </p>
+                  </div>
+                </div>
+              </td>
+              <td></td>
+            </tr>
+            <tr data-ice="target">
+              <td>
+                <span class="access" data-ice="access">public</span>
+                <span data-ice="static">static</span>
+
+                <span class="override" data-ice="override"></span>
+              </td>
+              <td>
+                <div>
+                  <p>
+                    <span class="code" data-ice="name"
+                      ><span
+                        ><a
+                          href="class/src/components/Colors.js~Colors.html#static-method-convertHexToRgb"
+                          >convertHexToRgb</a
+                        ></span
+                      ></span
+                    ><span class="code" data-ice="signature"
+                      >(sColor:
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+                          >String</a
+                        ></span
+                      >):
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+                          >Object</a
+                        ></span
+                      ></span
+                    >
+                  </p>
+                </div>
+                <div>
+                  <div data-ice="description">
+                    <p>Converts a HEX string to an RGB value</p>
+                  </div>
+                </div>
+              </td>
+              <td></td>
+            </tr>
+            <tr data-ice="target">
+              <td>
+                <span class="access" data-ice="access">public</span>
+                <span data-ice="static">static</span>
+
+                <span class="override" data-ice="override"></span>
+              </td>
+              <td>
+                <div>
+                  <p>
+                    <span class="code" data-ice="name"
+                      ><span
+                        ><a
+                          href="class/src/components/Colors.js~Colors.html#static-method-getDarkerColor"
+                          >getDarkerColor</a
+                        ></span
+                      ></span
+                    ><span class="code" data-ice="signature"
+                      >(oColor:
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+                          >Object</a
+                        ></span
+                      >):
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+                          >Object</a
+                        ></span
+                      ></span
+                    >
+                  </p>
+                </div>
+                <div>
+                  <div data-ice="description">
+                    <p>Returns a darker version of a color</p>
+                  </div>
+                </div>
+              </td>
+              <td></td>
+            </tr>
+            <tr data-ice="target">
+              <td>
+                <span class="access" data-ice="access">public</span>
+                <span data-ice="static">static</span>
+
+                <span class="override" data-ice="override"></span>
+              </td>
+              <td>
+                <div>
+                  <p>
+                    <span class="code" data-ice="name"
+                      ><span
+                        ><a
+                          href="class/src/components/Colors.js~Colors.html#static-method-getRandomColor"
+                          >getRandomColor</a
+                        ></span
+                      ></span
+                    ><span class="code" data-ice="signature"
+                      >(sBackground:
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+                          >String</a
+                        ></span
+                      >, iBoundary: <span>Integer</span>):
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+                          >Object</a
+                        ></span
+                      ></span
+                    >
+                  </p>
+                </div>
+                <div>
+                  <div data-ice="description">
+                    <p>Returns a random color (D3 object)</p>
+                  </div>
+                </div>
+              </td>
+              <td></td>
+            </tr>
+            <tr data-ice="target">
+              <td>
+                <span class="access" data-ice="access">public</span>
+                <span data-ice="static">static</span>
+
+                <span class="override" data-ice="override"></span>
+              </td>
+              <td>
+                <div>
+                  <p>
+                    <span class="code" data-ice="name"
+                      ><span
+                        ><a
+                          href="class/src/components/Colors.js~Colors.html#static-method-getRandomPalette"
+                          >getRandomPalette</a
+                        ></span
+                      ></span
+                    ><span class="code" data-ice="signature"
+                      >(iLength: <span>Integer</span>):
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+                          >Array</a
+                        ></span
+                      ></span
+                    >
+                  </p>
+                </div>
+                <div>
+                  <div data-ice="description">
+                    <p>Returns a random color palette</p>
+                  </div>
+                </div>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Returns a darker version of a color</p>
-</div>
+
+      <div data-ice="staticMethodDetails">
+        <h2 data-ice="title">Static Public Methods</h2>
+
+        <div class="detail" data-ice="detail">
+          <h3 data-ice="anchor" id="static-method-colorFilter">
+            <span class="access" data-ice="access">public</span>
+            <span data-ice="static">static</span>
+
+            <span class="code" data-ice="name">colorFilter</span
+            ><span class="code" data-ice="signature"
+              >(sBackground:
+              <span
+                ><a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+                  >String</a
+                ></span
+              >, iBoundary: <span>Integer</span>, aValues:
+              <span
+                ><a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+                  >Array</a
+                ></span
+              >):
+              <span
+                ><a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"
+                  >Boolean</a
+                ></span
+              ></span
+            >
+            <span class="right-info">
+              <span data-ice="source"
+                ><span
+                  ><a href="file/src/components/Colors.js.html#lineNumber40"
+                    >source</a
+                  ></span
+                ></span
+              >
+            </span>
+          </h3>
+
+          <div data-ice="description">
+            <p>
+              Used to filter random colour values and ensure high contrast
+              against background
+            </p>
+          </div>
+
+          <div data-ice="properties">
+            <div data-ice="properties">
+              <h4 data-ice="title">Params:</h4>
+              <table class="params">
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Type</td>
+                    <td>Attribute</td>
+                    <td>Description</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-ice="property" data-depth="0">
+                    <td data-ice="name" class="code" data-depth="0">
+                      sBackground
+                    </td>
+                    <td data-ice="type" class="code">
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+                          >String</a
+                        ></span
+                      >
+                    </td>
+                    <td data-ice="appendix"></td>
+                    <td data-ice="description">
+                      <p>
+                        the type of background light/dark to filter for contrast
+                      </p>
+                    </td>
+                  </tr>
+                  <tr data-ice="property" data-depth="0">
+                    <td data-ice="name" class="code" data-depth="0">
+                      iBoundary
+                    </td>
+                    <td data-ice="type" class="code"><span>Integer</span></td>
+                    <td data-ice="appendix"></td>
+                    <td data-ice="description">
+                      <p>the brightness value to filter</p>
+                    </td>
+                  </tr>
+                  <tr data-ice="property" data-depth="0">
+                    <td data-ice="name" class="code" data-depth="0">aValues</td>
+                    <td data-ice="type" class="code">
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+                          >Array</a
+                        ></span
+                      >
+                    </td>
+                    <td data-ice="appendix"></td>
+                    <td data-ice="description"><p>array of RGB values</p></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="return-params" data-ice="returnParams">
+            <h4>Return:</h4>
+            <table>
+              <tbody>
+                <tr>
+                  <td class="return-type code" data-ice="returnType">
+                    <span
+                      ><a
+                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"
+                        >Boolean</a
+                      ></span
+                    >
+                  </td>
+                  <td class="return-desc" data-ice="returnDescription">
+                    <p>specify whether the values pass or fail</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div data-ice="returnProperties"></div>
+          </div>
+        </div>
+        <div class="detail" data-ice="detail">
+          <h3 data-ice="anchor" id="static-method-convertHexToRgb">
+            <span class="access" data-ice="access">public</span>
+            <span data-ice="static">static</span>
+
+            <span class="code" data-ice="name">convertHexToRgb</span
+            ><span class="code" data-ice="signature"
+              >(sColor:
+              <span
+                ><a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+                  >String</a
+                ></span
+              >):
+              <span
+                ><a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+                  >Object</a
+                ></span
+              ></span
+            >
+            <span class="right-info">
+              <span data-ice="source"
+                ><span
+                  ><a href="file/src/components/Colors.js.html#lineNumber65"
+                    >source</a
+                  ></span
+                ></span
+              >
+            </span>
+          </h3>
+
+          <div data-ice="description">
+            <p>Converts a HEX string to an RGB value</p>
+          </div>
+
+          <div data-ice="properties">
+            <div data-ice="properties">
+              <h4 data-ice="title">Params:</h4>
+              <table class="params">
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Type</td>
+                    <td>Attribute</td>
+                    <td>Description</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-ice="property" data-depth="0">
+                    <td data-ice="name" class="code" data-depth="0">sColor</td>
+                    <td data-ice="type" class="code">
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+                          >String</a
+                        ></span
+                      >
+                    </td>
+                    <td data-ice="appendix"></td>
+                    <td data-ice="description"><p>the HEX colour</p></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="return-params" data-ice="returnParams">
+            <h4>Return:</h4>
+            <table>
+              <tbody>
+                <tr>
+                  <td class="return-type code" data-ice="returnType">
+                    <span
+                      ><a
+                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+                        >Object</a
+                      ></span
+                    >
+                  </td>
+                  <td class="return-desc" data-ice="returnDescription">
+                    <p>RGB color object</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div data-ice="returnProperties"></div>
+          </div>
+        </div>
+        <div class="detail" data-ice="detail">
+          <h3 data-ice="anchor" id="static-method-getDarkerColor">
+            <span class="access" data-ice="access">public</span>
+            <span data-ice="static">static</span>
+
+            <span class="code" data-ice="name">getDarkerColor</span
+            ><span class="code" data-ice="signature"
+              >(oColor:
+              <span
+                ><a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+                  >Object</a
+                ></span
+              >):
+              <span
+                ><a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+                  >Object</a
+                ></span
+              ></span
+            >
+            <span class="right-info">
+              <span data-ice="source"
+                ><span
+                  ><a href="file/src/components/Colors.js.html#lineNumber94"
+                    >source</a
+                  ></span
+                ></span
+              >
+            </span>
+          </h3>
+
+          <div data-ice="description">
+            <p>Returns a darker version of a color</p>
+          </div>
+
+          <div data-ice="properties">
+            <div data-ice="properties">
+              <h4 data-ice="title">Params:</h4>
+              <table class="params">
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Type</td>
+                    <td>Attribute</td>
+                    <td>Description</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-ice="property" data-depth="0">
+                    <td data-ice="name" class="code" data-depth="0">oColor</td>
+                    <td data-ice="type" class="code">
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+                          >Object</a
+                        ></span
+                      >
+                    </td>
+                    <td data-ice="appendix"></td>
+                    <td data-ice="description"><p>RGB object</p></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="return-params" data-ice="returnParams">
+            <h4>Return:</h4>
+            <table>
+              <tbody>
+                <tr>
+                  <td class="return-type code" data-ice="returnType">
+                    <span
+                      ><a
+                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+                        >Object</a
+                      ></span
+                    >
+                  </td>
+                  <td class="return-desc" data-ice="returnDescription">
+                    <p>darker RGB object</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div data-ice="returnProperties"></div>
+          </div>
+        </div>
+        <div class="detail" data-ice="detail">
+          <h3 data-ice="anchor" id="static-method-getRandomColor">
+            <span class="access" data-ice="access">public</span>
+            <span data-ice="static">static</span>
+
+            <span class="code" data-ice="name">getRandomColor</span
+            ><span class="code" data-ice="signature"
+              >(sBackground:
+              <span
+                ><a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+                  >String</a
+                ></span
+              >, iBoundary: <span>Integer</span>):
+              <span
+                ><a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+                  >Object</a
+                ></span
+              ></span
+            >
+            <span class="right-info">
+              <span data-ice="source"
+                ><span
+                  ><a href="file/src/components/Colors.js.html#lineNumber21"
+                    >source</a
+                  ></span
+                ></span
+              >
+            </span>
+          </h3>
+
+          <div data-ice="description">
+            <p>Returns a random color (D3 object)</p>
+          </div>
+
+          <div data-ice="properties">
+            <div data-ice="properties">
+              <h4 data-ice="title">Params:</h4>
+              <table class="params">
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Type</td>
+                    <td>Attribute</td>
+                    <td>Description</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-ice="property" data-depth="0">
+                    <td data-ice="name" class="code" data-depth="0">
+                      sBackground
+                    </td>
+                    <td data-ice="type" class="code">
+                      <span
+                        ><a
+                          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+                          >String</a
+                        ></span
+                      >
+                    </td>
+                    <td data-ice="appendix"></td>
+                    <td data-ice="description">
+                      <p>
+                        the type of background light/dark to filter for contrast
+                      </p>
+                    </td>
+                  </tr>
+                  <tr data-ice="property" data-depth="0">
+                    <td data-ice="name" class="code" data-depth="0">
+                      iBoundary
+                    </td>
+                    <td data-ice="type" class="code"><span>Integer</span></td>
+                    <td data-ice="appendix"></td>
+                    <td data-ice="description">
+                      <p>the brightness value to filter</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="return-params" data-ice="returnParams">
+            <h4>Return:</h4>
+            <table>
+              <tbody>
+                <tr>
+                  <td class="return-type code" data-ice="returnType">
+                    <span
+                      ><a
+                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+                        >Object</a
+                      ></span
+                    >
+                  </td>
+                  <td class="return-desc" data-ice="returnDescription">
+                    <p>randomly generated RGB object</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div data-ice="returnProperties"></div>
+          </div>
+        </div>
+        <div class="detail" data-ice="detail">
+          <h3 data-ice="anchor" id="static-method-getRandomPalette">
+            <span class="access" data-ice="access">public</span>
+            <span data-ice="static">static</span>
+
+            <span class="code" data-ice="name">getRandomPalette</span
+            ><span class="code" data-ice="signature"
+              >(iLength: <span>Integer</span>):
+              <span
+                ><a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+                  >Array</a
+                ></span
+              ></span
+            >
+            <span class="right-info">
+              <span data-ice="source"
+                ><span
+                  ><a href="file/src/components/Colors.js.html#lineNumber77"
+                    >source</a
+                  ></span
+                ></span
+              >
+            </span>
+          </h3>
+
+          <div data-ice="description">
+            <p>Returns a random color palette</p>
+          </div>
+
+          <div data-ice="properties">
+            <div data-ice="properties">
+              <h4 data-ice="title">Params:</h4>
+              <table class="params">
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Type</td>
+                    <td>Attribute</td>
+                    <td>Description</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-ice="property" data-depth="0">
+                    <td data-ice="name" class="code" data-depth="0">iLength</td>
+                    <td data-ice="type" class="code"><span>Integer</span></td>
+                    <td data-ice="appendix"></td>
+                    <td data-ice="description">
+                      <p>the size of the palette</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="return-params" data-ice="returnParams">
+            <h4>Return:</h4>
+            <table>
+              <tbody>
+                <tr>
+                  <td class="return-type code" data-ice="returnType">
+                    <span
+                      ><a
+                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+                        >Array</a
+                      ></span
+                    >
+                  </td>
+                  <td class="return-desc" data-ice="returnDescription">
+                    <p>list of randomly generated RGB objects</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div data-ice="returnProperties"></div>
+          </div>
+        </div>
       </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      <span data-ice="static">static</span>
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/components/Colors.js~Colors.html#static-method-getRandomColor">getRandomColor</a></span></span><span class="code" data-ice="signature">(sBackground: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, iBoundary: <span>Integer</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Returns a random color (D3 object)</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      <span data-ice="static">static</span>
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/components/Colors.js~Colors.html#static-method-getRandomPalette">getRandomPalette</a></span></span><span class="code" data-ice="signature">(iLength: <span>Integer</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Returns a random color palette</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
-
-
-
-
-
-
-
-<div data-ice="staticMethodDetails"><h2 data-ice="title">Static Public Methods</h2>
-
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-method-colorFilter">
-    <span class="access" data-ice="access">public</span>
-    <span data-ice="static">static</span>
-    
-    
-    
-    
-    <span class="code" data-ice="name">colorFilter</span><span class="code" data-ice="signature">(sBackground: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, iBoundary: <span>Integer</span>, aValues: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/components/Colors.js.html#lineNumber40">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Used to filter random colour values and ensure high contrast against background</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">sBackground</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the type of background light/dark to filter for contrast</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">iBoundary</td>
-      <td data-ice="type" class="code"><span>Integer</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the brightness value to filter</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">aValues</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>array of RGB values</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>specify whether the values pass or fail</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-method-convertHexToRgb">
-    <span class="access" data-ice="access">public</span>
-    <span data-ice="static">static</span>
-    
-    
-    
-    
-    <span class="code" data-ice="name">convertHexToRgb</span><span class="code" data-ice="signature">(sColor: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/components/Colors.js.html#lineNumber65">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Converts a HEX string to an RGB value</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">sColor</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the HEX colour</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>RGB color object</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-method-getDarkerColor">
-    <span class="access" data-ice="access">public</span>
-    <span data-ice="static">static</span>
-    
-    
-    
-    
-    <span class="code" data-ice="name">getDarkerColor</span><span class="code" data-ice="signature">(oColor: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/components/Colors.js.html#lineNumber94">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Returns a darker version of a color</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">oColor</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>RGB object</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>darker RGB object</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-method-getRandomColor">
-    <span class="access" data-ice="access">public</span>
-    <span data-ice="static">static</span>
-    
-    
-    
-    
-    <span class="code" data-ice="name">getRandomColor</span><span class="code" data-ice="signature">(sBackground: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, iBoundary: <span>Integer</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/components/Colors.js.html#lineNumber21">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Returns a random color (D3 object)</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">sBackground</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the type of background light/dark to filter for contrast</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">iBoundary</td>
-      <td data-ice="type" class="code"><span>Integer</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the brightness value to filter</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>randomly generated RGB object</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-method-getRandomPalette">
-    <span class="access" data-ice="access">public</span>
-    <span data-ice="static">static</span>
-    
-    
-    
-    
-    <span class="code" data-ice="name">getRandomPalette</span><span class="code" data-ice="signature">(iLength: <span>Integer</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/components/Colors.js.html#lineNumber77">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Returns a random color palette</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">iLength</td>
-      <td data-ice="type" class="code"><span>Integer</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the size of the palette</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>list of randomly generated RGB objects</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-</div>
-
-
-
-</div>
-
-<footer class="footer">
-  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
-</footer>
-
-<script src="script/search_index.js"></script>
-<script src="script/search.js"></script>
-<script src="script/pretty-print.js"></script>
-<script src="script/inherited-summary.js"></script>
-<script src="script/test-summary.js"></script>
-<script src="script/inner-link.js"></script>
-<script src="script/patch-for-local.js"></script>
-</body>
+    </div>
+
+    <footer class="footer">
+      Generated by
+      <a href="https://esdoc.org"
+        >ESDoc<span data-ice="esdocVersion">(1.1.0)</span
+        ><img src="./image/esdoc-logo-mini-black.png"
+      /></a>
+    </footer>
+
+    <script src="script/search_index.js"></script>
+    <script src="script/search.js"></script>
+    <script src="script/pretty-print.js"></script>
+    <script src="script/inherited-summary.js"></script>
+    <script src="script/test-summary.js"></script>
+    <script src="script/inner-link.js"></script>
+    <script src="script/patch-for-local.js"></script>
+  </body>
 </html>

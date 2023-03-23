@@ -69,10 +69,10 @@ Uses Vitest to run TDD tests:
 
 `pnpm test`
 
-
 ## Displaying charts
 
 You can instantiate a new chart by calling the appropriate method and supplying:
+
 - `sContainer` - the ID of (or dContainer - DOM reference to) a container node.
 - `jConfig` - a JSON configuration object - see examples in demo/config
 - `aData` - Chart data array - see examples in demo/data
@@ -99,6 +99,7 @@ Data can be randomly generated, or loaded from a HTTP endpoint. When loading fro
 using specially constructed JSON chart data, or mapping any JSON structure from the response using the config.
 
 The default structure for the chart is an array of objects, each containing:
+
 - `sLabel` - a label string
 - `aValues` - an array of integer values
 
@@ -111,7 +112,7 @@ The default structure for the chart is an array of objects, each containing:
 ]
 ```
 
-For unmodified endpoints with labels and values on other keys, you can map them using the config as shown below.  
+For unmodified endpoints with labels and values on other keys, you can map them using the config as shown below.
 
 ### Config
 
@@ -136,7 +137,7 @@ The config contains the basic info about how to display the chart. It contains:
 
 If you are mapping another data structure from a JSON endpoint, eg:
 
-```[{ k1: 4, k2: 5, k3: 'six' }, { k1: 7, k2: 8, k3: 'nine' }]```
+`[{ k1: 4, k2: 5, k3: 'six' }, { k1: 7, k2: 8, k3: 'nine' }]`
 
 You would provide an array of keys for the axis, and additional sKey parameter with each value for mapping.
 
@@ -185,4 +186,3 @@ This module provides the following ES classes:
 - Vite
 - Vitest
 - YUIDoc
-

@@ -612,9 +612,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "d3Container",
@@ -623,9 +621,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -643,9 +639,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "iTruncate",
@@ -654,9 +648,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -674,9 +666,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "aAxisLabels",
@@ -685,9 +675,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Array"
-      ],
+      "types": ["Array"],
       "spread": false,
       "description": null
     }
@@ -705,9 +693,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "oScaleX",
@@ -716,9 +702,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -736,9 +720,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "oScaleY",
@@ -747,9 +729,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -767,9 +747,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "oTooltip",
@@ -778,9 +756,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -798,9 +774,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "iWidth",
@@ -809,9 +783,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Number"
-      ],
+      "types": ["Number"],
       "spread": false,
       "description": null
     }
@@ -829,9 +801,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "iHeight",
@@ -840,9 +810,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Number"
-      ],
+      "types": ["Number"],
       "spread": false,
       "description": null
     }
@@ -860,9 +828,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "jPadding",
@@ -871,9 +837,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -899,9 +863,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Object"
-        ],
+        "types": ["Object"],
         "spread": false,
         "optional": false,
         "name": "oParams",
@@ -910,9 +872,7 @@
     ],
     "throws": [
       {
-        "types": [
-          "Error"
-        ],
+        "types": ["Error"],
         "description": "invalid parameters"
       }
     ]
@@ -941,9 +901,7 @@
     ],
     "params": [],
     "return": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -1044,9 +1002,7 @@
       }
     ],
     "interface": false,
-    "extends": [
-      "Chart"
-    ]
+    "extends": ["Chart"]
   },
   {
     "__docId__": 66,
@@ -1061,9 +1017,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "d3ChartGroup",
@@ -1072,9 +1026,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -1092,9 +1044,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "d3AxisGroup",
@@ -1103,9 +1053,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -1123,9 +1071,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "oAxis",
@@ -1134,9 +1080,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -1154,9 +1098,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "oKey",
@@ -1165,9 +1107,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -1193,9 +1133,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Object"
-        ],
+        "types": ["Object"],
         "spread": false,
         "optional": false,
         "name": "oParams",
@@ -1215,9 +1153,7 @@
     "lineNumber": 57,
     "undocument": true,
     "type": {
-      "types": [
-        "{\"l\": number, \"r\": number, \"t\": number, \"b\": number}"
-      ]
+      "types": ["{\"l\": number, \"r\": number, \"t\": number, \"b\": number}"]
     }
   },
   {
@@ -1232,9 +1168,7 @@
     "lineNumber": 58,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -1249,9 +1183,7 @@
     "lineNumber": 59,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -1287,9 +1219,7 @@
     "lineNumber": 85,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -1304,9 +1234,7 @@
     "lineNumber": 86,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -1321,9 +1249,7 @@
     "lineNumber": 87,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -1382,9 +1308,7 @@
       }
     ],
     "interface": false,
-    "extends": [
-      "AxisChart"
-    ]
+    "extends": ["AxisChart"]
   },
   {
     "__docId__": 85,
@@ -1399,9 +1323,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "aBars",
@@ -1410,9 +1332,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Array"
-      ],
+      "types": ["Array"],
       "spread": false,
       "description": null
     }
@@ -1448,9 +1368,7 @@
     "lineNumber": 30,
     "undocument": true,
     "type": {
-      "types": [
-        "string"
-      ]
+      "types": ["string"]
     }
   },
   {
@@ -1474,9 +1392,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Boolean"
-        ],
+        "types": ["Boolean"],
         "spread": false,
         "optional": false,
         "name": "bReset",
@@ -1484,9 +1400,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Boolean"
-        ],
+        "types": ["Boolean"],
         "spread": false,
         "optional": false,
         "name": "bHeightTransition",
@@ -1530,9 +1444,7 @@
       }
     ],
     "interface": false,
-    "extends": [
-      "Chart"
-    ]
+    "extends": ["Chart"]
   },
   {
     "__docId__": 92,
@@ -1547,9 +1459,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "aBubbles",
@@ -1558,9 +1468,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Array"
-      ],
+      "types": ["Array"],
       "spread": false,
       "description": null
     }
@@ -1586,9 +1494,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Object"
-        ],
+        "types": ["Object"],
         "spread": false,
         "optional": false,
         "name": "oParams",
@@ -1608,9 +1514,7 @@
     "lineNumber": 35,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -1625,9 +1529,7 @@
     "lineNumber": 36,
     "undocument": true,
     "type": {
-      "types": [
-        "string"
-      ]
+      "types": ["string"]
     }
   },
   {
@@ -1684,9 +1586,7 @@
     "lineNumber": 63,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -1701,9 +1601,7 @@
     "lineNumber": 64,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -1718,9 +1616,7 @@
     "lineNumber": 72,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -1735,9 +1631,7 @@
     "lineNumber": 82,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -1752,9 +1646,7 @@
     "lineNumber": 93,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -1769,9 +1661,7 @@
     "lineNumber": 114,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -1823,9 +1713,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "dSvg",
@@ -1834,9 +1722,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -1854,9 +1740,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "d3Svg",
@@ -1865,9 +1749,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -1885,9 +1767,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "iTransitionTime",
@@ -1896,9 +1776,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Number"
-      ],
+      "types": ["Number"],
       "spread": false,
       "description": null
     }
@@ -1916,9 +1794,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "dContainer",
@@ -1927,9 +1803,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -1947,9 +1821,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "dLoader",
@@ -1958,9 +1830,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -1978,9 +1848,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "oTooltip",
@@ -1989,9 +1857,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -2009,9 +1875,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "iWidth",
@@ -2020,9 +1884,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Number"
-      ],
+      "types": ["Number"],
       "spread": false,
       "description": null
     }
@@ -2040,9 +1902,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "iHeight",
@@ -2051,9 +1911,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Number"
-      ],
+      "types": ["Number"],
       "spread": false,
       "description": null
     }
@@ -2071,9 +1929,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "iInnerWidth",
@@ -2082,9 +1938,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Number"
-      ],
+      "types": ["Number"],
       "spread": false,
       "description": null
     }
@@ -2102,9 +1956,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "iInnerHeight",
@@ -2113,9 +1965,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Number"
-      ],
+      "types": ["Number"],
       "spread": false,
       "description": null
     }
@@ -2133,9 +1983,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "iInitialWidth",
@@ -2144,9 +1992,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Number"
-      ],
+      "types": ["Number"],
       "spread": false,
       "description": null
     }
@@ -2164,9 +2010,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "jPadding",
@@ -2175,9 +2019,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -2195,9 +2037,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "jConfig",
@@ -2206,9 +2046,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -2226,9 +2064,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "aData",
@@ -2237,9 +2073,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Array"
-      ],
+      "types": ["Array"],
       "spread": false,
       "description": null
     }
@@ -2265,9 +2099,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Object"
-        ],
+        "types": ["Object"],
         "spread": false,
         "optional": false,
         "name": "jConfig",
@@ -2275,9 +2107,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Array"
-        ],
+        "types": ["Array"],
         "spread": false,
         "optional": false,
         "name": "aData",
@@ -2285,9 +2115,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "String"
-        ],
+        "types": ["String"],
         "spread": false,
         "optional": false,
         "name": "sContainer",
@@ -2295,9 +2123,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Object"
-        ],
+        "types": ["Object"],
         "spread": false,
         "optional": false,
         "name": "dContainer",
@@ -2326,9 +2152,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Object"
-        ],
+        "types": ["Object"],
         "spread": false,
         "optional": false,
         "name": "dContainer",
@@ -2337,9 +2161,7 @@
     ],
     "throws": [
       {
-        "types": [
-          "Error"
-        ],
+        "types": ["Error"],
         "description": "invalid DOM element"
       }
     ],
@@ -2366,9 +2188,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Object"
-        ],
+        "types": ["Object"],
         "spread": false,
         "optional": false,
         "name": "jConfig",
@@ -2377,9 +2197,7 @@
     ],
     "throws": [
       {
-        "types": [
-          "Error"
-        ],
+        "types": ["Error"],
         "description": "missing configuration"
       }
     ],
@@ -2406,9 +2224,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Array"
-        ],
+        "types": ["Array"],
         "spread": false,
         "optional": false,
         "name": "aData",
@@ -2416,9 +2232,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Boolean"
-        ],
+        "types": ["Boolean"],
         "spread": false,
         "optional": false,
         "name": "bTransform",
@@ -2427,9 +2241,7 @@
     ],
     "throws": [
       {
-        "types": [
-          "Error"
-        ],
+        "types": ["Error"],
         "description": "missing data"
       }
     ],
@@ -2456,9 +2268,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Array"
-        ],
+        "types": ["Array"],
         "spread": false,
         "optional": false,
         "name": "aData",
@@ -2466,9 +2276,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Boolean"
-        ],
+        "types": ["Boolean"],
         "spread": false,
         "optional": false,
         "name": "bTransform",
@@ -2498,9 +2306,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "JSON"
-        ],
+        "types": ["JSON"],
         "spread": false,
         "optional": false,
         "name": "jConfig",
@@ -2529,9 +2335,7 @@
     ],
     "throws": [
       {
-        "types": [
-          "Error"
-        ],
+        "types": ["Error"],
         "description": "missing DOM element"
       }
     ],
@@ -2562,17 +2366,13 @@
     ],
     "throws": [
       {
-        "types": [
-          "Error"
-        ],
+        "types": ["Error"],
         "description": "chart not ready for initialisation"
       }
     ],
     "params": [],
     "return": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -2587,9 +2387,7 @@
     "lineNumber": 274,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -2604,9 +2402,7 @@
     "lineNumber": 276,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -2621,9 +2417,7 @@
     "lineNumber": 282,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -2679,9 +2473,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "String"
-        ],
+        "types": ["String"],
         "spread": false,
         "optional": false,
         "name": "sBackground",
@@ -2689,9 +2481,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Integer"
-        ],
+        "types": ["Integer"],
         "spread": false,
         "optional": false,
         "name": "iBoundary",
@@ -2700,9 +2490,7 @@
     ],
     "return": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": "randomly generated RGB object"
     }
@@ -2728,9 +2516,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "String"
-        ],
+        "types": ["String"],
         "spread": false,
         "optional": false,
         "name": "sBackground",
@@ -2738,9 +2524,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Integer"
-        ],
+        "types": ["Integer"],
         "spread": false,
         "optional": false,
         "name": "iBoundary",
@@ -2748,9 +2532,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Array"
-        ],
+        "types": ["Array"],
         "spread": false,
         "optional": false,
         "name": "aValues",
@@ -2759,9 +2541,7 @@
     ],
     "return": {
       "nullable": null,
-      "types": [
-        "Boolean"
-      ],
+      "types": ["Boolean"],
       "spread": false,
       "description": "specify whether the values pass or fail"
     }
@@ -2787,9 +2567,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "String"
-        ],
+        "types": ["String"],
         "spread": false,
         "optional": false,
         "name": "sColor",
@@ -2798,9 +2576,7 @@
     ],
     "return": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": "RGB color object"
     }
@@ -2826,9 +2602,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Integer"
-        ],
+        "types": ["Integer"],
         "spread": false,
         "optional": false,
         "name": "iLength",
@@ -2837,9 +2611,7 @@
     ],
     "return": {
       "nullable": null,
-      "types": [
-        "Array"
-      ],
+      "types": ["Array"],
       "spread": false,
       "description": "list of randomly generated RGB objects"
     }
@@ -2865,9 +2637,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Object"
-        ],
+        "types": ["Object"],
         "spread": false,
         "optional": false,
         "name": "oColor",
@@ -2876,9 +2646,7 @@
     ],
     "return": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": "darker RGB object"
     }
@@ -2936,9 +2704,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Array"
-        ],
+        "types": ["Array"],
         "spread": false,
         "optional": false,
         "name": "aData",
@@ -2946,9 +2712,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Integer"
-        ],
+        "types": ["Integer"],
         "spread": false,
         "optional": false,
         "name": "iMaxLength",
@@ -2957,9 +2721,7 @@
     ],
     "return": {
       "nullable": null,
-      "types": [
-        "Array"
-      ],
+      "types": ["Array"],
       "spread": false,
       "description": "sliced section of data"
     }
@@ -2984,9 +2746,7 @@
     ],
     "return": {
       "nullable": null,
-      "types": [
-        "JSON"
-      ],
+      "types": ["JSON"],
       "spread": false,
       "description": "JSON style data structure"
     },
@@ -3013,9 +2773,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "JSON"
-        ],
+        "types": ["JSON"],
         "spread": false,
         "optional": false,
         "name": "jConfig",
@@ -3023,9 +2781,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Array"
-        ],
+        "types": ["Array"],
         "spread": false,
         "optional": false,
         "name": "aData",
@@ -3033,9 +2789,7 @@
       }
     ],
     "return": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -3059,9 +2813,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Array"
-        ],
+        "types": ["Array"],
         "spread": false,
         "optional": false,
         "name": "aValues",
@@ -3069,9 +2821,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Boolean"
-        ],
+        "types": ["Boolean"],
         "spread": false,
         "optional": false,
         "name": "bAddRgb",
@@ -3080,9 +2830,7 @@
     ],
     "return": {
       "nullable": null,
-      "types": [
-        "Array"
-      ],
+      "types": ["Array"],
       "spread": false,
       "description": "A modified version of aValues containing colours"
     }
@@ -3136,9 +2884,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "d3Container",
@@ -3147,9 +2893,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -3167,9 +2911,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "aValues",
@@ -3178,9 +2920,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Array"
-      ],
+      "types": ["Array"],
       "spread": false,
       "description": null
     }
@@ -3198,9 +2938,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "iOffsetX",
@@ -3209,9 +2947,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Number"
-      ],
+      "types": ["Number"],
       "spread": false,
       "description": null
     }
@@ -3229,9 +2965,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "iOffsetY",
@@ -3240,9 +2974,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Number"
-      ],
+      "types": ["Number"],
       "spread": false,
       "description": null
     }
@@ -3268,9 +3000,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Object"
-        ],
+        "types": ["Object"],
         "spread": false,
         "optional": false,
         "name": "d3Container",
@@ -3278,9 +3008,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Array"
-        ],
+        "types": ["Array"],
         "spread": false,
         "optional": false,
         "name": "aValues",
@@ -3288,9 +3016,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Integer"
-        ],
+        "types": ["Integer"],
         "spread": false,
         "optional": false,
         "name": "iOffsetX",
@@ -3298,9 +3024,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Integer"
-        ],
+        "types": ["Integer"],
         "spread": false,
         "optional": false,
         "name": "iOffsetY",
@@ -3332,9 +3056,7 @@
     ],
     "params": [],
     "return": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -3361,9 +3083,7 @@
     ],
     "params": [],
     "return": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -3401,9 +3121,7 @@
       }
     ],
     "interface": false,
-    "extends": [
-      "AxisChart"
-    ]
+    "extends": ["AxisChart"]
   },
   {
     "__docId__": 173,
@@ -3418,9 +3136,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "aLines",
@@ -3429,9 +3145,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Array"
-      ],
+      "types": ["Array"],
       "spread": false,
       "description": null
     }
@@ -3449,9 +3163,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "aCircles",
@@ -3460,9 +3172,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Array"
-      ],
+      "types": ["Array"],
       "spread": false,
       "description": null
     }
@@ -3498,9 +3208,7 @@
     "lineNumber": 38,
     "undocument": true,
     "type": {
-      "types": [
-        "string"
-      ]
+      "types": ["string"]
     }
   },
   {
@@ -3515,9 +3223,7 @@
     "lineNumber": 39,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -3542,9 +3248,7 @@
       {
         "name": "bReset",
         "optional": true,
-        "types": [
-          "boolean"
-        ],
+        "types": ["boolean"],
         "defaultRaw": false,
         "defaultValue": "false"
       }
@@ -3600,9 +3304,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "dContainer",
@@ -3611,9 +3313,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -3631,9 +3331,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "dTooltip",
@@ -3642,9 +3340,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -3662,9 +3358,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "oTooltipTimeout",
@@ -3673,9 +3367,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -3693,9 +3385,7 @@
     "properties": [
       {
         "nullable": null,
-        "types": [
-          "*"
-        ],
+        "types": ["*"],
         "spread": false,
         "optional": false,
         "name": "oTooltipSubTimeout",
@@ -3704,9 +3394,7 @@
     ],
     "type": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": null
     }
@@ -3732,9 +3420,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Object"
-        ],
+        "types": ["Object"],
         "spread": false,
         "optional": false,
         "name": "dContainer",
@@ -3754,9 +3440,7 @@
     "lineNumber": 51,
     "undocument": true,
     "type": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -3783,9 +3467,7 @@
     ],
     "params": [],
     "return": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -3809,9 +3491,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Array"
-        ],
+        "types": ["Array"],
         "spread": false,
         "optional": false,
         "name": "mContent",
@@ -3889,9 +3569,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "String"
-        ],
+        "types": ["String"],
         "spread": false,
         "optional": false,
         "name": "sUrl",
@@ -3900,16 +3578,12 @@
     ],
     "throws": [
       {
-        "types": [
-          "Error"
-        ],
+        "types": ["Error"],
         "description": "invalid api string"
       }
     ],
     "return": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -3933,9 +3607,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "String"
-        ],
+        "types": ["String"],
         "spread": false,
         "optional": false,
         "name": "sString",
@@ -3943,9 +3615,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Integer"
-        ],
+        "types": ["Integer"],
         "spread": false,
         "optional": false,
         "name": "iMaxLength",
@@ -3954,9 +3624,7 @@
     ],
     "return": {
       "nullable": null,
-      "types": [
-        "String"
-      ],
+      "types": ["String"],
       "spread": false,
       "description": "truncated string"
     }
@@ -3982,9 +3650,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Integer"
-        ],
+        "types": ["Integer"],
         "spread": false,
         "optional": false,
         "name": "iMin",
@@ -3992,9 +3658,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Integer"
-        ],
+        "types": ["Integer"],
         "spread": false,
         "optional": false,
         "name": "iMax",
@@ -4002,9 +3666,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Integer"
-        ],
+        "types": ["Integer"],
         "spread": false,
         "optional": false,
         "name": "iOmit",
@@ -4013,9 +3675,7 @@
     ],
     "return": {
       "nullable": null,
-      "types": [
-        "Integer"
-      ],
+      "types": ["Integer"],
       "spread": false,
       "description": "new random integer"
     }
@@ -4081,9 +3741,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "String"
-        ],
+        "types": ["String"],
         "spread": false,
         "optional": false,
         "name": "sContainer",
@@ -4091,9 +3749,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "String"
-        ],
+        "types": ["String"],
         "spread": false,
         "optional": false,
         "name": "sType",
@@ -4101,9 +3757,7 @@
       },
       {
         "nullable": null,
-        "types": [
-          "Object"
-        ],
+        "types": ["Object"],
         "spread": false,
         "optional": false,
         "name": "oParams",
@@ -4112,9 +3766,7 @@
     ],
     "return": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": "oChart returns a chart object of the requested type"
     }
@@ -4140,9 +3792,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Object"
-        ],
+        "types": ["Object"],
         "spread": false,
         "optional": false,
         "name": "oParams",
@@ -4151,9 +3801,7 @@
     ],
     "return": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": "returns a bar chart object"
     }
@@ -4179,9 +3827,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Object"
-        ],
+        "types": ["Object"],
         "spread": false,
         "optional": false,
         "name": "oParams",
@@ -4190,9 +3836,7 @@
     ],
     "return": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": "returns a line chart object"
     }
@@ -4218,9 +3862,7 @@
     "params": [
       {
         "nullable": null,
-        "types": [
-          "Object"
-        ],
+        "types": ["Object"],
         "spread": false,
         "optional": false,
         "name": "oParams",
@@ -4229,9 +3871,7 @@
     ],
     "return": {
       "nullable": null,
-      "types": [
-        "Object"
-      ],
+      "types": ["Object"],
       "spread": false,
       "description": "returns a bubble chart object"
     }
@@ -4256,9 +3896,7 @@
     ],
     "params": [],
     "return": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {
@@ -4281,9 +3919,7 @@
     ],
     "params": [],
     "return": {
-      "types": [
-        "*"
-      ]
+      "types": ["*"]
     }
   },
   {

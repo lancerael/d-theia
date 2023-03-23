@@ -1,5 +1,5 @@
 body {
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   margin-right: 15px;
   font-family: sans-serif;
   font-size: 12px;
@@ -19,7 +19,7 @@ body {
 .container svg {
   background-color: #c5d9f7;
   border: 1px solid #b8d2f9;
-  box-shadow: 2px 2px 5px grey;  
+  box-shadow: 2px 2px 5px grey;
 }
 
 .dt-loader {
@@ -29,12 +29,16 @@ body {
   position: absolute;
   left: calc(50% - 16px);
   top: calc(50% - 16px);
-	animation:spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
-@keyframes spin{
-	from{transform:rotate(0deg)}
-	to{transform:rotate(360deg)}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .test-row {
@@ -45,7 +49,7 @@ body {
 
 .test-row .container {
   flex-grow: 1;
-  max-width: 49%
+  max-width: 49%;
 }
 
 .test-row .container:first-of-type {
@@ -75,7 +79,8 @@ body {
   color: grey;
 }
 
-.labels, .title {
+.labels,
+.title {
   fill: grey;
   font-weight: bold;
   font-size: 10px;
@@ -113,7 +118,8 @@ g.key {
   border: 1px solid red;
 }
 
-.bars, .circles {
+.bars,
+.circles {
   -webkit-transition: fill 0.2s;
   transition: fill 0.2s;
 }
@@ -123,7 +129,8 @@ path.line {
   stroke-width: 2px;
 }
 
-.bars:hover, .circles:hover {
+.bars:hover,
+.circles:hover {
   /* fill: #444444; */
   cursor: pointer;
 }
