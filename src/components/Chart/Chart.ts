@@ -271,7 +271,7 @@ export default class Chart {
    * @param {Boolean} bTransform transform mapped data
    */
   updateData(aData: any, bTransform = true, bRender = true) {
-    this.setData(aData, bTransform)
+    this.setData(structuredClone(aData), bTransform)
     this.setDimensions()
     if (this.oAxis) {
       this.oAxis.render()
@@ -288,7 +288,7 @@ export default class Chart {
    * @param {JSON} jConfig config JSON style object
    */
   updateConfig(jConfig: any, bResetDimensions = false, bTransition = false) {
-    this.setConfig(jConfig)
+    this.setConfig(structuredClone(jConfig))
     if (bResetDimensions) {
       this.setDimensions()
     }
