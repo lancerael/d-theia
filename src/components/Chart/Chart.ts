@@ -235,10 +235,10 @@ export default class Chart {
    */
   setConfig(jConfig: any) {
     if (jConfig && jConfig.toString() === '[object Object]') {
-      if (jConfig.aValues) {
-        jConfig.aValues = DataOps.addColoursToConfig(jConfig.aValues)
+      this.jConfig = structuredClone(jConfig)
+      if (this.jConfig.aValues) {
+        this.jConfig.aValues = DataOps.addColoursToConfig(jConfig.aValues)
       }
-      this.jConfig = jConfig
     } else {
       throw new Error('No valid configuration provided for chart.')
     }
@@ -254,10 +254,10 @@ export default class Chart {
    */
   setData(aData: any, bTransform = true) {
     if (aData && Array.isArray(aData) === true) {
+      this.aData = structuredClone(aData)
       if (this.jConfig && bTransform) {
-        aData = DataOps.transformDataKeys(this.jConfig, aData)
+        this.aData = DataOps.transformDataKeys(this.jConfig, aData)
       }
-      this.aData = aData
     } else {
       throw new Error('No valid data provided for chart.')
     }
