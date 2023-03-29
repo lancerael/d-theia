@@ -237,7 +237,7 @@ export default class Chart {
     if (jConfig && jConfig.toString() === '[object Object]') {
       this.jConfig = structuredClone(jConfig)
       if (this.jConfig.aValues) {
-        this.jConfig.aValues = DataOps.addColoursToConfig(jConfig.aValues)
+        this.jConfig.aValues = DataOps.addColoursToConfig(this.jConfig.aValues)
       }
     } else {
       throw new Error('No valid configuration provided for chart.')
@@ -256,7 +256,7 @@ export default class Chart {
     if (aData && Array.isArray(aData) === true) {
       this.aData = structuredClone(aData)
       if (this.jConfig && bTransform) {
-        this.aData = DataOps.transformDataKeys(this.jConfig, aData)
+        this.aData = DataOps.transformDataKeys(this.jConfig, this.aData)
       }
     } else {
       throw new Error('No valid data provided for chart.')
@@ -271,7 +271,7 @@ export default class Chart {
    * @param {Boolean} bTransform transform mapped data
    */
   updateData(aData: any, bTransform = true, bRender = true) {
-    this.setData(structuredClone(aData), bTransform)
+    this.setData(aData, bTransform)
     this.setDimensions()
     if (this.oAxis) {
       this.oAxis.render()
@@ -288,7 +288,7 @@ export default class Chart {
    * @param {JSON} jConfig config JSON style object
    */
   updateConfig(jConfig: any, bResetDimensions = false, bTransition = false) {
-    this.setConfig(structuredClone(jConfig))
+    this.setConfig(jConfig)
     if (bResetDimensions) {
       this.setDimensions()
     }
