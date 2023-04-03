@@ -1,6 +1,6 @@
 # Change Log - d-theia
 
-## 3.0.6 - 3.0.7
+## 3.0.6 - 3.0.8
 
 Monday, 03 April 2023 22:22:21 GMT
 

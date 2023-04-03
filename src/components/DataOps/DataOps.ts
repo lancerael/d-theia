@@ -83,10 +83,10 @@ export default class DataOps {
     jChart.jConfig = {
       sTitle: '',
       aAxisLabels: ['', ''],
-      aValues: [],
+      aValues: DataOps.addColoursToConfig([{ sName: '' }], false),
       bTrim: true,
     }
-    jChart.aData = [{ sLabel: 'Item 1', aValues: [] }]
+    jChart.aData = [{ sLabel: '', aValues: [] }]
     return jChart
   }
 

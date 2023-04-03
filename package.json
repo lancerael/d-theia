@@ -1,6 +1,6 @@
 {
   "name": "d-theia",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "description": "dTheia is a JavaScript charting library for visualization of complex data.",
   "homepage": "http://www.dtheia.org",
   "type": "module",
