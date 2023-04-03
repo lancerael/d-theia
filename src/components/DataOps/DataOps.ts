@@ -86,7 +86,7 @@ export default class DataOps {
       aValues: [],
       bTrim: true,
     }
-    jChart.aData = []
+    jChart.aData = [{ sLabel: 'Item 1', aValues: [] }]
     return jChart
   }
 

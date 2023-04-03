@@ -1,5 +1,13 @@
 # Change Log - d-theia
 
+## 3.0.6 - 3.0.7
+
+Monday, 03 April 2023 22:22:21 GMT
+
+### Patches
+
+- Fix for empty data bug
+
 ## 3.0.1 - 3.0.5
 
 Wednesday, 29 Mar 2023 20:22:21 GMT
