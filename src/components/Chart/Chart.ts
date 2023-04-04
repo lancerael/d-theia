@@ -279,13 +279,14 @@ export default class Chart {
    * @param {Boolean} bTransform transform mapped data
    */
   updateData(aData: any, bRender = true) {
+    const doReset = aData.length != this.aData.length
     this.setData(aData)
     this.setDimensions()
     if (this.oAxis) {
       this.oAxis.render()
     }
     if (this.renderChart && bRender) {
-      this.renderChart()
+      this.renderChart(doReset)
     }
   }
 
