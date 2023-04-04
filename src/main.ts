@@ -18,6 +18,7 @@ const aCycleData = DataOps.sliceSampleData(cycleData.stationBeanList, 15)
 const jCycleTest = {
   jConfig: Config.jAxisConfig1,
   aData: aCycleData,
+  bTransform: true,
 }
 Theia.chart('container-bar-1', 'bar', jCycleTest)
 Theia.chart('container-line-1', 'line', jCycleTest)

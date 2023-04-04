@@ -1,6 +1,7 @@
 import { line } from 'd3-shape'
 import { select, event } from 'd3-selection'
 import { scalePoint } from 'd3-scale'
+import { rgb } from 'd3-color'
 import AxisChart from '../AxisChart'
 
 /**
@@ -76,9 +77,7 @@ export default class LineChart extends AxisChart {
     }
 
     // Iterate through config value keys
-    aValues.forEach((oValues: any, i: number) => {
-      const { oColor } = oValues
-
+    aValues.forEach(({ sColor, sName }: any, i: number) => {
       if (!this.aLines[i]) {
         // define the line
         this.aLines[i] = line()
@@ -88,7 +87,7 @@ export default class LineChart extends AxisChart {
           .append('path')
           .data([this.aData])
           .attr('class', `line lines-${i}`)
-          .attr('stroke', oColor)
+          .attr('stroke', sColor)
       }
 
       // Update lines
@@ -111,11 +110,10 @@ export default class LineChart extends AxisChart {
           .enter()
           .append('circle')
           .on('mousemove', (d: any) => {
-            this.oTooltip.ping([d.sLabel, oValues.sName, d.aValues[i]])
+            this.oTooltip.ping([d.sLabel, sName, d.aValues[i]])
           })
           .on('mouseover', (d: any) => {
-            d.oColor = this.jConfig.aValues[i].oColor
-            select(event.target).attr('fill', d.oColor.darker(1))
+            select(event.target).attr('fill', rgb(sColor).darker().formatHex())
           })
           .on('mousedown', (d: any) => {
             if (this.jConfig.fnClickCallback) {
@@ -127,10 +125,10 @@ export default class LineChart extends AxisChart {
           })
           .on('mouseout', (d: any) => {
             this.oTooltip.hide()
-            select(event.target).attr('fill', d.oColor)
+            select(event.target).attr('fill', sColor)
           })
           .attr('class', `circles circles-${i}`)
-          .attr('fill', oColor)
+          .attr('fill', sColor)
           .attr('r', 5)
       }
 

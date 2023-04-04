@@ -2,6 +2,7 @@ import { easeLinear } from 'd3-ease'
 import { select, event } from 'd3-selection'
 import 'd3-transition'
 import AxisChart from '../AxisChart'
+import { rgb } from 'd3-color'
 
 /**
  * Create BarCharts from the supplied data, based on the JSON config.
@@ -56,8 +57,7 @@ export default class BarChart extends AxisChart {
     }
 
     // Iterate through config value keys
-    aValues.forEach((oValues: any, i: number) => {
-      const { oColor } = oValues
+    aValues.forEach(({ sColor, sName }: any, i: number) => {
       const iBarOffset = sBarType === 'side' ? iBarWidth * i : 0
       // Add bars for each value
       if (!this.aBars[i]) {
@@ -70,11 +70,10 @@ export default class BarChart extends AxisChart {
           .enter()
           .append('rect')
           .on('mousemove', (d: any) => {
-            this.oTooltip.ping([d.sLabel, oValues.sName, d.aValues[i]])
+            this.oTooltip.ping([d.sLabel, sName, d.aValues[i]])
           })
           .on('mouseover', (d: any) => {
-            d.oColor = oColor
-            select(event.target).attr('fill', d.oColor.darker(1))
+            select(event.target).attr('fill', rgb(sColor).darker().formatHex())
           })
           .on('mousedown', (d: any) => {
             if (this.jConfig.fnClickCallback) {
@@ -84,12 +83,12 @@ export default class BarChart extends AxisChart {
               })
             }
           })
-          .on('mouseout', (d: any) => {
+          .on('mouseout', () => {
             this.oTooltip.hide()
-            select(event.target).attr('fill', d.oColor)
+            select(event.target).attr('fill', sColor)
           })
           .attr('class', `bars bars-${i}`)
-          .attr('fill', oColor)
+          .attr('fill', sColor)
           .attr('y', iInnerHeight)
           .attr('height', 0)
       }

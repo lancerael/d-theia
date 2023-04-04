@@ -49,10 +49,7 @@ export default class DataOps {
       })(),
       bTrim: true,
     }
-    jChart.jConfig.aValues = DataOps.addColoursToConfig(
-      jChart.jConfig.aValues,
-      false
-    )
+    jChart.jConfig.aValues = DataOps.addColoursToConfig(jChart.jConfig.aValues)
     jChart.aData = []
     let iCounter = iLength
     while (iCounter--) {
@@ -83,10 +80,10 @@ export default class DataOps {
     jChart.jConfig = {
       sTitle: '',
       aAxisLabels: ['', ''],
-      aValues: DataOps.addColoursToConfig([{ sName: '' }], false),
+      aValues: DataOps.addColoursToConfig([{ sName: '' }]),
       bTrim: true,
     }
-    jChart.aData = [{ sLabel: '', aValues: [] }]
+    jChart.aData = [{ sLabel: '', aValues: [0] }]
     return jChart
   }
 
@@ -124,17 +121,11 @@ export default class DataOps {
    * @method addColoursToConfig
    * @static
    * @param {Array} aValues the config values needing colours
-   * @param {Boolean} bAddRgb add RGB object or not?
    * @return {Array} A modified version of aValues containing colours
    */
-  static addColoursToConfig(aValues: any, bAddRgb = true) {
+  static addColoursToConfig(aValues: any) {
     return aValues.map((jValue: any) => {
-      if (!jValue.sColor) {
-        jValue.sColor = Colors.getRandomColor().hex()
-      }
-      if (bAddRgb) {
-        jValue.oColor = Colors.convertHexToRgb(jValue.sColor)
-      }
+      jValue.sColor = jValue.sColor ?? Colors.getRandomColor().hex()
       return jValue
     })
   }

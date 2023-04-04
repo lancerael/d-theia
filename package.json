@@ -1,6 +1,6 @@
 {
   "name": "d-theia",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "description": "dTheia is a JavaScript charting library for visualization of complex data.",
   "homepage": "http://www.dtheia.org",
   "type": "module",
@@ -22,7 +22,7 @@
   "dependencies": {
     "d3-array": "^1.2.1",
     "d3-axis": "^1.0.8",
-    "d3-color": "^1.2.0",
+    "d3-color": "^3.1.0",
     "d3-ease": "^1.0.3",
     "d3-fetch": "^1.1.0",
     "d3-force": "^1.1.0",
@@ -35,7 +35,7 @@
     "@pi-lib/config": "*",
     "@types/d3-array": "^1.2.1",
     "@types/d3-axis": "^1.0.8",
-    "@types/d3-color": "^1.2.0",
+    "@types/d3-color": "^3.1.0",
     "@types/d3-ease": "^1.0.3",
     "@types/d3-fetch": "^1.1.0",
     "@types/d3-force": "^1.1.0",

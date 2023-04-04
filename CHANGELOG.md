@@ -1,6 +1,12 @@
 # Change Log - d-theia
 
-## 3.0.6 - 3.0.8
+## 3.1.0
+
+Tuesday, 04 April 2023 21:21:22 GMT
+
+- Simplified internal mutations
+
+## 3.0.6 - 3.0.9
 
 Monday, 03 April 2023 22:22:21 GMT
 

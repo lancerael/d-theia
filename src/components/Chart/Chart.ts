@@ -179,6 +179,14 @@ export default class Chart {
   iResizeOffset: any
 
   /**
+   * Transform keys from an unknown data schema
+   *
+   * @property bTransform
+   * @type {boolean}
+   */
+  bTransform: boolean
+
+  /**
    * Constructor function that sets up the local object.
    *
    * @method constructor
@@ -188,14 +196,14 @@ export default class Chart {
    * @param {Object} dContainer Optional DOM object in place of ID
    */
   constructor(oParams: any = {}) {
-    const { jConfig, aData, sContainer } = oParams
+    const { jConfig, aData, sContainer, bAddColors, bTransform } = oParams
     let { dContainer } = oParams
     this.dSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
     this.d3Svg = select(this.dSvg)
     this.iTransitionTime = 500
     this.jPadding = { l: 5, r: 5, t: 5, b: 5 }
     this.dLoader = document.createElement('div')
-    this.dLoader.className = 'dt-loader'
+    this.bTransform = bTransform
     if (!dContainer && sContainer) {
       dContainer = document.getElementById(sContainer)
     }
@@ -203,7 +211,7 @@ export default class Chart {
       this.setContainer(dContainer)
     }
     if (jConfig) {
-      this.setConfig(jConfig)
+      this.setConfig(jConfig, bAddColors)
     }
     if (aData) {
       this.setData(aData)
@@ -233,10 +241,10 @@ export default class Chart {
    * @param {Object} jConfig JSON configuration object
    * @throws {Error} missing configuration
    */
-  setConfig(jConfig: any) {
+  setConfig(jConfig: any, bAddColors = false) {
     if (jConfig && jConfig.toString() === '[object Object]') {
-      this.jConfig = structuredClone(jConfig)
-      if (this.jConfig.aValues) {
+      this.jConfig = jConfig
+      if (this.jConfig.aValues && bAddColors) {
         this.jConfig.aValues = DataOps.addColoursToConfig(this.jConfig.aValues)
       }
     } else {
@@ -252,10 +260,10 @@ export default class Chart {
    * @param {Boolean} bTransform transform mapped data
    * @throws {Error} missing data
    */
-  setData(aData: any, bTransform = true) {
+  setData(aData: any) {
     if (aData && Array.isArray(aData) === true) {
-      this.aData = structuredClone(aData)
-      if (this.jConfig && bTransform) {
+      this.aData = aData
+      if (this.jConfig && this.bTransform) {
         this.aData = DataOps.transformDataKeys(this.jConfig, this.aData)
       }
     } else {
@@ -270,8 +278,8 @@ export default class Chart {
    * @param {Array} aData array of JSON objects
    * @param {Boolean} bTransform transform mapped data
    */
-  updateData(aData: any, bTransform = true, bRender = true) {
-    this.setData(aData, bTransform)
+  updateData(aData: any, bRender = true) {
+    this.setData(aData)
     this.setDimensions()
     if (this.oAxis) {
       this.oAxis.render()
@@ -321,12 +329,11 @@ export default class Chart {
    *
    * @method renderChart
    */
-  renderChart(a?: any, b?: any) {
+  renderChart(...args: any) {
     if (this.d3Title) {
       this.d3Title.text(this.jConfig.sTitle)
-      a
-      b
     }
+    args
   }
 
   /**
