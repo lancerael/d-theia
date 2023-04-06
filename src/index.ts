@@ -32,23 +32,17 @@ export default class Theia {
    * @param {Object} oParams includes target DOM object, JSON config and array of data
    * @return {Object} oChart returns a chart object of the requested type
    */
-  static chart(sContainer: any, sType: any, oParams: any) {
-    let oChart = {}
+  static chart(
+    sContainer: any,
+    sType: 'line' | 'bubble' | 'bar' = 'bar',
+    oParams: any
+  ) {
     const oAllParams = { sContainer, ...oParams }
-    switch (sType) {
-      case 'line': {
-        oChart = this.createLineChart(oAllParams)
-        break
-      }
-      case 'bubble': {
-        oChart = this.createBubbleChart(oAllParams)
-        break
-      }
-      default: {
-        oChart = this.createBarChart(oAllParams)
-      }
-    }
-    return oChart
+    return {
+      line: () => this.createLineChart(oAllParams),
+      bubble: () => this.createBubbleChart(oAllParams),
+      bar: () => this.createBarChart(oAllParams),
+    }[sType]()
   }
 
   /**

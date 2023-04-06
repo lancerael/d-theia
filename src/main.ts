@@ -8,7 +8,7 @@ const DataOps = Theia.getDataOps()
 let jTest = DataOps.getRandomData()
 
 // Display dummy bar chart
-Theia.chart('container-bar-test', 'bar', jTest)
+const chart = Theia.chart('container-bar-test', 'bar', jTest)
 
 // Display dummy line chart
 Theia.chart('container-line-test', 'line', jTest)
@@ -37,3 +37,9 @@ Theia.chart('container-bar-2', 'line', {
     }
   }),
 })
+
+// Show updating of chart data
+setTimeout(() => {
+  jTest.aData[0].aValues[0] = 100
+  chart.updateData(jTest.aData)
+}, 2000)

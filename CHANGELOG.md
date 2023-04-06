@@ -1,6 +1,12 @@
 # Change Log - d-theia
 
-## 3.1.0 - 3.1.1
+## 3.1.3
+
+Thursday, 06 April 2023 21:21:22 GMT
+
+- Enabled key label style override
+
+## 3.1.0 - 3.1.2
 
 Tuesday, 04 April 2023 21:21:22 GMT
 

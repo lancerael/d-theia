@@ -68,11 +68,12 @@ export default class Key {
     let iGroupOffset = 0
     const d3KeyGroup = this.d3Container.append('g').attr('class', 'key')
     const d3Labels = d3KeyGroup.selectAll('text.label').data(this.aValues)
-    const fnCalculateMargin = (aValues: any, i: number) => {
+    const labelWidths: number[] = []
+    const fnCalculateMargin = (i: number) => {
       let iMargin = 0
       if (i) {
         for (let l = 0; l < i; l++) {
-          iMargin += aValues[l].iLabelWidth
+          iMargin += labelWidths[l]
         }
       }
       return iMargin
@@ -83,31 +84,25 @@ export default class Key {
       .text((d: any) => d.sName)
       .each((d: any, i: number, nodes: any) => {
         const iLabelWidth = nodes[i].getBoundingClientRect().width + 15
-        this.aValues[i].iLabelWidth = iLabelWidth
+        labelWidths.push(iLabelWidth)
         iGroupOffset += iLabelWidth - 2
         d
       })
       .attr('class', 'label')
-      .attr(
-        'x',
-        (d: any, i: number) => !!d && fnCalculateMargin(this.aValues, i)
-      )
+      .attr('x', (d: any, i: number) => !!d && fnCalculateMargin(i))
       .attr('y', 8)
       .attr('width', 10)
       .attr('height', 10)
       .attr('font-family', 'sans-serif')
       .attr('font-size', '10px')
-      .attr('fill', '#222222')
+      .attr('style', 'fill: #222222')
     const d3Keys = d3KeyGroup.selectAll('rect.key').data(this.aValues)
     d3Keys
       .enter()
       .append('rect')
       .attr('class', 'key')
       .attr('fill', (d: any) => d.sColor)
-      .attr(
-        'x',
-        (d: any, i: number) => !!d && fnCalculateMargin(this.aValues, i) - 12
-      )
+      .attr('x', (d: any, i: number) => !!d && fnCalculateMargin(i) - 12)
       .attr('y', 0)
       .attr('width', 10)
       .attr('height', 10)
