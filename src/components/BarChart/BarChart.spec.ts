@@ -28,6 +28,7 @@ describe('BarChart', () => {
         { k1: 4, k2: 5, k3: 'six' },
         { k1: 7, k2: 8, k3: 'nine' },
       ],
+      bTransform: true,
     })
   })
 
