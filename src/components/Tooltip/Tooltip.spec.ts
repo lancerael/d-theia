@@ -18,7 +18,7 @@ describe('Key', () => {
 
   it('should ping the tooltip in location with correct content', () => {
     oTooltip.create()
-    oTooltip.ping('test')
+    oTooltip.ping('test', { clientX: 0, clientY: 0 })
     expect(select(dDiv).selectAll('.tooltip.is-transparent').size()).toBe(0)
     expect(oTooltip.dTooltip.style.right).toBe('10px')
     expect(oTooltip.dTooltip.style.top).toBe('0px')

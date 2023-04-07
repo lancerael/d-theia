@@ -1,5 +1,5 @@
 import { line } from 'd3-shape'
-import { select, event } from 'd3-selection'
+import { select } from 'd3-selection'
 import { scalePoint } from 'd3-scale'
 import { rgb } from 'd3-color'
 import AxisChart from '../AxisChart'
@@ -109,13 +109,16 @@ export default class LineChart extends AxisChart {
         this.aCircles[i]
           .enter()
           .append('circle')
-          .on('mousemove', (d: any) => {
-            this.oTooltip.ping([d.sLabel, sName, d.aValues[i]])
+          .on('mousemove', (event: MouseEvent, d: any) => {
+            this.oTooltip.ping([d.sLabel, sName, d.aValues[i]], event)
           })
-          .on('mouseover', (d: any) => {
-            select(event.target).attr('fill', rgb(sColor).darker().formatHex())
+          .on('mouseover', (event: MouseEvent, d: any) => {
+            select(event.target as HTMLElement).attr(
+              'fill',
+              rgb(sColor).darker().formatHex()
+            )
           })
-          .on('mousedown', (d: any) => {
+          .on('mousedown', (event: MouseEvent, d: any) => {
             if (this.jConfig.fnClickCallback) {
               this.jConfig.fnClickCallback({
                 oEvent: event,
@@ -123,9 +126,9 @@ export default class LineChart extends AxisChart {
               })
             }
           })
-          .on('mouseout', (d: any) => {
+          .on('mouseout', (event: MouseEvent) => {
             this.oTooltip.hide()
-            select(event.target).attr('fill', sColor)
+            select(event.target as HTMLElement).attr('fill', sColor)
           })
           .attr('class', `circles circles-${i}`)
           .attr('fill', sColor)

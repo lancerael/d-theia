@@ -1,5 +1,5 @@
 import { easeLinear } from 'd3-ease'
-import { select, event } from 'd3-selection'
+import { select } from 'd3-selection'
 import 'd3-transition'
 import AxisChart from '../AxisChart'
 import { rgb } from 'd3-color'
@@ -69,13 +69,16 @@ export default class BarChart extends AxisChart {
         this.aBars[i]
           .enter()
           .append('rect')
-          .on('mousemove', (d: any) => {
-            this.oTooltip.ping([d.sLabel, sName, d.aValues[i]])
+          .on('mousemove', (event: MouseEvent, d: any) => {
+            this.oTooltip.ping([d.sLabel, sName, d.aValues[i]], event)
           })
-          .on('mouseover', (d: any) => {
-            select(event.target).attr('fill', rgb(sColor).darker().formatHex())
+          .on('mouseover', (event: MouseEvent) => {
+            select(event.target as HTMLElement).attr(
+              'fill',
+              rgb(sColor).darker().formatHex()
+            )
           })
-          .on('mousedown', (d: any) => {
+          .on('mousedown', (event: MouseEvent, d: any) => {
             if (this.jConfig.fnClickCallback) {
               this.jConfig.fnClickCallback({
                 oEvent: event,
@@ -83,9 +86,9 @@ export default class BarChart extends AxisChart {
               })
             }
           })
-          .on('mouseout', () => {
+          .on('mouseout', (event: MouseEvent) => {
             this.oTooltip.hide()
-            select(event.target).attr('fill', sColor)
+            select(event.target as HTMLElement).attr('fill', sColor)
           })
           .attr('class', `bars bars-${i}`)
           .attr('fill', sColor)

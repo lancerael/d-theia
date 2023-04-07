@@ -1,5 +1,3 @@
-import { event } from 'd3-selection'
-
 /**
  * The Tooltip
  *
@@ -72,7 +70,7 @@ export default class Tooltip {
    * @method ping
    * @param {Array} mContent values or string for content
    */
-  ping(mContent: any) {
+  ping(mContent: any, event: MouseEvent) {
     const sContent =
       mContent.constructor === Array
         ? `<strong>${mContent[0]}</strong><br>${mContent[1]}: <em>${mContent[2]}</em>`
@@ -82,8 +80,9 @@ export default class Tooltip {
     const oContainerEdges = this.dContainer.getBoundingClientRect()
     const iPageOffsetX = oContainerEdges.left - 15
     const iPageOffsetY = oContainerEdges.top
-    const iMouseX = event ? event.clientX : 0
-    const iMouseY = event ? event.clientY : 0
+    const iMouseX = event?.clientX ?? 0
+    const iMouseY = event?.clientY ?? 0
+    console.log(oContainerEdges.width, iMouseX, iPageOffsetX)
     this.dTooltip.innerHTML = sContent
     this.dTooltip.className = 'tooltip'
     if (oContainerEdges.width + iPageOffsetX - iMouseX < 90) {

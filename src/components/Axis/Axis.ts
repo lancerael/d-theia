@@ -127,9 +127,9 @@ export default class Axis {
       .attr('class', 'x-labels')
       .text((d: any) => Utilities.truncateString(d, this.iTruncate))
       .style('text-anchor', 'end')
-      .on('mousemove', (d: any) => {
+      .on('mousemove', (event: MouseEvent, d: any) => {
         if (this.oTooltip && d.length > this.iTruncate) {
-          this.oTooltip.ping(`<strong>${d}</strong>`)
+          this.oTooltip.ping(`<strong>${d}</strong>`, event)
         }
       })
   }
