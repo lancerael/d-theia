@@ -1,8 +1,14 @@
 # Change Log - d-theia
 
+## 3.2.0
+
+Friday, 06 April 2023 18:21:22 GMT
+
+- Bumped deps
+
 ## 3.1.3
 
-Thursday, 06 April 2023 21:21:22 GMT
+Thursday, 06 April 2023 21:11:11 GMT
 
 - Enabled key label style override
 
@@ -14,7 +20,7 @@ Tuesday, 04 April 2023 21:21:22 GMT
 
 ## 3.0.6 - 3.0.9
 
-Monday, 03 April 2023 22:22:21 GMT
+Monday, 03 April 2023 22:44:21 GMT
 
 ### Patches
 
