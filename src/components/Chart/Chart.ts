@@ -242,11 +242,13 @@ export default class Chart {
    * @throws {Error} missing configuration
    */
   setConfig(jConfig: any, bAddColors = false) {
+    const shouldUpdateTrim = this.jConfig?.bTrim !== jConfig?.bTrim
     if (jConfig && jConfig.toString() === '[object Object]') {
-      this.jConfig = jConfig
+      this.jConfig = structuredClone(jConfig)
       if (this.jConfig.aValues && bAddColors) {
         this.jConfig.aValues = DataOps.addColoursToConfig(this.jConfig.aValues)
       }
+      shouldUpdateTrim && this.setDimensions()
     } else {
       throw new Error('No valid configuration provided for chart.')
     }
@@ -262,7 +264,7 @@ export default class Chart {
    */
   setData(aData: any) {
     if (aData && Array.isArray(aData) === true) {
-      this.aData = aData
+      this.aData = structuredClone(aData)
       if (this.jConfig && this.bTransform) {
         this.aData = DataOps.transformDataKeys(this.jConfig, this.aData)
       }

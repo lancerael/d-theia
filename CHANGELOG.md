@@ -1,8 +1,20 @@
 # Change Log - d-theia
 
+## 3.2.2
+
+Sunday, 09 April 2023 14:31:31 GMT
+
+- Console cleanup
+
+## 3.2.1
+
+Saturday, 08 April 2023 22:26:34 GMT
+
+- Console cleanup
+
 ## 3.2.0
 
-Friday, 06 April 2023 18:21:22 GMT
+Friday, 07 April 2023 18:21:22 GMT
 
 - Bumped deps
 

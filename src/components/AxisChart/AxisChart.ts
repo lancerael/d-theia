@@ -88,6 +88,7 @@ export default class AxisChart extends Chart {
    * @method setDimensions
    */
   setDimensions() {
+    if (!this.aData) return
     super.setDimensions()
     const bTrim = this.jConfig.bTrim
     let iMinValue = Number(

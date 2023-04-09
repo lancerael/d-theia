@@ -43,3 +43,9 @@ setTimeout(() => {
   jTest.aData[0].aValues[0] = 100
   chart.updateData(jTest.aData)
 }, 2000)
+
+// Show updating of chart config
+setTimeout(() => {
+  jTest.jConfig.bTrim = false
+  chart.updateConfig(jTest.jConfig)
+}, 5000)

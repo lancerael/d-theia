@@ -82,7 +82,6 @@ export default class Tooltip {
     const iPageOffsetY = oContainerEdges.top
     const iMouseX = event?.clientX ?? 0
     const iMouseY = event?.clientY ?? 0
-    console.log(oContainerEdges.width, iMouseX, iPageOffsetX)
     this.dTooltip.innerHTML = sContent
     this.dTooltip.className = 'tooltip'
     if (oContainerEdges.width + iPageOffsetX - iMouseX < 90) {
