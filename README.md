@@ -73,22 +73,22 @@ Uses Vitest to run TDD tests:
 
 You can instantiate a new chart by calling the appropriate method and supplying:
 
-- `sContainer` - the ID of (or dContainer - DOM reference to) a container node.
-- `jConfig` - a JSON configuration object - see examples in demo/config
-- `aData` - Chart data array - see examples in demo/data
+- `containerId` - the ID of (or container - DOM reference to) a container node.
+- `chartConfig` - a JSON configuration object - see examples in demo/config
+- `chartData` - Chart data array - see examples in demo/data
 
 ```
 Theia.create[Bar/Line/Bubble]Chart({
-  sContainer: 'container-bar-1',  // ID of target DOM element
-  jConfig, // Chart config
-  aData // Chart data
+  containerId: 'container-bar-1',  // ID of target DOM element
+  chartConfig, // Chart config
+  chartData // Chart data
 });
 ```
 
 ...or shorthand...
 
 ```
-Theia.chart( 'container-bar-1', 'bar', {jConfig, aData} );
+Theia.chart( 'container-bar-1', 'bar', {chartConfig, chartData} );
 ```
 
 Either method will return a dTheia chart object for you to further manipulate as required.
@@ -100,15 +100,15 @@ using specially constructed JSON chart data, or mapping any JSON structure from 
 
 The default structure for the chart is an array of objects, each containing:
 
-- `sLabel` - a label string
-- `aValues` - an array of integer values
+- `itemLabel` - a label string
+- `itemValues` - an array of integer values
 
 ```
 [
-  {"sLabel":"Item 1","aValues":[114,54,159]},
-  {"sLabel":"Item 2","aValues":[102,115,70]},
-  {"sLabel":"Item 3","aValues":[82,146,59]},
-  {"sLabel":"Item 4","aValues":[90,138,113]}
+  {"itemLabel":"Item 1","itemValues":[114,54,159]},
+  {"itemLabel":"Item 2","itemValues":[102,115,70]},
+  {"itemLabel":"Item 3","itemValues":[82,146,59]},
+  {"itemLabel":"Item 4","itemValues":[90,138,113]}
 ]
 ```
 
@@ -118,20 +118,20 @@ For unmodified endpoints with labels and values on other keys, you can map them 
 
 The config contains the basic info about how to display the chart. It contains:
 
-- `sTitle` - a string denoting the title of the charts
-- `aAxisLabels` - an array containing the x and y axis labels
-- `aValues` - an array of key values each with a name for its label and a HEX colour string
-- `bTrim` - optionally you can trim/pad the extremes of the chart for aethetic
+- `title` - a string denoting the title of the charts
+- `axisLabels` - an array containing the x and y axis labels
+- `itemValues` - an array of key values each with a name for its label and a HEX colour string
+- `doTrim` - optionally you can trim/pad the extremes of the chart for aethetic
 
 ```
 {
-  "sTitle":"Random Chart Data",
-  "aAxisLabels":["Y Axis","X Axis"],
-  "aValues":[
-    {"sName":"Type 1","sColor":"#3f09e5"},
-    {"sName":"Type 2","sColor":"#1e6b7b"},
-    {"sName":"Type 3","sColor":"#adb9dc"}],
-  "bTrim":true
+  "title":"Random Chart Data",
+  "axisLabels":["Y Axis","X Axis"],
+  "itemValues":[
+    {"name":"Type 1","color":"#3f09e5"},
+    {"name":"Type 2","color":"#1e6b7b"},
+    {"name":"Type 3","color":"#adb9dc"}],
+  "doTrim":true
 }
 ```
 
@@ -139,21 +139,21 @@ If you are mapping another data structure from a JSON endpoint, eg:
 
 `[{ k1: 4, k2: 5, k3: 'six' }, { k1: 7, k2: 8, k3: 'nine' }]`
 
-You would provide an array of keys for the axis, and additional sKey parameter with each value for mapping.
+You would provide an array of keys for the axis, and additional key parameter with each value for mapping.
 
 ```
 {
-  aAxisKeys: ['k3'],
-  aAxisLabels: ['y', 'x'],
-  aValues: [
+  axisKeys: ['k3'],
+  axisLabels: ['y', 'x'],
+  itemValues: [
     {
-      sKey: 'k1',
-      sName: 'K1',
+      key: 'k1',
+      name: 'K1',
       sColour: 'red',
     },
     {
-      sKey: 'k2',
-      sName: 'K2',
+      key: 'k2',
+      name: 'K2',
       sColour: 'blue',
     }
   ]

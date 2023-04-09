@@ -5,38 +5,37 @@ describe('BarChart', () => {
   let oBarChart: any
 
   beforeEach(() => {
-    const dDiv = document.createElement('div')
     oBarChart = new BarChart({
-      dContainer: dDiv,
-      jConfig: {
-        aAxisKeys: ['k3'],
-        aAxisLabels: ['y', 'x'],
-        aValues: [
+      container: document.createElement('div'),
+      chartConfig: {
+        axisKeys: ['k3'],
+        axisLabels: ['y', 'x'],
+        itemValues: [
           {
-            sKey: 'k1',
-            sName: 'K1',
-            sColour: 'red',
+            key: 'k1',
+            name: 'K1',
+            color: 'red',
           },
           {
-            sKey: 'k2',
-            sName: 'K2',
-            sColour: 'blue',
+            key: 'k2',
+            name: 'K2',
+            color: 'blue',
           },
         ],
       },
-      aData: [
+      chartData: [
         { k1: 4, k2: 5, k3: 'six' },
         { k1: 7, k2: 8, k3: 'nine' },
       ],
-      bTransform: true,
+      doTransform: true,
     })
   })
 
   it('should render the chart', () => {
     oBarChart.renderChart()
-    expect(oBarChart.aBars.length).toBe(2)
+    expect(oBarChart.bars.length).toBe(2)
     expect(oBarChart.d3ChartGroup.selectAll('rect.bars').size()).toEqual(
-      oBarChart.jConfig.aValues.length * oBarChart.aData.length
+      oBarChart.chartConfig.itemValues.length * oBarChart.chartData.length
     )
   })
 })

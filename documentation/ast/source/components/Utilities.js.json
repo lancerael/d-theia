@@ -246,9 +246,9 @@
                         "line": 19,
                         "column": 28
                       },
-                      "identifierName": "sUrl"
+                      "identifierName": "url"
                     },
-                    "name": "sUrl"
+                    "name": "url"
                   }
                 ],
                 "body": {
@@ -323,9 +323,9 @@
                                 "line": 20,
                                 "column": 19
                               },
-                              "identifierName": "sUrl"
+                              "identifierName": "url"
                             },
-                            "name": "sUrl"
+                            "name": "url"
                           },
                           "extra": {
                             "parenthesizedArgument": false
@@ -427,9 +427,9 @@
                                       "line": 21,
                                       "column": 22
                                     },
-                                    "identifierName": "sUrl"
+                                    "identifierName": "url"
                                   },
-                                  "name": "sUrl"
+                                  "name": "url"
                                 }
                               ]
                             }
@@ -515,7 +515,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Returns a promise resolving with JSON when supplied with a valid URL\r\n  *\r\n  * @method getPromiseJSON\r\n  * @static\r\n  * @param {String} sUrl Required URL to make request\r\n  * @throws {Error} invalid api string\r\n  ",
+                    "value": "*\r\n  * Returns a promise resolving with JSON when supplied with a valid URL\r\n  *\r\n  * @method getPromiseJSON\r\n  * @static\r\n  * @param {String} url Required URL to make request\r\n  * @throws {Error} invalid api string\r\n  ",
                     "start": 190,
                     "end": 414,
                     "loc": {
@@ -533,7 +533,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Truncates a string and adds ellipsis.\r\n  *\r\n  * @method truncateString\r\n  * @static\r\n  * @param {String} sString string to be truncated\r\n  * @param {Integer} iMaxLength max length of string before truncation\r\n  * @return {String} truncated string\r\n  ",
+                    "value": "*\r\n  * Truncates a string and adds ellipsis.\r\n  *\r\n  * @method truncateString\r\n  * @static\r\n  * @param {String} value string to be truncated\r\n  * @param {Integer} maxLength max length of string before truncation\r\n  * @return {String} truncated string\r\n  ",
                     "start": 588,
                     "end": 849,
                     "loc": {
@@ -601,9 +601,9 @@
                         "line": 35,
                         "column": 31
                       },
-                      "identifierName": "sString"
+                      "identifierName": "value"
                     },
-                    "name": "sString"
+                    "name": "value"
                   },
                   {
                     "type": "Identifier",
@@ -618,9 +618,9 @@
                         "line": 35,
                         "column": 43
                       },
-                      "identifierName": "iMaxLength"
+                      "identifierName": "maxLength"
                     },
-                    "name": "iMaxLength"
+                    "name": "maxLength"
                   }
                 ],
                 "body": {
@@ -693,9 +693,9 @@
                                 "line": 36,
                                 "column": 15
                               },
-                              "identifierName": "sString"
+                              "identifierName": "value"
                             },
-                            "name": "sString"
+                            "name": "value"
                           },
                           "property": {
                             "type": "Identifier",
@@ -730,9 +730,9 @@
                               "line": 36,
                               "column": 35
                             },
-                            "identifierName": "iMaxLength"
+                            "identifierName": "maxLength"
                           },
-                          "name": "iMaxLength"
+                          "name": "maxLength"
                         }
                       },
                       "consequent": {
@@ -820,9 +820,9 @@
                                           "line": 37,
                                           "column": 23
                                         },
-                                        "identifierName": "sString"
+                                        "identifierName": "value"
                                       },
-                                      "name": "sString"
+                                      "name": "value"
                                     },
                                     "property": {
                                       "type": "Identifier",
@@ -891,9 +891,9 @@
                                             "line": 37,
                                             "column": 43
                                           },
-                                          "identifierName": "iMaxLength"
+                                          "identifierName": "maxLength"
                                         },
-                                        "name": "iMaxLength"
+                                        "name": "maxLength"
                                       },
                                       "operator": "-",
                                       "right": {
@@ -996,9 +996,9 @@
                             "line": 39,
                             "column": 18
                           },
-                          "identifierName": "sString"
+                          "identifierName": "value"
                         },
-                        "name": "sString"
+                        "name": "value"
                       }
                     }
                   ],
@@ -1008,7 +1008,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Truncates a string and adds ellipsis.\r\n  *\r\n  * @method truncateString\r\n  * @static\r\n  * @param {String} sString string to be truncated\r\n  * @param {Integer} iMaxLength max length of string before truncation\r\n  * @return {String} truncated string\r\n  ",
+                    "value": "*\r\n  * Truncates a string and adds ellipsis.\r\n  *\r\n  * @method truncateString\r\n  * @static\r\n  * @param {String} value string to be truncated\r\n  * @param {Integer} maxLength max length of string before truncation\r\n  * @return {String} truncated string\r\n  ",
                     "start": 588,
                     "end": 849,
                     "loc": {
@@ -1026,7 +1026,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Generates a random integer within a range.\r\n  *\r\n  * @method getRandomInteger\r\n  * @static\r\n  * @param {Integer} iMin minimum random value\r\n  * @param {Integer} iMax max random value\r\n  * @param {Integer} iOmit specify a value to omit from results\r\n  * @return {Integer} new random integer\r\n  ",
+                    "value": "*\r\n  * Generates a random integer within a range.\r\n  *\r\n  * @method getRandomInteger\r\n  * @static\r\n  * @param {Integer} minValue minimum random value\r\n  * @param {Integer} maxValue max random value\r\n  * @param {Integer} omitValue specify a value to omit from results\r\n  * @return {Integer} new random integer\r\n  ",
                     "start": 1034,
                     "end": 1338,
                     "loc": {
@@ -1094,9 +1094,9 @@
                         "line": 52,
                         "column": 30
                       },
-                      "identifierName": "iMin"
+                      "identifierName": "minValue"
                     },
-                    "name": "iMin"
+                    "name": "minValue"
                   },
                   {
                     "type": "Identifier",
@@ -1111,9 +1111,9 @@
                         "line": 52,
                         "column": 36
                       },
-                      "identifierName": "iMax"
+                      "identifierName": "maxValue"
                     },
-                    "name": "iMax"
+                    "name": "maxValue"
                   },
                   {
                     "type": "Identifier",
@@ -1128,9 +1128,9 @@
                         "line": 52,
                         "column": 43
                       },
-                      "identifierName": "iOmit"
+                      "identifierName": "omitValue"
                     },
-                    "name": "iOmit"
+                    "name": "omitValue"
                   }
                 ],
                 "body": {
@@ -1409,9 +1409,9 @@
                                               "line": 53,
                                               "column": 47
                                             },
-                                            "identifierName": "iMin"
+                                            "identifierName": "minValue"
                                           },
-                                          "name": "iMin"
+                                          "name": "minValue"
                                         },
                                         "operator": "-",
                                         "right": {
@@ -1427,9 +1427,9 @@
                                               "line": 53,
                                               "column": 54
                                             },
-                                            "identifierName": "iMax"
+                                            "identifierName": "maxValue"
                                           },
-                                          "name": "iMax"
+                                          "name": "maxValue"
                                         }
                                       },
                                       "operator": "-",
@@ -1475,9 +1475,9 @@
                                     "line": 53,
                                     "column": 67
                                   },
-                                  "identifierName": "iMax"
+                                  "identifierName": "maxValue"
                                 },
-                                "name": "iMax"
+                                "name": "maxValue"
                               }
                             },
                             "operator": "+",
@@ -1533,9 +1533,9 @@
                             "line": 54,
                             "column": 13
                           },
-                          "identifierName": "iOmit"
+                          "identifierName": "omitValue"
                         },
-                        "name": "iOmit"
+                        "name": "omitValue"
                       },
                       "consequent": {
                         "type": "BlockStatement",
@@ -1611,9 +1611,9 @@
                                     "line": 55,
                                     "column": 27
                                   },
-                                  "identifierName": "iOmit"
+                                  "identifierName": "omitValue"
                                 },
-                                "name": "iOmit"
+                                "name": "omitValue"
                               }
                             },
                             "body": {
@@ -1753,9 +1753,9 @@
                                               "line": 56,
                                               "column": 41
                                             },
-                                            "identifierName": "iMin"
+                                            "identifierName": "minValue"
                                           },
-                                          "name": "iMin"
+                                          "name": "minValue"
                                         },
                                         {
                                           "type": "Identifier",
@@ -1770,9 +1770,9 @@
                                               "line": 56,
                                               "column": 47
                                             },
-                                            "identifierName": "iMax"
+                                            "identifierName": "maxValue"
                                           },
-                                          "name": "iMax"
+                                          "name": "maxValue"
                                         }
                                       ]
                                     }
@@ -1825,7 +1825,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Generates a random integer within a range.\r\n  *\r\n  * @method getRandomInteger\r\n  * @static\r\n  * @param {Integer} iMin minimum random value\r\n  * @param {Integer} iMax max random value\r\n  * @param {Integer} iOmit specify a value to omit from results\r\n  * @return {Integer} new random integer\r\n  ",
+                    "value": "*\r\n  * Generates a random integer within a range.\r\n  *\r\n  * @method getRandomInteger\r\n  * @static\r\n  * @param {Integer} minValue minimum random value\r\n  * @param {Integer} maxValue max random value\r\n  * @param {Integer} omitValue specify a value to omit from results\r\n  * @return {Integer} new random integer\r\n  ",
                     "start": 1034,
                     "end": 1338,
                     "loc": {
@@ -1904,7 +1904,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Returns a promise resolving with JSON when supplied with a valid URL\r\n  *\r\n  * @method getPromiseJSON\r\n  * @static\r\n  * @param {String} sUrl Required URL to make request\r\n  * @throws {Error} invalid api string\r\n  ",
+      "value": "*\r\n  * Returns a promise resolving with JSON when supplied with a valid URL\r\n  *\r\n  * @method getPromiseJSON\r\n  * @static\r\n  * @param {String} url Required URL to make request\r\n  * @throws {Error} invalid api string\r\n  ",
       "start": 190,
       "end": 414,
       "loc": {
@@ -1920,7 +1920,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Truncates a string and adds ellipsis.\r\n  *\r\n  * @method truncateString\r\n  * @static\r\n  * @param {String} sString string to be truncated\r\n  * @param {Integer} iMaxLength max length of string before truncation\r\n  * @return {String} truncated string\r\n  ",
+      "value": "*\r\n  * Truncates a string and adds ellipsis.\r\n  *\r\n  * @method truncateString\r\n  * @static\r\n  * @param {String} value string to be truncated\r\n  * @param {Integer} maxLength max length of string before truncation\r\n  * @return {String} truncated string\r\n  ",
       "start": 588,
       "end": 849,
       "loc": {
@@ -1936,7 +1936,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Generates a random integer within a range.\r\n  *\r\n  * @method getRandomInteger\r\n  * @static\r\n  * @param {Integer} iMin minimum random value\r\n  * @param {Integer} iMax max random value\r\n  * @param {Integer} iOmit specify a value to omit from results\r\n  * @return {Integer} new random integer\r\n  ",
+      "value": "*\r\n  * Generates a random integer within a range.\r\n  *\r\n  * @method getRandomInteger\r\n  * @static\r\n  * @param {Integer} minValue minimum random value\r\n  * @param {Integer} maxValue max random value\r\n  * @param {Integer} omitValue specify a value to omit from results\r\n  * @return {Integer} new random integer\r\n  ",
       "start": 1034,
       "end": 1338,
       "loc": {
@@ -2288,7 +2288,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Returns a promise resolving with JSON when supplied with a valid URL\r\n  *\r\n  * @method getPromiseJSON\r\n  * @static\r\n  * @param {String} sUrl Required URL to make request\r\n  * @throws {Error} invalid api string\r\n  ",
+      "value": "*\r\n  * Returns a promise resolving with JSON when supplied with a valid URL\r\n  *\r\n  * @method getPromiseJSON\r\n  * @static\r\n  * @param {String} url Required URL to make request\r\n  * @throws {Error} invalid api string\r\n  ",
       "start": 190,
       "end": 414,
       "loc": {
@@ -2391,7 +2391,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sUrl",
+      "value": "url",
       "start": 440,
       "end": 444,
       "loc": {
@@ -2548,7 +2548,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sUrl",
+      "value": "url",
       "start": 464,
       "end": 468,
       "loc": {
@@ -2757,7 +2757,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sUrl",
+      "value": "url",
       "start": 504,
       "end": 508,
       "loc": {
@@ -3059,7 +3059,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Truncates a string and adds ellipsis.\r\n  *\r\n  * @method truncateString\r\n  * @static\r\n  * @param {String} sString string to be truncated\r\n  * @param {Integer} iMaxLength max length of string before truncation\r\n  * @return {String} truncated string\r\n  ",
+      "value": "*\r\n  * Truncates a string and adds ellipsis.\r\n  *\r\n  * @method truncateString\r\n  * @static\r\n  * @param {String} value string to be truncated\r\n  * @param {Integer} maxLength max length of string before truncation\r\n  * @return {String} truncated string\r\n  ",
       "start": 588,
       "end": 849,
       "loc": {
@@ -3162,7 +3162,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sString",
+      "value": "value",
       "start": 875,
       "end": 882,
       "loc": {
@@ -3214,7 +3214,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMaxLength",
+      "value": "maxLength",
       "start": 884,
       "end": 894,
       "loc": {
@@ -3343,7 +3343,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sString",
+      "value": "value",
       "start": 907,
       "end": 914,
       "loc": {
@@ -3448,7 +3448,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMaxLength",
+      "value": "maxLength",
       "start": 924,
       "end": 934,
       "loc": {
@@ -3629,7 +3629,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sString",
+      "value": "value",
       "start": 955,
       "end": 962,
       "loc": {
@@ -3785,7 +3785,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMaxLength",
+      "value": "maxLength",
       "start": 972,
       "end": 982,
       "loc": {
@@ -4046,7 +4046,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sString",
+      "value": "value",
       "start": 1015,
       "end": 1022,
       "loc": {
@@ -4113,7 +4113,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Generates a random integer within a range.\r\n  *\r\n  * @method getRandomInteger\r\n  * @static\r\n  * @param {Integer} iMin minimum random value\r\n  * @param {Integer} iMax max random value\r\n  * @param {Integer} iOmit specify a value to omit from results\r\n  * @return {Integer} new random integer\r\n  ",
+      "value": "*\r\n  * Generates a random integer within a range.\r\n  *\r\n  * @method getRandomInteger\r\n  * @static\r\n  * @param {Integer} minValue minimum random value\r\n  * @param {Integer} maxValue max random value\r\n  * @param {Integer} omitValue specify a value to omit from results\r\n  * @return {Integer} new random integer\r\n  ",
       "start": 1034,
       "end": 1338,
       "loc": {
@@ -4216,7 +4216,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMin",
+      "value": "minValue",
       "start": 1366,
       "end": 1370,
       "loc": {
@@ -4268,7 +4268,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMax",
+      "value": "maxValue",
       "start": 1372,
       "end": 1376,
       "loc": {
@@ -4320,7 +4320,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOmit",
+      "value": "omitValue",
       "start": 1378,
       "end": 1383,
       "loc": {
@@ -4760,7 +4760,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMin",
+      "value": "minValue",
       "start": 1431,
       "end": 1435,
       "loc": {
@@ -4813,7 +4813,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMax",
+      "value": "maxValue",
       "start": 1438,
       "end": 1442,
       "loc": {
@@ -4970,7 +4970,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMax",
+      "value": "maxValue",
       "start": 1451,
       "end": 1455,
       "loc": {
@@ -5129,7 +5129,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOmit",
+      "value": "omitValue",
       "start": 1470,
       "end": 1475,
       "loc": {
@@ -5311,7 +5311,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOmit",
+      "value": "omitValue",
       "start": 1502,
       "end": 1507,
       "loc": {
@@ -5545,7 +5545,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMin",
+      "value": "minValue",
       "start": 1549,
       "end": 1553,
       "loc": {
@@ -5597,7 +5597,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMax",
+      "value": "maxValue",
       "start": 1555,
       "end": 1559,
       "loc": {

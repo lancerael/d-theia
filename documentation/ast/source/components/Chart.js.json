@@ -361,16 +361,16 @@
                       "line": 20,
                       "column": 6
                     },
-                    "identifierName": "dSvg"
+                    "identifierName": "svg"
                   },
-                  "name": "dSvg",
+                  "name": "svg",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * SVG DOM object for displaying the chart\r\n  *\r\n  * @property dSvg\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * SVG DOM object for displaying the chart\r\n  *\r\n  * @property svg\r\n  * @type {Object}\r\n  ",
                     "start": 330,
                     "end": 429,
                     "loc": {
@@ -460,7 +460,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Default time for d3 transitions on the chart\r\n  *\r\n  * @property iTransitionTime\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * Default time for d3 transitions on the chart\r\n  *\r\n  * @property transitionTime\r\n  * @type {Number}\r\n  ",
                     "start": 565,
                     "end": 680,
                     "loc": {
@@ -505,16 +505,16 @@
                       "line": 36,
                       "column": 17
                     },
-                    "identifierName": "iTransitionTime"
+                    "identifierName": "transitionTime"
                   },
-                  "name": "iTransitionTime",
+                  "name": "transitionTime",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Default time for d3 transitions on the chart\r\n  *\r\n  * @property iTransitionTime\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * Default time for d3 transitions on the chart\r\n  *\r\n  * @property transitionTime\r\n  * @type {Number}\r\n  ",
                     "start": 565,
                     "end": 680,
                     "loc": {
@@ -532,7 +532,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * DOM reference to container element that wraps SVG\r\n  *\r\n  * @property dContainer\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * DOM reference to container element that wraps SVG\r\n  *\r\n  * @property container\r\n  * @type {Object}\r\n  ",
                     "start": 706,
                     "end": 821,
                     "loc": {
@@ -577,16 +577,16 @@
                       "line": 44,
                       "column": 12
                     },
-                    "identifierName": "dContainer"
+                    "identifierName": "container"
                   },
-                  "name": "dContainer",
+                  "name": "container",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * DOM reference to container element that wraps SVG\r\n  *\r\n  * @property dContainer\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * DOM reference to container element that wraps SVG\r\n  *\r\n  * @property container\r\n  * @type {Object}\r\n  ",
                     "start": 706,
                     "end": 821,
                     "loc": {
@@ -604,7 +604,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * DOM reference to loader display element\r\n  *\r\n  * @property dLoader\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * DOM reference to loader display element\r\n  *\r\n  * @property loader\r\n  * @type {Object}\r\n  ",
                     "start": 842,
                     "end": 944,
                     "loc": {
@@ -649,16 +649,16 @@
                       "line": 52,
                       "column": 9
                     },
-                    "identifierName": "dLoader"
+                    "identifierName": "loader"
                   },
-                  "name": "dLoader",
+                  "name": "loader",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * DOM reference to loader display element\r\n  *\r\n  * @property dLoader\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * DOM reference to loader display element\r\n  *\r\n  * @property loader\r\n  * @type {Object}\r\n  ",
                     "start": 842,
                     "end": 944,
                     "loc": {
@@ -676,7 +676,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property oTooltip\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  ",
                     "start": 962,
                     "end": 1048,
                     "loc": {
@@ -721,16 +721,16 @@
                       "line": 60,
                       "column": 10
                     },
-                    "identifierName": "oTooltip"
+                    "identifierName": "tooltip"
                   },
-                  "name": "oTooltip",
+                  "name": "tooltip",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property oTooltip\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  ",
                     "start": 962,
                     "end": 1048,
                     "loc": {
@@ -748,7 +748,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property iWidth\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property width\r\n  * @type {Number}\r\n  ",
                     "start": 1067,
                     "end": 1170,
                     "loc": {
@@ -793,16 +793,16 @@
                       "line": 68,
                       "column": 8
                     },
-                    "identifierName": "iWidth"
+                    "identifierName": "width"
                   },
-                  "name": "iWidth",
+                  "name": "width",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property iWidth\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property width\r\n  * @type {Number}\r\n  ",
                     "start": 1067,
                     "end": 1170,
                     "loc": {
@@ -820,7 +820,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property iHeight\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property height\r\n  * @type {Number}\r\n  ",
                     "start": 1187,
                     "end": 1292,
                     "loc": {
@@ -865,16 +865,16 @@
                       "line": 76,
                       "column": 9
                     },
-                    "identifierName": "iHeight"
+                    "identifierName": "height"
                   },
-                  "name": "iHeight",
+                  "name": "height",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property iHeight\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property height\r\n  * @type {Number}\r\n  ",
                     "start": 1187,
                     "end": 1292,
                     "loc": {
@@ -892,7 +892,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The current calculated inner width of the chart\r\n  *\r\n  * @property iInnerWidth\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The current calculated inner width of the chart\r\n  *\r\n  * @property innerWidth\r\n  * @type {Number}\r\n  ",
                     "start": 1310,
                     "end": 1424,
                     "loc": {
@@ -937,16 +937,16 @@
                       "line": 84,
                       "column": 13
                     },
-                    "identifierName": "iInnerWidth"
+                    "identifierName": "innerWidth"
                   },
-                  "name": "iInnerWidth",
+                  "name": "innerWidth",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The current calculated inner width of the chart\r\n  *\r\n  * @property iInnerWidth\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The current calculated inner width of the chart\r\n  *\r\n  * @property innerWidth\r\n  * @type {Number}\r\n  ",
                     "start": 1310,
                     "end": 1424,
                     "loc": {
@@ -964,7 +964,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The current calculated inner height of the chart\r\n  *\r\n  * @property iInnerHeight\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The current calculated inner height of the chart\r\n  *\r\n  * @property innerHeight\r\n  * @type {Number}\r\n  ",
                     "start": 1446,
                     "end": 1562,
                     "loc": {
@@ -1009,16 +1009,16 @@
                       "line": 92,
                       "column": 14
                     },
-                    "identifierName": "iInnerHeight"
+                    "identifierName": "innerHeight"
                   },
-                  "name": "iInnerHeight",
+                  "name": "innerHeight",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The current calculated inner height of the chart\r\n  *\r\n  * @property iInnerHeight\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The current calculated inner height of the chart\r\n  *\r\n  * @property innerHeight\r\n  * @type {Number}\r\n  ",
                     "start": 1446,
                     "end": 1562,
                     "loc": {
@@ -1036,7 +1036,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The width before any browser resize\r\n  *\r\n  * @property iInitialWidth\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The width before any browser resize\r\n  *\r\n  * @property initialWidth\r\n  * @type {Number}\r\n  ",
                     "start": 1585,
                     "end": 1689,
                     "loc": {
@@ -1081,16 +1081,16 @@
                       "line": 100,
                       "column": 15
                     },
-                    "identifierName": "iInitialWidth"
+                    "identifierName": "initialWidth"
                   },
-                  "name": "iInitialWidth",
+                  "name": "initialWidth",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The width before any browser resize\r\n  *\r\n  * @property iInitialWidth\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The width before any browser resize\r\n  *\r\n  * @property initialWidth\r\n  * @type {Number}\r\n  ",
                     "start": 1585,
                     "end": 1689,
                     "loc": {
@@ -1108,7 +1108,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property jPadding\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property padding\r\n  * @type {Object}\r\n  ",
                     "start": 1713,
                     "end": 1823,
                     "loc": {
@@ -1153,16 +1153,16 @@
                       "line": 108,
                       "column": 10
                     },
-                    "identifierName": "jPadding"
+                    "identifierName": "padding"
                   },
-                  "name": "jPadding",
+                  "name": "padding",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property jPadding\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property padding\r\n  * @type {Object}\r\n  ",
                     "start": 1713,
                     "end": 1823,
                     "loc": {
@@ -1180,7 +1180,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The chart's config object\r\n  *\r\n  * @property jConfig\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * The chart's config object\r\n  *\r\n  * @property chartConfig\r\n  * @type {Object}\r\n  ",
                     "start": 1842,
                     "end": 1930,
                     "loc": {
@@ -1225,16 +1225,16 @@
                       "line": 116,
                       "column": 9
                     },
-                    "identifierName": "jConfig"
+                    "identifierName": "chartConfig"
                   },
-                  "name": "jConfig",
+                  "name": "chartConfig",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The chart's config object\r\n  *\r\n  * @property jConfig\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * The chart's config object\r\n  *\r\n  * @property chartConfig\r\n  * @type {Object}\r\n  ",
                     "start": 1842,
                     "end": 1930,
                     "loc": {
@@ -1252,7 +1252,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The chart's data\r\n  *\r\n  * @property aData\r\n  * @type {Array}\r\n  ",
+                    "value": "*\r\n  * The chart's data\r\n  *\r\n  * @property chartData\r\n  * @type {Array}\r\n  ",
                     "start": 1948,
                     "end": 2024,
                     "loc": {
@@ -1297,16 +1297,16 @@
                       "line": 124,
                       "column": 7
                     },
-                    "identifierName": "aData"
+                    "identifierName": "chartData"
                   },
-                  "name": "aData",
+                  "name": "chartData",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The chart's data\r\n  *\r\n  * @property aData\r\n  * @type {Array}\r\n  ",
+                    "value": "*\r\n  * The chart's data\r\n  *\r\n  * @property chartData\r\n  * @type {Array}\r\n  ",
                     "start": 1948,
                     "end": 2024,
                     "loc": {
@@ -1324,7 +1324,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} jConfig JSON configuration object\r\n  * @param {Array} aData the data to be displayed\r\n  * @param {String} sContainer Optional ID to select DOM object\r\n  * @param {Object} dContainer Optional DOM object in place of ID\r\n  ",
+                    "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartConfig JSON configuration object\r\n  * @param {Array} chartData the data to be displayed\r\n  * @param {String} containerId Optional ID to select DOM object\r\n  * @param {Object} container Optional DOM object in place of ID\r\n  ",
                     "start": 2040,
                     "end": 2374,
                     "loc": {
@@ -1407,9 +1407,9 @@
                           "line": 135,
                           "column": 21
                         },
-                        "identifierName": "oParams"
+                        "identifierName": "chartParams"
                       },
-                      "name": "oParams"
+                      "name": "chartParams"
                     },
                     "right": {
                       "type": "ObjectExpression",
@@ -1518,9 +1518,9 @@
                                       "line": 136,
                                       "column": 19
                                     },
-                                    "identifierName": "jConfig"
+                                    "identifierName": "chartConfig"
                                   },
-                                  "name": "jConfig"
+                                  "name": "chartConfig"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -1535,9 +1535,9 @@
                                       "line": 136,
                                       "column": 19
                                     },
-                                    "identifierName": "jConfig"
+                                    "identifierName": "chartConfig"
                                   },
-                                  "name": "jConfig"
+                                  "name": "chartConfig"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -1573,9 +1573,9 @@
                                       "line": 136,
                                       "column": 26
                                     },
-                                    "identifierName": "aData"
+                                    "identifierName": "chartData"
                                   },
-                                  "name": "aData"
+                                  "name": "chartData"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -1590,9 +1590,9 @@
                                       "line": 136,
                                       "column": 26
                                     },
-                                    "identifierName": "aData"
+                                    "identifierName": "chartData"
                                   },
-                                  "name": "aData"
+                                  "name": "chartData"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -1628,9 +1628,9 @@
                                       "line": 136,
                                       "column": 38
                                     },
-                                    "identifierName": "sContainer"
+                                    "identifierName": "containerId"
                                   },
-                                  "name": "sContainer"
+                                  "name": "containerId"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -1645,9 +1645,9 @@
                                       "line": 136,
                                       "column": 38
                                     },
-                                    "identifierName": "sContainer"
+                                    "identifierName": "containerId"
                                   },
-                                  "name": "sContainer"
+                                  "name": "containerId"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -1668,9 +1668,9 @@
                                 "line": 136,
                                 "column": 50
                               },
-                              "identifierName": "oParams"
+                              "identifierName": "chartParams"
                             },
-                            "name": "oParams"
+                            "name": "chartParams"
                           }
                         }
                       ],
@@ -1750,9 +1750,9 @@
                                       "line": 137,
                                       "column": 20
                                     },
-                                    "identifierName": "dContainer"
+                                    "identifierName": "container"
                                   },
-                                  "name": "dContainer"
+                                  "name": "container"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -1767,9 +1767,9 @@
                                       "line": 137,
                                       "column": 20
                                     },
-                                    "identifierName": "dContainer"
+                                    "identifierName": "container"
                                   },
-                                  "name": "dContainer"
+                                  "name": "container"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -1790,9 +1790,9 @@
                                 "line": 137,
                                 "column": 32
                               },
-                              "identifierName": "oParams"
+                              "identifierName": "chartParams"
                             },
-                            "name": "oParams"
+                            "name": "chartParams"
                           }
                         }
                       ],
@@ -1869,9 +1869,9 @@
                                 "line": 138,
                                 "column": 13
                               },
-                              "identifierName": "dSvg"
+                              "identifierName": "svg"
                             },
-                            "name": "dSvg"
+                            "name": "svg"
                           },
                           "computed": false
                         },
@@ -2135,9 +2135,9 @@
                                     "line": 139,
                                     "column": 33
                                   },
-                                  "identifierName": "dSvg"
+                                  "identifierName": "svg"
                                 },
-                                "name": "dSvg"
+                                "name": "svg"
                               },
                               "computed": false
                             }
@@ -2216,9 +2216,9 @@
                                 "line": 140,
                                 "column": 24
                               },
-                              "identifierName": "iTransitionTime"
+                              "identifierName": "transitionTime"
                             },
-                            "name": "iTransitionTime"
+                            "name": "transitionTime"
                           },
                           "computed": false
                         },
@@ -2315,9 +2315,9 @@
                                 "line": 141,
                                 "column": 17
                               },
-                              "identifierName": "jPadding"
+                              "identifierName": "padding"
                             },
-                            "name": "jPadding"
+                            "name": "padding"
                           },
                           "computed": false
                         },
@@ -2631,9 +2631,9 @@
                                 "line": 142,
                                 "column": 16
                               },
-                              "identifierName": "dLoader"
+                              "identifierName": "loader"
                             },
-                            "name": "dLoader"
+                            "name": "loader"
                           },
                           "computed": false
                         },
@@ -2811,9 +2811,9 @@
                                   "line": 143,
                                   "column": 16
                                 },
-                                "identifierName": "dLoader"
+                                "identifierName": "loader"
                               },
-                              "name": "dLoader"
+                              "name": "loader"
                             },
                             "computed": false
                           },
@@ -2915,9 +2915,9 @@
                                 "line": 144,
                                 "column": 19
                               },
-                              "identifierName": "dContainer"
+                              "identifierName": "container"
                             },
-                            "name": "dContainer"
+                            "name": "container"
                           },
                           "extra": {
                             "parenthesizedArgument": false
@@ -2937,9 +2937,9 @@
                               "line": 144,
                               "column": 33
                             },
-                            "identifierName": "sContainer"
+                            "identifierName": "containerId"
                           },
-                          "name": "sContainer"
+                          "name": "containerId"
                         }
                       },
                       "consequent": {
@@ -2999,9 +2999,9 @@
                                     "line": 145,
                                     "column": 16
                                   },
-                                  "identifierName": "dContainer"
+                                  "identifierName": "container"
                                 },
-                                "name": "dContainer"
+                                "name": "container"
                               },
                               "right": {
                                 "type": "CallExpression",
@@ -3081,9 +3081,9 @@
                                         "line": 145,
                                         "column": 53
                                       },
-                                      "identifierName": "sContainer"
+                                      "identifierName": "containerId"
                                     },
-                                    "name": "sContainer"
+                                    "name": "containerId"
                                   }
                                 ]
                               }
@@ -3121,9 +3121,9 @@
                             "line": 147,
                             "column": 18
                           },
-                          "identifierName": "dContainer"
+                          "identifierName": "container"
                         },
-                        "name": "dContainer"
+                        "name": "container"
                       },
                       "consequent": {
                         "type": "BlockStatement",
@@ -3230,9 +3230,9 @@
                                       "line": 148,
                                       "column": 34
                                     },
-                                    "identifierName": "dContainer"
+                                    "identifierName": "container"
                                   },
-                                  "name": "dContainer"
+                                  "name": "container"
                                 }
                               ]
                             }
@@ -3269,9 +3269,9 @@
                             "line": 150,
                             "column": 15
                           },
-                          "identifierName": "jConfig"
+                          "identifierName": "chartConfig"
                         },
-                        "name": "jConfig"
+                        "name": "chartConfig"
                       },
                       "consequent": {
                         "type": "BlockStatement",
@@ -3378,9 +3378,9 @@
                                       "line": 151,
                                       "column": 28
                                     },
-                                    "identifierName": "jConfig"
+                                    "identifierName": "chartConfig"
                                   },
-                                  "name": "jConfig"
+                                  "name": "chartConfig"
                                 }
                               ]
                             }
@@ -3417,9 +3417,9 @@
                             "line": 153,
                             "column": 13
                           },
-                          "identifierName": "aData"
+                          "identifierName": "chartData"
                         },
-                        "name": "aData"
+                        "name": "chartData"
                       },
                       "consequent": {
                         "type": "BlockStatement",
@@ -3526,9 +3526,9 @@
                                       "line": 154,
                                       "column": 24
                                     },
-                                    "identifierName": "aData"
+                                    "identifierName": "chartData"
                                   },
-                                  "name": "aData"
+                                  "name": "chartData"
                                 }
                               ]
                             }
@@ -3545,7 +3545,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} jConfig JSON configuration object\r\n  * @param {Array} aData the data to be displayed\r\n  * @param {String} sContainer Optional ID to select DOM object\r\n  * @param {Object} dContainer Optional DOM object in place of ID\r\n  ",
+                    "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartConfig JSON configuration object\r\n  * @param {Array} chartData the data to be displayed\r\n  * @param {String} containerId Optional ID to select DOM object\r\n  * @param {Object} container Optional DOM object in place of ID\r\n  ",
                     "start": 2040,
                     "end": 2374,
                     "loc": {
@@ -3563,7 +3563,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Sets the local container object.\r\n  *\r\n  * @method setContainer\r\n  * @param {Object} dContainer Required DOM element\r\n  * @throws {Error} invalid DOM element\r\n  ",
+                    "value": "*\r\n  * Sets the local container object.\r\n  *\r\n  * @method setContainer\r\n  * @param {Object} container Required DOM element\r\n  * @throws {Error} invalid DOM element\r\n  ",
                     "start": 3079,
                     "end": 3251,
                     "loc": {
@@ -3632,9 +3632,9 @@
                         "line": 165,
                         "column": 25
                       },
-                      "identifierName": "dContainer"
+                      "identifierName": "container"
                     },
-                    "name": "dContainer"
+                    "name": "container"
                   }
                 ],
                 "body": {
@@ -3693,9 +3693,9 @@
                               "line": 166,
                               "column": 18
                             },
-                            "identifierName": "dContainer"
+                            "identifierName": "container"
                           },
-                          "name": "dContainer"
+                          "name": "container"
                         },
                         "property": {
                           "type": "Identifier",
@@ -3786,9 +3786,9 @@
                                       "line": 167,
                                       "column": 16
                                     },
-                                    "identifierName": "dContainer"
+                                    "identifierName": "container"
                                   },
-                                  "name": "dContainer"
+                                  "name": "container"
                                 },
                                 "property": {
                                   "type": "Identifier",
@@ -3852,9 +3852,9 @@
                                         "line": 167,
                                         "column": 41
                                       },
-                                      "identifierName": "dLoader"
+                                      "identifierName": "loader"
                                     },
-                                    "name": "dLoader"
+                                    "name": "loader"
                                   },
                                   "computed": false
                                 }
@@ -3932,9 +3932,9 @@
                                       "line": 168,
                                       "column": 21
                                     },
-                                    "identifierName": "dContainer"
+                                    "identifierName": "container"
                                   },
-                                  "name": "dContainer"
+                                  "name": "container"
                                 },
                                 "computed": false
                               },
@@ -3951,9 +3951,9 @@
                                     "line": 168,
                                     "column": 34
                                   },
-                                  "identifierName": "dContainer"
+                                  "identifierName": "container"
                                 },
-                                "name": "dContainer"
+                                "name": "container"
                               }
                             }
                           }
@@ -4055,7 +4055,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Sets the local container object.\r\n  *\r\n  * @method setContainer\r\n  * @param {Object} dContainer Required DOM element\r\n  * @throws {Error} invalid DOM element\r\n  ",
+                    "value": "*\r\n  * Sets the local container object.\r\n  *\r\n  * @method setContainer\r\n  * @param {Object} container Required DOM element\r\n  * @throws {Error} invalid DOM element\r\n  ",
                     "start": 3079,
                     "end": 3251,
                     "loc": {
@@ -4073,7 +4073,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Sets the local config options for the chart.\r\n  *\r\n  * @method setConfig\r\n  * @param {Object} jConfig JSON configuration object\r\n  * @throws {Error} missing configuration\r\n  ",
+                    "value": "*\r\n  * Sets the local config options for the chart.\r\n  *\r\n  * @method setConfig\r\n  * @param {Object} chartConfig JSON configuration object\r\n  * @throws {Error} missing configuration\r\n  ",
                     "start": 3501,
                     "end": 3686,
                     "loc": {
@@ -4142,9 +4142,9 @@
                         "line": 181,
                         "column": 19
                       },
-                      "identifierName": "jConfig"
+                      "identifierName": "chartConfig"
                     },
-                    "name": "jConfig"
+                    "name": "chartConfig"
                   }
                 ],
                 "body": {
@@ -4203,9 +4203,9 @@
                               "line": 182,
                               "column": 15
                             },
-                            "identifierName": "jConfig"
+                            "identifierName": "chartConfig"
                           },
-                          "name": "jConfig"
+                          "name": "chartConfig"
                         },
                         "operator": "&&",
                         "right": {
@@ -4263,9 +4263,9 @@
                                     "line": 182,
                                     "column": 26
                                   },
-                                  "identifierName": "jConfig"
+                                  "identifierName": "chartConfig"
                                 },
-                                "name": "jConfig"
+                                "name": "chartConfig"
                               },
                               "property": {
                                 "type": "Identifier",
@@ -4367,9 +4367,9 @@
                                     "line": 183,
                                     "column": 17
                                   },
-                                  "identifierName": "jConfig"
+                                  "identifierName": "chartConfig"
                                 },
-                                "name": "jConfig"
+                                "name": "chartConfig"
                               },
                               "property": {
                                 "type": "Identifier",
@@ -4384,9 +4384,9 @@
                                     "line": 183,
                                     "column": 25
                                   },
-                                  "identifierName": "aValues"
+                                  "identifierName": "itemValues"
                                 },
-                                "name": "aValues"
+                                "name": "itemValues"
                               },
                               "computed": false
                             },
@@ -4461,9 +4461,9 @@
                                             "line": 184,
                                             "column": 15
                                           },
-                                          "identifierName": "jConfig"
+                                          "identifierName": "chartConfig"
                                         },
-                                        "name": "jConfig"
+                                        "name": "chartConfig"
                                       },
                                       "property": {
                                         "type": "Identifier",
@@ -4478,9 +4478,9 @@
                                             "line": 184,
                                             "column": 23
                                           },
-                                          "identifierName": "aValues"
+                                          "identifierName": "itemValues"
                                         },
-                                        "name": "aValues"
+                                        "name": "itemValues"
                                       },
                                       "computed": false
                                     },
@@ -4576,9 +4576,9 @@
                                                 "line": 184,
                                                 "column": 60
                                               },
-                                              "identifierName": "jConfig"
+                                              "identifierName": "chartConfig"
                                             },
-                                            "name": "jConfig"
+                                            "name": "chartConfig"
                                           },
                                           "property": {
                                             "type": "Identifier",
@@ -4593,9 +4593,9 @@
                                                 "line": 184,
                                                 "column": 68
                                               },
-                                              "identifierName": "aValues"
+                                              "identifierName": "itemValues"
                                             },
-                                            "name": "aValues"
+                                            "name": "itemValues"
                                           },
                                           "computed": false
                                         }
@@ -4679,9 +4679,9 @@
                                       "line": 186,
                                       "column": 18
                                     },
-                                    "identifierName": "jConfig"
+                                    "identifierName": "chartConfig"
                                   },
-                                  "name": "jConfig"
+                                  "name": "chartConfig"
                                 },
                                 "computed": false
                               },
@@ -4698,9 +4698,9 @@
                                     "line": 186,
                                     "column": 28
                                   },
-                                  "identifierName": "jConfig"
+                                  "identifierName": "chartConfig"
                                 },
-                                "name": "jConfig"
+                                "name": "chartConfig"
                               }
                             }
                           }
@@ -4802,7 +4802,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Sets the local config options for the chart.\r\n  *\r\n  * @method setConfig\r\n  * @param {Object} jConfig JSON configuration object\r\n  * @throws {Error} missing configuration\r\n  ",
+                    "value": "*\r\n  * Sets the local config options for the chart.\r\n  *\r\n  * @method setConfig\r\n  * @param {Object} chartConfig JSON configuration object\r\n  * @throws {Error} missing configuration\r\n  ",
                     "start": 3501,
                     "end": 3686,
                     "loc": {
@@ -4820,7 +4820,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Sets the local data for the chart.\r\n  *\r\n  * @method setData\r\n  * @param {Array} aData array of JSON objects\r\n  * @param {Boolean} bTransform transform mapped data\r\n  * @throws {Error} missing data\r\n  ",
+                    "value": "*\r\n  * Sets the local data for the chart.\r\n  *\r\n  * @method setData\r\n  * @param {Array} chartData array of JSON objects\r\n  * @param {Boolean} doTransform transform mapped data\r\n  * @throws {Error} missing data\r\n  ",
                     "start": 4018,
                     "end": 4230,
                     "loc": {
@@ -4889,9 +4889,9 @@
                         "line": 200,
                         "column": 15
                       },
-                      "identifierName": "aData"
+                      "identifierName": "chartData"
                     },
-                    "name": "aData"
+                    "name": "chartData"
                   },
                   {
                     "type": "AssignmentPattern",
@@ -4920,9 +4920,9 @@
                           "line": 200,
                           "column": 27
                         },
-                        "identifierName": "bTransform"
+                        "identifierName": "doTransform"
                       },
-                      "name": "bTransform"
+                      "name": "doTransform"
                     },
                     "right": {
                       "type": "BooleanLiteral",
@@ -4998,9 +4998,9 @@
                               "line": 201,
                               "column": 13
                             },
-                            "identifierName": "aData"
+                            "identifierName": "chartData"
                           },
-                          "name": "aData"
+                          "name": "chartData"
                         },
                         "operator": "&&",
                         "right": {
@@ -5095,9 +5095,9 @@
                                     "line": 201,
                                     "column": 36
                                   },
-                                  "identifierName": "aData"
+                                  "identifierName": "chartData"
                                 },
-                                "name": "aData"
+                                "name": "chartData"
                               }
                             ]
                           },
@@ -5205,9 +5205,9 @@
                                       "line": 202,
                                       "column": 22
                                     },
-                                    "identifierName": "jConfig"
+                                    "identifierName": "chartConfig"
                                   },
-                                  "name": "jConfig"
+                                  "name": "chartConfig"
                                 },
                                 "computed": false
                               },
@@ -5225,9 +5225,9 @@
                                     "line": 202,
                                     "column": 36
                                   },
-                                  "identifierName": "bTransform"
+                                  "identifierName": "doTransform"
                                 },
-                                "name": "bTransform"
+                                "name": "doTransform"
                               }
                             },
                             "consequent": {
@@ -5287,9 +5287,9 @@
                                           "line": 203,
                                           "column": 13
                                         },
-                                        "identifierName": "aData"
+                                        "identifierName": "chartData"
                                       },
-                                      "name": "aData"
+                                      "name": "chartData"
                                     },
                                     "right": {
                                       "type": "CallExpression",
@@ -5398,9 +5398,9 @@
                                                 "line": 203,
                                                 "column": 54
                                               },
-                                              "identifierName": "jConfig"
+                                              "identifierName": "chartConfig"
                                             },
-                                            "name": "jConfig"
+                                            "name": "chartConfig"
                                           },
                                           "computed": false
                                         },
@@ -5417,9 +5417,9 @@
                                               "line": 203,
                                               "column": 61
                                             },
-                                            "identifierName": "aData"
+                                            "identifierName": "chartData"
                                           },
-                                          "name": "aData"
+                                          "name": "chartData"
                                         }
                                       ]
                                     }
@@ -5501,9 +5501,9 @@
                                       "line": 205,
                                       "column": 16
                                     },
-                                    "identifierName": "aData"
+                                    "identifierName": "chartData"
                                   },
-                                  "name": "aData"
+                                  "name": "chartData"
                                 },
                                 "computed": false
                               },
@@ -5520,9 +5520,9 @@
                                     "line": 205,
                                     "column": 24
                                   },
-                                  "identifierName": "aData"
+                                  "identifierName": "chartData"
                                 },
-                                "name": "aData"
+                                "name": "chartData"
                               }
                             }
                           }
@@ -5624,7 +5624,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Sets the local data for the chart.\r\n  *\r\n  * @method setData\r\n  * @param {Array} aData array of JSON objects\r\n  * @param {Boolean} bTransform transform mapped data\r\n  * @throws {Error} missing data\r\n  ",
+                    "value": "*\r\n  * Sets the local data for the chart.\r\n  *\r\n  * @method setData\r\n  * @param {Array} chartData array of JSON objects\r\n  * @param {Boolean} doTransform transform mapped data\r\n  * @throws {Error} missing data\r\n  ",
                     "start": 4018,
                     "end": 4230,
                     "loc": {
@@ -5642,7 +5642,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Updates the local data for the chart.\r\n  *\r\n  * @method updateData\r\n  * @param {Array} aData array of JSON objects\r\n  * @param {Boolean} bTransform transform mapped data\r\n  ",
+                    "value": "*\r\n  * Updates the local data for the chart.\r\n  *\r\n  * @method updateData\r\n  * @param {Array} chartData array of JSON objects\r\n  * @param {Boolean} doTransform transform mapped data\r\n  ",
                     "start": 4555,
                     "end": 4739,
                     "loc": {
@@ -5711,9 +5711,9 @@
                         "line": 218,
                         "column": 18
                       },
-                      "identifierName": "aData"
+                      "identifierName": "chartData"
                     },
-                    "name": "aData"
+                    "name": "chartData"
                   },
                   {
                     "type": "AssignmentPattern",
@@ -5742,9 +5742,9 @@
                           "line": 218,
                           "column": 30
                         },
-                        "identifierName": "bTransform"
+                        "identifierName": "doTransform"
                       },
-                      "name": "bTransform"
+                      "name": "doTransform"
                     },
                     "right": {
                       "type": "BooleanLiteral",
@@ -5869,9 +5869,9 @@
                                 "line": 219,
                                 "column": 22
                               },
-                              "identifierName": "aData"
+                              "identifierName": "chartData"
                             },
-                            "name": "aData"
+                            "name": "chartData"
                           },
                           {
                             "type": "Identifier",
@@ -5886,9 +5886,9 @@
                                 "line": 219,
                                 "column": 34
                               },
-                              "identifierName": "bTransform"
+                              "identifierName": "doTransform"
                             },
-                            "name": "bTransform"
+                            "name": "doTransform"
                           }
                         ]
                       }
@@ -6028,9 +6028,9 @@
                               "line": 221,
                               "column": 18
                             },
-                            "identifierName": "oAxis"
+                            "identifierName": "axis"
                           },
-                          "name": "oAxis"
+                          "name": "axis"
                         },
                         "computed": false
                       },
@@ -6133,9 +6133,9 @@
                                         "line": 222,
                                         "column": 16
                                       },
-                                      "identifierName": "oAxis"
+                                      "identifierName": "axis"
                                     },
-                                    "name": "oAxis"
+                                    "name": "axis"
                                   },
                                   "computed": false
                                 },
@@ -6334,7 +6334,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Updates the local data for the chart.\r\n  *\r\n  * @method updateData\r\n  * @param {Array} aData array of JSON objects\r\n  * @param {Boolean} bTransform transform mapped data\r\n  ",
+                    "value": "*\r\n  * Updates the local data for the chart.\r\n  *\r\n  * @method updateData\r\n  * @param {Array} chartData array of JSON objects\r\n  * @param {Boolean} doTransform transform mapped data\r\n  ",
                     "start": 4555,
                     "end": 4739,
                     "loc": {
@@ -6352,7 +6352,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Updates the local config for the chart.\r\n  *\r\n  * @method updateConfig\r\n  * @param {JSON} jConfig config JSON style object\r\n  ",
+                    "value": "*\r\n  * Updates the local config for the chart.\r\n  *\r\n  * @method updateConfig\r\n  * @param {JSON} chartConfig config JSON style object\r\n  ",
                     "start": 4978,
                     "end": 5115,
                     "loc": {
@@ -6421,9 +6421,9 @@
                         "line": 235,
                         "column": 22
                       },
-                      "identifierName": "jConfig"
+                      "identifierName": "chartConfig"
                     },
-                    "name": "jConfig"
+                    "name": "chartConfig"
                   }
                 ],
                 "body": {
@@ -6531,9 +6531,9 @@
                                 "line": 236,
                                 "column": 26
                               },
-                              "identifierName": "jConfig"
+                              "identifierName": "chartConfig"
                             },
-                            "name": "jConfig"
+                            "name": "chartConfig"
                           }
                         ]
                       }
@@ -6739,7 +6739,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Updates the local config for the chart.\r\n  *\r\n  * @method updateConfig\r\n  * @param {JSON} jConfig config JSON style object\r\n  ",
+                    "value": "*\r\n  * Updates the local config for the chart.\r\n  *\r\n  * @method updateConfig\r\n  * @param {JSON} chartConfig config JSON style object\r\n  ",
                     "start": 4978,
                     "end": 5115,
                     "loc": {
@@ -6898,9 +6898,9 @@
                                 "line": 249,
                                 "column": 23
                               },
-                              "identifierName": "dContainer"
+                              "identifierName": "container"
                             },
-                            "name": "dContainer"
+                            "name": "container"
                           },
                           "computed": false
                         },
@@ -6961,9 +6961,9 @@
                                   "line": 249,
                                   "column": 42
                                 },
-                                "identifierName": "dContainer"
+                                "identifierName": "container"
                               },
-                              "name": "dContainer"
+                              "name": "container"
                             },
                             "computed": false
                           },
@@ -7073,9 +7073,9 @@
                                       "line": 250,
                                       "column": 17
                                     },
-                                    "identifierName": "iWidth"
+                                    "identifierName": "width"
                                   },
-                                  "name": "iWidth"
+                                  "name": "width"
                                 },
                                 "computed": false
                               },
@@ -7135,9 +7135,9 @@
                                         "line": 250,
                                         "column": 35
                                       },
-                                      "identifierName": "dContainer"
+                                      "identifierName": "container"
                                     },
-                                    "name": "dContainer"
+                                    "name": "container"
                                   },
                                   "computed": false
                                 },
@@ -7233,9 +7233,9 @@
                                       "line": 251,
                                       "column": 18
                                     },
-                                    "identifierName": "iHeight"
+                                    "identifierName": "height"
                                   },
-                                  "name": "iHeight"
+                                  "name": "height"
                                 },
                                 "computed": false
                               },
@@ -7295,9 +7295,9 @@
                                         "line": 251,
                                         "column": 36
                                       },
-                                      "identifierName": "dContainer"
+                                      "identifierName": "container"
                                     },
-                                    "name": "dContainer"
+                                    "name": "container"
                                   },
                                   "computed": false
                                 },
@@ -7393,9 +7393,9 @@
                                       "line": 252,
                                       "column": 22
                                     },
-                                    "identifierName": "iInnerWidth"
+                                    "identifierName": "innerWidth"
                                   },
-                                  "name": "iInnerWidth"
+                                  "name": "innerWidth"
                                 },
                                 "computed": false
                               },
@@ -7469,9 +7469,9 @@
                                           "line": 252,
                                           "column": 36
                                         },
-                                        "identifierName": "iWidth"
+                                        "identifierName": "width"
                                       },
-                                      "name": "iWidth"
+                                      "name": "width"
                                     },
                                     "computed": false
                                   },
@@ -7532,9 +7532,9 @@
                                             "line": 252,
                                             "column": 52
                                           },
-                                          "identifierName": "jPadding"
+                                          "identifierName": "padding"
                                         },
-                                        "name": "jPadding"
+                                        "name": "padding"
                                       },
                                       "computed": false
                                     },
@@ -7615,9 +7615,9 @@
                                           "line": 252,
                                           "column": 70
                                         },
-                                        "identifierName": "jPadding"
+                                        "identifierName": "padding"
                                       },
-                                      "name": "jPadding"
+                                      "name": "padding"
                                     },
                                     "computed": false
                                   },
@@ -7714,9 +7714,9 @@
                                       "line": 253,
                                       "column": 23
                                     },
-                                    "identifierName": "iInnerHeight"
+                                    "identifierName": "innerHeight"
                                   },
-                                  "name": "iInnerHeight"
+                                  "name": "innerHeight"
                                 },
                                 "computed": false
                               },
@@ -7790,9 +7790,9 @@
                                           "line": 253,
                                           "column": 38
                                         },
-                                        "identifierName": "iHeight"
+                                        "identifierName": "height"
                                       },
-                                      "name": "iHeight"
+                                      "name": "height"
                                     },
                                     "computed": false
                                   },
@@ -7853,9 +7853,9 @@
                                             "line": 253,
                                             "column": 54
                                           },
-                                          "identifierName": "jPadding"
+                                          "identifierName": "padding"
                                         },
-                                        "name": "jPadding"
+                                        "name": "padding"
                                       },
                                       "computed": false
                                     },
@@ -7936,9 +7936,9 @@
                                           "line": 253,
                                           "column": 72
                                         },
-                                        "identifierName": "jPadding"
+                                        "identifierName": "padding"
                                       },
-                                      "name": "jPadding"
+                                      "name": "padding"
                                     },
                                     "computed": false
                                   },
@@ -8328,9 +8328,9 @@
                                     "line": 268,
                                     "column": 18
                                   },
-                                  "identifierName": "aData"
+                                  "identifierName": "chartData"
                                 },
-                                "name": "aData"
+                                "name": "chartData"
                               },
                               "computed": false
                             },
@@ -8377,9 +8377,9 @@
                                     "line": 268,
                                     "column": 34
                                   },
-                                  "identifierName": "jConfig"
+                                  "identifierName": "chartConfig"
                                 },
-                                "name": "jConfig"
+                                "name": "chartConfig"
                               },
                               "computed": false
                             }
@@ -8475,9 +8475,9 @@
                                         "line": 268,
                                         "column": 56
                                       },
-                                      "identifierName": "iWidth"
+                                      "identifierName": "width"
                                     },
-                                    "name": "iWidth"
+                                    "name": "width"
                                   },
                                   "computed": false
                                 }
@@ -8579,9 +8579,9 @@
                                       "line": 268,
                                       "column": 80
                                     },
-                                    "identifierName": "iHeight"
+                                    "identifierName": "height"
                                   },
-                                  "name": "iHeight"
+                                  "name": "height"
                                 },
                                 "computed": false
                               }
@@ -8678,9 +8678,9 @@
                                       "line": 269,
                                       "column": 24
                                     },
-                                    "identifierName": "iInitialWidth"
+                                    "identifierName": "initialWidth"
                                   },
-                                  "name": "iInitialWidth"
+                                  "name": "initialWidth"
                                 },
                                 "computed": false
                               },
@@ -8726,9 +8726,9 @@
                                       "line": 269,
                                       "column": 38
                                     },
-                                    "identifierName": "iWidth"
+                                    "identifierName": "width"
                                   },
-                                  "name": "iWidth"
+                                  "name": "width"
                                 },
                                 "computed": false
                               }
@@ -8805,9 +8805,9 @@
                                       "line": 270,
                                       "column": 19
                                     },
-                                    "identifierName": "oTooltip"
+                                    "identifierName": "tooltip"
                                   },
-                                  "name": "oTooltip"
+                                  "name": "tooltip"
                                 },
                                 "computed": false
                               },
@@ -8913,9 +8913,9 @@
                                               "line": 270,
                                               "column": 49
                                             },
-                                            "identifierName": "dContainer"
+                                            "identifierName": "container"
                                           },
-                                          "name": "dContainer"
+                                          "name": "container"
                                         },
                                         "computed": false
                                       }
@@ -9116,9 +9116,9 @@
                                                     "line": 271,
                                                     "column": 28
                                                   },
-                                                  "identifierName": "dContainer"
+                                                  "identifierName": "container"
                                                 },
-                                                "name": "dContainer"
+                                                "name": "container"
                                               },
                                               "computed": false
                                             }
@@ -9304,9 +9304,9 @@
                                           "line": 271,
                                           "column": 84
                                         },
-                                        "identifierName": "jConfig"
+                                        "identifierName": "chartConfig"
                                       },
-                                      "name": "jConfig"
+                                      "name": "chartConfig"
                                     },
                                     "computed": false
                                   },
@@ -9323,9 +9323,9 @@
                                         "line": 271,
                                         "column": 91
                                       },
-                                      "identifierName": "sTitle"
+                                      "identifierName": "title"
                                     },
-                                    "name": "sTitle"
+                                    "name": "title"
                                   },
                                   "computed": false
                                 }
@@ -9416,9 +9416,9 @@
                                         "line": 272,
                                         "column": 15
                                       },
-                                      "identifierName": "dSvg"
+                                      "identifierName": "svg"
                                     },
-                                    "name": "dSvg"
+                                    "name": "svg"
                                   },
                                   "computed": false
                                 },
@@ -9569,9 +9569,9 @@
                                         "line": 273,
                                         "column": 21
                                       },
-                                      "identifierName": "dContainer"
+                                      "identifierName": "container"
                                     },
-                                    "name": "dContainer"
+                                    "name": "container"
                                   },
                                   "computed": false
                                 },
@@ -9637,9 +9637,9 @@
                                         "line": 273,
                                         "column": 43
                                       },
-                                      "identifierName": "dSvg"
+                                      "identifierName": "svg"
                                     },
-                                    "name": "dSvg"
+                                    "name": "svg"
                                   },
                                   "computed": false
                                 }
@@ -9717,9 +9717,9 @@
                                       "line": 274,
                                       "column": 25
                                     },
-                                    "identifierName": "oResizeWatcher"
+                                    "identifierName": "resizeWatcher"
                                   },
-                                  "name": "oResizeWatcher"
+                                  "name": "resizeWatcher"
                                 },
                                 "computed": false
                               },
@@ -9779,9 +9779,9 @@
                                         "line": 274,
                                         "column": 47
                                       },
-                                      "identifierName": "oResizeWatcher"
+                                      "identifierName": "resizeWatcher"
                                     },
-                                    "name": "oResizeWatcher"
+                                    "name": "resizeWatcher"
                                   },
                                   "computed": false
                                 },
@@ -10055,9 +10055,9 @@
                                                       "line": 276,
                                                       "column": 26
                                                     },
-                                                    "identifierName": "iResizeOffset"
+                                                    "identifierName": "resizeOffset"
                                                   },
-                                                  "name": "iResizeOffset"
+                                                  "name": "resizeOffset"
                                                 },
                                                 "computed": false
                                               },
@@ -10117,9 +10117,9 @@
                                                         "line": 276,
                                                         "column": 40
                                                       },
-                                                      "identifierName": "iWidth"
+                                                      "identifierName": "width"
                                                     },
-                                                    "name": "iWidth"
+                                                    "name": "width"
                                                   },
                                                   "computed": false
                                                 },
@@ -10166,9 +10166,9 @@
                                                         "line": 276,
                                                         "column": 61
                                                       },
-                                                      "identifierName": "iInitialWidth"
+                                                      "identifierName": "initialWidth"
                                                     },
-                                                    "name": "iInitialWidth"
+                                                    "name": "initialWidth"
                                                   },
                                                   "computed": false
                                                 }
@@ -10420,9 +10420,9 @@
                                                         "line": 280,
                                                         "column": 21
                                                       },
-                                                      "identifierName": "oTooltip"
+                                                      "identifierName": "tooltip"
                                                     },
-                                                    "name": "oTooltip"
+                                                    "name": "tooltip"
                                                   },
                                                   "computed": false
                                                 },
@@ -10528,9 +10528,9 @@
                                       "line": 282,
                                       "column": 27
                                     },
-                                    "identifierName": "oChartOutWatcher"
+                                    "identifierName": "chartOutWatcher"
                                   },
-                                  "name": "oChartOutWatcher"
+                                  "name": "chartOutWatcher"
                                 },
                                 "computed": false
                               },
@@ -10590,9 +10590,9 @@
                                         "line": 282,
                                         "column": 51
                                       },
-                                      "identifierName": "oChartOutWatcher"
+                                      "identifierName": "chartOutWatcher"
                                     },
-                                    "name": "oChartOutWatcher"
+                                    "name": "chartOutWatcher"
                                   },
                                   "computed": false
                                 },
@@ -10667,9 +10667,9 @@
                                             "line": 282,
                                             "column": 64
                                           },
-                                          "identifierName": "dSvg"
+                                          "identifierName": "svg"
                                         },
-                                        "name": "dSvg"
+                                        "name": "svg"
                                       },
                                       "computed": false
                                     },
@@ -10831,9 +10831,9 @@
                                                         "line": 283,
                                                         "column": 21
                                                       },
-                                                      "identifierName": "oTooltip"
+                                                      "identifierName": "tooltip"
                                                     },
-                                                    "name": "oTooltip"
+                                                    "name": "tooltip"
                                                   },
                                                   "computed": false
                                                 },
@@ -11113,9 +11113,9 @@
                                         "line": 288,
                                         "column": 21
                                       },
-                                      "identifierName": "dContainer"
+                                      "identifierName": "container"
                                     },
-                                    "name": "dContainer"
+                                    "name": "container"
                                   },
                                   "computed": false
                                 },
@@ -11181,9 +11181,9 @@
                                         "line": 288,
                                         "column": 46
                                       },
-                                      "identifierName": "dLoader"
+                                      "identifierName": "loader"
                                     },
-                                    "name": "dLoader"
+                                    "name": "loader"
                                   },
                                   "computed": false
                                 }
@@ -11477,7 +11477,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * SVG DOM object for displaying the chart\r\n  *\r\n  * @property dSvg\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * SVG DOM object for displaying the chart\r\n  *\r\n  * @property svg\r\n  * @type {Object}\r\n  ",
       "start": 330,
       "end": 429,
       "loc": {
@@ -11509,7 +11509,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Default time for d3 transitions on the chart\r\n  *\r\n  * @property iTransitionTime\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * Default time for d3 transitions on the chart\r\n  *\r\n  * @property transitionTime\r\n  * @type {Number}\r\n  ",
       "start": 565,
       "end": 680,
       "loc": {
@@ -11525,7 +11525,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * DOM reference to container element that wraps SVG\r\n  *\r\n  * @property dContainer\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * DOM reference to container element that wraps SVG\r\n  *\r\n  * @property container\r\n  * @type {Object}\r\n  ",
       "start": 706,
       "end": 821,
       "loc": {
@@ -11541,7 +11541,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * DOM reference to loader display element\r\n  *\r\n  * @property dLoader\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * DOM reference to loader display element\r\n  *\r\n  * @property loader\r\n  * @type {Object}\r\n  ",
       "start": 842,
       "end": 944,
       "loc": {
@@ -11557,7 +11557,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property oTooltip\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  ",
       "start": 962,
       "end": 1048,
       "loc": {
@@ -11573,7 +11573,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property iWidth\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property width\r\n  * @type {Number}\r\n  ",
       "start": 1067,
       "end": 1170,
       "loc": {
@@ -11589,7 +11589,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property iHeight\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property height\r\n  * @type {Number}\r\n  ",
       "start": 1187,
       "end": 1292,
       "loc": {
@@ -11605,7 +11605,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The current calculated inner width of the chart\r\n  *\r\n  * @property iInnerWidth\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The current calculated inner width of the chart\r\n  *\r\n  * @property innerWidth\r\n  * @type {Number}\r\n  ",
       "start": 1310,
       "end": 1424,
       "loc": {
@@ -11621,7 +11621,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The current calculated inner height of the chart\r\n  *\r\n  * @property iInnerHeight\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The current calculated inner height of the chart\r\n  *\r\n  * @property innerHeight\r\n  * @type {Number}\r\n  ",
       "start": 1446,
       "end": 1562,
       "loc": {
@@ -11637,7 +11637,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The width before any browser resize\r\n  *\r\n  * @property iInitialWidth\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The width before any browser resize\r\n  *\r\n  * @property initialWidth\r\n  * @type {Number}\r\n  ",
       "start": 1585,
       "end": 1689,
       "loc": {
@@ -11653,7 +11653,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property jPadding\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property padding\r\n  * @type {Object}\r\n  ",
       "start": 1713,
       "end": 1823,
       "loc": {
@@ -11669,7 +11669,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The chart's config object\r\n  *\r\n  * @property jConfig\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * The chart's config object\r\n  *\r\n  * @property chartConfig\r\n  * @type {Object}\r\n  ",
       "start": 1842,
       "end": 1930,
       "loc": {
@@ -11685,7 +11685,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The chart's data\r\n  *\r\n  * @property aData\r\n  * @type {Array}\r\n  ",
+      "value": "*\r\n  * The chart's data\r\n  *\r\n  * @property chartData\r\n  * @type {Array}\r\n  ",
       "start": 1948,
       "end": 2024,
       "loc": {
@@ -11701,7 +11701,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} jConfig JSON configuration object\r\n  * @param {Array} aData the data to be displayed\r\n  * @param {String} sContainer Optional ID to select DOM object\r\n  * @param {Object} dContainer Optional DOM object in place of ID\r\n  ",
+      "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartConfig JSON configuration object\r\n  * @param {Array} chartData the data to be displayed\r\n  * @param {String} containerId Optional ID to select DOM object\r\n  * @param {Object} container Optional DOM object in place of ID\r\n  ",
       "start": 2040,
       "end": 2374,
       "loc": {
@@ -11717,7 +11717,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Sets the local container object.\r\n  *\r\n  * @method setContainer\r\n  * @param {Object} dContainer Required DOM element\r\n  * @throws {Error} invalid DOM element\r\n  ",
+      "value": "*\r\n  * Sets the local container object.\r\n  *\r\n  * @method setContainer\r\n  * @param {Object} container Required DOM element\r\n  * @throws {Error} invalid DOM element\r\n  ",
       "start": 3079,
       "end": 3251,
       "loc": {
@@ -11733,7 +11733,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Sets the local config options for the chart.\r\n  *\r\n  * @method setConfig\r\n  * @param {Object} jConfig JSON configuration object\r\n  * @throws {Error} missing configuration\r\n  ",
+      "value": "*\r\n  * Sets the local config options for the chart.\r\n  *\r\n  * @method setConfig\r\n  * @param {Object} chartConfig JSON configuration object\r\n  * @throws {Error} missing configuration\r\n  ",
       "start": 3501,
       "end": 3686,
       "loc": {
@@ -11749,7 +11749,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Sets the local data for the chart.\r\n  *\r\n  * @method setData\r\n  * @param {Array} aData array of JSON objects\r\n  * @param {Boolean} bTransform transform mapped data\r\n  * @throws {Error} missing data\r\n  ",
+      "value": "*\r\n  * Sets the local data for the chart.\r\n  *\r\n  * @method setData\r\n  * @param {Array} chartData array of JSON objects\r\n  * @param {Boolean} doTransform transform mapped data\r\n  * @throws {Error} missing data\r\n  ",
       "start": 4018,
       "end": 4230,
       "loc": {
@@ -11765,7 +11765,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Updates the local data for the chart.\r\n  *\r\n  * @method updateData\r\n  * @param {Array} aData array of JSON objects\r\n  * @param {Boolean} bTransform transform mapped data\r\n  ",
+      "value": "*\r\n  * Updates the local data for the chart.\r\n  *\r\n  * @method updateData\r\n  * @param {Array} chartData array of JSON objects\r\n  * @param {Boolean} doTransform transform mapped data\r\n  ",
       "start": 4555,
       "end": 4739,
       "loc": {
@@ -11781,7 +11781,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Updates the local config for the chart.\r\n  *\r\n  * @method updateConfig\r\n  * @param {JSON} jConfig config JSON style object\r\n  ",
+      "value": "*\r\n  * Updates the local config for the chart.\r\n  *\r\n  * @method updateConfig\r\n  * @param {JSON} chartConfig config JSON style object\r\n  ",
       "start": 4978,
       "end": 5115,
       "loc": {
@@ -12431,7 +12431,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * SVG DOM object for displaying the chart\r\n  *\r\n  * @property dSvg\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * SVG DOM object for displaying the chart\r\n  *\r\n  * @property svg\r\n  * @type {Object}\r\n  ",
       "start": 330,
       "end": 429,
       "loc": {
@@ -12457,7 +12457,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dSvg",
+      "value": "svg",
       "start": 433,
       "end": 437,
       "loc": {
@@ -12567,7 +12567,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Default time for d3 transitions on the chart\r\n  *\r\n  * @property iTransitionTime\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * Default time for d3 transitions on the chart\r\n  *\r\n  * @property transitionTime\r\n  * @type {Number}\r\n  ",
       "start": 565,
       "end": 680,
       "loc": {
@@ -12593,7 +12593,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iTransitionTime",
+      "value": "transitionTime",
       "start": 684,
       "end": 699,
       "loc": {
@@ -12635,7 +12635,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * DOM reference to container element that wraps SVG\r\n  *\r\n  * @property dContainer\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * DOM reference to container element that wraps SVG\r\n  *\r\n  * @property container\r\n  * @type {Object}\r\n  ",
       "start": 706,
       "end": 821,
       "loc": {
@@ -12661,7 +12661,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 825,
       "end": 835,
       "loc": {
@@ -12703,7 +12703,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * DOM reference to loader display element\r\n  *\r\n  * @property dLoader\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * DOM reference to loader display element\r\n  *\r\n  * @property loader\r\n  * @type {Object}\r\n  ",
       "start": 842,
       "end": 944,
       "loc": {
@@ -12729,7 +12729,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dLoader",
+      "value": "loader",
       "start": 948,
       "end": 955,
       "loc": {
@@ -12771,7 +12771,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property oTooltip\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  ",
       "start": 962,
       "end": 1048,
       "loc": {
@@ -12797,7 +12797,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltip",
+      "value": "tooltip",
       "start": 1052,
       "end": 1060,
       "loc": {
@@ -12839,7 +12839,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property iWidth\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property width\r\n  * @type {Number}\r\n  ",
       "start": 1067,
       "end": 1170,
       "loc": {
@@ -12865,7 +12865,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iWidth",
+      "value": "width",
       "start": 1174,
       "end": 1180,
       "loc": {
@@ -12907,7 +12907,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property iHeight\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property height\r\n  * @type {Number}\r\n  ",
       "start": 1187,
       "end": 1292,
       "loc": {
@@ -12933,7 +12933,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iHeight",
+      "value": "height",
       "start": 1296,
       "end": 1303,
       "loc": {
@@ -12975,7 +12975,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The current calculated inner width of the chart\r\n  *\r\n  * @property iInnerWidth\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The current calculated inner width of the chart\r\n  *\r\n  * @property innerWidth\r\n  * @type {Number}\r\n  ",
       "start": 1310,
       "end": 1424,
       "loc": {
@@ -13001,7 +13001,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInnerWidth",
+      "value": "innerWidth",
       "start": 1428,
       "end": 1439,
       "loc": {
@@ -13043,7 +13043,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The current calculated inner height of the chart\r\n  *\r\n  * @property iInnerHeight\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The current calculated inner height of the chart\r\n  *\r\n  * @property innerHeight\r\n  * @type {Number}\r\n  ",
       "start": 1446,
       "end": 1562,
       "loc": {
@@ -13069,7 +13069,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInnerHeight",
+      "value": "innerHeight",
       "start": 1566,
       "end": 1578,
       "loc": {
@@ -13111,7 +13111,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The width before any browser resize\r\n  *\r\n  * @property iInitialWidth\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The width before any browser resize\r\n  *\r\n  * @property initialWidth\r\n  * @type {Number}\r\n  ",
       "start": 1585,
       "end": 1689,
       "loc": {
@@ -13137,7 +13137,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInitialWidth",
+      "value": "initialWidth",
       "start": 1693,
       "end": 1706,
       "loc": {
@@ -13179,7 +13179,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property jPadding\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property padding\r\n  * @type {Object}\r\n  ",
       "start": 1713,
       "end": 1823,
       "loc": {
@@ -13205,7 +13205,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 1827,
       "end": 1835,
       "loc": {
@@ -13247,7 +13247,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The chart's config object\r\n  *\r\n  * @property jConfig\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * The chart's config object\r\n  *\r\n  * @property chartConfig\r\n  * @type {Object}\r\n  ",
       "start": 1842,
       "end": 1930,
       "loc": {
@@ -13273,7 +13273,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 1934,
       "end": 1941,
       "loc": {
@@ -13315,7 +13315,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The chart's data\r\n  *\r\n  * @property aData\r\n  * @type {Array}\r\n  ",
+      "value": "*\r\n  * The chart's data\r\n  *\r\n  * @property chartData\r\n  * @type {Array}\r\n  ",
       "start": 1948,
       "end": 2024,
       "loc": {
@@ -13341,7 +13341,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 2028,
       "end": 2033,
       "loc": {
@@ -13383,7 +13383,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} jConfig JSON configuration object\r\n  * @param {Array} aData the data to be displayed\r\n  * @param {String} sContainer Optional ID to select DOM object\r\n  * @param {Object} dContainer Optional DOM object in place of ID\r\n  ",
+      "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartConfig JSON configuration object\r\n  * @param {Array} chartData the data to be displayed\r\n  * @param {String} containerId Optional ID to select DOM object\r\n  * @param {Object} container Optional DOM object in place of ID\r\n  ",
       "start": 2040,
       "end": 2374,
       "loc": {
@@ -13460,7 +13460,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 2390,
       "end": 2397,
       "loc": {
@@ -13666,7 +13666,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 2419,
       "end": 2426,
       "loc": {
@@ -13718,7 +13718,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 2428,
       "end": 2433,
       "loc": {
@@ -13770,7 +13770,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sContainer",
+      "value": "containerId",
       "start": 2435,
       "end": 2445,
       "loc": {
@@ -13848,7 +13848,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 2450,
       "end": 2457,
       "loc": {
@@ -13953,7 +13953,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 2470,
       "end": 2480,
       "loc": {
@@ -14031,7 +14031,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 2485,
       "end": 2492,
       "loc": {
@@ -14137,7 +14137,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dSvg",
+      "value": "svg",
       "start": 2504,
       "end": 2508,
       "loc": {
@@ -14636,7 +14636,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dSvg",
+      "value": "svg",
       "start": 2604,
       "end": 2608,
       "loc": {
@@ -14767,7 +14767,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iTransitionTime",
+      "value": "transitionTime",
       "start": 2621,
       "end": 2636,
       "loc": {
@@ -14927,7 +14927,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 2654,
       "end": 2662,
       "loc": {
@@ -15504,7 +15504,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dLoader",
+      "value": "loader",
       "start": 2703,
       "end": 2710,
       "loc": {
@@ -15792,7 +15792,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dLoader",
+      "value": "loader",
       "start": 2754,
       "end": 2761,
       "loc": {
@@ -16030,7 +16030,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 2797,
       "end": 2807,
       "loc": {
@@ -16083,7 +16083,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sContainer",
+      "value": "containerId",
       "start": 2811,
       "end": 2821,
       "loc": {
@@ -16159,7 +16159,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 2832,
       "end": 2842,
       "loc": {
@@ -16315,7 +16315,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sContainer",
+      "value": "containerId",
       "start": 2869,
       "end": 2879,
       "loc": {
@@ -16470,7 +16470,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 2898,
       "end": 2908,
       "loc": {
@@ -16651,7 +16651,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 2937,
       "end": 2947,
       "loc": {
@@ -16806,7 +16806,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 2966,
       "end": 2973,
       "loc": {
@@ -16987,7 +16987,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 2999,
       "end": 3006,
       "loc": {
@@ -17142,7 +17142,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 3025,
       "end": 3030,
       "loc": {
@@ -17323,7 +17323,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 3054,
       "end": 3059,
       "loc": {
@@ -17440,7 +17440,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Sets the local container object.\r\n  *\r\n  * @method setContainer\r\n  * @param {Object} dContainer Required DOM element\r\n  * @throws {Error} invalid DOM element\r\n  ",
+      "value": "*\r\n  * Sets the local container object.\r\n  *\r\n  * @method setContainer\r\n  * @param {Object} container Required DOM element\r\n  * @throws {Error} invalid DOM element\r\n  ",
       "start": 3079,
       "end": 3251,
       "loc": {
@@ -17517,7 +17517,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 3268,
       "end": 3278,
       "loc": {
@@ -17646,7 +17646,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 3291,
       "end": 3301,
       "loc": {
@@ -17774,7 +17774,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 3321,
       "end": 3331,
       "loc": {
@@ -17931,7 +17931,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dLoader",
+      "value": "loader",
       "start": 3349,
       "end": 3356,
       "loc": {
@@ -18062,7 +18062,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 3371,
       "end": 3381,
       "loc": {
@@ -18115,7 +18115,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 3384,
       "end": 3394,
       "loc": {
@@ -18470,7 +18470,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Sets the local config options for the chart.\r\n  *\r\n  * @method setConfig\r\n  * @param {Object} jConfig JSON configuration object\r\n  * @throws {Error} missing configuration\r\n  ",
+      "value": "*\r\n  * Sets the local config options for the chart.\r\n  *\r\n  * @method setConfig\r\n  * @param {Object} chartConfig JSON configuration object\r\n  * @throws {Error} missing configuration\r\n  ",
       "start": 3501,
       "end": 3686,
       "loc": {
@@ -18547,7 +18547,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 3700,
       "end": 3707,
       "loc": {
@@ -18676,7 +18676,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 3720,
       "end": 3727,
       "loc": {
@@ -18729,7 +18729,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 3731,
       "end": 3738,
       "loc": {
@@ -19014,7 +19014,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 3786,
       "end": 3793,
       "loc": {
@@ -19066,7 +19066,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 3794,
       "end": 3801,
       "loc": {
@@ -19142,7 +19142,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 3814,
       "end": 3821,
       "loc": {
@@ -19194,7 +19194,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 3822,
       "end": 3829,
       "loc": {
@@ -19350,7 +19350,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 3859,
       "end": 3866,
       "loc": {
@@ -19402,7 +19402,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 3867,
       "end": 3874,
       "loc": {
@@ -19558,7 +19558,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 3898,
       "end": 3905,
       "loc": {
@@ -19611,7 +19611,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 3908,
       "end": 3915,
       "loc": {
@@ -19966,7 +19966,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Sets the local data for the chart.\r\n  *\r\n  * @method setData\r\n  * @param {Array} aData array of JSON objects\r\n  * @param {Boolean} bTransform transform mapped data\r\n  * @throws {Error} missing data\r\n  ",
+      "value": "*\r\n  * Sets the local data for the chart.\r\n  *\r\n  * @method setData\r\n  * @param {Array} chartData array of JSON objects\r\n  * @param {Boolean} doTransform transform mapped data\r\n  * @throws {Error} missing data\r\n  ",
       "start": 4018,
       "end": 4230,
       "loc": {
@@ -20043,7 +20043,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 4242,
       "end": 4247,
       "loc": {
@@ -20095,7 +20095,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bTransform",
+      "value": "doTransform",
       "start": 4249,
       "end": 4259,
       "loc": {
@@ -20279,7 +20279,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 4279,
       "end": 4284,
       "loc": {
@@ -20435,7 +20435,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 4302,
       "end": 4307,
       "loc": {
@@ -20698,7 +20698,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 4337,
       "end": 4344,
       "loc": {
@@ -20751,7 +20751,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bTransform",
+      "value": "doTransform",
       "start": 4348,
       "end": 4358,
       "loc": {
@@ -20827,7 +20827,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 4371,
       "end": 4376,
       "loc": {
@@ -21037,7 +21037,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 4410,
       "end": 4417,
       "loc": {
@@ -21089,7 +21089,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 4419,
       "end": 4424,
       "loc": {
@@ -21245,7 +21245,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 4448,
       "end": 4453,
       "loc": {
@@ -21298,7 +21298,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 4456,
       "end": 4461,
       "loc": {
@@ -21653,7 +21653,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Updates the local data for the chart.\r\n  *\r\n  * @method updateData\r\n  * @param {Array} aData array of JSON objects\r\n  * @param {Boolean} bTransform transform mapped data\r\n  ",
+      "value": "*\r\n  * Updates the local data for the chart.\r\n  *\r\n  * @method updateData\r\n  * @param {Array} chartData array of JSON objects\r\n  * @param {Boolean} doTransform transform mapped data\r\n  ",
       "start": 4555,
       "end": 4739,
       "loc": {
@@ -21730,7 +21730,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 4754,
       "end": 4759,
       "loc": {
@@ -21782,7 +21782,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bTransform",
+      "value": "doTransform",
       "start": 4761,
       "end": 4771,
       "loc": {
@@ -22018,7 +22018,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 4800,
       "end": 4805,
       "loc": {
@@ -22070,7 +22070,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bTransform",
+      "value": "doTransform",
       "start": 4807,
       "end": 4817,
       "loc": {
@@ -22410,7 +22410,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oAxis",
+      "value": "axis",
       "start": 4861,
       "end": 4866,
       "loc": {
@@ -22540,7 +22540,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oAxis",
+      "value": "axis",
       "start": 4882,
       "end": 4887,
       "loc": {
@@ -23098,7 +23098,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Updates the local config for the chart.\r\n  *\r\n  * @method updateConfig\r\n  * @param {JSON} jConfig config JSON style object\r\n  ",
+      "value": "*\r\n  * Updates the local config for the chart.\r\n  *\r\n  * @method updateConfig\r\n  * @param {JSON} chartConfig config JSON style object\r\n  ",
       "start": 4978,
       "end": 5115,
       "loc": {
@@ -23175,7 +23175,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 5132,
       "end": 5139,
       "loc": {
@@ -23356,7 +23356,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 5163,
       "end": 5170,
       "loc": {
@@ -24128,7 +24128,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 5448,
       "end": 5458,
       "loc": {
@@ -24235,7 +24235,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 5467,
       "end": 5477,
       "loc": {
@@ -24417,7 +24417,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iWidth",
+      "value": "width",
       "start": 5502,
       "end": 5508,
       "loc": {
@@ -24524,7 +24524,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 5516,
       "end": 5526,
       "loc": {
@@ -24682,7 +24682,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iHeight",
+      "value": "height",
       "start": 5552,
       "end": 5559,
       "loc": {
@@ -24789,7 +24789,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 5567,
       "end": 5577,
       "loc": {
@@ -24947,7 +24947,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInnerWidth",
+      "value": "innerWidth",
       "start": 5604,
       "end": 5615,
       "loc": {
@@ -25054,7 +25054,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iWidth",
+      "value": "width",
       "start": 5623,
       "end": 5629,
       "loc": {
@@ -25161,7 +25161,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 5637,
       "end": 5645,
       "loc": {
@@ -25320,7 +25320,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 5655,
       "end": 5663,
       "loc": {
@@ -25478,7 +25478,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInnerHeight",
+      "value": "innerHeight",
       "start": 5679,
       "end": 5691,
       "loc": {
@@ -25585,7 +25585,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iHeight",
+      "value": "height",
       "start": 5699,
       "end": 5706,
       "loc": {
@@ -25692,7 +25692,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 5714,
       "end": 5722,
       "loc": {
@@ -25851,7 +25851,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 5732,
       "end": 5740,
       "loc": {
@@ -26648,7 +26648,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 6056,
       "end": 6061,
       "loc": {
@@ -26755,7 +26755,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 6070,
       "end": 6077,
       "loc": {
@@ -26940,7 +26940,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iWidth",
+      "value": "width",
       "start": 6093,
       "end": 6099,
       "loc": {
@@ -27150,7 +27150,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iHeight",
+      "value": "height",
       "start": 6116,
       "end": 6123,
       "loc": {
@@ -27305,7 +27305,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInitialWidth",
+      "value": "initialWidth",
       "start": 6140,
       "end": 6153,
       "loc": {
@@ -27412,7 +27412,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iWidth",
+      "value": "width",
       "start": 6161,
       "end": 6167,
       "loc": {
@@ -27518,7 +27518,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltip",
+      "value": "tooltip",
       "start": 6181,
       "end": 6189,
       "loc": {
@@ -27704,7 +27704,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 6209,
       "end": 6219,
       "loc": {
@@ -27988,7 +27988,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 6250,
       "end": 6260,
       "loc": {
@@ -28481,7 +28481,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 6309,
       "end": 6316,
       "loc": {
@@ -28533,7 +28533,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sTitle",
+      "value": "title",
       "start": 6317,
       "end": 6323,
       "loc": {
@@ -28664,7 +28664,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dSvg",
+      "value": "svg",
       "start": 6338,
       "end": 6342,
       "loc": {
@@ -28952,7 +28952,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 6387,
       "end": 6397,
       "loc": {
@@ -29109,7 +29109,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dSvg",
+      "value": "svg",
       "start": 6415,
       "end": 6419,
       "loc": {
@@ -29240,7 +29240,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oResizeWatcher",
+      "value": "resizeWatcher",
       "start": 6434,
       "end": 6448,
       "loc": {
@@ -29347,7 +29347,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oResizeWatcher",
+      "value": "resizeWatcher",
       "start": 6456,
       "end": 6470,
       "loc": {
@@ -29867,7 +29867,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iResizeOffset",
+      "value": "resizeOffset",
       "start": 6561,
       "end": 6574,
       "loc": {
@@ -29974,7 +29974,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iWidth",
+      "value": "width",
       "start": 6582,
       "end": 6588,
       "loc": {
@@ -30081,7 +30081,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInitialWidth",
+      "value": "initialWidth",
       "start": 6596,
       "end": 6609,
       "loc": {
@@ -30551,7 +30551,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltip",
+      "value": "tooltip",
       "start": 6700,
       "end": 6708,
       "loc": {
@@ -30835,7 +30835,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oChartOutWatcher",
+      "value": "chartOutWatcher",
       "start": 6740,
       "end": 6756,
       "loc": {
@@ -30942,7 +30942,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oChartOutWatcher",
+      "value": "chartOutWatcher",
       "start": 6764,
       "end": 6780,
       "loc": {
@@ -31049,7 +31049,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dSvg",
+      "value": "svg",
       "start": 6789,
       "end": 6793,
       "loc": {
@@ -31360,7 +31360,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltip",
+      "value": "tooltip",
       "start": 6845,
       "end": 6853,
       "loc": {
@@ -32008,7 +32008,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 6954,
       "end": 6964,
       "loc": {
@@ -32165,7 +32165,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dLoader",
+      "value": "loader",
       "start": 6982,
       "end": 6989,
       "loc": {

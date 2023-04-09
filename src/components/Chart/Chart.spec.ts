@@ -11,8 +11,8 @@ describe('Chart', () => {
     const dDiv = document.createElement('div')
     dDiv.setAttribute('id', 'test')
     document.body.appendChild(dDiv)
-    oChart = new Chart({ sContainer: 'test' })
-    expect(oChart.dContainer).toEqual(dDiv)
+    oChart = new Chart({ containerId: 'test' })
+    expect(oChart.container).toEqual(dDiv)
   })
 
   it('should set valid container node', () => {
@@ -21,7 +21,7 @@ describe('Chart', () => {
       oChart.setContainer(dDiv)
     }
     expect(fnUpdate.bind(dDiv)).not.toThrow()
-    expect(oChart.dContainer).toEqual(dDiv)
+    expect(oChart.container).toEqual(dDiv)
   })
 
   it('should throw error message for invalid container node', () => {
@@ -32,12 +32,12 @@ describe('Chart', () => {
   })
 
   it('should set valid json config', () => {
-    const jConfig = { field: 'value' }
+    const chartConfig = { field: 'value' }
     const fnUpdate: any = () => {
-      oChart.setConfig(jConfig)
+      oChart.setConfig(chartConfig)
     }
     expect(fnUpdate.bind()).not.toThrow()
-    expect(oChart.jConfig).toEqual(jConfig)
+    expect(oChart.chartConfig).toEqual(chartConfig)
   })
 
   it('should throw error message for missing json', () => {
@@ -48,12 +48,12 @@ describe('Chart', () => {
   })
 
   it('should set valid data', () => {
-    const aData = [{ field: 'value' }]
+    const chartData = [{ field: 'value' }]
     const fnUpdate: any = () => {
-      oChart.setData(aData)
+      oChart.setData(chartData)
     }
     expect(fnUpdate.bind()).not.toThrow()
-    expect(oChart.aData).toEqual(aData)
+    expect(oChart.chartData).toEqual(chartData)
   })
 
   it('should throw error message for missing data', () => {
@@ -69,8 +69,8 @@ describe('Chart', () => {
       oChart.setDimensions()
     }
     expect(fnUpdate.bind()).not.toThrow()
-    expect(typeof oChart.iWidth).toBe('number')
-    expect(typeof oChart.iHeight).toBe('number')
+    expect(typeof oChart.width).toBe('number')
+    expect(typeof oChart.height).toBe('number')
   })
 
   it('should throw error message for dimensions when missing container', () => {
@@ -89,8 +89,8 @@ describe('Chart', () => {
       oChart.init()
     }
     expect(fnInit.bind()).not.toThrow()
-    expect(typeof oChart.oTooltip).toBe('object')
-    expect(oChart.dSvg.parentNode).toEqual(dDiv)
+    expect(typeof oChart.tooltip).toBe('object')
+    expect(oChart.svg.parentNode).toEqual(dDiv)
   })
 
   it('should throw error message for incorrectly initialised chart', () => {

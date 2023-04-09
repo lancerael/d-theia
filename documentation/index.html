@@ -263,22 +263,22 @@
         </p>
         <ul>
           <li>
-            sContainer - the ID of (or dContainer - DOM reference to) a
+            containerId - the ID of (or container - DOM reference to) a
             container node.
           </li>
           <li>
-            jConfig - a JSON configuration object - see examples in demo/config
+            chartConfig - a JSON configuration object - see examples in demo/config
           </li>
-          <li>aData - Chart data array - see examples in demo/data</li>
+          <li>chartData - Chart data array - see examples in demo/data</li>
         </ul>
         <pre><code><code class="source-code prettyprint">Theia.create[Bar/Line/Bubble]Chart({
-  sContainer: &apos;container-bar-1&apos;,  // ID of target DOM element
-  jConfig, // Chart config
-  aData // Chart data
+  containerId: &apos;container-bar-1&apos;,  // ID of target DOM element
+  chartConfig, // Chart config
+  chartData // Chart data
 });</code>
 </code></pre>
         <p>...or shorthand...</p>
-        <pre><code><code class="source-code prettyprint">Theia.chart( &apos;container-bar-1&apos;, &apos;bar&apos;, {jConfig, aData} );</code>
+        <pre><code><code class="source-code prettyprint">Theia.chart( &apos;container-bar-1&apos;, &apos;bar&apos;, {chartConfig, chartData} );</code>
 </code></pre>
         <p>
           Either method will return a dTheia chart object for you to further
@@ -300,10 +300,10 @@
           <li>an array of integer values</li>
         </ul>
         <pre><code><code class="source-code prettyprint">[
-  {&quot;sLabel&quot;:&quot;Item 1&quot;,&quot;aValues&quot;:[114,54,159]},
-  {&quot;sLabel&quot;:&quot;Item 2&quot;,&quot;aValues&quot;:[102,115,70]},
-  {&quot;sLabel&quot;:&quot;Item 3&quot;,&quot;aValues&quot;:[82,146,59]},
-  {&quot;sLabel&quot;:&quot;Item 4&quot;,&quot;aValues&quot;:[90,138,113]}
+  {&quot;itemLabel&quot;:&quot;Item 1&quot;,&quot;itemValues&quot;:[114,54,159]},
+  {&quot;itemLabel&quot;:&quot;Item 2&quot;,&quot;itemValues&quot;:[102,115,70]},
+  {&quot;itemLabel&quot;:&quot;Item 3&quot;,&quot;itemValues&quot;:[82,146,59]},
+  {&quot;itemLabel&quot;:&quot;Item 4&quot;,&quot;itemValues&quot;:[90,138,113]}
 ]</code>
 </code></pre>
         <p>
@@ -316,25 +316,25 @@
           contains:
         </p>
         <ul>
-          <li>sTitle - a string denoting the title of the charts</li>
-          <li>aAxisLabels - an array containing the x and y axis labels</li>
+          <li>title - a string denoting the title of the charts</li>
+          <li>axisLabels - an array containing the x and y axis labels</li>
           <li>
-            aValues - an array of key values each with a name for its label and
+            itemValues - an array of key values each with a name for its label and
             a HEX colour string
           </li>
           <li>
-            bTrim - optionally you can trim/pad the extremes of the chart for
+            doTrim - optionally you can trim/pad the extremes of the chart for
             aethetic
           </li>
         </ul>
         <pre><code><code class="source-code prettyprint">{
-  &quot;sTitle&quot;:&quot;Random Chart Data&quot;,
-  &quot;aAxisLabels&quot;:[&quot;Y Axis&quot;,&quot;X Axis&quot;],
-  &quot;aValues&quot;:[
-    {&quot;sName&quot;:&quot;Type 1&quot;,&quot;sColor&quot;:&quot;#3f09e5&quot;},
-    {&quot;sName&quot;:&quot;Type 2&quot;,&quot;sColor&quot;:&quot;#1e6b7b&quot;},
-    {&quot;sName&quot;:&quot;Type 3&quot;,&quot;sColor&quot;:&quot;#adb9dc&quot;}],
-  &quot;bTrim&quot;:true
+  &quot;title&quot;:&quot;Random Chart Data&quot;,
+  &quot;axisLabels&quot;:[&quot;Y Axis&quot;,&quot;X Axis&quot;],
+  &quot;itemValues&quot;:[
+    {&quot;name&quot;:&quot;Type 1&quot;,&quot;color&quot;:&quot;#3f09e5&quot;},
+    {&quot;name&quot;:&quot;Type 2&quot;,&quot;color&quot;:&quot;#1e6b7b&quot;},
+    {&quot;name&quot;:&quot;Type 3&quot;,&quot;color&quot;:&quot;#adb9dc&quot;}],
+  &quot;doTrim&quot;:true
 }</code>
 </code></pre>
         <p>
@@ -347,20 +347,20 @@
           >
         </p>
         <p>
-          You would provide an array of keys for the axis, and additional sKey
+          You would provide an array of keys for the axis, and additional key
           parameter with each value for mapping.
         </p>
-        <pre><code class="lang-{"><code class="source-code prettyprint">  aAxisKeys: [&apos;k3&apos;],
-  aAxisLabels: [&apos;y&apos;, &apos;x&apos;],
-  aValues: [
+        <pre><code class="lang-{"><code class="source-code prettyprint">  axisKeys: [&apos;k3&apos;],
+  axisLabels: [&apos;y&apos;, &apos;x&apos;],
+  itemValues: [
     {
-      sKey: &apos;k1&apos;,
-      sName: &apos;K1&apos;,
+      key: &apos;k1&apos;,
+      name: &apos;K1&apos;,
       sColour: &apos;red&apos;,
     },
     {
-      sKey: &apos;k2&apos;,
-      sName: &apos;K2&apos;,
+      key: &apos;k2&apos;,
+      name: &apos;K2&apos;,
       sColour: &apos;blue&apos;,
     }
   ]

@@ -169,7 +169,7 @@ export default class Tooltip {
   /**
   * DOM reference to container element
   *
-  * @property dContainer
+  * @property container
   * @type {Object}
   */
   oContainer;
@@ -177,36 +177,36 @@ export default class Tooltip {
   /**
   * DOM reference to tooltip&apos;s main element
   *
-  * @property dTooltip
+  * @property tooltip
   * @type {Object}
   */
-  dTooltip;
+  tooltip;
 
   /**
   * Tooltip&apos;s main timeout to close tooltip
   *
-  * @property oTooltipTimeout
+  * @property tooltipTimeout
   * @type {Object}
   */
-  oTooltipTimeout;
+  tooltipTimeout;
 
   /**
   * Tooltip&apos;s sub timeout to hide tooltip
   *
-  * @property oTooltipSubTimeout
+  * @property tooltipSubTimeout
   * @type {Object}
   */
-  oTooltipSubTimeout;
+  tooltipSubTimeout;
 
   /**
   * Constructor function that sets up the local object.
   *
   * @method constructor
-  * @param {Object} dContainer DOM object
+  * @param {Object} container DOM object
   */
-  constructor(dContainer) {
-    if (dContainer.nodeName) {
-      this.dContainer = dContainer;
+  constructor(container) {
+    if (container.nodeName) {
+      this.container = container;
     } else {
       throw new Error(&apos;The tooltip has no valid container element.&apos;);
     }
@@ -219,9 +219,9 @@ export default class Tooltip {
   * @chainable
   */
   create() {
-    this.dTooltip = document.createElement(&apos;div&apos;);
-    this.dTooltip.className = &apos;tooltip is-transparent is-hidden&apos;;
-    this.dContainer.appendChild(this.dTooltip);
+    this.tooltip = document.createElement(&apos;div&apos;);
+    this.tooltip.className = &apos;tooltip is-transparent is-hidden&apos;;
+    this.container.appendChild(this.tooltip);
     return this;
   }
 
@@ -229,41 +229,41 @@ export default class Tooltip {
   * Ping the tooltip with data and location
   *
   * @method ping
-  * @param {Array} mContent values or string for content
+  * @param {Array} content values or string for content
   */
-  ping(mContent) {
-    const sContent = mContent.constructor === Array
-      ? `&lt;strong&gt;${mContent[0]}&lt;/strong&gt;&lt;br&gt;${mContent[1]}: &lt;em&gt;${mContent[2]}&lt;/em&gt;`
-      : mContent;
+  ping(content) {
+    const contentHtml = content.constructor === Array
+      ? `&lt;strong&gt;${content[0]}&lt;/strong&gt;&lt;br&gt;${content[1]}: &lt;em&gt;${content[2]}&lt;/em&gt;`
+      : content;
     const iZoomDivider = 1 + (window.devicePixelRatio &gt; 1 ? (window.devicePixelRatio / 20) : 0);
-    const oContainerEdges = this.dContainer.getBoundingClientRect()
-    const iPageOffsetX = oContainerEdges.left - 15;
-    const iPageOffsetY = oContainerEdges.top;
-    const iMouseX = event ? event.clientX : 0;
-    const iMouseY = event ? event.clientY : 0;
-    this.dTooltip.innerHTML = sContent;
-    this.dTooltip.className = &apos;tooltip&apos;;
-    if ((oContainerEdges.width + iPageOffsetX) - iMouseX &lt; 90) {
-      this.dTooltip.style.left = &apos;auto&apos;;
-      this.dTooltip.style.right = `${(oContainerEdges.width - iMouseX) + iPageOffsetX + 25}px`;
+    const oContainerEdges = this.container.getBoundingClientRect()
+    const pageOffsetX = oContainerEdges.left - 15;
+    const pageOffsetY = oContainerEdges.top;
+    const mouseX = event ? event.clientX : 0;
+    const mouseY = event ? event.clientY : 0;
+    this.tooltip.innerHTML = contentHtml;
+    this.tooltip.className = &apos;tooltip&apos;;
+    if ((oContainerEdges.width + pageOffsetX) - mouseX &lt; 90) {
+      this.tooltip.style.left = &apos;auto&apos;;
+      this.tooltip.style.right = `${(oContainerEdges.width - mouseX) + pageOffsetX + 25}px`;
     } else {
-      this.dTooltip.style.left = `${iMouseX - iPageOffsetX}px`;
-      this.dTooltip.style.right = &apos;auto&apos;;
+      this.tooltip.style.left = `${mouseX - pageOffsetX}px`;
+      this.tooltip.style.right = &apos;auto&apos;;
     }
-    this.dTooltip.style.top = `${(iMouseY / iZoomDivider) - iPageOffsetY}px`;
-    clearTimeout(this.oTooltipTimeout);
-    clearTimeout(this.oTooltipSubTimeout);
-    this.oTooltipTimeout = setTimeout(() =&gt; {
+    this.tooltip.style.top = `${(mouseY / iZoomDivider) - pageOffsetY}px`;
+    clearTimeout(this.tooltipTimeout);
+    clearTimeout(this.tooltipSubTimeout);
+    this.tooltipTimeout = setTimeout(() =&gt; {
       this.hide();
     }, 5000);
   }
 
   hide() {
-    clearTimeout(this.oTooltipTimeout);
-    clearTimeout(this.oTooltipSubTimeout);
-    this.dTooltip.className = &apos;tooltip is-transparent&apos;;
-    this.oTooltipSubTimeout = setTimeout(() =&gt; {
-      this.dTooltip.className = &apos;tooltip is-transparent is-hidden&apos;;
+    clearTimeout(this.tooltipTimeout);
+    clearTimeout(this.tooltipSubTimeout);
+    this.tooltip.className = &apos;tooltip is-transparent&apos;;
+    this.tooltipSubTimeout = setTimeout(() =&gt; {
+      this.tooltip.className = &apos;tooltip is-transparent is-hidden&apos;;
     }, 300);
   }
 

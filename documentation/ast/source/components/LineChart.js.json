@@ -529,16 +529,16 @@
                       "line": 21,
                       "column": 8
                     },
-                    "identifierName": "aLines"
+                    "identifierName": "lines"
                   },
-                  "name": "aLines",
+                  "name": "lines",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The local collection of lines\r\n  *\r\n  * @property aLines\r\n  * @type {Array}\r\n  ",
+                    "value": "*\r\n  * The local collection of lines\r\n  *\r\n  * @property lines\r\n  * @type {Array}\r\n  ",
                     "start": 360,
                     "end": 450,
                     "loc": {
@@ -556,7 +556,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The local collection of circles\r\n  *\r\n  * @property aCircles\r\n  * @type {Array}\r\n  ",
+                    "value": "*\r\n  * The local collection of circles\r\n  *\r\n  * @property circles\r\n  * @type {Array}\r\n  ",
                     "start": 467,
                     "end": 561,
                     "loc": {
@@ -601,16 +601,16 @@
                       "line": 29,
                       "column": 10
                     },
-                    "identifierName": "aCircles"
+                    "identifierName": "circles"
                   },
-                  "name": "aCircles",
+                  "name": "circles",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The local collection of circles\r\n  *\r\n  * @property aCircles\r\n  * @type {Array}\r\n  ",
+                    "value": "*\r\n  * The local collection of circles\r\n  *\r\n  * @property circles\r\n  * @type {Array}\r\n  ",
                     "start": 467,
                     "end": 561,
                     "loc": {
@@ -711,9 +711,9 @@
                           "line": 36,
                           "column": 21
                         },
-                        "identifierName": "oParams"
+                        "identifierName": "chartParams"
                       },
-                      "name": "oParams"
+                      "name": "chartParams"
                     },
                     "right": {
                       "type": "ObjectExpression",
@@ -805,9 +805,9 @@
                                 "line": 37,
                                 "column": 17
                               },
-                              "identifierName": "oParams"
+                              "identifierName": "chartParams"
                             },
-                            "name": "oParams"
+                            "name": "chartParams"
                           }
                         ]
                       }
@@ -883,9 +883,9 @@
                                 "line": 38,
                                 "column": 19
                               },
-                              "identifierName": "sChartType"
+                              "identifierName": "chartType"
                             },
-                            "name": "sChartType"
+                            "name": "chartType"
                           },
                           "computed": false
                         },
@@ -982,9 +982,9 @@
                                 "line": 39,
                                 "column": 16
                               },
-                              "identifierName": "oScaleX"
+                              "identifierName": "scaleX"
                             },
-                            "name": "oScaleX"
+                            "name": "scaleX"
                           },
                           "computed": false
                         },
@@ -1131,9 +1131,9 @@
                           "line": 47,
                           "column": 20
                         },
-                        "identifierName": "bReset"
+                        "identifierName": "doReset"
                       },
-                      "name": "bReset"
+                      "name": "doReset"
                     },
                     "right": {
                       "type": "BooleanLiteral",
@@ -1321,9 +1321,9 @@
                                       "line": 49,
                                       "column": 19
                                     },
-                                    "identifierName": "aValues"
+                                    "identifierName": "itemValues"
                                   },
-                                  "name": "aValues"
+                                  "name": "itemValues"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -1338,9 +1338,9 @@
                                       "line": 49,
                                       "column": 19
                                     },
-                                    "identifierName": "aValues"
+                                    "identifierName": "itemValues"
                                   },
-                                  "name": "aValues"
+                                  "name": "itemValues"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -1390,9 +1390,9 @@
                                   "line": 49,
                                   "column": 36
                                 },
-                                "identifierName": "jConfig"
+                                "identifierName": "chartConfig"
                               },
-                              "name": "jConfig"
+                              "name": "chartConfig"
                             },
                             "computed": false
                           }
@@ -1474,9 +1474,9 @@
                                       "line": 50,
                                       "column": 19
                                     },
-                                    "identifierName": "oScaleX"
+                                    "identifierName": "scaleX"
                                   },
-                                  "name": "oScaleX"
+                                  "name": "scaleX"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -1491,9 +1491,9 @@
                                       "line": 50,
                                       "column": 19
                                     },
-                                    "identifierName": "oScaleX"
+                                    "identifierName": "scaleX"
                                   },
-                                  "name": "oScaleX"
+                                  "name": "scaleX"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -1529,9 +1529,9 @@
                                       "line": 50,
                                       "column": 28
                                     },
-                                    "identifierName": "oScaleY"
+                                    "identifierName": "scaleY"
                                   },
-                                  "name": "oScaleY"
+                                  "name": "scaleY"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -1546,9 +1546,9 @@
                                       "line": 50,
                                       "column": 28
                                     },
-                                    "identifierName": "oScaleY"
+                                    "identifierName": "scaleY"
                                   },
-                                  "name": "oScaleY"
+                                  "name": "scaleY"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -1646,9 +1646,9 @@
                                 "line": 52,
                                 "column": 15
                               },
-                              "identifierName": "aLines"
+                              "identifierName": "lines"
                             },
-                            "name": "aLines"
+                            "name": "lines"
                           },
                           "computed": false
                         },
@@ -1708,9 +1708,9 @@
                                   "line": 52,
                                   "column": 29
                                 },
-                                "identifierName": "aLines"
+                                "identifierName": "lines"
                               },
-                              "name": "aLines"
+                              "name": "lines"
                             },
                             "computed": false
                           },
@@ -1805,9 +1805,9 @@
                                 "line": 53,
                                 "column": 17
                               },
-                              "identifierName": "aCircles"
+                              "identifierName": "circles"
                             },
-                            "name": "aCircles"
+                            "name": "circles"
                           },
                           "computed": false
                         },
@@ -1867,9 +1867,9 @@
                                   "line": 53,
                                   "column": 33
                                 },
-                                "identifierName": "aCircles"
+                                "identifierName": "circles"
                               },
-                              "name": "aCircles"
+                              "name": "circles"
                             },
                             "computed": false
                           },
@@ -1966,9 +1966,9 @@
                                 "line": 56,
                                 "column": 11
                               },
-                              "identifierName": "aValues"
+                              "identifierName": "itemValues"
                             },
-                            "name": "aValues",
+                            "name": "itemValues",
                             "leadingComments": null
                           },
                           "property": {
@@ -2135,9 +2135,9 @@
                                                   "line": 57,
                                                   "column": 20
                                                 },
-                                                "identifierName": "oColor"
+                                                "identifierName": "color"
                                               },
-                                              "name": "oColor"
+                                              "name": "color"
                                             },
                                             "value": {
                                               "type": "Identifier",
@@ -2152,9 +2152,9 @@
                                                   "line": 57,
                                                   "column": 20
                                                 },
-                                                "identifierName": "oColor"
+                                                "identifierName": "color"
                                               },
-                                              "name": "oColor"
+                                              "name": "color"
                                             },
                                             "extra": {
                                               "shorthand": true
@@ -2242,9 +2242,9 @@
                                           "line": 60,
                                           "column": 16
                                         },
-                                        "identifierName": "bReset"
+                                        "identifierName": "doReset"
                                       },
-                                      "name": "bReset",
+                                      "name": "doReset",
                                       "leadingComments": null
                                     },
                                     "operator": "&&",
@@ -2304,9 +2304,9 @@
                                               "line": 60,
                                               "column": 31
                                             },
-                                            "identifierName": "aLines"
+                                            "identifierName": "lines"
                                           },
-                                          "name": "aLines"
+                                          "name": "lines"
                                         },
                                         "computed": false
                                       },
@@ -2431,9 +2431,9 @@
                                                     "line": 61,
                                                     "column": 19
                                                   },
-                                                  "identifierName": "aLines"
+                                                  "identifierName": "lines"
                                                 },
-                                                "name": "aLines"
+                                                "name": "lines"
                                               },
                                               "computed": false
                                             },
@@ -2824,9 +2824,9 @@
                                                           "line": 62,
                                                           "column": 19
                                                         },
-                                                        "identifierName": "aLines"
+                                                        "identifierName": "lines"
                                                       },
-                                                      "name": "aLines"
+                                                      "name": "lines"
                                                     },
                                                     "computed": false
                                                   },
@@ -2977,9 +2977,9 @@
                                                     "line": 63,
                                                     "column": 19
                                                   },
-                                                  "identifierName": "aLines"
+                                                  "identifierName": "lines"
                                                 },
-                                                "name": "aLines"
+                                                "name": "lines"
                                               },
                                               "computed": false
                                             },
@@ -3130,9 +3130,9 @@
                                               "line": 66,
                                               "column": 22
                                             },
-                                            "identifierName": "aLines"
+                                            "identifierName": "lines"
                                           },
-                                          "name": "aLines"
+                                          "name": "lines"
                                         },
                                         "computed": false
                                       },
@@ -3260,9 +3260,9 @@
                                                     "line": 68,
                                                     "column": 19
                                                   },
-                                                  "identifierName": "aLines"
+                                                  "identifierName": "lines"
                                                 },
-                                                "name": "aLines"
+                                                "name": "lines"
                                               },
                                               "computed": false,
                                               "leadingComments": null
@@ -3657,9 +3657,9 @@
                                                                 "line": 72,
                                                                 "column": 29
                                                               },
-                                                              "identifierName": "aData"
+                                                              "identifierName": "chartData"
                                                             },
-                                                            "name": "aData"
+                                                            "name": "chartData"
                                                           },
                                                           "computed": false
                                                         }
@@ -3842,9 +3842,9 @@
                                                   "line": 74,
                                                   "column": 34
                                                 },
-                                                "identifierName": "oColor"
+                                                "identifierName": "color"
                                               },
-                                              "name": "oColor"
+                                              "name": "color"
                                             }
                                           ],
                                           "leadingComments": null
@@ -4019,9 +4019,9 @@
                                                     "line": 78,
                                                     "column": 17
                                                   },
-                                                  "identifierName": "aLines"
+                                                  "identifierName": "lines"
                                                 },
-                                                "name": "aLines"
+                                                "name": "lines"
                                               },
                                               "computed": false,
                                               "leadingComments": null
@@ -4145,9 +4145,9 @@
                                                       "line": 79,
                                                       "column": 23
                                                     },
-                                                    "identifierName": "oScaleX"
+                                                    "identifierName": "scaleX"
                                                   },
-                                                  "name": "oScaleX"
+                                                  "name": "scaleX"
                                                 },
                                                 "arguments": [
                                                   {
@@ -4194,9 +4194,9 @@
                                                           "line": 79,
                                                           "column": 32
                                                         },
-                                                        "identifierName": "sLabel"
+                                                        "identifierName": "itemLabel"
                                                       },
-                                                      "name": "sLabel"
+                                                      "name": "itemLabel"
                                                     },
                                                     "computed": false
                                                   }
@@ -4258,9 +4258,9 @@
                                                           "line": 79,
                                                           "column": 44
                                                         },
-                                                        "identifierName": "oScaleX"
+                                                        "identifierName": "scaleX"
                                                       },
-                                                      "name": "oScaleX"
+                                                      "name": "scaleX"
                                                     },
                                                     "property": {
                                                       "type": "Identifier",
@@ -4399,9 +4399,9 @@
                                                 "line": 80,
                                                 "column": 23
                                               },
-                                              "identifierName": "oScaleY"
+                                              "identifierName": "scaleY"
                                             },
-                                            "name": "oScaleY"
+                                            "name": "scaleY"
                                           },
                                           "arguments": [
                                             {
@@ -4462,9 +4462,9 @@
                                                       "line": 80,
                                                       "column": 33
                                                     },
-                                                    "identifierName": "aValues"
+                                                    "identifierName": "itemValues"
                                                   },
-                                                  "name": "aValues"
+                                                  "name": "itemValues"
                                                 },
                                                 "computed": false
                                               },
@@ -4833,9 +4833,9 @@
                                                       "line": 82,
                                                       "column": 25
                                                     },
-                                                    "identifierName": "aData"
+                                                    "identifierName": "chartData"
                                                   },
-                                                  "name": "aData"
+                                                  "name": "chartData"
                                                 },
                                                 "computed": false
                                               }
@@ -4939,9 +4939,9 @@
                                                 "line": 83,
                                                 "column": 30
                                               },
-                                              "identifierName": "aLines"
+                                              "identifierName": "lines"
                                             },
-                                            "name": "aLines"
+                                            "name": "lines"
                                           },
                                           "computed": false
                                         },
@@ -5026,9 +5026,9 @@
                                           "line": 86,
                                           "column": 16
                                         },
-                                        "identifierName": "bReset"
+                                        "identifierName": "doReset"
                                       },
-                                      "name": "bReset",
+                                      "name": "doReset",
                                       "leadingComments": null
                                     },
                                     "operator": "&&",
@@ -5088,9 +5088,9 @@
                                               "line": 86,
                                               "column": 33
                                             },
-                                            "identifierName": "aCircles"
+                                            "identifierName": "circles"
                                           },
-                                          "name": "aCircles"
+                                          "name": "circles"
                                         },
                                         "computed": false
                                       },
@@ -5215,9 +5215,9 @@
                                                     "line": 87,
                                                     "column": 21
                                                   },
-                                                  "identifierName": "aCircles"
+                                                  "identifierName": "circles"
                                                 },
-                                                "name": "aCircles"
+                                                "name": "circles"
                                               },
                                               "computed": false
                                             },
@@ -5608,9 +5608,9 @@
                                                           "line": 88,
                                                           "column": 21
                                                         },
-                                                        "identifierName": "aCircles"
+                                                        "identifierName": "circles"
                                                       },
-                                                      "name": "aCircles"
+                                                      "name": "circles"
                                                     },
                                                     "computed": false
                                                   },
@@ -5761,9 +5761,9 @@
                                                     "line": 89,
                                                     "column": 21
                                                   },
-                                                  "identifierName": "aCircles"
+                                                  "identifierName": "circles"
                                                 },
-                                                "name": "aCircles"
+                                                "name": "circles"
                                               },
                                               "computed": false
                                             },
@@ -5934,9 +5934,9 @@
                                               "line": 93,
                                               "column": 24
                                             },
-                                            "identifierName": "aCircles"
+                                            "identifierName": "circles"
                                           },
-                                          "name": "aCircles"
+                                          "name": "circles"
                                         },
                                         "computed": false,
                                         "leadingComments": null
@@ -6067,9 +6067,9 @@
                                                     "line": 95,
                                                     "column": 21
                                                   },
-                                                  "identifierName": "aCircles"
+                                                  "identifierName": "circles"
                                                 },
-                                                "name": "aCircles"
+                                                "name": "circles"
                                               },
                                               "computed": false,
                                               "leadingComments": null
@@ -6358,9 +6358,9 @@
                                                       "line": 95,
                                                       "column": 93
                                                     },
-                                                    "identifierName": "aData"
+                                                    "identifierName": "chartData"
                                                   },
-                                                  "name": "aData"
+                                                  "name": "chartData"
                                                 },
                                                 "computed": false
                                               }
@@ -6728,9 +6728,9 @@
                                                                                       "line": 97,
                                                                                       "column": 21
                                                                                     },
-                                                                                    "identifierName": "aCircles"
+                                                                                    "identifierName": "circles"
                                                                                   },
-                                                                                  "name": "aCircles"
+                                                                                  "name": "circles"
                                                                                 },
                                                                                 "computed": false,
                                                                                 "leadingComments": null
@@ -6999,9 +6999,9 @@
                                                                                         "line": 101,
                                                                                         "column": 25
                                                                                       },
-                                                                                      "identifierName": "oTooltip"
+                                                                                      "identifierName": "tooltip"
                                                                                     },
-                                                                                    "name": "oTooltip"
+                                                                                    "name": "tooltip"
                                                                                   },
                                                                                   "computed": false
                                                                                 },
@@ -7084,9 +7084,9 @@
                                                                                             "line": 101,
                                                                                             "column": 40
                                                                                           },
-                                                                                          "identifierName": "sLabel"
+                                                                                          "identifierName": "itemLabel"
                                                                                         },
-                                                                                        "name": "sLabel"
+                                                                                        "name": "itemLabel"
                                                                                       },
                                                                                       "computed": false
                                                                                     },
@@ -7134,9 +7134,9 @@
                                                                                             "line": 101,
                                                                                             "column": 55
                                                                                           },
-                                                                                          "identifierName": "sName"
+                                                                                          "identifierName": "name"
                                                                                         },
-                                                                                        "name": "sName"
+                                                                                        "name": "name"
                                                                                       },
                                                                                       "computed": false
                                                                                     },
@@ -7198,9 +7198,9 @@
                                                                                               "line": 101,
                                                                                               "column": 66
                                                                                             },
-                                                                                            "identifierName": "aValues"
+                                                                                            "identifierName": "itemValues"
                                                                                           },
-                                                                                          "name": "aValues"
+                                                                                          "name": "itemValues"
                                                                                         },
                                                                                         "computed": false
                                                                                       },
@@ -7401,9 +7401,9 @@
                                                                                   "line": 104,
                                                                                   "column": 20
                                                                                 },
-                                                                                "identifierName": "oColor"
+                                                                                "identifierName": "color"
                                                                               },
-                                                                              "name": "oColor"
+                                                                              "name": "color"
                                                                             },
                                                                             "computed": false
                                                                           },
@@ -7491,9 +7491,9 @@
                                                                                         "line": 104,
                                                                                         "column": 35
                                                                                       },
-                                                                                      "identifierName": "jConfig"
+                                                                                      "identifierName": "chartConfig"
                                                                                     },
-                                                                                    "name": "jConfig"
+                                                                                    "name": "chartConfig"
                                                                                   },
                                                                                   "computed": false
                                                                                 },
@@ -7510,9 +7510,9 @@
                                                                                       "line": 104,
                                                                                       "column": 43
                                                                                     },
-                                                                                    "identifierName": "aValues"
+                                                                                    "identifierName": "itemValues"
                                                                                   },
-                                                                                  "name": "aValues"
+                                                                                  "name": "itemValues"
                                                                                 },
                                                                                 "computed": false
                                                                               },
@@ -7548,9 +7548,9 @@
                                                                                   "line": 104,
                                                                                   "column": 53
                                                                                 },
-                                                                                "identifierName": "oColor"
+                                                                                "identifierName": "color"
                                                                               },
-                                                                              "name": "oColor"
+                                                                              "name": "color"
                                                                             },
                                                                             "computed": false
                                                                           }
@@ -7794,9 +7794,9 @@
                                                                                         "line": 105,
                                                                                         "column": 54
                                                                                       },
-                                                                                      "identifierName": "oColor"
+                                                                                      "identifierName": "color"
                                                                                     },
-                                                                                    "name": "oColor"
+                                                                                    "name": "color"
                                                                                   },
                                                                                   "computed": false
                                                                                 },
@@ -8015,9 +8015,9 @@
                                                                               "line": 108,
                                                                               "column": 28
                                                                             },
-                                                                            "identifierName": "jConfig"
+                                                                            "identifierName": "chartConfig"
                                                                           },
-                                                                          "name": "jConfig"
+                                                                          "name": "chartConfig"
                                                                         },
                                                                         "computed": false
                                                                       },
@@ -8139,9 +8139,9 @@
                                                                                       "line": 109,
                                                                                       "column": 26
                                                                                     },
-                                                                                    "identifierName": "jConfig"
+                                                                                    "identifierName": "chartConfig"
                                                                                   },
-                                                                                  "name": "jConfig"
+                                                                                  "name": "chartConfig"
                                                                                 },
                                                                                 "computed": false
                                                                               },
@@ -8478,9 +8478,9 @@
                                                                             "line": 116,
                                                                             "column": 25
                                                                           },
-                                                                          "identifierName": "oTooltip"
+                                                                          "identifierName": "tooltip"
                                                                         },
-                                                                        "name": "oTooltip"
+                                                                        "name": "tooltip"
                                                                       },
                                                                       "computed": false
                                                                     },
@@ -8716,9 +8716,9 @@
                                                                             "line": 117,
                                                                             "column": 54
                                                                           },
-                                                                          "identifierName": "oColor"
+                                                                          "identifierName": "color"
                                                                         },
-                                                                        "name": "oColor"
+                                                                        "name": "color"
                                                                       },
                                                                       "computed": false
                                                                     }
@@ -8906,9 +8906,9 @@
                                                       "line": 120,
                                                       "column": 30
                                                     },
-                                                    "identifierName": "oColor"
+                                                    "identifierName": "color"
                                                   },
-                                                  "name": "oColor"
+                                                  "name": "color"
                                                 }
                                               ],
                                               "leadingComments": null
@@ -9377,9 +9377,9 @@
                                                       "line": 126,
                                                       "column": 24
                                                     },
-                                                    "identifierName": "aData"
+                                                    "identifierName": "chartData"
                                                   },
-                                                  "name": "aData"
+                                                  "name": "chartData"
                                                 },
                                                 "computed": false
                                               }
@@ -9491,9 +9491,9 @@
                                                     "line": 127,
                                                     "column": 32
                                                   },
-                                                  "identifierName": "oScaleY"
+                                                  "identifierName": "scaleY"
                                                 },
-                                                "name": "oScaleY"
+                                                "name": "scaleY"
                                               },
                                               "arguments": [
                                                 {
@@ -9554,9 +9554,9 @@
                                                           "line": 127,
                                                           "column": 42
                                                         },
-                                                        "identifierName": "aValues"
+                                                        "identifierName": "itemValues"
                                                       },
-                                                      "name": "aValues"
+                                                      "name": "itemValues"
                                                     },
                                                     "computed": false
                                                   },
@@ -9704,9 +9704,9 @@
                                                   "line": 128,
                                                   "column": 32
                                                 },
-                                                "identifierName": "oScaleX"
+                                                "identifierName": "scaleX"
                                               },
-                                              "name": "oScaleX"
+                                              "name": "scaleX"
                                             },
                                             "arguments": [
                                               {
@@ -9753,9 +9753,9 @@
                                                       "line": 128,
                                                       "column": 41
                                                     },
-                                                    "identifierName": "sLabel"
+                                                    "identifierName": "itemLabel"
                                                   },
-                                                  "name": "sLabel"
+                                                  "name": "itemLabel"
                                                 },
                                                 "computed": false
                                               }
@@ -9817,9 +9817,9 @@
                                                       "line": 128,
                                                       "column": 53
                                                     },
-                                                    "identifierName": "oScaleX"
+                                                    "identifierName": "scaleX"
                                                   },
-                                                  "name": "oScaleX"
+                                                  "name": "scaleX"
                                                 },
                                                 "property": {
                                                   "type": "Identifier",
@@ -10101,7 +10101,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The local collection of lines\r\n  *\r\n  * @property aLines\r\n  * @type {Array}\r\n  ",
+      "value": "*\r\n  * The local collection of lines\r\n  *\r\n  * @property lines\r\n  * @type {Array}\r\n  ",
       "start": 360,
       "end": 450,
       "loc": {
@@ -10117,7 +10117,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The local collection of circles\r\n  *\r\n  * @property aCircles\r\n  * @type {Array}\r\n  ",
+      "value": "*\r\n  * The local collection of circles\r\n  *\r\n  * @property circles\r\n  * @type {Array}\r\n  ",
       "start": 467,
       "end": 561,
       "loc": {
@@ -11266,7 +11266,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The local collection of lines\r\n  *\r\n  * @property aLines\r\n  * @type {Array}\r\n  ",
+      "value": "*\r\n  * The local collection of lines\r\n  *\r\n  * @property lines\r\n  * @type {Array}\r\n  ",
       "start": 360,
       "end": 450,
       "loc": {
@@ -11292,7 +11292,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aLines",
+      "value": "lines",
       "start": 454,
       "end": 460,
       "loc": {
@@ -11334,7 +11334,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The local collection of circles\r\n  *\r\n  * @property aCircles\r\n  * @type {Array}\r\n  ",
+      "value": "*\r\n  * The local collection of circles\r\n  *\r\n  * @property circles\r\n  * @type {Array}\r\n  ",
       "start": 467,
       "end": 561,
       "loc": {
@@ -11360,7 +11360,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aCircles",
+      "value": "circles",
       "start": 565,
       "end": 573,
       "loc": {
@@ -11479,7 +11479,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 675,
       "end": 682,
       "loc": {
@@ -11685,7 +11685,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 702,
       "end": 709,
       "loc": {
@@ -11816,7 +11816,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sChartType",
+      "value": "chartType",
       "start": 722,
       "end": 732,
       "loc": {
@@ -11976,7 +11976,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 753,
       "end": 760,
       "loc": {
@@ -12223,7 +12223,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bReset",
+      "value": "doReset",
       "start": 897,
       "end": 903,
       "loc": {
@@ -12563,7 +12563,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 954,
       "end": 961,
       "loc": {
@@ -12695,7 +12695,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 971,
       "end": 978,
       "loc": {
@@ -12800,7 +12800,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 993,
       "end": 1000,
       "loc": {
@@ -12852,7 +12852,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleY",
+      "value": "scaleY",
       "start": 1002,
       "end": 1009,
       "loc": {
@@ -13038,7 +13038,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aLines",
+      "value": "lines",
       "start": 1032,
       "end": 1038,
       "loc": {
@@ -13145,7 +13145,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aLines",
+      "value": "lines",
       "start": 1046,
       "end": 1052,
       "loc": {
@@ -13330,7 +13330,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aCircles",
+      "value": "circles",
       "start": 1070,
       "end": 1078,
       "loc": {
@@ -13437,7 +13437,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aCircles",
+      "value": "circles",
       "start": 1086,
       "end": 1094,
       "loc": {
@@ -13584,7 +13584,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1151,
       "end": 1158,
       "loc": {
@@ -13919,7 +13919,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 1200,
       "end": 1206,
       "loc": {
@@ -14118,7 +14118,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bReset",
+      "value": "doReset",
       "start": 1276,
       "end": 1282,
       "loc": {
@@ -14225,7 +14225,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aLines",
+      "value": "lines",
       "start": 1291,
       "end": 1297,
       "loc": {
@@ -14433,7 +14433,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aLines",
+      "value": "lines",
       "start": 1318,
       "end": 1324,
       "loc": {
@@ -15160,7 +15160,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aLines",
+      "value": "lines",
       "start": 1401,
       "end": 1407,
       "loc": {
@@ -15548,7 +15548,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aLines",
+      "value": "lines",
       "start": 1442,
       "end": 1448,
       "loc": {
@@ -15890,7 +15890,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aLines",
+      "value": "lines",
       "start": 1493,
       "end": 1499,
       "loc": {
@@ -16114,7 +16114,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aLines",
+      "value": "lines",
       "start": 1548,
       "end": 1554,
       "loc": {
@@ -16729,7 +16729,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 1673,
       "end": 1678,
       "loc": {
@@ -17271,7 +17271,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 1757,
       "end": 1763,
       "loc": {
@@ -17443,7 +17443,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aLines",
+      "value": "lines",
       "start": 1812,
       "end": 1818,
       "loc": {
@@ -17676,7 +17676,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 1839,
       "end": 1846,
       "loc": {
@@ -17779,7 +17779,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sLabel",
+      "value": "itemLabel",
       "start": 1849,
       "end": 1855,
       "loc": {
@@ -17882,7 +17882,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 1860,
       "end": 1867,
       "loc": {
@@ -18243,7 +18243,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleY",
+      "value": "scaleY",
       "start": 1903,
       "end": 1910,
       "loc": {
@@ -18346,7 +18346,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1913,
       "end": 1920,
       "loc": {
@@ -19045,7 +19045,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 2002,
       "end": 2007,
       "loc": {
@@ -19306,7 +19306,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aLines",
+      "value": "lines",
       "start": 2035,
       "end": 2041,
       "loc": {
@@ -19530,7 +19530,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bReset",
+      "value": "doReset",
       "start": 2105,
       "end": 2111,
       "loc": {
@@ -19637,7 +19637,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aCircles",
+      "value": "circles",
       "start": 2120,
       "end": 2128,
       "loc": {
@@ -19845,7 +19845,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aCircles",
+      "value": "circles",
       "start": 2149,
       "end": 2157,
       "loc": {
@@ -20572,7 +20572,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aCircles",
+      "value": "circles",
       "start": 2238,
       "end": 2246,
       "loc": {
@@ -20960,7 +20960,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aCircles",
+      "value": "circles",
       "start": 2281,
       "end": 2289,
       "loc": {
@@ -21318,7 +21318,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aCircles",
+      "value": "circles",
       "start": 2371,
       "end": 2379,
       "loc": {
@@ -21542,7 +21542,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aCircles",
+      "value": "circles",
       "start": 2430,
       "end": 2438,
       "loc": {
@@ -22166,7 +22166,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 2505,
       "end": 2510,
       "loc": {
@@ -22313,7 +22313,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aCircles",
+      "value": "circles",
       "start": 2587,
       "end": 2595,
       "loc": {
@@ -22959,7 +22959,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltip",
+      "value": "tooltip",
       "start": 2703,
       "end": 2711,
       "loc": {
@@ -23140,7 +23140,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sLabel",
+      "value": "itemLabel",
       "start": 2720,
       "end": 2726,
       "loc": {
@@ -23244,7 +23244,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sName",
+      "value": "name",
       "start": 2736,
       "end": 2741,
       "loc": {
@@ -23348,7 +23348,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 2745,
       "end": 2752,
       "loc": {
@@ -23888,7 +23888,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 2825,
       "end": 2831,
       "loc": {
@@ -23995,7 +23995,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 2839,
       "end": 2846,
       "loc": {
@@ -24047,7 +24047,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 2847,
       "end": 2854,
       "loc": {
@@ -24177,7 +24177,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 2858,
       "end": 2864,
       "loc": {
@@ -24565,7 +24565,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 2915,
       "end": 2921,
       "loc": {
@@ -25185,7 +25185,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 3007,
       "end": 3014,
       "loc": {
@@ -25367,7 +25367,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 3054,
       "end": 3061,
       "loc": {
@@ -26139,7 +26139,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltip",
+      "value": "tooltip",
       "start": 3240,
       "end": 3248,
       "loc": {
@@ -26629,7 +26629,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 3306,
       "end": 3312,
       "loc": {
@@ -27221,7 +27221,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 3404,
       "end": 3410,
       "loc": {
@@ -28014,7 +28014,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 3552,
       "end": 3557,
       "loc": {
@@ -28247,7 +28247,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleY",
+      "value": "scaleY",
       "start": 3585,
       "end": 3592,
       "loc": {
@@ -28350,7 +28350,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 3595,
       "end": 3602,
       "loc": {
@@ -28686,7 +28686,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 3634,
       "end": 3641,
       "loc": {
@@ -28789,7 +28789,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sLabel",
+      "value": "itemLabel",
       "start": 3644,
       "end": 3650,
       "loc": {
@@ -28892,7 +28892,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 3655,
       "end": 3662,
       "loc": {

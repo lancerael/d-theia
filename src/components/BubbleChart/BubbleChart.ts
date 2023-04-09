@@ -19,61 +19,61 @@ export default class BubbleChart extends Chart {
   /**
    * The local collection of bubbles
    *
-   * @property aBubbles
+   * @property bubbles
    * @type {Array}
    */
-  aBubbles: any
+  bubbles: any
 
   /**
    * The color scale
    *
-   * @property oScaleColor
+   * @property scaleColor
    * @type {Object}
    */
-  oScaleColor: any
+  scaleColor: any
 
   /**
    * The axis group
    *
-   * @property d3AxisGroup
+   * @property axisGroup
    * @type {Object}
    */
-  d3AxisGroup: any
+  axisGroup: any
 
   /**
    * The bubbles group
    *
-   * @property d3BubblesGroup
+   * @property bubblesGroup
    * @type {Object}
    */
-  d3BubblesGroup: any
+  bubblesGroup: any
 
   /**
    * The force simulation
    *
-   * @property oForce
+   * @property force
    * @type {Object}
    */
-  oForce: any
+  force: any
 
   /**
    * The circles
    *
-   * @property d3Circles
+   * @property circles
    * @type {Object}
    */
-  d3Circles: any
+  circles: any
 
   /**
    * Constructor function supersedes parent class.
    *
    * @method constructor
-   * @param {Object} oParams same as Chart
+   * @param {Object} chartParams same as Chart
    */
-  constructor(oParams = {}) {
-    super(oParams)
-    this.oScaleColor = scaleLinear()
-    this.sChartType = 'bubble'
+  constructor(chartParams = {}) {
+    super(chartParams)
+    this.scaleColor = scaleLinear()
+    this.chartType = 'bubble'
   }
 
   /**
@@ -83,9 +83,12 @@ export default class BubbleChart extends Chart {
    */
   setDimensions() {
     super.setDimensions()
-    this.oScaleColor
-      .domain([0, max(this.aData, (d: any) => d[this.jConfig.aValues[1].sKey])])
-      .range(this.jConfig.aValues[1].aColors)
+    this.scaleColor
+      .domain([
+        0,
+        max(this.chartData, (d: any) => d[this.chartConfig.itemValues[1].key]),
+      ])
+      .range(this.chartConfig.itemValues[1].colors)
   }
 
   /**
@@ -94,93 +97,93 @@ export default class BubbleChart extends Chart {
    * @method renderChart
    */
   renderChart() {
-    const { aAxisLabels, aValues } = this.jConfig
-    const { iInnerWidth, iInnerHeight, jPadding } = this
-    const { sKey: sKey1, sName: sName1 } = aValues[0]
-    const { sKey: sKey2, sName: sName2, aColors } = aValues[1]
+    const { axisLabels, itemValues } = this.chartConfig
+    const { innerWidth, innerHeight, padding } = this
+    const { key: key1, name: name1 } = itemValues[0]
+    const { key: key2, name: name2, colors } = itemValues[1]
 
     // Add chart scale axes
-    this.d3AxisGroup ??= this.d3Svg.append('g').attr('class', 'axes-g')
-    this.oAxis = new Axis({
-      d3Container: this.d3AxisGroup,
-      aAxisLabels,
-      jPadding,
-      iWidth: iInnerWidth,
-      iHeight: iInnerHeight - 25,
+    this.axisGroup ??= this.d3Svg.append('g').attr('class', 'axes-g')
+    this.axis = new Axis({
+      d3Container: this.axisGroup,
+      axisLabels,
+      padding,
+      width: innerWidth,
+      height: innerHeight - 25,
     }).renderLabels()
 
     // Add the group container for bubbles
-    this.d3BubblesGroup ??= this.d3Svg
+    this.bubblesGroup ??= this.d3Svg
       .append('g')
-      .attr('transform', `translate(${this.jPadding.l}, 0)`)
+      .attr('transform', `translate(${this.padding.l}, 0)`)
 
     // The method runs on each tick of the force calculation to reposition the bubbles
     const fnTicked = () => {
-      this.d3BubblesGroup
+      this.bubblesGroup
         .selectAll('circle')
         .attr('cx', (d: any) => d.x)
         .attr('cy', (d: any) => d.y)
     }
 
     // Initialise the d3 force calculations
-    this.oForce = forceSimulation()
-      .nodes(JSON.parse(JSON.stringify(this.aData)))
+    this.force = forceSimulation()
+      .nodes(JSON.parse(JSON.stringify(this.chartData)))
       .force(
         'charge',
-        forceManyBody().strength((d: any) => (d[sKey1] * (d[sKey1] / 2)) / -150)
+        forceManyBody().strength((d: any) => (d[key1] * (d[key1] / 2)) / -150)
       )
-      .force('center', forceCenter(this.iWidth / 2, this.iHeight / 2))
+      .force('center', forceCenter(this.width / 2, this.height / 2))
       .on('tick', () => {
         fnTicked()
       })
 
     // Add circles for each value
-    if (!this.d3Circles) {
+    if (!this.circles) {
       // Bind bars data
-      this.d3Circles = this.d3BubblesGroup
+      this.circles = this.bubblesGroup
         .selectAll('circle.circles')
-        .data(this.oForce.nodes())
+        .data(this.force.nodes())
       // Add new rect elements and set base attributes
-      this.d3Circles
+      this.circles
         .enter()
         .append('circle')
         .on('mousemove', (event: MouseEvent, d: any) => {
-          this.oTooltip.ping(
-            `<strong>${d.sLabel}</strong><br>${sName1}: <em>${d[sKey1]}</em><br>${sName2}: <em>${d[sKey2]}</em>`,
+          this.tooltip.ping(
+            `<strong>${d.itemLabel}</strong><br>${name1}: <em>${d[key1]}</em><br>${name2}: <em>${d[key2]}</em>`,
             event
           )
         })
-        .on('mouseout', () => this.oTooltip.hide())
+        .on('mouseout', () => this.tooltip.hide())
         .attr('class', 'circles')
-        .attr('fill', (d: any) => this.oScaleColor(d[sKey2]))
+        .attr('fill', (d: any) => this.scaleColor(d[key2]))
         .attr('r', 0)
         .transition()
         .ease(easeLinear)
-        .duration(this.iTransitionTime)
-        .attr('r', (d: any) => d[sKey1] / 2)
+        .duration(this.transitionTime)
+        .attr('r', (d: any) => d[key1] / 2)
     } else {
-      this.d3BubblesGroup.attr(
+      this.bubblesGroup.attr(
         'transform',
-        `translate(${this.iResizeOffset / 2}, 0)`
+        `translate(${this.resizeOffset / 2}, 0)`
       )
     }
 
     // Render the key for the data
-    this.oKey = new Key({
-      d3Container: select(this.dSvg),
-      aValues: [
+    this.key = new Key({
+      d3Container: select(this.svg),
+      itemValues: [
         {
-          sName: 0,
-          sColor: aColors[0],
+          name: 0,
+          color: colors[0],
         },
         {
-          sName: this.oScaleColor.domain()[1],
-          sColor: aColors[1],
+          name: this.scaleColor.domain()[1],
+          color: colors[1],
         },
       ],
-      iOffsetX: this.iInnerWidth / 2 + this.jPadding.l + 10,
-      iOffsetY: this.iHeight - 20,
-      sType: 'range',
+      offsetX: this.innerWidth / 2 + this.padding.l + 10,
+      offsetY: this.height - 20,
+      chartType: 'range',
     }).render()
   }
 }

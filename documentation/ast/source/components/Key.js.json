@@ -146,7 +146,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The key's values\r\n  *\r\n  * @property aValues\r\n  * @type {Array}\r\n  ",
+                    "value": "*\r\n  * The key's values\r\n  *\r\n  * @property itemValues\r\n  * @type {Array}\r\n  ",
                     "start": 242,
                     "end": 320,
                     "loc": {
@@ -191,16 +191,16 @@
                       "line": 23,
                       "column": 9
                     },
-                    "identifierName": "aValues"
+                    "identifierName": "itemValues"
                   },
-                  "name": "aValues",
+                  "name": "itemValues",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The key's values\r\n  *\r\n  * @property aValues\r\n  * @type {Array}\r\n  ",
+                    "value": "*\r\n  * The key's values\r\n  *\r\n  * @property itemValues\r\n  * @type {Array}\r\n  ",
                     "start": 242,
                     "end": 320,
                     "loc": {
@@ -218,7 +218,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The x offset for the key\r\n  *\r\n  * @property iOffsetX\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The x offset for the key\r\n  *\r\n  * @property offsetX\r\n  * @type {Number}\r\n  ",
                     "start": 338,
                     "end": 426,
                     "loc": {
@@ -263,16 +263,16 @@
                       "line": 31,
                       "column": 10
                     },
-                    "identifierName": "iOffsetX"
+                    "identifierName": "offsetX"
                   },
-                  "name": "iOffsetX",
+                  "name": "offsetX",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The x offset for the key\r\n  *\r\n  * @property iOffsetX\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The x offset for the key\r\n  *\r\n  * @property offsetX\r\n  * @type {Number}\r\n  ",
                     "start": 338,
                     "end": 426,
                     "loc": {
@@ -290,7 +290,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The y offset for the key\r\n  *\r\n  * @property iOffsetY\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The y offset for the key\r\n  *\r\n  * @property offsetY\r\n  * @type {Number}\r\n  ",
                     "start": 445,
                     "end": 533,
                     "loc": {
@@ -335,16 +335,16 @@
                       "line": 39,
                       "column": 10
                     },
-                    "identifierName": "iOffsetY"
+                    "identifierName": "offsetY"
                   },
-                  "name": "iOffsetY",
+                  "name": "offsetY",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The y offset for the key\r\n  *\r\n  * @property iOffsetY\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The y offset for the key\r\n  *\r\n  * @property offsetY\r\n  * @type {Number}\r\n  ",
                     "start": 445,
                     "end": 533,
                     "loc": {
@@ -362,7 +362,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} d3Container A d3 wrapped container element\r\n  * @param {Array} aValues the data to be displayed\r\n  * @param {Integer} iOffsetX optional x offset\r\n  * @param {Integer} iOffsetY optional y offset\r\n  ",
+                    "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} d3Container A d3 wrapped container element\r\n  * @param {Array} itemValues the data to be displayed\r\n  * @param {Integer} offsetX optional x offset\r\n  * @param {Integer} offsetY optional y offset\r\n  ",
                     "start": 552,
                     "end": 863,
                     "loc": {
@@ -518,9 +518,9 @@
                               "line": 50,
                               "column": 36
                             },
-                            "identifierName": "aValues"
+                            "identifierName": "itemValues"
                           },
-                          "name": "aValues"
+                          "name": "itemValues"
                         },
                         "value": {
                           "type": "Identifier",
@@ -535,9 +535,9 @@
                               "line": 50,
                               "column": 36
                             },
-                            "identifierName": "aValues"
+                            "identifierName": "itemValues"
                           },
-                          "name": "aValues"
+                          "name": "itemValues"
                         },
                         "extra": {
                           "shorthand": true
@@ -573,9 +573,9 @@
                               "line": 50,
                               "column": 46
                             },
-                            "identifierName": "iOffsetX"
+                            "identifierName": "offsetX"
                           },
-                          "name": "iOffsetX"
+                          "name": "offsetX"
                         },
                         "value": {
                           "type": "AssignmentPattern",
@@ -604,9 +604,9 @@
                                 "line": 50,
                                 "column": 46
                               },
-                              "identifierName": "iOffsetX"
+                              "identifierName": "offsetX"
                             },
-                            "name": "iOffsetX"
+                            "name": "offsetX"
                           },
                           "right": {
                             "type": "NumericLiteral",
@@ -663,9 +663,9 @@
                               "line": 50,
                               "column": 60
                             },
-                            "identifierName": "iOffsetY"
+                            "identifierName": "offsetY"
                           },
-                          "name": "iOffsetY"
+                          "name": "offsetY"
                         },
                         "value": {
                           "type": "AssignmentPattern",
@@ -694,9 +694,9 @@
                                 "line": 50,
                                 "column": 60
                               },
-                              "identifierName": "iOffsetY"
+                              "identifierName": "offsetY"
                             },
-                            "name": "iOffsetY"
+                            "name": "offsetY"
                           },
                           "right": {
                             "type": "NumericLiteral",
@@ -800,9 +800,9 @@
                               "line": 51,
                               "column": 30
                             },
-                            "identifierName": "aValues"
+                            "identifierName": "itemValues"
                           },
-                          "name": "aValues"
+                          "name": "itemValues"
                         }
                       },
                       "consequent": {
@@ -987,9 +987,9 @@
                                       "line": 53,
                                       "column": 18
                                     },
-                                    "identifierName": "aValues"
+                                    "identifierName": "itemValues"
                                   },
-                                  "name": "aValues"
+                                  "name": "itemValues"
                                 },
                                 "computed": false
                               },
@@ -1034,9 +1034,9 @@
                                         "line": 53,
                                         "column": 28
                                       },
-                                      "identifierName": "aValues"
+                                      "identifierName": "itemValues"
                                     },
-                                    "name": "aValues"
+                                    "name": "itemValues"
                                   },
                                   "property": {
                                     "type": "Identifier",
@@ -1071,9 +1071,9 @@
                                         "line": 53,
                                         "column": 42
                                       },
-                                      "identifierName": "aValues"
+                                      "identifierName": "itemValues"
                                     },
-                                    "name": "aValues"
+                                    "name": "itemValues"
                                   }
                                 ]
                               }
@@ -1150,9 +1150,9 @@
                                       "line": 54,
                                       "column": 19
                                     },
-                                    "identifierName": "iOffsetX"
+                                    "identifierName": "offsetX"
                                   },
-                                  "name": "iOffsetX"
+                                  "name": "offsetX"
                                 },
                                 "computed": false
                               },
@@ -1169,9 +1169,9 @@
                                     "line": 54,
                                     "column": 30
                                   },
-                                  "identifierName": "iOffsetX"
+                                  "identifierName": "offsetX"
                                 },
-                                "name": "iOffsetX"
+                                "name": "offsetX"
                               }
                             }
                           },
@@ -1246,9 +1246,9 @@
                                       "line": 55,
                                       "column": 19
                                     },
-                                    "identifierName": "iOffsetY"
+                                    "identifierName": "offsetY"
                                   },
-                                  "name": "iOffsetY"
+                                  "name": "offsetY"
                                 },
                                 "computed": false
                               },
@@ -1265,9 +1265,9 @@
                                     "line": 55,
                                     "column": 30
                                   },
-                                  "identifierName": "iOffsetY"
+                                  "identifierName": "offsetY"
                                 },
-                                "name": "iOffsetY"
+                                "name": "offsetY"
                               }
                             }
                           }
@@ -1369,7 +1369,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} d3Container A d3 wrapped container element\r\n  * @param {Array} aValues the data to be displayed\r\n  * @param {Integer} iOffsetX optional x offset\r\n  * @param {Integer} iOffsetY optional y offset\r\n  ",
+                    "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} d3Container A d3 wrapped container element\r\n  * @param {Array} itemValues the data to be displayed\r\n  * @param {Integer} offsetX optional x offset\r\n  * @param {Integer} offsetY optional y offset\r\n  ",
                     "start": 552,
                     "end": 863,
                     "loc": {
@@ -1682,9 +1682,9 @@
                                 "line": 69,
                                 "column": 20
                               },
-                              "identifierName": "iGroupOffset"
+                              "identifierName": "groupOffset"
                             },
-                            "name": "iGroupOffset"
+                            "name": "groupOffset"
                           },
                           "init": {
                             "type": "NumericLiteral",
@@ -2191,9 +2191,9 @@
                                       "line": 71,
                                       "column": 73
                                     },
-                                    "identifierName": "aValues"
+                                    "identifierName": "itemValues"
                                   },
-                                  "name": "aValues"
+                                  "name": "itemValues"
                                 },
                                 "computed": false
                               }
@@ -2281,9 +2281,9 @@
                                     "line": 72,
                                     "column": 38
                                   },
-                                  "identifierName": "aValues"
+                                  "identifierName": "itemValues"
                                 },
-                                "name": "aValues"
+                                "name": "itemValues"
                               },
                               {
                                 "type": "Identifier",
@@ -2360,9 +2360,9 @@
                                             "line": 73,
                                             "column": 17
                                           },
-                                          "identifierName": "iMargin"
+                                          "identifierName": "margin"
                                         },
-                                        "name": "iMargin"
+                                        "name": "margin"
                                       },
                                       "init": {
                                         "type": "NumericLiteral",
@@ -2659,9 +2659,9 @@
                                                       "line": 76,
                                                       "column": 17
                                                     },
-                                                    "identifierName": "iMargin"
+                                                    "identifierName": "margin"
                                                   },
-                                                  "name": "iMargin"
+                                                  "name": "margin"
                                                 },
                                                 "right": {
                                                   "type": "MemberExpression",
@@ -2704,9 +2704,9 @@
                                                           "line": 76,
                                                           "column": 28
                                                         },
-                                                        "identifierName": "aValues"
+                                                        "identifierName": "itemValues"
                                                       },
-                                                      "name": "aValues"
+                                                      "name": "itemValues"
                                                     },
                                                     "property": {
                                                       "type": "Identifier",
@@ -2740,9 +2740,9 @@
                                                         "line": 76,
                                                         "column": 43
                                                       },
-                                                      "identifierName": "iLabelWidth"
+                                                      "identifierName": "labelWidth"
                                                     },
-                                                    "name": "iLabelWidth"
+                                                    "name": "labelWidth"
                                                   },
                                                   "computed": false
                                                 }
@@ -2784,9 +2784,9 @@
                                         "line": 79,
                                         "column": 20
                                       },
-                                      "identifierName": "iMargin"
+                                      "identifierName": "margin"
                                     },
-                                    "name": "iMargin"
+                                    "name": "margin"
                                   }
                                 }
                               ],
@@ -3328,9 +3328,9 @@
                                                                         "line": 83,
                                                                         "column": 24
                                                                       },
-                                                                      "identifierName": "sName"
+                                                                      "identifierName": "name"
                                                                     },
-                                                                    "name": "sName"
+                                                                    "name": "name"
                                                                   },
                                                                   "computed": false
                                                                 }
@@ -3485,9 +3485,9 @@
                                                                             "line": 85,
                                                                             "column": 25
                                                                           },
-                                                                          "identifierName": "iLabelWidth"
+                                                                          "identifierName": "labelWidth"
                                                                         },
-                                                                        "name": "iLabelWidth"
+                                                                        "name": "labelWidth"
                                                                       },
                                                                       "init": {
                                                                         "type": "BinaryExpression",
@@ -3760,9 +3760,9 @@
                                                                                 "line": 86,
                                                                                 "column": 20
                                                                               },
-                                                                              "identifierName": "aValues"
+                                                                              "identifierName": "itemValues"
                                                                             },
-                                                                            "name": "aValues"
+                                                                            "name": "itemValues"
                                                                           },
                                                                           "computed": false
                                                                         },
@@ -3798,9 +3798,9 @@
                                                                             "line": 86,
                                                                             "column": 35
                                                                           },
-                                                                          "identifierName": "iLabelWidth"
+                                                                          "identifierName": "labelWidth"
                                                                         },
-                                                                        "name": "iLabelWidth"
+                                                                        "name": "labelWidth"
                                                                       },
                                                                       "computed": false
                                                                     },
@@ -3817,9 +3817,9 @@
                                                                           "line": 86,
                                                                           "column": 49
                                                                         },
-                                                                        "identifierName": "iLabelWidth"
+                                                                        "identifierName": "labelWidth"
                                                                       },
-                                                                      "name": "iLabelWidth"
+                                                                      "name": "labelWidth"
                                                                     }
                                                                   }
                                                                 },
@@ -3865,9 +3865,9 @@
                                                                           "line": 87,
                                                                           "column": 20
                                                                         },
-                                                                        "identifierName": "iGroupOffset"
+                                                                        "identifierName": "groupOffset"
                                                                       },
-                                                                      "name": "iGroupOffset"
+                                                                      "name": "groupOffset"
                                                                     },
                                                                     "right": {
                                                                       "type": "BinaryExpression",
@@ -3896,9 +3896,9 @@
                                                                             "line": 87,
                                                                             "column": 35
                                                                           },
-                                                                          "identifierName": "iLabelWidth"
+                                                                          "identifierName": "labelWidth"
                                                                         },
-                                                                        "name": "iLabelWidth"
+                                                                        "name": "labelWidth"
                                                                       },
                                                                       "operator": "-",
                                                                       "right": {
@@ -4160,9 +4160,9 @@
                                                                 "line": 90,
                                                                 "column": 57
                                                               },
-                                                              "identifierName": "aValues"
+                                                              "identifierName": "itemValues"
                                                             },
-                                                            "name": "aValues"
+                                                            "name": "itemValues"
                                                           },
                                                           "computed": false
                                                         },
@@ -4784,9 +4784,9 @@
                                       "line": 97,
                                       "column": 69
                                     },
-                                    "identifierName": "aValues"
+                                    "identifierName": "itemValues"
                                   },
-                                  "name": "aValues"
+                                  "name": "itemValues"
                                 },
                                 "computed": false
                               }
@@ -5297,9 +5297,9 @@
                                                     "line": 101,
                                                     "column": 33
                                                   },
-                                                  "identifierName": "sColor"
+                                                  "identifierName": "color"
                                                 },
-                                                "name": "sColor"
+                                                "name": "color"
                                               },
                                               "computed": false
                                             }
@@ -5488,9 +5488,9 @@
                                                       "line": 102,
                                                       "column": 57
                                                     },
-                                                    "identifierName": "aValues"
+                                                    "identifierName": "itemValues"
                                                   },
-                                                  "name": "aValues"
+                                                  "name": "itemValues"
                                                 },
                                                 "computed": false
                                               },
@@ -5767,9 +5767,9 @@
                               "line": 106,
                               "column": 16
                             },
-                            "identifierName": "iGroupOffset"
+                            "identifierName": "groupOffset"
                           },
-                          "name": "iGroupOffset"
+                          "name": "groupOffset"
                         },
                         "right": {
                           "type": "BinaryExpression",
@@ -5827,9 +5827,9 @@
                                   "line": 106,
                                   "column": 32
                                 },
-                                "identifierName": "iOffsetX"
+                                "identifierName": "offsetX"
                               },
-                              "name": "iOffsetX"
+                              "name": "offsetX"
                             },
                             "computed": false
                           },
@@ -5861,9 +5861,9 @@
                                   "line": 106,
                                   "column": 48
                                 },
-                                "identifierName": "iGroupOffset"
+                                "identifierName": "groupOffset"
                               },
-                              "name": "iGroupOffset"
+                              "name": "groupOffset"
                             },
                             "operator": "/",
                             "right": {
@@ -6021,9 +6021,9 @@
                                     "line": 107,
                                     "column": 58
                                   },
-                                  "identifierName": "iGroupOffset"
+                                  "identifierName": "groupOffset"
                                 },
-                                "name": "iGroupOffset"
+                                "name": "groupOffset"
                               },
                               {
                                 "type": "MemberExpression",
@@ -6067,9 +6067,9 @@
                                       "line": 107,
                                       "column": 75
                                     },
-                                    "identifierName": "iOffsetY"
+                                    "identifierName": "offsetY"
                                   },
-                                  "name": "iOffsetY"
+                                  "name": "offsetY"
                                 },
                                 "computed": false
                               }
@@ -6514,7 +6514,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The key's values\r\n  *\r\n  * @property aValues\r\n  * @type {Array}\r\n  ",
+      "value": "*\r\n  * The key's values\r\n  *\r\n  * @property itemValues\r\n  * @type {Array}\r\n  ",
       "start": 242,
       "end": 320,
       "loc": {
@@ -6530,7 +6530,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The x offset for the key\r\n  *\r\n  * @property iOffsetX\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The x offset for the key\r\n  *\r\n  * @property offsetX\r\n  * @type {Number}\r\n  ",
       "start": 338,
       "end": 426,
       "loc": {
@@ -6546,7 +6546,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The y offset for the key\r\n  *\r\n  * @property iOffsetY\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The y offset for the key\r\n  *\r\n  * @property offsetY\r\n  * @type {Number}\r\n  ",
       "start": 445,
       "end": 533,
       "loc": {
@@ -6562,7 +6562,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} d3Container A d3 wrapped container element\r\n  * @param {Array} aValues the data to be displayed\r\n  * @param {Integer} iOffsetX optional x offset\r\n  * @param {Integer} iOffsetY optional y offset\r\n  ",
+      "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} d3Container A d3 wrapped container element\r\n  * @param {Array} itemValues the data to be displayed\r\n  * @param {Integer} offsetX optional x offset\r\n  * @param {Integer} offsetY optional y offset\r\n  ",
       "start": 552,
       "end": 863,
       "loc": {
@@ -6847,7 +6847,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The key's values\r\n  *\r\n  * @property aValues\r\n  * @type {Array}\r\n  ",
+      "value": "*\r\n  * The key's values\r\n  *\r\n  * @property itemValues\r\n  * @type {Array}\r\n  ",
       "start": 242,
       "end": 320,
       "loc": {
@@ -6873,7 +6873,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 324,
       "end": 331,
       "loc": {
@@ -6915,7 +6915,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The x offset for the key\r\n  *\r\n  * @property iOffsetX\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The x offset for the key\r\n  *\r\n  * @property offsetX\r\n  * @type {Number}\r\n  ",
       "start": 338,
       "end": 426,
       "loc": {
@@ -6941,7 +6941,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOffsetX",
+      "value": "offsetX",
       "start": 430,
       "end": 438,
       "loc": {
@@ -6983,7 +6983,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The y offset for the key\r\n  *\r\n  * @property iOffsetY\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The y offset for the key\r\n  *\r\n  * @property offsetY\r\n  * @type {Number}\r\n  ",
       "start": 445,
       "end": 533,
       "loc": {
@@ -7009,7 +7009,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOffsetY",
+      "value": "offsetY",
       "start": 537,
       "end": 545,
       "loc": {
@@ -7051,7 +7051,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} d3Container A d3 wrapped container element\r\n  * @param {Array} aValues the data to be displayed\r\n  * @param {Integer} iOffsetX optional x offset\r\n  * @param {Integer} iOffsetY optional y offset\r\n  ",
+      "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} d3Container A d3 wrapped container element\r\n  * @param {Array} itemValues the data to be displayed\r\n  * @param {Integer} offsetX optional x offset\r\n  * @param {Integer} offsetY optional y offset\r\n  ",
       "start": 552,
       "end": 863,
       "loc": {
@@ -7205,7 +7205,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 894,
       "end": 901,
       "loc": {
@@ -7257,7 +7257,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOffsetX",
+      "value": "offsetX",
       "start": 903,
       "end": 911,
       "loc": {
@@ -7363,7 +7363,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOffsetY",
+      "value": "offsetY",
       "start": 917,
       "end": 925,
       "loc": {
@@ -7624,7 +7624,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 959,
       "end": 966,
       "loc": {
@@ -7913,7 +7913,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1021,
       "end": 1028,
       "loc": {
@@ -7966,7 +7966,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1031,
       "end": 1038,
       "loc": {
@@ -8069,7 +8069,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1045,
       "end": 1052,
       "loc": {
@@ -8200,7 +8200,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOffsetX",
+      "value": "offsetX",
       "start": 1067,
       "end": 1075,
       "loc": {
@@ -8253,7 +8253,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOffsetX",
+      "value": "offsetX",
       "start": 1078,
       "end": 1086,
       "loc": {
@@ -8359,7 +8359,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOffsetY",
+      "value": "offsetY",
       "start": 1100,
       "end": 1108,
       "loc": {
@@ -8412,7 +8412,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOffsetY",
+      "value": "offsetY",
       "start": 1111,
       "end": 1119,
       "loc": {
@@ -9259,7 +9259,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iGroupOffset",
+      "value": "groupOffset",
       "start": 1414,
       "end": 1426,
       "loc": {
@@ -10230,7 +10230,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1574,
       "end": 1581,
       "loc": {
@@ -10413,7 +10413,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1616,
       "end": 1623,
       "loc": {
@@ -10595,7 +10595,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMargin",
+      "value": "margin",
       "start": 1644,
       "end": 1651,
       "loc": {
@@ -11224,7 +11224,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMargin",
+      "value": "margin",
       "start": 1723,
       "end": 1730,
       "loc": {
@@ -11277,7 +11277,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1734,
       "end": 1741,
       "loc": {
@@ -11407,7 +11407,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iLabelWidth",
+      "value": "labelWidth",
       "start": 1745,
       "end": 1756,
       "loc": {
@@ -11537,7 +11537,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMargin",
+      "value": "margin",
       "start": 1792,
       "end": 1799,
       "loc": {
@@ -12078,7 +12078,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sName",
+      "value": "name",
       "start": 1874,
       "end": 1879,
       "loc": {
@@ -12465,7 +12465,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iLabelWidth",
+      "value": "labelWidth",
       "start": 1928,
       "end": 1939,
       "loc": {
@@ -12910,7 +12910,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 2001,
       "end": 2008,
       "loc": {
@@ -13040,7 +13040,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iLabelWidth",
+      "value": "labelWidth",
       "start": 2012,
       "end": 2023,
       "loc": {
@@ -13093,7 +13093,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iLabelWidth",
+      "value": "labelWidth",
       "start": 2026,
       "end": 2037,
       "loc": {
@@ -13145,7 +13145,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iGroupOffset",
+      "value": "groupOffset",
       "start": 2048,
       "end": 2060,
       "loc": {
@@ -13198,7 +13198,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iLabelWidth",
+      "value": "labelWidth",
       "start": 2064,
       "end": 2075,
       "loc": {
@@ -13925,7 +13925,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 2173,
       "end": 2180,
       "loc": {
@@ -15538,7 +15538,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 2432,
       "end": 2439,
       "loc": {
@@ -16288,7 +16288,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sColor",
+      "value": "color",
       "start": 2542,
       "end": 2548,
       "loc": {
@@ -16728,7 +16728,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 2601,
       "end": 2608,
       "loc": {
@@ -17482,7 +17482,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iGroupOffset",
+      "value": "groupOffset",
       "start": 2699,
       "end": 2711,
       "loc": {
@@ -17589,7 +17589,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOffsetX",
+      "value": "offsetX",
       "start": 2719,
       "end": 2727,
       "loc": {
@@ -17667,7 +17667,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iGroupOffset",
+      "value": "groupOffset",
       "start": 2731,
       "end": 2743,
       "loc": {
@@ -18031,7 +18031,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iGroupOffset",
+      "value": "groupOffset",
       "start": 2797,
       "end": 2809,
       "loc": {
@@ -18188,7 +18188,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOffsetY",
+      "value": "offsetY",
       "start": 2818,
       "end": 2826,
       "loc": {

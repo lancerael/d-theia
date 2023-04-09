@@ -525,9 +525,9 @@
                         "line": 36,
                         "column": 25
                       },
-                      "identifierName": "sContainer"
+                      "identifierName": "containerId"
                     },
-                    "name": "sContainer"
+                    "name": "containerId"
                   },
                   {
                     "type": "Identifier",
@@ -542,9 +542,9 @@
                         "line": 36,
                         "column": 32
                       },
-                      "identifierName": "sType"
+                      "identifierName": "chartType"
                     },
-                    "name": "sType"
+                    "name": "chartType"
                   },
                   {
                     "type": "Identifier",
@@ -559,9 +559,9 @@
                         "line": 36,
                         "column": 41
                       },
-                      "identifierName": "oParams"
+                      "identifierName": "chartParams"
                     },
-                    "name": "oParams"
+                    "name": "chartParams"
                   }
                 ],
                 "body": {
@@ -687,9 +687,9 @@
                                 "line": 38,
                                 "column": 20
                               },
-                              "identifierName": "oAllParams"
+                              "identifierName": "allParams"
                             },
-                            "name": "oAllParams"
+                            "name": "allParams"
                           },
                           "init": {
                             "type": "ObjectExpression",
@@ -736,9 +736,9 @@
                                       "line": 38,
                                       "column": 35
                                     },
-                                    "identifierName": "sContainer"
+                                    "identifierName": "containerId"
                                   },
-                                  "name": "sContainer"
+                                  "name": "containerId"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -753,9 +753,9 @@
                                       "line": 38,
                                       "column": 35
                                     },
-                                    "identifierName": "sContainer"
+                                    "identifierName": "containerId"
                                   },
-                                  "name": "sContainer"
+                                  "name": "containerId"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -788,9 +788,9 @@
                                       "line": 38,
                                       "column": 47
                                     },
-                                    "identifierName": "oParams"
+                                    "identifierName": "chartParams"
                                   },
-                                  "name": "oParams"
+                                  "name": "chartParams"
                                 }
                               }
                             ]
@@ -826,9 +826,9 @@
                             "line": 39,
                             "column": 17
                           },
-                          "identifierName": "sType"
+                          "identifierName": "chartType"
                         },
-                        "name": "sType"
+                        "name": "chartType"
                       },
                       "cases": [
                         {
@@ -983,9 +983,9 @@
                                               "line": 41,
                                               "column": 48
                                             },
-                                            "identifierName": "oAllParams"
+                                            "identifierName": "allParams"
                                           },
-                                          "name": "oAllParams"
+                                          "name": "allParams"
                                         }
                                       ]
                                     }
@@ -1184,9 +1184,9 @@
                                               "line": 45,
                                               "column": 50
                                             },
-                                            "identifierName": "oAllParams"
+                                            "identifierName": "allParams"
                                           },
-                                          "name": "oAllParams"
+                                          "name": "allParams"
                                         }
                                       ]
                                     }
@@ -1385,9 +1385,9 @@
                                               "line": 49,
                                               "column": 47
                                             },
-                                            "identifierName": "oAllParams"
+                                            "identifierName": "allParams"
                                           },
-                                          "name": "oAllParams"
+                                          "name": "allParams"
                                         }
                                       ]
                                     }
@@ -1440,7 +1440,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Create a chart and return object\r\n  *\r\n  * @method chart\r\n  * @static\r\n  * @param {String} sContainer ID to select container DOM object\r\n  * @param {String} sType string denoting the type of chart\r\n  * @param {Object} oParams includes target DOM object, JSON config and array of data\r\n  * @return {Object} oChart returns a chart object of the requested type\r\n  ",
+                    "value": "*\r\n  * Create a chart and return object\r\n  *\r\n  * @method chart\r\n  * @static\r\n  * @param {String} containerId ID to select container DOM object\r\n  * @param {String} chartType string denoting the type of chart\r\n  * @param {Object} chartParams includes target DOM object, JSON config and array of data\r\n  * @return {Object} oChart returns a chart object of the requested type\r\n  ",
                     "start": 664,
                     "end": 1036,
                     "loc": {
@@ -1458,7 +1458,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Create a bar chart and return object\r\n  *\r\n  * @method createBarChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a bar chart object\r\n  ",
+                    "value": "*\r\n  * Create a bar chart and return object\r\n  *\r\n  * @method createBarChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a bar chart object\r\n  ",
                     "start": 1496,
                     "end": 1712,
                     "loc": {
@@ -1526,9 +1526,9 @@
                         "line": 63,
                         "column": 31
                       },
-                      "identifierName": "oParams"
+                      "identifierName": "chartParams"
                     },
-                    "name": "oParams"
+                    "name": "chartParams"
                   }
                 ],
                 "body": {
@@ -1633,9 +1633,9 @@
                                     "line": 64,
                                     "column": 31
                                   },
-                                  "identifierName": "oParams"
+                                  "identifierName": "chartParams"
                                 },
-                                "name": "oParams"
+                                "name": "chartParams"
                               }
                             ]
                           },
@@ -1668,7 +1668,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Create a bar chart and return object\r\n  *\r\n  * @method createBarChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a bar chart object\r\n  ",
+                    "value": "*\r\n  * Create a bar chart and return object\r\n  *\r\n  * @method createBarChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a bar chart object\r\n  ",
                     "start": 1496,
                     "end": 1712,
                     "loc": {
@@ -1686,7 +1686,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createLineChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a line chart object\r\n  ",
+                    "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createLineChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a line chart object\r\n  ",
                     "start": 1801,
                     "end": 2020,
                     "loc": {
@@ -1754,9 +1754,9 @@
                         "line": 75,
                         "column": 32
                       },
-                      "identifierName": "oParams"
+                      "identifierName": "chartParams"
                     },
-                    "name": "oParams"
+                    "name": "chartParams"
                   }
                 ],
                 "body": {
@@ -1861,9 +1861,9 @@
                                     "line": 76,
                                     "column": 32
                                   },
-                                  "identifierName": "oParams"
+                                  "identifierName": "chartParams"
                                 },
-                                "name": "oParams"
+                                "name": "chartParams"
                               }
                             ]
                           },
@@ -1896,7 +1896,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createLineChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a line chart object\r\n  ",
+                    "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createLineChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a line chart object\r\n  ",
                     "start": 1801,
                     "end": 2020,
                     "loc": {
@@ -1914,7 +1914,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createBubbleChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a bubble chart object\r\n  ",
+                    "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createBubbleChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a bubble chart object\r\n  ",
                     "start": 2111,
                     "end": 2334,
                     "loc": {
@@ -1982,9 +1982,9 @@
                         "line": 87,
                         "column": 34
                       },
-                      "identifierName": "oParams"
+                      "identifierName": "chartParams"
                     },
-                    "name": "oParams"
+                    "name": "chartParams"
                   }
                 ],
                 "body": {
@@ -2089,9 +2089,9 @@
                                     "line": 88,
                                     "column": 34
                                   },
-                                  "identifierName": "oParams"
+                                  "identifierName": "chartParams"
                                 },
-                                "name": "oParams"
+                                "name": "chartParams"
                               }
                             ]
                           },
@@ -2124,7 +2124,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createBubbleChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a bubble chart object\r\n  ",
+                    "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createBubbleChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a bubble chart object\r\n  ",
                     "start": 2111,
                     "end": 2334,
                     "loc": {
@@ -2570,7 +2570,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Create a chart and return object\r\n  *\r\n  * @method chart\r\n  * @static\r\n  * @param {String} sContainer ID to select container DOM object\r\n  * @param {String} sType string denoting the type of chart\r\n  * @param {Object} oParams includes target DOM object, JSON config and array of data\r\n  * @return {Object} oChart returns a chart object of the requested type\r\n  ",
+      "value": "*\r\n  * Create a chart and return object\r\n  *\r\n  * @method chart\r\n  * @static\r\n  * @param {String} containerId ID to select container DOM object\r\n  * @param {String} chartType string denoting the type of chart\r\n  * @param {Object} chartParams includes target DOM object, JSON config and array of data\r\n  * @return {Object} oChart returns a chart object of the requested type\r\n  ",
       "start": 664,
       "end": 1036,
       "loc": {
@@ -2586,7 +2586,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Create a bar chart and return object\r\n  *\r\n  * @method createBarChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a bar chart object\r\n  ",
+      "value": "*\r\n  * Create a bar chart and return object\r\n  *\r\n  * @method createBarChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a bar chart object\r\n  ",
       "start": 1496,
       "end": 1712,
       "loc": {
@@ -2602,7 +2602,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createLineChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a line chart object\r\n  ",
+      "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createLineChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a line chart object\r\n  ",
       "start": 1801,
       "end": 2020,
       "loc": {
@@ -2618,7 +2618,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createBubbleChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a bubble chart object\r\n  ",
+      "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createBubbleChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a bubble chart object\r\n  ",
       "start": 2111,
       "end": 2334,
       "loc": {
@@ -3500,7 +3500,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Create a chart and return object\r\n  *\r\n  * @method chart\r\n  * @static\r\n  * @param {String} sContainer ID to select container DOM object\r\n  * @param {String} sType string denoting the type of chart\r\n  * @param {Object} oParams includes target DOM object, JSON config and array of data\r\n  * @return {Object} oChart returns a chart object of the requested type\r\n  ",
+      "value": "*\r\n  * Create a chart and return object\r\n  *\r\n  * @method chart\r\n  * @static\r\n  * @param {String} containerId ID to select container DOM object\r\n  * @param {String} chartType string denoting the type of chart\r\n  * @param {Object} chartParams includes target DOM object, JSON config and array of data\r\n  * @return {Object} oChart returns a chart object of the requested type\r\n  ",
       "start": 664,
       "end": 1036,
       "loc": {
@@ -3603,7 +3603,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sContainer",
+      "value": "containerId",
       "start": 1053,
       "end": 1063,
       "loc": {
@@ -3655,7 +3655,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sType",
+      "value": "chartType",
       "start": 1065,
       "end": 1070,
       "loc": {
@@ -3707,7 +3707,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 1072,
       "end": 1079,
       "loc": {
@@ -3968,7 +3968,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oAllParams",
+      "value": "allParams",
       "start": 1116,
       "end": 1126,
       "loc": {
@@ -4046,7 +4046,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sContainer",
+      "value": "containerId",
       "start": 1131,
       "end": 1141,
       "loc": {
@@ -4124,7 +4124,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 1146,
       "end": 1153,
       "loc": {
@@ -4254,7 +4254,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sType",
+      "value": "chartType",
       "start": 1170,
       "end": 1175,
       "loc": {
@@ -4594,7 +4594,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oAllParams",
+      "value": "allParams",
       "start": 1240,
       "end": 1250,
       "loc": {
@@ -5014,7 +5014,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oAllParams",
+      "value": "allParams",
       "start": 1343,
       "end": 1353,
       "loc": {
@@ -5407,7 +5407,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oAllParams",
+      "value": "allParams",
       "start": 1437,
       "end": 1447,
       "loc": {
@@ -5629,7 +5629,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Create a bar chart and return object\r\n  *\r\n  * @method createBarChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a bar chart object\r\n  ",
+      "value": "*\r\n  * Create a bar chart and return object\r\n  *\r\n  * @method createBarChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a bar chart object\r\n  ",
       "start": 1496,
       "end": 1712,
       "loc": {
@@ -5732,7 +5732,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 1738,
       "end": 1745,
       "loc": {
@@ -5915,7 +5915,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 1774,
       "end": 1781,
       "loc": {
@@ -6109,7 +6109,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createLineChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a line chart object\r\n  ",
+      "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createLineChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a line chart object\r\n  ",
       "start": 1801,
       "end": 2020,
       "loc": {
@@ -6212,7 +6212,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 2047,
       "end": 2054,
       "loc": {
@@ -6395,7 +6395,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 2084,
       "end": 2091,
       "loc": {
@@ -6589,7 +6589,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createBubbleChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a bubble chart object\r\n  ",
+      "value": "*\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createBubbleChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a bubble chart object\r\n  ",
       "start": 2111,
       "end": 2334,
       "loc": {
@@ -6692,7 +6692,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 2363,
       "end": 2370,
       "loc": {
@@ -6875,7 +6875,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 2402,
       "end": 2409,
       "loc": {

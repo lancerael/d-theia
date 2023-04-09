@@ -1,153 +1,89 @@
 import { min, max } from 'd3-array'
 import { select } from 'd3-selection'
-import { scaleLinear, scaleBand } from 'd3-scale'
+import { scaleLinear, scaleBand, ScaleBand, ScaleLinear } from 'd3-scale'
 import Chart from '../Chart'
 import Key from '../Key'
 import Axis from '../Axis'
+import { ChartParams, AxisSelection, Padding } from '../../types'
 
-/**
- * Create AxisChart from the supplied data, based on the supplied JSON config.
- *
- * @class AxisChart
- * @extends {Chart}
- * @constructor
- */
 export default class AxisChart extends Chart {
-  /**
-   * The d3 object for the chart's group
-   *
-   * @property d3ChartGroup
-   * @type {Object}
-   */
-  d3ChartGroup: any
+  d3ChartGroup?: AxisSelection
+  axisGroup?: AxisSelection
+  scaleX: ScaleBand<string>
+  scaleY: ScaleLinear<number, number, never>
+  minValue: number = 0
+  maxValue: number = 0
+  dataSlice: number = 0
+  padding: Padding
 
-  /**
-   * The d3 object for the chart's axis
-   *
-   * @property d3AxisGroup
-   * @type {Object}
-   */
-  d3AxisGroup: any
-
-  /**
-   * The chart's x scale
-   *
-   * @property oScaleX
-   * @type {Object}
-   */
-  oScaleX: any
-
-  /**
-   * The chart's y scale
-   *
-   * @property oScaleY
-   * @type {Object}
-   */
-  oScaleY: any
-
-  /**
-   * The chart's min value
-   *
-   * @property iMinValue
-   * @type {Number}
-   */
-  iMinValue: any
-
-  /**
-   * The chart's max value
-   *
-   * @property iMaxValue
-   * @type {Number}
-   */
-  iMaxValue: any
-
-  /**
-   * The section of data to show
-   *
-   * @property iSection
-   * @type {Number}
-   */
-  iSection: any
-
-  /**
-   * Constructor function supersedes parent class.
-   *
-   * @method constructor
-   * @param {Object} oParams same as Chart
-   */
-  constructor(oParams: any = {}) {
-    super(oParams)
-    this.jPadding = oParams.jConfig.jPadding ?? { l: 45, r: 15, t: 25, b: 60 }
-    this.oScaleY = scaleLinear()
-    this.oScaleX = scaleBand().padding(0.2)
-  }
-
-  /**
-   * Supersede the parent method to update local scaling objects
-   *
-   * @method setDimensions
-   */
-  setDimensions() {
-    if (!this.aData) return
-    super.setDimensions()
-    const bTrim = this.jConfig.bTrim
-    let iMinValue = Number(
-      bTrim ? min(this.aData, (d: any) => min(d.aValues)) : 0
-    )
-    let iMaxValue = Number(max(this.aData, (d: any) => max(d.aValues)))
-    const iSection = Math.ceil(iMaxValue / 15)
-    if (bTrim) {
-      const iLowerSection = iMinValue > iSection ? iMinValue - iSection : 0
-      iMinValue = iMinValue > 0 ? iLowerSection : iMinValue
-      iMinValue = iMinValue < 0 ? iMinValue - iSection : iMinValue
-      iMaxValue += iSection
+  constructor(chartParams = {} as ChartParams) {
+    super(chartParams)
+    this.padding = chartParams.chartConfig.padding ?? {
+      l: 45,
+      r: 15,
+      t: 25,
+      b: 60,
     }
-    this.oScaleX
-      .domain(this.aData.map((d: any) => d.sLabel))
-      .range([0, this.iInnerWidth])
-    this.oScaleY
-      .domain([iMinValue, iMaxValue])
-      .range([this.iInnerHeight, this.jPadding.t])
-    this.iMinValue = iMinValue
-    this.iMaxValue = iMaxValue
-    this.iSection = iSection
+    this.scaleY = scaleLinear()
+    this.scaleX = scaleBand().padding(0.2)
   }
 
-  /**
-   * Render the chart including axes and labels
-   *
-   * @method renderChart
-   */
+  setDimensions() {
+    if (!this.chartData) return
+    super.setDimensions()
+    const doTrim = this.chartConfig.doTrim
+    let minValue = Number(
+      doTrim ? min(this.chartData, (d: any) => min(d.itemValues)) : 0
+    )
+    let maxValue = Number(max(this.chartData, (d: any) => max(d.itemValues)))
+    const dataSlice = Math.ceil(maxValue / 15)
+    if (doTrim) {
+      const iLowerSection = minValue > dataSlice ? minValue - dataSlice : 0
+      minValue = minValue > 0 ? iLowerSection : minValue
+      minValue = minValue < 0 ? minValue - dataSlice : minValue
+      maxValue += dataSlice
+    }
+    this.scaleX
+      .domain(this.chartData.map((d: any) => d.itemLabel))
+      .range([0, this.innerWidth])
+    this.scaleY
+      .domain([minValue, maxValue])
+      .range([this.innerHeight, this.padding.t])
+    this.minValue = minValue
+    this.maxValue = maxValue
+    this.dataSlice = dataSlice
+  }
+
   renderChart() {
     super.renderChart()
-    const { aAxisLabels, iTruncate = 10 } = this.jConfig
-    const { iInnerWidth, iInnerHeight, oScaleX, oScaleY, jPadding } = this
+    const { axisLabels, truncateSize = 10 } = this.chartConfig
+    const { innerWidth, innerHeight, scaleX, scaleY, padding } = this
 
     // Add chart scale axes
-    this.d3AxisGroup ??= this.d3Svg.append('g').attr('class', 'axes-g')
-    this.oAxis = new Axis({
-      d3Container: this.d3AxisGroup,
-      iTruncate,
-      aAxisLabels,
-      oScaleX,
-      oScaleY,
-      jPadding,
-      iWidth: iInnerWidth,
-      iHeight: iInnerHeight,
-      oTooltip: this.oTooltip,
+    this.axisGroup ??= this.d3Svg.append('g').attr('class', 'axes-g')
+    this.axis = new Axis({
+      d3Container: this.axisGroup,
+      truncateSize,
+      axisLabels,
+      scaleX,
+      scaleY,
+      padding,
+      width: innerWidth,
+      height: innerHeight,
+      tooltip: this.tooltip,
     }).render()
 
     // Add chart container group
     this.d3ChartGroup ??= this.d3Svg
       .append('g')
-      .attr('transform', `translate(${this.jPadding.l}, 0)`)
+      .attr('transform', `translate(${this.padding.l}, 0)`)
 
     // Render the key for the data
-    this.oKey = new Key({
-      d3Container: select(this.dSvg),
-      aValues: this.jConfig.aValues,
-      iOffsetX: this.iInnerWidth / 2 + this.jPadding.l,
-      iOffsetY: this.iHeight - 20,
+    this.key = new Key({
+      d3Container: select(this.svg),
+      itemValues: this.chartConfig.itemValues,
+      offsetX: this.innerWidth / 2 + this.padding.l,
+      offsetY: this.height - 20,
     }).render()
   }
 }

@@ -1,69 +1,69 @@
 export default {
   jAxisConfig1: {
-    sTitle: 'Bike Docking Stations by Street',
-    aValues: [
+    title: 'Bike Docking Stations by Street',
+    itemValues: [
       {
-        sKey: 'totalDocks',
-        sName: 'Total Docks',
-        sColor: '#204787',
+        key: 'totalDocks',
+        name: 'Total Docks',
+        color: '#204787',
       },
       {
-        sKey: 'availableDocks',
-        sName: 'Available Docks',
-        sColor: '#9aa4bc',
+        key: 'availableDocks',
+        name: 'Available Docks',
+        color: '#9aa4bc',
       },
       {
-        sKey: 'availableBikes',
-        sName: 'Available Bikes',
-        sColor: '#aa1b76',
+        key: 'availableBikes',
+        name: 'Available Bikes',
+        color: '#aa1b76',
       },
       {
-        sKey: 'statusKey',
-        sName: 'Faulty Bikes',
-        sColor: 'red',
+        key: 'statusKey',
+        name: 'Faulty Bikes',
+        color: 'red',
       },
     ],
-    aAxisKeys: ['stationName'],
-    aAxisLabels: ['Docks / Bikes', 'Station Locations'],
+    axisKeys: ['stationName'],
+    axisLabels: ['Docks / Bikes', 'Station Locations'],
     sBarType: 'side', // "stack","nest"
-    iTruncate: 13,
-    jPadding: { l: 45, r: 15, t: 25, b: 80 },
+    truncateSize: 13,
+    padding: { l: 45, r: 15, t: 25, b: 80 },
     /*
-    fnClickCallback: ({ oEvent, jData, sKey }) => {
+    fnClickCallback: ({ oEvent, jData, key }) => {
       console.log('Click Callback');
       console.log(oEvent);
       console.log(jData);
-      console.log(sKey);
+      console.log(key);
     },
     */
   },
 
   jBubbleConfig1: {
-    sTitle: 'Bike Docking Stations by Availability',
-    aValues: [
+    title: 'Bike Docking Stations by Availability',
+    itemValues: [
       {
-        sKey: 'totalDocks',
-        sName: 'Total Docks',
+        key: 'totalDocks',
+        name: 'Total Docks',
       },
       {
-        sKey: 'availableBikes',
-        sName: 'Available Bikes',
-        aColors: ['red', '#aa1b76'],
+        key: 'availableBikes',
+        name: 'Available Bikes',
+        colors: ['red', '#aa1b76'],
       },
     ],
-    aAxisKeys: ['stationName'],
-    aAxisLabels: ['Sized by Total Docks', 'Coloured by Available Bikes'],
+    axisKeys: ['stationName'],
+    axisLabels: ['Sized by Total Docks', 'Coloured by Available Bikes'],
   },
 
   jBarConfig2: {
-    sTitle: 'Race Results by Driver',
-    aValues: [
-      { sName: 'Position', sColor: 'green' },
-      { sName: 'Points', sColor: 'blue' },
+    title: 'Race Results by Driver',
+    itemValues: [
+      { name: 'Position', color: 'green' },
+      { name: 'Points', color: 'blue' },
     ],
-    aAxisLabels: ['Position / Points', 'Driver Name'],
+    axisLabels: ['Position / Points', 'Driver Name'],
     sBarType: 'side', // "stack","nest"
-    iTruncate: 15,
-    jPadding: { l: 45, r: 15, t: 25, b: 80 },
+    truncateSize: 15,
+    padding: { l: 45, r: 15, t: 25, b: 80 },
   },
 } as any

@@ -1,6 +1,6 @@
 import { select } from 'd3-selection'
 import Tooltip from '../Tooltip'
-import DataOps from '../DataOps'
+import { addColoursToConfig, transformDataKeys } from '../../utilities'
 
 /**
  * The Chart object is the parent class for all types of Chart.
@@ -13,10 +13,10 @@ export default class Chart {
   /**
    * SVG DOM object for displaying the chart
    *
-   * @property dSvg
+   * @property svg
    * @type {Object}
    */
-  dSvg
+  svg
 
   /**
    * SVG d3 object for d3 operations on the chart
@@ -29,26 +29,26 @@ export default class Chart {
   /**
    * Default time for d3 transitions on the chart
    *
-   * @property iTransitionTime
+   * @property transitionTime
    * @type {Number}
    */
-  iTransitionTime
+  transitionTime
 
   /**
    * DOM reference to container element that wraps SVG
    *
-   * @property dContainer
+   * @property container
    * @type {Object}
    */
-  dContainer: any
+  container: any
 
   /**
    * DOM reference to loader display element
    *
-   * @property dLoader
+   * @property loader
    * @type {Object}
    */
-  dLoader
+  loader
 
   /**
    * d3 reference to chart title element
@@ -61,160 +61,161 @@ export default class Chart {
   /**
    * Chart's tooltip object
    *
-   * @property oTooltip
+   * @property tooltip
    * @type {Object}
    */
-  oTooltip: any
+  tooltip: any
 
   /**
    * The current calculated width of the chart
    *
-   * @property iWidth
+   * @property width
    * @type {Number}
    */
-  iWidth: any
+  width: any
 
   /**
    * The current calculated height of the chart
    *
-   * @property iHeight
+   * @property height
    * @type {Number}
    */
-  iHeight: any
+  height: any
 
   /**
    * The current calculated inner width of the chart
    *
-   * @property iInnerWidth
+   * @property innerWidth
    * @type {Number}
    */
-  iInnerWidth: any
+  innerWidth: any
 
   /**
    * The current calculated inner height of the chart
    *
-   * @property iInnerHeight
+   * @property innerHeight
    * @type {Number}
    */
-  iInnerHeight: any
+  innerHeight: any
 
   /**
    * The width before any browser resize
    *
-   * @property iInitialWidth
+   * @property initialWidth
    * @type {Number}
    */
-  iInitialWidth: any
+  initialWidth: any
 
   /**
    * The padding for the chart within the container
    *
-   * @property jPadding
+   * @property padding
    * @type {Object}
    */
-  jPadding
+  padding
 
   /**
    * The chart's config object
    *
-   * @property jConfig
+   * @property chartConfig
    * @type {Object}
    */
-  jConfig: any
+  chartConfig: any
 
   /**
    * The chart's data
    *
-   * @property aData
+   * @property chartData
    * @type {Array}
    */
-  aData: any
+  chartData: any
 
   /**
    * The chart's type
    *
-   * @property sChartType
+   * @property chartType
    * @type {string}
    */
-  sChartType: any
+  chartType: any
 
   /**
    * The chart's key
    *
-   * @property oKey
+   * @property key
    * @type {Object}
    */
-  oKey: any
+  key: any
 
   /**
    * The chart's axis
    *
-   * @property oAxis
+   * @property axis
    * @type {Object}
    */
-  oAxis: any
+  axis: any
 
   /**
    * The chart's axis
    *
-   * @property oResizeWatcher
+   * @property resizeWatcher
    * @type {Object}
    */
-  oResizeWatcher: any
+  resizeWatcher: any
 
   /**
    * The chart's axis
    *
-   * @property oChartOutWatcher
+   * @property chartOutWatcher
    * @type {Object}
    */
-  oChartOutWatcher: any
+  chartOutWatcher: any
 
   /**
    * The chart's resize offset
    *
-   * @property iResizeOffset
+   * @property resizeOffset
    * @type {number}
    */
-  iResizeOffset: any
+  resizeOffset: any
 
   /**
    * Transform keys from an unknown data schema
    *
-   * @property bTransform
+   * @property doTransform
    * @type {boolean}
    */
-  bTransform: boolean
+  doTransform: boolean
 
   /**
    * Constructor function that sets up the local object.
    *
    * @method constructor
-   * @param {Object} jConfig JSON configuration object
-   * @param {Array} aData the data to be displayed
-   * @param {String} sContainer Optional ID to select DOM object
-   * @param {Object} dContainer Optional DOM object in place of ID
+   * @param {Object} chartConfig JSON configuration object
+   * @param {Array} chartData the data to be displayed
+   * @param {String} containerId Optional ID to select DOM object
+   * @param {Object} container Optional DOM object in place of ID
    */
-  constructor(oParams: any = {}) {
-    const { jConfig, aData, sContainer, bAddColors, bTransform } = oParams
-    let { dContainer } = oParams
-    this.dSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-    this.d3Svg = select(this.dSvg)
-    this.iTransitionTime = 500
-    this.jPadding = jConfig?.jPadding ?? { l: 5, r: 5, t: 5, b: 5 }
-    this.dLoader = document.createElement('div')
-    this.bTransform = bTransform
-    if (!dContainer && sContainer) {
-      dContainer = document.getElementById(sContainer)
+  constructor(chartParams: any = {}) {
+    const { chartConfig, chartData, containerId, bAddColors, doTransform } =
+      chartParams
+    let { container } = chartParams
+    this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+    this.d3Svg = select(this.svg)
+    this.transitionTime = 500
+    this.padding = chartConfig?.padding ?? { l: 5, r: 5, t: 5, b: 5 }
+    this.loader = document.createElement('div')
+    this.doTransform = doTransform
+    if (!container && containerId) {
+      container = document.getElementById(containerId)
     }
-    if (dContainer) {
-      this.setContainer(dContainer)
+    if (container) {
+      this.setContainer(container)
     }
-    if (jConfig) {
-      this.setConfig(jConfig, bAddColors)
+    if (chartConfig) {
+      this.setConfig(chartConfig, bAddColors)
     }
-    if (aData) {
-      this.setData(aData)
+    if (chartData) {
+      this.setData(chartData)
     }
   }
 
@@ -222,13 +223,13 @@ export default class Chart {
    * Sets the local container object.
    *
    * @method setContainer
-   * @param {Object} dContainer Required DOM element
+   * @param {Object} container Required DOM element
    * @throws {Error} invalid DOM element
    */
-  setContainer(dContainer: any) {
-    if (dContainer.nodeName) {
-      dContainer.appendChild(this.dLoader)
-      this.dContainer = dContainer
+  setContainer(container: any) {
+    if (container.nodeName) {
+      container.appendChild(this.loader)
+      this.container = container
     } else {
       throw new Error('No valid DOM element or ID provided for chart.')
     }
@@ -238,15 +239,17 @@ export default class Chart {
    * Sets the local config options for the chart.
    *
    * @method setConfig
-   * @param {Object} jConfig JSON configuration object
+   * @param {Object} chartConfig JSON configuration object
    * @throws {Error} missing configuration
    */
-  setConfig(jConfig: any, bAddColors = false) {
-    const shouldUpdateTrim = this.jConfig?.bTrim !== jConfig?.bTrim
-    if (jConfig && jConfig.toString() === '[object Object]') {
-      this.jConfig = structuredClone(jConfig)
-      if (this.jConfig.aValues && bAddColors) {
-        this.jConfig.aValues = DataOps.addColoursToConfig(this.jConfig.aValues)
+  setConfig(chartConfig: any, bAddColors = false) {
+    const shouldUpdateTrim = this.chartConfig?.doTrim !== chartConfig?.doTrim
+    if (chartConfig && chartConfig.toString() === '[object Object]') {
+      this.chartConfig = structuredClone(chartConfig)
+      if (this.chartConfig.itemValues && bAddColors) {
+        this.chartConfig.itemValues = addColoursToConfig(
+          this.chartConfig.itemValues
+        )
       }
       shouldUpdateTrim && this.setDimensions()
     } else {
@@ -258,15 +261,15 @@ export default class Chart {
    * Sets the local data for the chart.
    *
    * @method setData
-   * @param {Array} aData array of JSON objects
-   * @param {Boolean} bTransform transform mapped data
+   * @param {Array} chartData array of JSON objects
+   * @param {Boolean} doTransform transform mapped data
    * @throws {Error} missing data
    */
-  setData(aData: any) {
-    if (aData && Array.isArray(aData) === true) {
-      this.aData = structuredClone(aData)
-      if (this.jConfig && this.bTransform) {
-        this.aData = DataOps.transformDataKeys(this.jConfig, this.aData)
+  setData(chartData: any) {
+    if (chartData && Array.isArray(chartData) === true) {
+      this.chartData = structuredClone(chartData)
+      if (this.chartConfig && this.doTransform) {
+        this.chartData = transformDataKeys(this.chartConfig, this.chartData)
       }
     } else {
       throw new Error('No valid data provided for chart.')
@@ -277,15 +280,15 @@ export default class Chart {
    * Updates the local data for the chart.
    *
    * @method updateData
-   * @param {Array} aData array of JSON objects
-   * @param {Boolean} bTransform transform mapped data
+   * @param {Array} chartData array of JSON objects
+   * @param {Boolean} doTransform transform mapped data
    */
-  updateData(aData: any, bRender = true) {
-    const doReset = aData.length != this.aData.length
-    this.setData(aData)
+  updateData(chartData: any, bRender = true) {
+    const doReset = chartData.length != this.chartData.length
+    this.setData(chartData)
     this.setDimensions()
-    if (this.oAxis) {
-      this.oAxis.render()
+    if (this.axis) {
+      this.axis.render()
     }
     if (this.renderChart && bRender) {
       this.renderChart(doReset)
@@ -296,11 +299,15 @@ export default class Chart {
    * Updates the local config for the chart.
    *
    * @method updateConfig
-   * @param {JSON} jConfig config JSON style object
+   * @param {JSON} chartConfig config JSON style object
    */
-  updateConfig(jConfig: any, bResetDimensions = false, bTransition = false) {
-    this.setConfig(jConfig)
-    if (bResetDimensions) {
+  updateConfig(
+    chartConfig: any,
+    doResetDimensions = false,
+    bTransition = false
+  ) {
+    this.setConfig(chartConfig)
+    if (doResetDimensions) {
       this.setDimensions()
     }
     if (this.renderChart) {
@@ -315,11 +322,11 @@ export default class Chart {
    * @throws {Error} missing DOM element
    */
   setDimensions() {
-    if (this.dContainer && this.dContainer.nodeName) {
-      this.iWidth = this.dContainer.clientWidth
-      this.iHeight = this.dContainer.clientHeight
-      this.iInnerWidth = this.iWidth - this.jPadding.l - this.jPadding.r
-      this.iInnerHeight = this.iHeight - this.jPadding.t - this.jPadding.b
+    if (this.container && this.container.nodeName) {
+      this.width = this.container.clientWidth
+      this.height = this.container.clientHeight
+      this.innerWidth = this.width - this.padding.l - this.padding.r
+      this.innerHeight = this.height - this.padding.t - this.padding.b
     } else {
       throw new Error(
         'Cannot set dimensions of chart without container element.'
@@ -334,7 +341,7 @@ export default class Chart {
    */
   renderChart(...args: any) {
     if (this.d3Title) {
-      this.d3Title.text(this.jConfig.sTitle)
+      this.d3Title.text(this.chartConfig.title)
     }
     args
   }
@@ -349,33 +356,31 @@ export default class Chart {
   init() {
     this.setDimensions()
     if (
-      this.aData &&
-      this.jConfig &&
-      !isNaN(this.iWidth) &&
-      !isNaN(this.iHeight)
+      this.chartData &&
+      this.chartConfig &&
+      !isNaN(this.width) &&
+      !isNaN(this.height)
     ) {
-      this.iInitialWidth = this.iWidth
-      this.oTooltip = new Tooltip(this.dContainer).create()
-      this.d3Title = select(this.dContainer)
-        .append('div')
-        .attr('class', 'title')
-      this.dSvg.setAttribute('class', 'chart')
-      this.dContainer.appendChild(this.dSvg)
-      this.oResizeWatcher ??= window.addEventListener('resize', () => {
+      this.initialWidth = this.width
+      this.tooltip = new Tooltip(this.container).create()
+      this.d3Title = select(this.container).append('div').attr('class', 'title')
+      this.svg.setAttribute('class', 'chart')
+      this.container.appendChild(this.svg)
+      this.resizeWatcher ??= window.addEventListener('resize', () => {
         this.setDimensions()
-        this.iResizeOffset = this.iWidth - this.iInitialWidth
+        this.resizeOffset = this.width - this.initialWidth
         if (this.renderChart) {
           this.renderChart()
         }
-        this.oTooltip.hide()
+        this.tooltip.hide()
       })
-      this.oChartOutWatcher ??= this.dSvg.addEventListener('mouseout', () => {
-        this.oTooltip.hide()
+      this.chartOutWatcher ??= this.svg.addEventListener('mouseout', () => {
+        this.tooltip.hide()
       })
       if (this.renderChart) {
         this.renderChart()
       }
-      this.dContainer.removeChild(this.dLoader)
+      this.container.removeChild(this.loader)
       return this
     }
     throw new Error('The chart is not ready for initialisation.')

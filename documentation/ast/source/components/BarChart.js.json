@@ -479,16 +479,16 @@
                       "line": 21,
                       "column": 7
                     },
-                    "identifierName": "aBars"
+                    "identifierName": "bars"
                   },
-                  "name": "aBars",
+                  "name": "bars",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The local collection of bars\r\n  *\r\n  * @property aBars\r\n  * @type {Array}\r\n  ",
+                    "value": "*\r\n  * The local collection of bars\r\n  *\r\n  * @property bars\r\n  * @type {Array}\r\n  ",
                     "start": 347,
                     "end": 435,
                     "loc": {
@@ -589,9 +589,9 @@
                           "line": 28,
                           "column": 21
                         },
-                        "identifierName": "oParams"
+                        "identifierName": "chartParams"
                       },
-                      "name": "oParams"
+                      "name": "chartParams"
                     },
                     "right": {
                       "type": "ObjectExpression",
@@ -683,9 +683,9 @@
                                 "line": 29,
                                 "column": 17
                               },
-                              "identifierName": "oParams"
+                              "identifierName": "chartParams"
                             },
-                            "name": "oParams"
+                            "name": "chartParams"
                           }
                         ]
                       }
@@ -761,9 +761,9 @@
                                 "line": 30,
                                 "column": 19
                               },
-                              "identifierName": "sChartType"
+                              "identifierName": "chartType"
                             },
-                            "name": "sChartType"
+                            "name": "chartType"
                           },
                           "computed": false
                         },
@@ -814,7 +814,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Render the chart including bars, axes and labels\r\n  *\r\n  * @method renderChart\r\n  * @param {Boolean} bReset optionally reset the chart data\r\n  * @param {Boolean} bHeightTransition optionally transition height\r\n  ",
+                    "value": "*\r\n  * Render the chart including bars, axes and labels\r\n  *\r\n  * @method renderChart\r\n  * @param {Boolean} doReset optionally reset the chart data\r\n  * @param {Boolean} doHeightTransition optionally transition height\r\n  ",
                     "start": 623,
                     "end": 846,
                     "loc": {
@@ -897,9 +897,9 @@
                           "line": 40,
                           "column": 20
                         },
-                        "identifierName": "bReset"
+                        "identifierName": "doReset"
                       },
-                      "name": "bReset"
+                      "name": "doReset"
                     },
                     "right": {
                       "type": "BooleanLiteral",
@@ -945,9 +945,9 @@
                           "line": 40,
                           "column": 47
                         },
-                        "identifierName": "bHeightTransition"
+                        "identifierName": "doHeightTransition"
                       },
-                      "name": "bHeightTransition"
+                      "name": "doHeightTransition"
                     },
                     "right": {
                       "type": "BooleanLiteral",
@@ -1135,9 +1135,9 @@
                                       "line": 42,
                                       "column": 19
                                     },
-                                    "identifierName": "aValues"
+                                    "identifierName": "itemValues"
                                   },
-                                  "name": "aValues"
+                                  "name": "itemValues"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -1152,9 +1152,9 @@
                                       "line": 42,
                                       "column": 19
                                     },
-                                    "identifierName": "aValues"
+                                    "identifierName": "itemValues"
                                   },
-                                  "name": "aValues"
+                                  "name": "itemValues"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -1294,9 +1294,9 @@
                                   "line": 42,
                                   "column": 55
                                 },
-                                "identifierName": "jConfig"
+                                "identifierName": "chartConfig"
                               },
-                              "name": "jConfig"
+                              "name": "chartConfig"
                             },
                             "computed": false
                           }
@@ -1378,9 +1378,9 @@
                                       "line": 43,
                                       "column": 24
                                     },
-                                    "identifierName": "iInnerHeight"
+                                    "identifierName": "innerHeight"
                                   },
-                                  "name": "iInnerHeight"
+                                  "name": "innerHeight"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -1395,9 +1395,9 @@
                                       "line": 43,
                                       "column": 24
                                     },
-                                    "identifierName": "iInnerHeight"
+                                    "identifierName": "innerHeight"
                                   },
-                                  "name": "iInnerHeight"
+                                  "name": "innerHeight"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -1433,9 +1433,9 @@
                                       "line": 43,
                                       "column": 33
                                     },
-                                    "identifierName": "oScaleX"
+                                    "identifierName": "scaleX"
                                   },
-                                  "name": "oScaleX"
+                                  "name": "scaleX"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -1450,9 +1450,9 @@
                                       "line": 43,
                                       "column": 33
                                     },
-                                    "identifierName": "oScaleX"
+                                    "identifierName": "scaleX"
                                   },
-                                  "name": "oScaleX"
+                                  "name": "scaleX"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -1488,9 +1488,9 @@
                                       "line": 43,
                                       "column": 42
                                     },
-                                    "identifierName": "oScaleY"
+                                    "identifierName": "scaleY"
                                   },
-                                  "name": "oScaleY"
+                                  "name": "scaleY"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -1505,9 +1505,9 @@
                                       "line": 43,
                                       "column": 42
                                     },
-                                    "identifierName": "oScaleY"
+                                    "identifierName": "scaleY"
                                   },
-                                  "name": "oScaleY"
+                                  "name": "scaleY"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -1576,9 +1576,9 @@
                                 "line": 44,
                                 "column": 19
                               },
-                              "identifierName": "iBarWidth"
+                              "identifierName": "barWidth"
                             },
-                            "name": "iBarWidth"
+                            "name": "barWidth"
                           },
                           "init": {
                             "type": "BinaryExpression",
@@ -1635,9 +1635,9 @@
                                       "line": 44,
                                       "column": 29
                                     },
-                                    "identifierName": "oScaleX"
+                                    "identifierName": "scaleX"
                                   },
-                                  "name": "oScaleX"
+                                  "name": "scaleX"
                                 },
                                 "property": {
                                   "type": "Identifier",
@@ -1688,9 +1688,9 @@
                                     "line": 44,
                                     "column": 51
                                   },
-                                  "identifierName": "aValues"
+                                  "identifierName": "itemValues"
                                 },
-                                "name": "aValues"
+                                "name": "itemValues"
                               },
                               "property": {
                                 "type": "Identifier",
@@ -1787,9 +1787,9 @@
                                 "line": 46,
                                 "column": 14
                               },
-                              "identifierName": "aBars"
+                              "identifierName": "bars"
                             },
-                            "name": "aBars"
+                            "name": "bars"
                           },
                           "computed": false
                         },
@@ -1849,9 +1849,9 @@
                                   "line": 46,
                                   "column": 27
                                 },
-                                "identifierName": "aBars"
+                                "identifierName": "bars"
                               },
-                              "name": "aBars"
+                              "name": "bars"
                             },
                             "computed": false
                           },
@@ -1948,9 +1948,9 @@
                                 "line": 49,
                                 "column": 11
                               },
-                              "identifierName": "aValues"
+                              "identifierName": "itemValues"
                             },
-                            "name": "aValues",
+                            "name": "itemValues",
                             "leadingComments": null
                           },
                           "property": {
@@ -2117,9 +2117,9 @@
                                                   "line": 50,
                                                   "column": 20
                                                 },
-                                                "identifierName": "oColor"
+                                                "identifierName": "color"
                                               },
-                                              "name": "oColor"
+                                              "name": "color"
                                             },
                                             "value": {
                                               "type": "Identifier",
@@ -2134,9 +2134,9 @@
                                                   "line": 50,
                                                   "column": 20
                                                 },
-                                                "identifierName": "oColor"
+                                                "identifierName": "color"
                                               },
-                                              "name": "oColor"
+                                              "name": "color"
                                             },
                                             "extra": {
                                               "shorthand": true
@@ -2305,9 +2305,9 @@
                                                 "line": 51,
                                                 "column": 57
                                               },
-                                              "identifierName": "iBarWidth"
+                                              "identifierName": "barWidth"
                                             },
-                                            "name": "iBarWidth"
+                                            "name": "barWidth"
                                           },
                                           "operator": "*",
                                           "right": {
@@ -2416,9 +2416,9 @@
                                           "line": 53,
                                           "column": 16
                                         },
-                                        "identifierName": "bReset"
+                                        "identifierName": "doReset"
                                       },
-                                      "name": "bReset",
+                                      "name": "doReset",
                                       "leadingComments": null
                                     },
                                     "operator": "&&",
@@ -2478,9 +2478,9 @@
                                               "line": 53,
                                               "column": 30
                                             },
-                                            "identifierName": "aBars"
+                                            "identifierName": "bars"
                                           },
-                                          "name": "aBars"
+                                          "name": "bars"
                                         },
                                         "computed": false
                                       },
@@ -2605,9 +2605,9 @@
                                                     "line": 54,
                                                     "column": 18
                                                   },
-                                                  "identifierName": "aBars"
+                                                  "identifierName": "bars"
                                                 },
-                                                "name": "aBars"
+                                                "name": "bars"
                                               },
                                               "computed": false
                                             },
@@ -2998,9 +2998,9 @@
                                                           "line": 55,
                                                           "column": 18
                                                         },
-                                                        "identifierName": "aBars"
+                                                        "identifierName": "bars"
                                                       },
-                                                      "name": "aBars"
+                                                      "name": "bars"
                                                     },
                                                     "computed": false
                                                   },
@@ -3151,9 +3151,9 @@
                                                     "line": 56,
                                                     "column": 18
                                                   },
-                                                  "identifierName": "aBars"
+                                                  "identifierName": "bars"
                                                 },
-                                                "name": "aBars"
+                                                "name": "bars"
                                               },
                                               "computed": false
                                             },
@@ -3324,9 +3324,9 @@
                                               "line": 59,
                                               "column": 21
                                             },
-                                            "identifierName": "aBars"
+                                            "identifierName": "bars"
                                           },
-                                          "name": "aBars"
+                                          "name": "bars"
                                         },
                                         "computed": false,
                                         "leadingComments": null
@@ -3457,9 +3457,9 @@
                                                     "line": 61,
                                                     "column": 18
                                                   },
-                                                  "identifierName": "aBars"
+                                                  "identifierName": "bars"
                                                 },
-                                                "name": "aBars"
+                                                "name": "bars"
                                               },
                                               "computed": false,
                                               "leadingComments": null
@@ -3748,9 +3748,9 @@
                                                       "line": 61,
                                                       "column": 85
                                                     },
-                                                    "identifierName": "aData"
+                                                    "identifierName": "chartData"
                                                   },
-                                                  "name": "aData"
+                                                  "name": "chartData"
                                                 },
                                                 "computed": false
                                               }
@@ -4146,9 +4146,9 @@
                                                                                           "line": 63,
                                                                                           "column": 18
                                                                                         },
-                                                                                        "identifierName": "aBars"
+                                                                                        "identifierName": "bars"
                                                                                       },
-                                                                                      "name": "aBars"
+                                                                                      "name": "bars"
                                                                                     },
                                                                                     "computed": false,
                                                                                     "leadingComments": null
@@ -4417,9 +4417,9 @@
                                                                                             "line": 67,
                                                                                             "column": 25
                                                                                           },
-                                                                                          "identifierName": "oTooltip"
+                                                                                          "identifierName": "tooltip"
                                                                                         },
-                                                                                        "name": "oTooltip"
+                                                                                        "name": "tooltip"
                                                                                       },
                                                                                       "computed": false
                                                                                     },
@@ -4502,9 +4502,9 @@
                                                                                                 "line": 67,
                                                                                                 "column": 40
                                                                                               },
-                                                                                              "identifierName": "sLabel"
+                                                                                              "identifierName": "itemLabel"
                                                                                             },
-                                                                                            "name": "sLabel"
+                                                                                            "name": "itemLabel"
                                                                                           },
                                                                                           "computed": false
                                                                                         },
@@ -4552,9 +4552,9 @@
                                                                                                 "line": 67,
                                                                                                 "column": 55
                                                                                               },
-                                                                                              "identifierName": "sName"
+                                                                                              "identifierName": "name"
                                                                                             },
-                                                                                            "name": "sName"
+                                                                                            "name": "name"
                                                                                           },
                                                                                           "computed": false
                                                                                         },
@@ -4616,9 +4616,9 @@
                                                                                                   "line": 67,
                                                                                                   "column": 66
                                                                                                 },
-                                                                                                "identifierName": "aValues"
+                                                                                                "identifierName": "itemValues"
                                                                                               },
-                                                                                              "name": "aValues"
+                                                                                              "name": "itemValues"
                                                                                             },
                                                                                             "computed": false
                                                                                           },
@@ -4819,9 +4819,9 @@
                                                                                       "line": 70,
                                                                                       "column": 20
                                                                                     },
-                                                                                    "identifierName": "oColor"
+                                                                                    "identifierName": "color"
                                                                                   },
-                                                                                  "name": "oColor"
+                                                                                  "name": "color"
                                                                                 },
                                                                                 "computed": false
                                                                               },
@@ -4838,9 +4838,9 @@
                                                                                     "line": 70,
                                                                                     "column": 29
                                                                                   },
-                                                                                  "identifierName": "oColor"
+                                                                                  "identifierName": "color"
                                                                                 },
-                                                                                "name": "oColor"
+                                                                                "name": "color"
                                                                               }
                                                                             }
                                                                           },
@@ -5082,9 +5082,9 @@
                                                                                             "line": 71,
                                                                                             "column": 54
                                                                                           },
-                                                                                          "identifierName": "oColor"
+                                                                                          "identifierName": "color"
                                                                                         },
-                                                                                        "name": "oColor"
+                                                                                        "name": "color"
                                                                                       },
                                                                                       "computed": false
                                                                                     },
@@ -5303,9 +5303,9 @@
                                                                                   "line": 74,
                                                                                   "column": 28
                                                                                 },
-                                                                                "identifierName": "jConfig"
+                                                                                "identifierName": "chartConfig"
                                                                               },
-                                                                              "name": "jConfig"
+                                                                              "name": "chartConfig"
                                                                             },
                                                                             "computed": false
                                                                           },
@@ -5427,9 +5427,9 @@
                                                                                           "line": 75,
                                                                                           "column": 26
                                                                                         },
-                                                                                        "identifierName": "jConfig"
+                                                                                        "identifierName": "chartConfig"
                                                                                       },
-                                                                                      "name": "jConfig"
+                                                                                      "name": "chartConfig"
                                                                                     },
                                                                                     "computed": false
                                                                                   },
@@ -5766,9 +5766,9 @@
                                                                                 "line": 82,
                                                                                 "column": 25
                                                                               },
-                                                                              "identifierName": "oTooltip"
+                                                                              "identifierName": "tooltip"
                                                                             },
-                                                                            "name": "oTooltip"
+                                                                            "name": "tooltip"
                                                                           },
                                                                           "computed": false
                                                                         },
@@ -6004,9 +6004,9 @@
                                                                                 "line": 83,
                                                                                 "column": 54
                                                                               },
-                                                                              "identifierName": "oColor"
+                                                                              "identifierName": "color"
                                                                             },
-                                                                            "name": "oColor"
+                                                                            "name": "color"
                                                                           },
                                                                           "computed": false
                                                                         }
@@ -6194,9 +6194,9 @@
                                                           "line": 86,
                                                           "column": 30
                                                         },
-                                                        "identifierName": "oColor"
+                                                        "identifierName": "color"
                                                       },
-                                                      "name": "oColor"
+                                                      "name": "color"
                                                     }
                                                   ],
                                                   "leadingComments": null
@@ -6255,9 +6255,9 @@
                                                       "line": 87,
                                                       "column": 33
                                                     },
-                                                    "identifierName": "iInnerHeight"
+                                                    "identifierName": "innerHeight"
                                                   },
-                                                  "name": "iInnerHeight"
+                                                  "name": "innerHeight"
                                                 }
                                               ],
                                               "leadingComments": null
@@ -6909,9 +6909,9 @@
                                                                         "line": 94,
                                                                         "column": 34
                                                                       },
-                                                                      "identifierName": "aData"
+                                                                      "identifierName": "chartData"
                                                                     },
-                                                                    "name": "aData"
+                                                                    "name": "chartData"
                                                                   },
                                                                   "computed": false
                                                                 }
@@ -7035,9 +7035,9 @@
                                                                         "line": 95,
                                                                         "column": 33
                                                                       },
-                                                                      "identifierName": "oScaleX"
+                                                                      "identifierName": "scaleX"
                                                                     },
-                                                                    "name": "oScaleX"
+                                                                    "name": "scaleX"
                                                                   },
                                                                   "arguments": [
                                                                     {
@@ -7084,9 +7084,9 @@
                                                                             "line": 95,
                                                                             "column": 42
                                                                           },
-                                                                          "identifierName": "sLabel"
+                                                                          "identifierName": "itemLabel"
                                                                         },
-                                                                        "name": "sLabel"
+                                                                        "name": "itemLabel"
                                                                       },
                                                                       "computed": false
                                                                     }
@@ -7167,9 +7167,9 @@
                                                               "line": 96,
                                                               "column": 34
                                                             },
-                                                            "identifierName": "iBarWidth"
+                                                            "identifierName": "barWidth"
                                                           },
-                                                          "name": "iBarWidth"
+                                                          "name": "barWidth"
                                                         }
                                                       ]
                                                     }
@@ -7201,9 +7201,9 @@
                                                           "line": 97,
                                                           "column": 29
                                                         },
-                                                        "identifierName": "bHeightTransition"
+                                                        "identifierName": "doHeightTransition"
                                                       },
-                                                      "name": "bHeightTransition"
+                                                      "name": "doHeightTransition"
                                                     },
                                                     "consequent": {
                                                       "type": "BlockStatement",
@@ -7474,9 +7474,9 @@
                                                                       "line": 100,
                                                                       "column": 40
                                                                     },
-                                                                    "identifierName": "iTransitionTime"
+                                                                    "identifierName": "transitionTime"
                                                                   },
-                                                                  "name": "iTransitionTime"
+                                                                  "name": "transitionTime"
                                                                 },
                                                                 "computed": false
                                                               }
@@ -7668,9 +7668,9 @@
                                                             "line": 104,
                                                             "column": 18
                                                           },
-                                                          "identifierName": "iValue"
+                                                          "identifierName": "value"
                                                         },
-                                                        "name": "iValue"
+                                                        "name": "value"
                                                       },
                                                       "init": {
                                                         "type": "MemberExpression",
@@ -7730,9 +7730,9 @@
                                                                 "line": 104,
                                                                 "column": 30
                                                               },
-                                                              "identifierName": "aValues"
+                                                              "identifierName": "itemValues"
                                                             },
-                                                            "name": "aValues"
+                                                            "name": "itemValues"
                                                           },
                                                           "computed": false
                                                         },
@@ -7801,9 +7801,9 @@
                                                           "line": 105,
                                                           "column": 14
                                                         },
-                                                        "identifierName": "iValue"
+                                                        "identifierName": "value"
                                                       },
-                                                      "name": "iValue"
+                                                      "name": "value"
                                                     },
                                                     "right": {
                                                       "type": "ConditionalExpression",
@@ -7846,9 +7846,9 @@
                                                               "line": 105,
                                                               "column": 23
                                                             },
-                                                            "identifierName": "iValue"
+                                                            "identifierName": "value"
                                                           },
-                                                          "name": "iValue"
+                                                          "name": "value"
                                                         },
                                                         "operator": "<",
                                                         "right": {
@@ -7950,9 +7950,9 @@
                                                                 "line": 105,
                                                                 "column": 45
                                                               },
-                                                              "identifierName": "iValue"
+                                                              "identifierName": "value"
                                                             },
-                                                            "name": "iValue"
+                                                            "name": "value"
                                                           }
                                                         ]
                                                       },
@@ -8020,9 +8020,9 @@
                                                           "line": 106,
                                                           "column": 22
                                                         },
-                                                        "identifierName": "oScaleY"
+                                                        "identifierName": "scaleY"
                                                       },
-                                                      "name": "oScaleY"
+                                                      "name": "scaleY"
                                                     },
                                                     "arguments": [
                                                       {
@@ -8097,9 +8097,9 @@
                                                                   "line": 106,
                                                                   "column": 32
                                                                 },
-                                                                "identifierName": "aValues"
+                                                                "identifierName": "itemValues"
                                                               },
-                                                              "name": "aValues"
+                                                              "name": "itemValues"
                                                             },
                                                             "computed": false
                                                           },
@@ -8136,9 +8136,9 @@
                                                               "line": 106,
                                                               "column": 44
                                                             },
-                                                            "identifierName": "iValue"
+                                                            "identifierName": "value"
                                                           },
-                                                          "name": "iValue"
+                                                          "name": "value"
                                                         }
                                                       }
                                                     ]
@@ -8286,9 +8286,9 @@
                                                         "line": 109,
                                                         "column": 23
                                                       },
-                                                      "identifierName": "iModifier"
+                                                      "identifierName": "modifier"
                                                     },
-                                                    "name": "iModifier"
+                                                    "name": "modifier"
                                                   },
                                                   "init": {
                                                     "type": "ConditionalExpression",
@@ -8360,9 +8360,9 @@
                                                               "line": 109,
                                                               "column": 40
                                                             },
-                                                            "identifierName": "iMinValue"
+                                                            "identifierName": "minValue"
                                                           },
-                                                          "name": "iMinValue"
+                                                          "name": "minValue"
                                                         },
                                                         "computed": false
                                                       },
@@ -8495,9 +8495,9 @@
                                                                 "line": 109,
                                                                 "column": 70
                                                               },
-                                                              "identifierName": "iMinValue"
+                                                              "identifierName": "minValue"
                                                             },
-                                                            "name": "iMinValue"
+                                                            "name": "minValue"
                                                           },
                                                           "computed": false
                                                         }
@@ -8569,9 +8569,9 @@
                                                       "line": 110,
                                                       "column": 27
                                                     },
-                                                    "identifierName": "iInnerHeight"
+                                                    "identifierName": "innerHeight"
                                                   },
-                                                  "name": "iInnerHeight"
+                                                  "name": "innerHeight"
                                                 },
                                                 "operator": "-",
                                                 "right": {
@@ -8601,9 +8601,9 @@
                                                         "line": 110,
                                                         "column": 37
                                                       },
-                                                      "identifierName": "oScaleY"
+                                                      "identifierName": "scaleY"
                                                     },
-                                                    "name": "oScaleY"
+                                                    "name": "scaleY"
                                                   },
                                                   "arguments": [
                                                     {
@@ -8743,9 +8743,9 @@
                                                                     "line": 110,
                                                                     "column": 56
                                                                   },
-                                                                  "identifierName": "aValues"
+                                                                  "identifierName": "itemValues"
                                                                 },
-                                                                "name": "aValues"
+                                                                "name": "itemValues"
                                                               },
                                                               "computed": false
                                                             },
@@ -8784,9 +8784,9 @@
                                                             "line": 110,
                                                             "column": 72
                                                           },
-                                                          "identifierName": "iModifier"
+                                                          "identifierName": "modifier"
                                                         },
-                                                        "name": "iModifier"
+                                                        "name": "modifier"
                                                       }
                                                     }
                                                   ]
@@ -8851,7 +8851,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Render the chart including bars, axes and labels\r\n  *\r\n  * @method renderChart\r\n  * @param {Boolean} bReset optionally reset the chart data\r\n  * @param {Boolean} bHeightTransition optionally transition height\r\n  ",
+                    "value": "*\r\n  * Render the chart including bars, axes and labels\r\n  *\r\n  * @method renderChart\r\n  * @param {Boolean} doReset optionally reset the chart data\r\n  * @param {Boolean} doHeightTransition optionally transition height\r\n  ",
                     "start": 623,
                     "end": 846,
                     "loc": {
@@ -9028,7 +9028,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The local collection of bars\r\n  *\r\n  * @property aBars\r\n  * @type {Array}\r\n  ",
+      "value": "*\r\n  * The local collection of bars\r\n  *\r\n  * @property bars\r\n  * @type {Array}\r\n  ",
       "start": 347,
       "end": 435,
       "loc": {
@@ -9060,7 +9060,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Render the chart including bars, axes and labels\r\n  *\r\n  * @method renderChart\r\n  * @param {Boolean} bReset optionally reset the chart data\r\n  * @param {Boolean} bHeightTransition optionally transition height\r\n  ",
+      "value": "*\r\n  * Render the chart including bars, axes and labels\r\n  *\r\n  * @method renderChart\r\n  * @param {Boolean} doReset optionally reset the chart data\r\n  * @param {Boolean} doHeightTransition optionally transition height\r\n  ",
       "start": 623,
       "end": 846,
       "loc": {
@@ -10011,7 +10011,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The local collection of bars\r\n  *\r\n  * @property aBars\r\n  * @type {Array}\r\n  ",
+      "value": "*\r\n  * The local collection of bars\r\n  *\r\n  * @property bars\r\n  * @type {Array}\r\n  ",
       "start": 347,
       "end": 435,
       "loc": {
@@ -10037,7 +10037,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aBars",
+      "value": "bars",
       "start": 439,
       "end": 444,
       "loc": {
@@ -10156,7 +10156,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 546,
       "end": 553,
       "loc": {
@@ -10362,7 +10362,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 573,
       "end": 580,
       "loc": {
@@ -10493,7 +10493,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sChartType",
+      "value": "chartType",
       "start": 593,
       "end": 603,
       "loc": {
@@ -10614,7 +10614,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Render the chart including bars, axes and labels\r\n  *\r\n  * @method renderChart\r\n  * @param {Boolean} bReset optionally reset the chart data\r\n  * @param {Boolean} bHeightTransition optionally transition height\r\n  ",
+      "value": "*\r\n  * Render the chart including bars, axes and labels\r\n  *\r\n  * @method renderChart\r\n  * @param {Boolean} doReset optionally reset the chart data\r\n  * @param {Boolean} doHeightTransition optionally transition height\r\n  ",
       "start": 623,
       "end": 846,
       "loc": {
@@ -10691,7 +10691,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bReset",
+      "value": "doReset",
       "start": 862,
       "end": 868,
       "loc": {
@@ -10798,7 +10798,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bHeightTransition",
+      "value": "doHeightTransition",
       "start": 878,
       "end": 895,
       "loc": {
@@ -11138,7 +11138,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 945,
       "end": 952,
       "loc": {
@@ -11376,7 +11376,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 981,
       "end": 988,
       "loc": {
@@ -11481,7 +11481,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInnerHeight",
+      "value": "innerHeight",
       "start": 1003,
       "end": 1015,
       "loc": {
@@ -11533,7 +11533,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 1017,
       "end": 1024,
       "loc": {
@@ -11585,7 +11585,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleY",
+      "value": "scaleY",
       "start": 1026,
       "end": 1033,
       "loc": {
@@ -11745,7 +11745,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iBarWidth",
+      "value": "barWidth",
       "start": 1055,
       "end": 1064,
       "loc": {
@@ -11798,7 +11798,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 1067,
       "end": 1074,
       "loc": {
@@ -11953,7 +11953,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1089,
       "end": 1096,
       "loc": {
@@ -12111,7 +12111,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aBars",
+      "value": "bars",
       "start": 1117,
       "end": 1122,
       "loc": {
@@ -12218,7 +12218,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aBars",
+      "value": "bars",
       "start": 1130,
       "end": 1135,
       "loc": {
@@ -12365,7 +12365,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1192,
       "end": 1199,
       "loc": {
@@ -12700,7 +12700,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 1241,
       "end": 1247,
       "loc": {
@@ -13042,7 +13042,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iBarWidth",
+      "value": "barWidth",
       "start": 1310,
       "end": 1319,
       "loc": {
@@ -13294,7 +13294,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bReset",
+      "value": "doReset",
       "start": 1383,
       "end": 1389,
       "loc": {
@@ -13401,7 +13401,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aBars",
+      "value": "bars",
       "start": 1398,
       "end": 1403,
       "loc": {
@@ -13609,7 +13609,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aBars",
+      "value": "bars",
       "start": 1424,
       "end": 1429,
       "loc": {
@@ -14334,7 +14334,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aBars",
+      "value": "bars",
       "start": 1505,
       "end": 1510,
       "loc": {
@@ -14722,7 +14722,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aBars",
+      "value": "bars",
       "start": 1545,
       "end": 1550,
       "loc": {
@@ -15080,7 +15080,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aBars",
+      "value": "bars",
       "start": 1627,
       "end": 1632,
       "loc": {
@@ -15304,7 +15304,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aBars",
+      "value": "bars",
       "start": 1680,
       "end": 1685,
       "loc": {
@@ -15928,7 +15928,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 1747,
       "end": 1752,
       "loc": {
@@ -16075,7 +16075,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aBars",
+      "value": "bars",
       "start": 1827,
       "end": 1832,
       "loc": {
@@ -16721,7 +16721,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltip",
+      "value": "tooltip",
       "start": 1938,
       "end": 1946,
       "loc": {
@@ -16902,7 +16902,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sLabel",
+      "value": "itemLabel",
       "start": 1955,
       "end": 1961,
       "loc": {
@@ -17006,7 +17006,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sName",
+      "value": "name",
       "start": 1971,
       "end": 1976,
       "loc": {
@@ -17110,7 +17110,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1980,
       "end": 1987,
       "loc": {
@@ -17650,7 +17650,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 2060,
       "end": 2066,
       "loc": {
@@ -17703,7 +17703,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 2069,
       "end": 2075,
       "loc": {
@@ -18091,7 +18091,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 2126,
       "end": 2132,
       "loc": {
@@ -18711,7 +18711,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 2218,
       "end": 2225,
       "loc": {
@@ -18893,7 +18893,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 2265,
       "end": 2272,
       "loc": {
@@ -19665,7 +19665,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltip",
+      "value": "tooltip",
       "start": 2451,
       "end": 2459,
       "loc": {
@@ -20155,7 +20155,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 2517,
       "end": 2523,
       "loc": {
@@ -20747,7 +20747,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 2609,
       "end": 2615,
       "loc": {
@@ -20928,7 +20928,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInnerHeight",
+      "value": "innerHeight",
       "start": 2639,
       "end": 2651,
       "loc": {
@@ -21980,7 +21980,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 2883,
       "end": 2888,
       "loc": {
@@ -22213,7 +22213,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 2917,
       "end": 2924,
       "loc": {
@@ -22316,7 +22316,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sLabel",
+      "value": "itemLabel",
       "start": 2927,
       "end": 2933,
       "loc": {
@@ -22575,7 +22575,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iBarWidth",
+      "value": "barWidth",
       "start": 2975,
       "end": 2984,
       "loc": {
@@ -22705,7 +22705,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bHeightTransition",
+      "value": "doHeightTransition",
       "start": 3000,
       "end": 3017,
       "loc": {
@@ -23224,7 +23224,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iTransitionTime",
+      "value": "transitionTime",
       "start": 3123,
       "end": 3138,
       "loc": {
@@ -23791,7 +23791,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iValue",
+      "value": "value",
       "start": 3224,
       "end": 3230,
       "loc": {
@@ -23896,7 +23896,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 3235,
       "end": 3242,
       "loc": {
@@ -24026,7 +24026,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iValue",
+      "value": "value",
       "start": 3256,
       "end": 3262,
       "loc": {
@@ -24079,7 +24079,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iValue",
+      "value": "value",
       "start": 3265,
       "end": 3271,
       "loc": {
@@ -24288,7 +24288,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iValue",
+      "value": "value",
       "start": 3287,
       "end": 3293,
       "loc": {
@@ -24446,7 +24446,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleY",
+      "value": "scaleY",
       "start": 3316,
       "end": 3323,
       "loc": {
@@ -24549,7 +24549,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 3326,
       "end": 3333,
       "loc": {
@@ -24680,7 +24680,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iValue",
+      "value": "value",
       "start": 3339,
       "end": 3345,
       "loc": {
@@ -25092,7 +25092,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iModifier",
+      "value": "modifier",
       "start": 3405,
       "end": 3414,
       "loc": {
@@ -25199,7 +25199,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 3422,
       "end": 3431,
       "loc": {
@@ -25462,7 +25462,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 3452,
       "end": 3461,
       "loc": {
@@ -25620,7 +25620,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInnerHeight",
+      "value": "innerHeight",
       "start": 3484,
       "end": 3496,
       "loc": {
@@ -25673,7 +25673,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleY",
+      "value": "scaleY",
       "start": 3499,
       "end": 3506,
       "loc": {
@@ -25879,7 +25879,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 3518,
       "end": 3525,
       "loc": {
@@ -26035,7 +26035,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iModifier",
+      "value": "modifier",
       "start": 3532,
       "end": 3541,
       "loc": {

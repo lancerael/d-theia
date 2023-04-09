@@ -1,11 +1,10 @@
-import Theia from './'
+import Theia, { getRandomData, sliceSampleData } from './'
 import Config from '../demo/config/config'
 
 import cycleData from '../demo/data/cycles.json'
 import racingData from '../demo/data/formula1.json'
 
-const DataOps = Theia.getDataOps()
-let jTest = DataOps.getRandomData()
+let jTest = getRandomData()
 
 // Display dummy bar chart
 const chart = Theia.chart('container-bar-test', 'bar', jTest)
@@ -14,38 +13,38 @@ const chart = Theia.chart('container-bar-test', 'bar', jTest)
 Theia.chart('container-line-test', 'line', jTest)
 
 // Display a bar chart, line chart and bubble chart from a subsection of retrieved data.
-const aCycleData = DataOps.sliceSampleData(cycleData.stationBeanList, 15)
+const aCycleData = sliceSampleData(cycleData.stationBeanList, 15)
 const jCycleTest = {
-  jConfig: Config.jAxisConfig1,
-  aData: aCycleData,
-  bTransform: true,
+  chartConfig: Config.jAxisConfig1,
+  chartData: aCycleData,
+  doTransform: true,
 }
 Theia.chart('container-bar-1', 'bar', jCycleTest)
 Theia.chart('container-line-1', 'line', jCycleTest)
 Theia.chart('container-bubble-1', 'bubble', {
   ...jCycleTest,
-  jConfig: Config.jBubbleConfig1,
+  chartConfig: Config.jBubbleConfig1,
 })
 
 // Display a bar chart from retrieved and transfromed data.
 Theia.chart('container-bar-2', 'line', {
-  jConfig: Config.jBarConfig2,
-  aData: racingData.MRData.RaceTable.Races[0].Results.map((jItem) => {
+  chartConfig: Config.jBarConfig2,
+  chartData: racingData.MRData.RaceTable.Races[0].Results.map((jItem) => {
     return {
-      aValues: [parseInt(jItem.position), parseInt(jItem.points)],
-      sLabel: `${jItem.Driver.givenName} ${jItem.Driver.familyName}`,
+      itemValues: [parseInt(jItem.position), parseInt(jItem.points)],
+      itemLabel: `${jItem.Driver.givenName} ${jItem.Driver.familyName}`,
     }
   }),
 })
 
 // Show updating of chart data
 setTimeout(() => {
-  jTest.aData[0].aValues[0] = 100
-  chart.updateData(jTest.aData)
+  jTest.chartData[0].itemValues[0] = 100
+  chart.updateData(jTest.chartData)
 }, 2000)
 
 // Show updating of chart config
 setTimeout(() => {
-  jTest.jConfig.bTrim = false
-  chart.updateConfig(jTest.jConfig)
+  jTest.chartConfig.doTrim = false
+  chart.updateConfig(jTest.chartConfig)
 }, 5000)

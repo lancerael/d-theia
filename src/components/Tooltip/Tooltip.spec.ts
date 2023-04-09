@@ -2,25 +2,25 @@ import { select } from 'd3-selection'
 import Tooltip from './'
 
 describe('Key', () => {
-  let oTooltip: any
+  let tooltip: any
   let dDiv: any
 
   beforeEach(() => {
     dDiv = document.createElement('div')
-    oTooltip = new Tooltip(dDiv)
+    tooltip = new Tooltip(dDiv)
   })
 
   it('should create the tooltip and return chained object', () => {
-    const oChainedTooltip = oTooltip.create()
+    const oChainedTooltip = tooltip.create()
     expect(select(dDiv).selectAll('.tooltip.is-transparent').size()).toBe(1)
-    expect(oChainedTooltip).toEqual(oTooltip)
+    expect(oChainedTooltip).toEqual(tooltip)
   })
 
   it('should ping the tooltip in location with correct content', () => {
-    oTooltip.create()
-    oTooltip.ping('test', { clientX: 0, clientY: 0 })
+    tooltip.create()
+    tooltip.ping('test', { clientX: 0, clientY: 0 })
     expect(select(dDiv).selectAll('.tooltip.is-transparent').size()).toBe(0)
-    expect(oTooltip.dTooltip.style.right).toBe('10px')
-    expect(oTooltip.dTooltip.style.top).toBe('0px')
+    expect(tooltip.tooltip.style.right).toBe('10px')
+    expect(tooltip.tooltip.style.top).toBe('0px')
   })
 })

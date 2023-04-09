@@ -16,42 +16,42 @@ export default class Key {
   /**
    * The key's values
    *
-   * @property aValues
+   * @property itemValues
    * @type {Array}
    */
-  aValues
+  itemValues
 
   /**
    * The x offset for the key
    *
-   * @property iOffsetX
+   * @property offsetX
    * @type {Number}
    */
-  iOffsetX
+  offsetX
 
   /**
    * The y offset for the key
    *
-   * @property iOffsetY
+   * @property offsetY
    * @type {Number}
    */
-  iOffsetY
+  offsetY
 
   /**
    * Constructor function that sets up the local object.
    *
    * @method constructor
    * @param {Object} d3Container A d3 wrapped container element
-   * @param {Array} aValues the data to be displayed
-   * @param {Integer} iOffsetX optional x offset
-   * @param {Integer} iOffsetY optional y offset
+   * @param {Array} itemValues the data to be displayed
+   * @param {Integer} offsetX optional x offset
+   * @param {Integer} offsetY optional y offset
    */
-  constructor({ d3Container, aValues, iOffsetX = 0, iOffsetY = 0 }: any) {
-    if (d3Container && aValues) {
+  constructor({ d3Container, itemValues, offsetX = 0, offsetY = 0 }: any) {
+    if (d3Container && itemValues) {
       this.d3Container = d3Container
-      this.aValues = aValues.slice(aValues)
-      this.iOffsetX = iOffsetX
-      this.iOffsetY = iOffsetY
+      this.itemValues = itemValues.slice(itemValues)
+      this.offsetX = offsetX
+      this.offsetY = offsetY
     } else {
       throw new Error('Incorrect parameters provided to Key constructor.')
     }
@@ -65,27 +65,27 @@ export default class Key {
    */
   render() {
     this.d3Container.selectAll('g.key').remove()
-    let iGroupOffset = 0
+    let groupOffset = 0
     const d3KeyGroup = this.d3Container.append('g').attr('class', 'key')
-    const d3Labels = d3KeyGroup.selectAll('text.label').data(this.aValues)
+    const d3Labels = d3KeyGroup.selectAll('text.label').data(this.itemValues)
     const labelWidths: number[] = []
     const fnCalculateMargin = (i: number) => {
-      let iMargin = 0
+      let margin = 0
       if (i) {
         for (let l = 0; l < i; l++) {
-          iMargin += labelWidths[l]
+          margin += labelWidths[l]
         }
       }
-      return iMargin
+      return margin
     }
     d3Labels
       .enter()
       .append('text')
-      .text((d: any) => d.sName)
+      .text((d: any) => d.name)
       .each((d: any, i: number, nodes: any) => {
-        const iLabelWidth = nodes[i].getBoundingClientRect().width + 15
-        labelWidths.push(iLabelWidth)
-        iGroupOffset += iLabelWidth - 2
+        const labelWidth = nodes[i].getBoundingClientRect().width + 15
+        labelWidths.push(labelWidth)
+        groupOffset += labelWidth - 2
         d
       })
       .attr('class', 'label')
@@ -96,18 +96,18 @@ export default class Key {
       .attr('font-family', 'sans-serif')
       .attr('font-size', '10px')
       .attr('style', 'fill: #222222')
-    const d3Keys = d3KeyGroup.selectAll('rect.key').data(this.aValues)
+    const d3Keys = d3KeyGroup.selectAll('rect.key').data(this.itemValues)
     d3Keys
       .enter()
       .append('rect')
       .attr('class', 'key')
-      .attr('fill', (d: any) => d.sColor)
+      .attr('fill', (d: any) => d.color)
       .attr('x', (d: any, i: number) => !!d && fnCalculateMargin(i) - 12)
       .attr('y', 0)
       .attr('width', 10)
       .attr('height', 10)
-    iGroupOffset = this.iOffsetX - iGroupOffset / 2
-    d3KeyGroup.attr('transform', `translate(${iGroupOffset},${this.iOffsetY})`)
+    groupOffset = this.offsetX - groupOffset / 2
+    d3KeyGroup.attr('transform', `translate(${groupOffset},${this.offsetY})`)
     return this
   }
 

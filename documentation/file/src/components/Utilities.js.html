@@ -171,12 +171,12 @@ export default class Utilities {
   *
   * @method getPromiseJSON
   * @static
-  * @param {String} sUrl Required URL to make request
+  * @param {String} url Required URL to make request
   * @throws {Error} invalid api string
   */
-  static getPromiseJSON(sUrl) {
-    if (typeof sUrl === &apos;string&apos;) {
-      return json(sUrl);
+  static getPromiseJSON(url) {
+    if (typeof url === &apos;string&apos;) {
+      return json(url);
     }
     throw new Error(&apos;No valid data API string provided.&apos;);
   }
@@ -186,15 +186,15 @@ export default class Utilities {
   *
   * @method truncateString
   * @static
-  * @param {String} sString string to be truncated
-  * @param {Integer} iMaxLength max length of string before truncation
+  * @param {String} value string to be truncated
+  * @param {Integer} maxLength max length of string before truncation
   * @return {String} truncated string
   */
-  static truncateString(sString, iMaxLength) {
-    if (sString.length &gt; iMaxLength) {
-      return `${sString.slice(0, iMaxLength - 3)}[...]`;
+  static truncateString(value, maxLength) {
+    if (value.length &gt; maxLength) {
+      return `${value.slice(0, maxLength - 3)}[...]`;
     }
-    return sString;
+    return value;
   }
 
   /**
@@ -202,16 +202,16 @@ export default class Utilities {
   *
   * @method getRandomInteger
   * @static
-  * @param {Integer} iMin minimum random value
-  * @param {Integer} iMax max random value
-  * @param {Integer} iOmit specify a value to omit from results
+  * @param {Integer} minValue minimum random value
+  * @param {Integer} maxValue max random value
+  * @param {Integer} omitValue specify a value to omit from results
   * @return {Integer} new random integer
   */
-  static getRandomInteger(iMin, iMax, iOmit) {
-    let iInt = Math.floor(Math.random() * (iMin - iMax - 1)) + iMax + 1;
-    if (iOmit) {
-      while (iInt === iOmit) {
-        iInt = this.getRandomInteger(iMin, iMax);
+  static getRandomInteger(minValue, maxValue, omitValue) {
+    let iInt = Math.floor(Math.random() * (minValue - maxValue - 1)) + maxValue + 1;
+    if (omitValue) {
+      while (iInt === omitValue) {
+        iInt = this.getRandomInteger(minValue, maxValue);
       }
     }
     return iInt;

@@ -4,47 +4,47 @@ import Axis from './'
 import { vi } from 'vitest'
 
 describe('Axis', () => {
-  let oAxis: any
+  let axis: any
 
   beforeEach(() => {
     const dDiv = document.createElement('div')
-    oAxis = new Axis({
+    axis = new Axis({
       d3Container: select(dDiv),
-      oScaleX: scaleBand().padding(0.2),
-      oScaleY: scaleLinear(),
-      jPadding: { l: 5, r: 5, t: 5, b: 5 },
-      aAxisLabels: ['l1', 'l2'],
+      scaleX: scaleBand().padding(0.2),
+      scaleY: scaleLinear(),
+      padding: { l: 5, r: 5, t: 5, b: 5 },
+      axisLabels: ['l1', 'l2'],
     })
   })
 
   it('should call all render methods and return the object', () => {
-    vi.spyOn(oAxis, 'renderAxisX')
-    vi.spyOn(oAxis, 'renderAxisY')
-    vi.spyOn(oAxis, 'renderLabels')
-    const oThis = oAxis.render()
-    expect(oAxis.renderAxisX).toHaveBeenCalled()
-    expect(oAxis.renderAxisY).toHaveBeenCalled()
-    expect(oAxis.renderLabels).toHaveBeenCalled()
-    expect(oThis).toEqual(oAxis)
+    vi.spyOn(axis, 'renderAxisX')
+    vi.spyOn(axis, 'renderAxisY')
+    vi.spyOn(axis, 'renderLabels')
+    const oThis = axis.render()
+    expect(axis.renderAxisX).toHaveBeenCalled()
+    expect(axis.renderAxisY).toHaveBeenCalled()
+    expect(axis.renderLabels).toHaveBeenCalled()
+    expect(oThis).toEqual(axis)
   })
 
   it('should render the x axis', () => {
-    oAxis.renderAxisX()
-    expect(oAxis.d3Container.selectAll('g.x-axis').size()).toBe(1)
+    axis.renderAxisX()
+    expect(axis.d3Container.selectAll('g.x-axis').size()).toBe(1)
   })
 
   it('should render the y axis', () => {
-    oAxis.renderAxisY()
-    expect(oAxis.d3Container.selectAll('g.y-axis').size()).toBe(1)
+    axis.renderAxisY()
+    expect(axis.d3Container.selectAll('g.y-axis').size()).toBe(1)
   })
 
   it('should render the labels', () => {
-    oAxis.renderLabels()
-    const oLabels = oAxis.d3Container.selectAll('text.labels')
+    axis.renderLabels()
+    const oLabels = axis.d3Container.selectAll('text.labels')
     expect(oLabels.size()).toBe(2)
     oLabels.each((d: any, i: number, elems: any) => {
       d
-      expect(elems[i].innerHTML).toBe(oAxis.aAxisLabels[i])
+      expect(elems[i].innerHTML).toBe(axis.axisLabels[i])
     })
   })
 })

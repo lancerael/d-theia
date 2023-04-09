@@ -6,36 +6,36 @@ describe('AxisChart', () => {
   beforeEach(() => {
     const dDiv = document.createElement('div')
     oAxisChart = new AxisChart({
-      dContainer: dDiv,
-      jConfig: {
-        aAxisKeys: ['k3'],
-        aAxisLabels: ['y', 'x'],
-        aValues: [
+      container: dDiv,
+      chartConfig: {
+        axisKeys: ['k3'],
+        axisLabels: ['y', 'x'],
+        itemValues: [
           {
-            sKey: 'k1',
-            sName: 'K1',
+            key: 'k1',
+            name: 'K1',
             sColour: 'red',
           },
           {
-            sKey: 'k2',
-            sName: 'K2',
+            key: 'k2',
+            name: 'K2',
             sColour: 'blue',
           },
         ],
       },
-      aData: [
+      chartData: [
         { k1: 4, k2: 5, k3: 'six' },
         { k1: 7, k2: 8, k3: 'nine' },
       ],
-      bTransform: true,
+      doTransform: true,
     })
   })
 
   it('should set up the scale objects', () => {
     oAxisChart.setDimensions()
-    expect(oAxisChart.oScaleX.domain()[0]).toBe('six')
-    expect(oAxisChart.oScaleX.domain()[1]).toBe('nine')
-    expect(oAxisChart.oScaleY.domain()[1]).toBe(8)
+    expect(oAxisChart.scaleX.domain()[0]).toBe('six')
+    expect(oAxisChart.scaleX.domain()[1]).toBe('nine')
+    expect(oAxisChart.scaleY.domain()[1]).toBe(8)
   })
 
   it('should render the chart group', () => {

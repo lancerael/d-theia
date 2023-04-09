@@ -177,21 +177,21 @@ export default class BubbleChart extends Chart {
   /**
   * The local collection of bubbles
   *
-  * @property aBubbles
+  * @property bubbles
   * @type {Array}
   */
-  aBubbles;
+  bubbles;
 
   /**
   * Constructor function supersedes parent class.
   *
   * @method constructor
-  * @param {Object} oParams same as Chart
+  * @param {Object} chartParams same as Chart
   */
-  constructor(oParams = {}) {
-    super(oParams);
-    this.oScaleColor = scaleLinear();
-    this.sChartType = &apos;bubble&apos;;
+  constructor(chartParams = {}) {
+    super(chartParams);
+    this.scaleColor = scaleLinear();
+    this.chartType = &apos;bubble&apos;;
   }
 
   /**
@@ -201,9 +201,9 @@ export default class BubbleChart extends Chart {
   */
   setDimensions() {
     super.setDimensions();
-    this.oScaleColor
-      .domain([0, max(this.aData, d =&gt; d[this.jConfig.aValues[1].sKey])])
-      .range(this.jConfig.aValues[1].aColors);
+    this.scaleColor
+      .domain([0, max(this.chartData, d =&gt; d[this.chartConfig.itemValues[1].key])])
+      .range(this.chartConfig.itemValues[1].colors);
   }
 
   /**
@@ -212,78 +212,78 @@ export default class BubbleChart extends Chart {
   * @method renderChart
   */
   renderChart() {
-    const { aAxisLabels, aValues } = this.jConfig;
-    const { iInnerWidth, iInnerHeight, jPadding } = this;
-    const { sKey: sKey1, sName: sName1 } = aValues[0];
-    const { sKey: sKey2, sName: sName2, aColors } = aValues[1];
+    const { axisLabels, itemValues } = this.chartConfig;
+    const { innerWidth, innerHeight, padding } = this;
+    const { key: key1, name: name1 } = itemValues[0];
+    const { key: key2, name: name2, colors } = itemValues[1];
 
     // Add chart scale axes
-    this.d3AxisGroup = this.d3AxisGroup || this.d3Svg.append(&apos;g&apos;).attr(&apos;class&apos;, &apos;axes-g&apos;);
-    this.oAxis = new Axis({
-      d3Container: this.d3AxisGroup,
-      aAxisLabels,
-      jPadding,
-      iWidth: iInnerWidth,
-      iHeight: iInnerHeight - 25 }).renderLabels();
+    this.axisGroup = this.axisGroup || this.d3Svg.append(&apos;g&apos;).attr(&apos;class&apos;, &apos;axes-g&apos;);
+    this.axis = new Axis({
+      d3Container: this.axisGroup,
+      axisLabels,
+      padding,
+      width: innerWidth,
+      height: innerHeight - 25 }).renderLabels();
 
     // Add the group container for bubbles
-    this.d3BubblesGroup = this.d3BubblesGroup || this.d3Svg.append(&apos;g&apos;).attr(&apos;transform&apos;, `translate(${this.jPadding.l}, 0)`);
+    this.bubblesGroup = this.bubblesGroup || this.d3Svg.append(&apos;g&apos;).attr(&apos;transform&apos;, `translate(${this.padding.l}, 0)`);
 
     // The method runs on each tick of the force calculation to reposition the bubbles
     const fnTicked = () =&gt; {
-      this.d3BubblesGroup.selectAll(&apos;circle&apos;)
+      this.bubblesGroup.selectAll(&apos;circle&apos;)
         .attr(&apos;cx&apos;, d =&gt; d.x)
         .attr(&apos;cy&apos;, d =&gt; d.y);
     };
 
     // Initialise the d3 force calculations
-    this.oForce = forceSimulation()
-      .nodes(JSON.parse(JSON.stringify(this.aData)))
-      .force(&apos;charge&apos;, forceManyBody().strength(d =&gt; (d[sKey1] * (d[sKey1] / 2)) / -150))
-      .force(&apos;center&apos;, forceCenter(this.iWidth / 2, this.iHeight / 2))
+    this.force = forceSimulation()
+      .nodes(JSON.parse(JSON.stringify(this.chartData)))
+      .force(&apos;charge&apos;, forceManyBody().strength(d =&gt; (d[key1] * (d[key1] / 2)) / -150))
+      .force(&apos;center&apos;, forceCenter(this.width / 2, this.height / 2))
       .on(&apos;tick&apos;, () =&gt; {
         fnTicked();
       });
 
     // Add circles for each value
-    if (!this.d3Circles) {
+    if (!this.circles) {
       // Bind bars data
-      this.d3Circles = this.d3BubblesGroup.selectAll(&apos;circle.circles&apos;).data(this.oForce.nodes());
+      this.circles = this.bubblesGroup.selectAll(&apos;circle.circles&apos;).data(this.force.nodes());
       // Add new rect elements and set base attributes
-      this.d3Circles
+      this.circles
         .enter()
         .append(&apos;circle&apos;)
         .on(&apos;mousemove&apos;, (d) =&gt; {
-          this.oTooltip.ping(`&lt;strong&gt;${d.sLabel}&lt;/strong&gt;&lt;br&gt;${sName1}: &lt;em&gt;${d[sKey1]}&lt;/em&gt;&lt;br&gt;${sName2}: &lt;em&gt;${d[sKey2]}&lt;/em&gt;`);
+          this.tooltip.ping(`&lt;strong&gt;${d.itemLabel}&lt;/strong&gt;&lt;br&gt;${name1}: &lt;em&gt;${d[key1]}&lt;/em&gt;&lt;br&gt;${name2}: &lt;em&gt;${d[key2]}&lt;/em&gt;`);
         })
-        .on(&apos;mouseout&apos;, () =&gt; this.oTooltip.hide())
+        .on(&apos;mouseout&apos;, () =&gt; this.tooltip.hide())
         .attr(&apos;class&apos;, &apos;circles&apos;)
-        .attr(&apos;fill&apos;, d =&gt; this.oScaleColor(d[sKey2]))
+        .attr(&apos;fill&apos;, d =&gt; this.scaleColor(d[key2]))
         .attr(&apos;r&apos;, 0)
         .transition()
         .ease(easeLinear)
-        .duration(this.iTransitionTime)
-        .attr(&apos;r&apos;, d =&gt; d[sKey1] / 2);
+        .duration(this.transitionTime)
+        .attr(&apos;r&apos;, d =&gt; d[key1] / 2);
     } else {
-      this.d3BubblesGroup.attr(&apos;transform&apos;, `translate(${this.iResizeOffset / 2}, 0)`);
+      this.bubblesGroup.attr(&apos;transform&apos;, `translate(${this.resizeOffset / 2}, 0)`);
     }
 
     // Render the key for the data
-    this.oKey = new Key({
-      d3Container: select(this.dSvg),
-      aValues: [
+    this.key = new Key({
+      d3Container: select(this.svg),
+      itemValues: [
         {
-          sName: 0,
-          sColor: aColors[0]
+          name: 0,
+          color: colors[0]
         },
         {
-          sName: this.oScaleColor.domain()[1],
-          sColor: aColors[1]
+          name: this.scaleColor.domain()[1],
+          color: colors[1]
         }
       ],
-      iOffsetX: (this.iInnerWidth / 2) + this.jPadding.l + 10,
-      iOffsetY: this.iHeight - 20,
-      sType: &apos;range&apos;
+      offsetX: (this.innerWidth / 2) + this.padding.l + 10,
+      offsetY: this.height - 20,
+      chartType: &apos;range&apos;
     }).render();
   }
 

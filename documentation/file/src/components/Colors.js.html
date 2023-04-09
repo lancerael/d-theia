@@ -172,17 +172,17 @@ export default class Colors {
   *
   * @method getRandomColor
   * @static
-  * @param {String} sBackground the type of background light/dark to filter for contrast
-  * @param {Integer} iBoundary the brightness value to filter
+  * @param {String} contrast the type of background light/dark to filter for contrast
+  * @param {Integer} boundary the brightness value to filter
   * @return {Object} randomly generated RGB object
   */
-  static getRandomColor(sBackground = &apos;light&apos;, iBoundary = 170) {
+  static getRandomColor(contrast = &apos;light&apos;, boundary = 170) {
     const iRGB = () =&gt; Utilities.getRandomInteger(0, 255);
-    let aValues = [];
-    while (!aValues.length || !this.colorFilter(sBackground, iBoundary, aValues)) {
-      aValues = [iRGB(), iRGB(), iRGB()];
+    let itemValues = [];
+    while (!itemValues.length || !this.colorFilter(contrast, boundary, itemValues)) {
+      itemValues = [iRGB(), iRGB(), iRGB()];
     }
-    return rgb(aValues[0], aValues[1], aValues[2]);
+    return rgb(itemValues[0], itemValues[1], itemValues[2]);
   }
 
   /**
@@ -190,26 +190,26 @@ export default class Colors {
   *
   * @method colorFilter
   * @static
-  * @param {String} sBackground the type of background light/dark to filter for contrast
-  * @param {Integer} iBoundary the brightness value to filter
-  * @param {Array} aValues array of RGB values
+  * @param {String} contrast the type of background light/dark to filter for contrast
+  * @param {Integer} boundary the brightness value to filter
+  * @param {Array} itemValues array of RGB values
   * @return {Boolean} specify whether the values pass or fail
   */
-  static colorFilter(sBackground, iBoundary, aValues) {
-    let bPass = false;
-    if (!aValues.length) {
-      bPass = false;
-    } else if (!sBackground) {
-      bPass = true
+  static colorFilter(contrast, boundary, itemValues) {
+    let isPass = false;
+    if (!itemValues.length) {
+      isPass = false;
+    } else if (!contrast) {
+      isPass = true
     } else {
-      const iBrightness = ((aValues[0] * 299) + (aValues[1] * 587) + (aValues[2] * 114)) / 1000;
-      if (sBackground === &apos;light&apos;) {
-        bPass = iBrightness &lt; iBoundary;
-      } else if (sBackground === &apos;dark&apos;) {
-        bPass = iBrightness &gt; iBoundary;
+      const brightness = ((itemValues[0] * 299) + (itemValues[1] * 587) + (itemValues[2] * 114)) / 1000;
+      if (contrast === &apos;light&apos;) {
+        isPass = brightness &lt; boundary;
+      } else if (contrast === &apos;dark&apos;) {
+        isPass = brightness &gt; boundary;
       }
     }
-    return bPass;
+    return isPass;
   }
 
   /**
@@ -217,11 +217,11 @@ export default class Colors {
   *
   * @method convertHexToRgb
   * @static
-  * @param {String} sColor the HEX colour
+  * @param {String} color the HEX colour
   * @return {Object} RGB color object
   */
-  static convertHexToRgb(sColor) {
-    return rgb(sColor);
+  static convertHexToRgb(color) {
+    return rgb(color);
   }
 
   /**
@@ -229,16 +229,16 @@ export default class Colors {
   *
   * @method getRandomPalette
   * @static
-  * @param {Integer} iLength the size of the palette
+  * @param {Integer} length the size of the palette
   * @return {Array} list of randomly generated RGB objects
   */
-  static getRandomPalette(iLength = 10) {
-    let iCount = iLength;
-    const aPalette = [];
-    while (iCount--) {
-      aPalette.push(this.getRandomColor());
+  static getRandomPalette(length = 10) {
+    let count = length;
+    const palette = [];
+    while (count--) {
+      palette.push(this.getRandomColor());
     }
-    return aPalette;
+    return palette;
   }
 
   /**
@@ -246,11 +246,11 @@ export default class Colors {
   *
   * @method getDarkerColor
   * @static
-  * @param {Object} oColor RGB object
+  * @param {Object} color RGB object
   * @return {Object} darker RGB object
   */
-  static getDarkerColor(oColor) {
-    return oColor.darker(0.5);
+  static getDarkerColor(color) {
+    return color.darker(0.5);
   }
 
 }

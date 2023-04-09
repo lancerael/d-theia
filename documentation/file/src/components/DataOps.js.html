@@ -172,14 +172,14 @@ export default class DataOps {
   *
   * @method sliceSampleData
   * @static
-  * @param {Array} aData the complete data set
-  * @param {Integer} iMaxLength max length of sample
+  * @param {Array} chartData the complete data set
+  * @param {Integer} maxLength max length of sample
   * @return {Array} sliced section of data
   */
-  static sliceSampleData(aData, iMaxLength = 50) {
-    const iStart = Utilities.getRandomInteger(0, aData.length - iMaxLength);
-    const iEnd = iStart + Utilities.getRandomInteger(3, iMaxLength);
-    return aData.slice(iStart, iEnd);
+  static sliceSampleData(chartData, maxLength = 50) {
+    const iStart = Utilities.getRandomInteger(0, chartData.length - maxLength);
+    const iEnd = iStart + Utilities.getRandomInteger(3, maxLength);
+    return chartData.slice(iStart, iEnd);
   }
 
   /**
@@ -190,41 +190,41 @@ export default class DataOps {
   * @return {JSON} JSON style data structure
   */
   static getRandomData() {
-    const iLength = Utilities.getRandomInteger(3, 10);
-    const iGroupSize = Utilities.getRandomInteger(1, 4);
-    const iRangeLow = Utilities.getRandomInteger(1, 50);
-    const iRangeHigh = Utilities.getRandomInteger(iRangeLow, 200);
-    const jChart = {};
-    jChart.jConfig = {
-      sTitle: &apos;Random Chart Data&apos;,
-      aAxisLabels: [&apos;Y Axis&apos;, &apos;X Axis&apos;],
-      aValues: (() =&gt; {
-        const aValues = [];
-        let iCounter = iGroupSize;
-        while (iCounter--) {
-          aValues.push({ sName: `Type ${iGroupSize - iCounter}` });
+    const length = Utilities.getRandomInteger(3, 10);
+    const groupSize = Utilities.getRandomInteger(1, 4);
+    const rangeLow = Utilities.getRandomInteger(1, 50);
+    const rangeHigh = Utilities.getRandomInteger(rangeLow, 200);
+    const chartParams = {};
+    chartParams.chartConfig = {
+      title: &apos;Random Chart Data&apos;,
+      axisLabels: [&apos;Y Axis&apos;, &apos;X Axis&apos;],
+      itemValues: (() =&gt; {
+        const itemValues = [];
+        let counter = groupSize;
+        while (counter--) {
+          itemValues.push({ name: `Type ${groupSize - counter}` });
         }
-        return aValues;
+        return itemValues;
       })(),
-      bTrim: true
+      doTrim: true
     };
-    jChart.jConfig.aValues = DataOps.addColoursToConfig(jChart.jConfig.aValues, false);
-    jChart.aData = [];
-    let iCounter = iLength;
-    while (iCounter--) {
-      jChart.aData.push({
-        sLabel: `Item ${iLength - iCounter}`,
-        aValues: (() =&gt; {
-          const aValues = [];
-          let iSubCounter = iGroupSize;
-          while (iSubCounter--) {
-            aValues.push(Utilities.getRandomInteger(iRangeLow, iRangeHigh));
+    chartParams.chartConfig.itemValues = DataOps.addColoursToConfig(chartParams.chartConfig.itemValues, false);
+    chartParams.chartData = [];
+    let counter = length;
+    while (counter--) {
+      chartParams.chartData.push({
+        itemLabel: `Item ${length - counter}`,
+        itemValues: (() =&gt; {
+          const itemValues = [];
+          let subCounter = groupSize;
+          while (subCounter--) {
+            itemValues.push(Utilities.getRandomInteger(rangeLow, rangeHigh));
           }
-          return aValues;
+          return itemValues;
         })()
       });
     }
-    return jChart;
+    return chartParams;
   }
 
   /**
@@ -232,24 +232,24 @@ export default class DataOps {
   *
   * @method transformDataKeys
   * @static
-  * @param {JSON} jConfig the JSON style config object
-  * @param {Array} aData the chart data to be transformed
+  * @param {JSON} chartConfig the JSON style config object
+  * @param {Array} chartData the chart data to be transformed
   */
-  static transformDataKeys(jConfig, aData) {
-    return aData.map((hItem) =&gt; {
-      if (jConfig.aValues &amp;&amp; !hItem.aValues) {
-        hItem.aValues = jConfig.aValues.map(jValue =&gt; parseInt(hItem[jValue.sKey]));
+  static transformDataKeys(chartConfig, chartData) {
+    return chartData.map((item) =&gt; {
+      if (chartConfig.itemValues &amp;&amp; !item.itemValues) {
+        item.itemValues = chartConfig.itemValues.map(value =&gt; parseInt(item[value.key]));
       }
-      if (hItem.aValues) {
-        hItem.aValues = hItem.aValues.map((iValue) =&gt; {
-          const iSanitisedValue = parseInt(iValue);
-          return isNaN(iSanitisedValue) ? 0 : iSanitisedValue;
+      if (item.itemValues) {
+        item.itemValues = item.itemValues.map((value) =&gt; {
+          const sanitisedValue = parseInt(value);
+          return isNaN(sanitisedValue) ? 0 : sanitisedValue;
         });
       }
-      if (jConfig.aAxisKeys &amp;&amp; !hItem.sLabel) {
-        hItem.sLabel = hItem[jConfig.aAxisKeys[0]];
+      if (chartConfig.axisKeys &amp;&amp; !item.itemLabel) {
+        item.itemLabel = item[chartConfig.axisKeys[0]];
       }
-      return hItem;
+      return item;
     });
   }
 
@@ -258,19 +258,19 @@ export default class DataOps {
   *
   * @method addColoursToConfig
   * @static
-  * @param {Array} aValues the config values needing colours
+  * @param {Array} itemValues the config values needing colours
   * @param {Boolean} bAddRgb add RGB object or not?
-  * @return {Array} A modified version of aValues containing colours
+  * @return {Array} A modified version of itemValues containing colours
   */
-  static addColoursToConfig(aValues, bAddRgb = true) {
-    return aValues.map((jValue) =&gt; {
-      if (!jValue.sColor) {
-        jValue.sColor = Colors.getRandomColor().hex();
+  static addColoursToConfig(itemValues, bAddRgb = true) {
+    return itemValues.map((value) =&gt; {
+      if (!value.color) {
+        value.color = Colors.getRandomColor().hex();
       }
       if (bAddRgb) {
-        jValue.oColor = Colors.convertHexToRgb(jValue.sColor);
+        value.color = Colors.convertHexToRgb(value.color);
       }
-      return jValue;
+      return value;
     });
   }
 

@@ -2,21 +2,21 @@ import { select } from 'd3-selection'
 import Key from './'
 
 describe('Key', () => {
-  let oKey: any
+  let key: any
 
   beforeEach(() => {
     const dDiv = document.createElement('div')
-    oKey = new Key({
+    key = new Key({
       d3Container: select(dDiv).append('g'),
-      aValues: [
+      itemValues: [
         {
-          sKey: 'k1',
-          sName: 'K1',
+          key: 'k1',
+          name: 'K1',
           sColour: 'red',
         },
         {
-          sKey: 'k2',
-          sName: 'K2',
+          key: 'k2',
+          name: 'K2',
           sColour: 'blue',
         },
       ],
@@ -24,7 +24,7 @@ describe('Key', () => {
   })
 
   it('should render the key', () => {
-    oKey.render()
-    expect(oKey.d3Container.selectAll('text.label').size()).toBe(2)
+    key.render()
+    expect(key.d3Container.selectAll('text.label').size()).toBe(2)
   })
 })

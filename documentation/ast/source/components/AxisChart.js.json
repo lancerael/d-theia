@@ -743,7 +743,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The d3 object for the chart's axis\r\n  *\r\n  * @property d3AxisGroup\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * The d3 object for the chart's axis\r\n  *\r\n  * @property axisGroup\r\n  * @type {Object}\r\n  ",
                     "start": 541,
                     "end": 642,
                     "loc": {
@@ -788,16 +788,16 @@
                       "line": 31,
                       "column": 13
                     },
-                    "identifierName": "d3AxisGroup"
+                    "identifierName": "axisGroup"
                   },
-                  "name": "d3AxisGroup",
+                  "name": "axisGroup",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The d3 object for the chart's axis\r\n  *\r\n  * @property d3AxisGroup\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * The d3 object for the chart's axis\r\n  *\r\n  * @property axisGroup\r\n  * @type {Object}\r\n  ",
                     "start": 541,
                     "end": 642,
                     "loc": {
@@ -815,7 +815,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The chart's axis object\r\n  *\r\n  * @property oAxis\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * The chart's axis object\r\n  *\r\n  * @property axis\r\n  * @type {Object}\r\n  ",
                     "start": 664,
                     "end": 748,
                     "loc": {
@@ -860,16 +860,16 @@
                       "line": 39,
                       "column": 7
                     },
-                    "identifierName": "oAxis"
+                    "identifierName": "axis"
                   },
-                  "name": "oAxis",
+                  "name": "axis",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The chart's axis object\r\n  *\r\n  * @property oAxis\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * The chart's axis object\r\n  *\r\n  * @property axis\r\n  * @type {Object}\r\n  ",
                     "start": 664,
                     "end": 748,
                     "loc": {
@@ -887,7 +887,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The chart's key object\r\n  *\r\n  * @property oKey\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * The chart's key object\r\n  *\r\n  * @property key\r\n  * @type {Object}\r\n  ",
                     "start": 764,
                     "end": 846,
                     "loc": {
@@ -932,16 +932,16 @@
                       "line": 47,
                       "column": 6
                     },
-                    "identifierName": "oKey"
+                    "identifierName": "key"
                   },
-                  "name": "oKey",
+                  "name": "key",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The chart's key object\r\n  *\r\n  * @property oKey\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * The chart's key object\r\n  *\r\n  * @property key\r\n  * @type {Object}\r\n  ",
                     "start": 764,
                     "end": 846,
                     "loc": {
@@ -959,7 +959,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Constructor function supersedes parent class.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} oParams same as Chart\r\n  ",
+                    "value": "*\r\n  * Constructor function supersedes parent class.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartParams same as Chart\r\n  ",
                     "start": 861,
                     "end": 994,
                     "loc": {
@@ -1042,9 +1042,9 @@
                           "line": 55,
                           "column": 21
                         },
-                        "identifierName": "oParams"
+                        "identifierName": "chartParams"
                       },
-                      "name": "oParams"
+                      "name": "chartParams"
                     },
                     "right": {
                       "type": "ObjectExpression",
@@ -1136,9 +1136,9 @@
                                 "line": 56,
                                 "column": 17
                               },
-                              "identifierName": "oParams"
+                              "identifierName": "chartParams"
                             },
-                            "name": "oParams"
+                            "name": "chartParams"
                           }
                         ]
                       }
@@ -1214,9 +1214,9 @@
                                 "line": 57,
                                 "column": 17
                               },
-                              "identifierName": "jPadding"
+                              "identifierName": "padding"
                             },
-                            "name": "jPadding"
+                            "name": "padding"
                           },
                           "computed": false
                         },
@@ -1530,9 +1530,9 @@
                                 "line": 58,
                                 "column": 16
                               },
-                              "identifierName": "oScaleY"
+                              "identifierName": "scaleY"
                             },
-                            "name": "oScaleY"
+                            "name": "scaleY"
                           },
                           "computed": false
                         },
@@ -1642,9 +1642,9 @@
                                 "line": 59,
                                 "column": 16
                               },
-                              "identifierName": "oScaleX"
+                              "identifierName": "scaleX"
                             },
-                            "name": "oScaleX"
+                            "name": "scaleX"
                           },
                           "computed": false
                         },
@@ -1760,7 +1760,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Constructor function supersedes parent class.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} oParams same as Chart\r\n  ",
+                    "value": "*\r\n  * Constructor function supersedes parent class.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartParams same as Chart\r\n  ",
                     "start": 861,
                     "end": 994,
                     "loc": {
@@ -1970,9 +1970,9 @@
                                 "line": 69,
                                 "column": 15
                               },
-                              "identifierName": "bTrim"
+                              "identifierName": "doTrim"
                             },
-                            "name": "bTrim"
+                            "name": "doTrim"
                           },
                           "init": {
                             "type": "MemberExpression",
@@ -2030,9 +2030,9 @@
                                     "line": 69,
                                     "column": 30
                                   },
-                                  "identifierName": "jConfig"
+                                  "identifierName": "chartConfig"
                                 },
-                                "name": "jConfig"
+                                "name": "chartConfig"
                               },
                               "computed": false
                             },
@@ -2049,9 +2049,9 @@
                                   "line": 69,
                                   "column": 36
                                 },
-                                "identifierName": "bTrim"
+                                "identifierName": "doTrim"
                               },
-                              "name": "bTrim"
+                              "name": "doTrim"
                             },
                             "computed": false
                           }
@@ -2101,9 +2101,9 @@
                                 "line": 70,
                                 "column": 17
                               },
-                              "identifierName": "iMinValue"
+                              "identifierName": "minValue"
                             },
-                            "name": "iMinValue"
+                            "name": "minValue"
                           },
                           "init": {
                             "type": "ConditionalExpression",
@@ -2132,9 +2132,9 @@
                                   "line": 70,
                                   "column": 25
                                 },
-                                "identifierName": "bTrim"
+                                "identifierName": "doTrim"
                               },
-                              "name": "bTrim"
+                              "name": "doTrim"
                             },
                             "consequent": {
                               "type": "CallExpression",
@@ -2210,9 +2210,9 @@
                                         "line": 70,
                                         "column": 42
                                       },
-                                      "identifierName": "aData"
+                                      "identifierName": "chartData"
                                     },
-                                    "name": "aData"
+                                    "name": "chartData"
                                   },
                                   "computed": false
                                 },
@@ -2329,9 +2329,9 @@
                                               "line": 70,
                                               "column": 62
                                             },
-                                            "identifierName": "aValues"
+                                            "identifierName": "itemValues"
                                           },
-                                          "name": "aValues"
+                                          "name": "itemValues"
                                         },
                                         "computed": false
                                       }
@@ -2407,9 +2407,9 @@
                                 "line": 71,
                                 "column": 17
                               },
-                              "identifierName": "iMaxValue"
+                              "identifierName": "maxValue"
                             },
-                            "name": "iMaxValue"
+                            "name": "maxValue"
                           },
                           "init": {
                             "type": "CallExpression",
@@ -2485,9 +2485,9 @@
                                       "line": 71,
                                       "column": 34
                                     },
-                                    "identifierName": "aData"
+                                    "identifierName": "chartData"
                                   },
-                                  "name": "aData"
+                                  "name": "chartData"
                                 },
                                 "computed": false
                               },
@@ -2604,9 +2604,9 @@
                                             "line": 71,
                                             "column": 54
                                           },
-                                          "identifierName": "aValues"
+                                          "identifierName": "itemValues"
                                         },
-                                        "name": "aValues"
+                                        "name": "itemValues"
                                       },
                                       "computed": false
                                     }
@@ -2661,9 +2661,9 @@
                                 "line": 72,
                                 "column": 18
                               },
-                              "identifierName": "iSection"
+                              "identifierName": "dataSlice"
                             },
-                            "name": "iSection"
+                            "name": "dataSlice"
                           },
                           "init": {
                             "type": "CallExpression",
@@ -2757,9 +2757,9 @@
                                       "line": 72,
                                       "column": 40
                                     },
-                                    "identifierName": "iMaxValue"
+                                    "identifierName": "maxValue"
                                   },
-                                  "name": "iMaxValue"
+                                  "name": "maxValue"
                                 },
                                 "operator": "/",
                                 "right": {
@@ -2816,9 +2816,9 @@
                             "line": 73,
                             "column": 13
                           },
-                          "identifierName": "bTrim"
+                          "identifierName": "doTrim"
                         },
-                        "name": "bTrim"
+                        "name": "doTrim"
                       },
                       "consequent": {
                         "type": "BlockStatement",
@@ -2922,9 +2922,9 @@
                                           "line": 74,
                                           "column": 37
                                         },
-                                        "identifierName": "iMinValue"
+                                        "identifierName": "minValue"
                                       },
-                                      "name": "iMinValue"
+                                      "name": "minValue"
                                     },
                                     "operator": ">",
                                     "right": {
@@ -2940,9 +2940,9 @@
                                           "line": 74,
                                           "column": 48
                                         },
-                                        "identifierName": "iSection"
+                                        "identifierName": "dataSlice"
                                       },
-                                      "name": "iSection"
+                                      "name": "dataSlice"
                                     }
                                   },
                                   "consequent": {
@@ -2972,9 +2972,9 @@
                                           "line": 74,
                                           "column": 60
                                         },
-                                        "identifierName": "iMinValue"
+                                        "identifierName": "minValue"
                                       },
-                                      "name": "iMinValue"
+                                      "name": "minValue"
                                     },
                                     "operator": "-",
                                     "right": {
@@ -2990,9 +2990,9 @@
                                           "line": 74,
                                           "column": 71
                                         },
-                                        "identifierName": "iSection"
+                                        "identifierName": "dataSlice"
                                       },
-                                      "name": "iSection"
+                                      "name": "dataSlice"
                                     }
                                   },
                                   "alternate": {
@@ -3062,9 +3062,9 @@
                                     "line": 75,
                                     "column": 15
                                   },
-                                  "identifierName": "iMinValue"
+                                  "identifierName": "minValue"
                                 },
-                                "name": "iMinValue"
+                                "name": "minValue"
                               },
                               "right": {
                                 "type": "ConditionalExpression",
@@ -3107,9 +3107,9 @@
                                         "line": 75,
                                         "column": 27
                                       },
-                                      "identifierName": "iMinValue"
+                                      "identifierName": "minValue"
                                     },
-                                    "name": "iMinValue"
+                                    "name": "minValue"
                                   },
                                   "operator": ">",
                                   "right": {
@@ -3163,9 +3163,9 @@
                                       "line": 75,
                                       "column": 59
                                     },
-                                    "identifierName": "iMinValue"
+                                    "identifierName": "minValue"
                                   },
-                                  "name": "iMinValue"
+                                  "name": "minValue"
                                 }
                               }
                             }
@@ -3212,9 +3212,9 @@
                                     "line": 76,
                                     "column": 15
                                   },
-                                  "identifierName": "iMinValue"
+                                  "identifierName": "minValue"
                                 },
-                                "name": "iMinValue"
+                                "name": "minValue"
                               },
                               "right": {
                                 "type": "ConditionalExpression",
@@ -3257,9 +3257,9 @@
                                         "line": 76,
                                         "column": 27
                                       },
-                                      "identifierName": "iMinValue"
+                                      "identifierName": "minValue"
                                     },
-                                    "name": "iMinValue"
+                                    "name": "minValue"
                                   },
                                   "operator": "<",
                                   "right": {
@@ -3310,9 +3310,9 @@
                                         "line": 76,
                                         "column": 43
                                       },
-                                      "identifierName": "iMinValue"
+                                      "identifierName": "minValue"
                                     },
-                                    "name": "iMinValue"
+                                    "name": "minValue"
                                   },
                                   "operator": "-",
                                   "right": {
@@ -3328,9 +3328,9 @@
                                         "line": 76,
                                         "column": 54
                                       },
-                                      "identifierName": "iSection"
+                                      "identifierName": "dataSlice"
                                     },
-                                    "name": "iSection"
+                                    "name": "dataSlice"
                                   }
                                 },
                                 "alternate": {
@@ -3346,9 +3346,9 @@
                                       "line": 76,
                                       "column": 66
                                     },
-                                    "identifierName": "iMinValue"
+                                    "identifierName": "minValue"
                                   },
-                                  "name": "iMinValue"
+                                  "name": "minValue"
                                 }
                               }
                             }
@@ -3395,9 +3395,9 @@
                                     "line": 77,
                                     "column": 15
                                   },
-                                  "identifierName": "iMaxValue"
+                                  "identifierName": "maxValue"
                                 },
-                                "name": "iMaxValue"
+                                "name": "maxValue"
                               },
                               "right": {
                                 "type": "Identifier",
@@ -3412,9 +3412,9 @@
                                     "line": 77,
                                     "column": 27
                                   },
-                                  "identifierName": "iSection"
+                                  "identifierName": "dataSlice"
                                 },
-                                "name": "iSection"
+                                "name": "dataSlice"
                               }
                             }
                           }
@@ -3535,9 +3535,9 @@
                                       "line": 79,
                                       "column": 16
                                     },
-                                    "identifierName": "oScaleX"
+                                    "identifierName": "scaleX"
                                   },
-                                  "name": "oScaleX"
+                                  "name": "scaleX"
                                 },
                                 "computed": false
                               },
@@ -3631,9 +3631,9 @@
                                           "line": 80,
                                           "column": 24
                                         },
-                                        "identifierName": "aData"
+                                        "identifierName": "chartData"
                                       },
-                                      "name": "aData"
+                                      "name": "chartData"
                                     },
                                     "computed": false
                                   },
@@ -3738,9 +3738,9 @@
                                             "line": 80,
                                             "column": 42
                                           },
-                                          "identifierName": "sLabel"
+                                          "identifierName": "itemLabel"
                                         },
-                                        "name": "sLabel"
+                                        "name": "itemLabel"
                                       },
                                       "computed": false
                                     }
@@ -3846,9 +3846,9 @@
                                       "line": 81,
                                       "column": 33
                                     },
-                                    "identifierName": "iInnerWidth"
+                                    "identifierName": "innerWidth"
                                   },
-                                  "name": "iInnerWidth"
+                                  "name": "innerWidth"
                                 },
                                 "computed": false
                               }
@@ -3969,9 +3969,9 @@
                                       "line": 82,
                                       "column": 16
                                     },
-                                    "identifierName": "oScaleY"
+                                    "identifierName": "scaleY"
                                   },
-                                  "name": "oScaleY"
+                                  "name": "scaleY"
                                 },
                                 "computed": false
                               },
@@ -4023,9 +4023,9 @@
                                         "line": 83,
                                         "column": 24
                                       },
-                                      "identifierName": "iMinValue"
+                                      "identifierName": "minValue"
                                     },
-                                    "name": "iMinValue"
+                                    "name": "minValue"
                                   },
                                   {
                                     "type": "Identifier",
@@ -4040,9 +4040,9 @@
                                         "line": 83,
                                         "column": 35
                                       },
-                                      "identifierName": "iMaxValue"
+                                      "identifierName": "maxValue"
                                     },
-                                    "name": "iMaxValue"
+                                    "name": "maxValue"
                                   }
                                 ]
                               }
@@ -4125,9 +4125,9 @@
                                       "line": 84,
                                       "column": 31
                                     },
-                                    "identifierName": "iInnerHeight"
+                                    "identifierName": "innerHeight"
                                   },
-                                  "name": "iInnerHeight"
+                                  "name": "innerHeight"
                                 },
                                 "computed": false
                               },
@@ -4187,9 +4187,9 @@
                                         "line": 84,
                                         "column": 46
                                       },
-                                      "identifierName": "jPadding"
+                                      "identifierName": "padding"
                                     },
-                                    "name": "jPadding"
+                                    "name": "padding"
                                   },
                                   "computed": false
                                 },
@@ -4288,9 +4288,9 @@
                                 "line": 85,
                                 "column": 18
                               },
-                              "identifierName": "iMinValue"
+                              "identifierName": "minValue"
                             },
-                            "name": "iMinValue"
+                            "name": "minValue"
                           },
                           "computed": false
                         },
@@ -4307,9 +4307,9 @@
                               "line": 85,
                               "column": 30
                             },
-                            "identifierName": "iMinValue"
+                            "identifierName": "minValue"
                           },
-                          "name": "iMinValue"
+                          "name": "minValue"
                         }
                       }
                     },
@@ -4384,9 +4384,9 @@
                                 "line": 86,
                                 "column": 18
                               },
-                              "identifierName": "iMaxValue"
+                              "identifierName": "maxValue"
                             },
-                            "name": "iMaxValue"
+                            "name": "maxValue"
                           },
                           "computed": false
                         },
@@ -4403,9 +4403,9 @@
                               "line": 86,
                               "column": 30
                             },
-                            "identifierName": "iMaxValue"
+                            "identifierName": "maxValue"
                           },
-                          "name": "iMaxValue"
+                          "name": "maxValue"
                         }
                       }
                     },
@@ -4480,9 +4480,9 @@
                                 "line": 87,
                                 "column": 17
                               },
-                              "identifierName": "iSection"
+                              "identifierName": "dataSlice"
                             },
-                            "name": "iSection"
+                            "name": "dataSlice"
                           },
                           "computed": false
                         },
@@ -4499,9 +4499,9 @@
                               "line": 87,
                               "column": 28
                             },
-                            "identifierName": "iSection"
+                            "identifierName": "dataSlice"
                           },
-                          "name": "iSection"
+                          "name": "dataSlice"
                         }
                       }
                     }
@@ -4675,9 +4675,9 @@
                                       "line": 96,
                                       "column": 23
                                     },
-                                    "identifierName": "aAxisLabels"
+                                    "identifierName": "axisLabels"
                                   },
-                                  "name": "aAxisLabels"
+                                  "name": "axisLabels"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -4692,9 +4692,9 @@
                                       "line": 96,
                                       "column": 23
                                     },
-                                    "identifierName": "aAxisLabels"
+                                    "identifierName": "axisLabels"
                                   },
-                                  "name": "aAxisLabels"
+                                  "name": "axisLabels"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -4730,9 +4730,9 @@
                                       "line": 96,
                                       "column": 34
                                     },
-                                    "identifierName": "iTruncate"
+                                    "identifierName": "truncateSize"
                                   },
-                                  "name": "iTruncate"
+                                  "name": "truncateSize"
                                 },
                                 "value": {
                                   "type": "AssignmentPattern",
@@ -4761,9 +4761,9 @@
                                         "line": 96,
                                         "column": 34
                                       },
-                                      "identifierName": "iTruncate"
+                                      "identifierName": "truncateSize"
                                     },
-                                    "name": "iTruncate"
+                                    "name": "truncateSize"
                                   },
                                   "right": {
                                     "type": "NumericLiteral",
@@ -4834,9 +4834,9 @@
                                   "line": 96,
                                   "column": 56
                                 },
-                                "identifierName": "jConfig"
+                                "identifierName": "chartConfig"
                               },
-                              "name": "jConfig"
+                              "name": "chartConfig"
                             },
                             "computed": false
                           }
@@ -4918,9 +4918,9 @@
                                       "line": 97,
                                       "column": 23
                                     },
-                                    "identifierName": "iInnerWidth"
+                                    "identifierName": "innerWidth"
                                   },
-                                  "name": "iInnerWidth"
+                                  "name": "innerWidth"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -4935,9 +4935,9 @@
                                       "line": 97,
                                       "column": 23
                                     },
-                                    "identifierName": "iInnerWidth"
+                                    "identifierName": "innerWidth"
                                   },
-                                  "name": "iInnerWidth"
+                                  "name": "innerWidth"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -4973,9 +4973,9 @@
                                       "line": 97,
                                       "column": 37
                                     },
-                                    "identifierName": "iInnerHeight"
+                                    "identifierName": "innerHeight"
                                   },
-                                  "name": "iInnerHeight"
+                                  "name": "innerHeight"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -4990,9 +4990,9 @@
                                       "line": 97,
                                       "column": 37
                                     },
-                                    "identifierName": "iInnerHeight"
+                                    "identifierName": "innerHeight"
                                   },
-                                  "name": "iInnerHeight"
+                                  "name": "innerHeight"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -5028,9 +5028,9 @@
                                       "line": 97,
                                       "column": 46
                                     },
-                                    "identifierName": "oScaleX"
+                                    "identifierName": "scaleX"
                                   },
-                                  "name": "oScaleX"
+                                  "name": "scaleX"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -5045,9 +5045,9 @@
                                       "line": 97,
                                       "column": 46
                                     },
-                                    "identifierName": "oScaleX"
+                                    "identifierName": "scaleX"
                                   },
-                                  "name": "oScaleX"
+                                  "name": "scaleX"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -5083,9 +5083,9 @@
                                       "line": 97,
                                       "column": 55
                                     },
-                                    "identifierName": "oScaleY"
+                                    "identifierName": "scaleY"
                                   },
-                                  "name": "oScaleY"
+                                  "name": "scaleY"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -5100,9 +5100,9 @@
                                       "line": 97,
                                       "column": 55
                                     },
-                                    "identifierName": "oScaleY"
+                                    "identifierName": "scaleY"
                                   },
-                                  "name": "oScaleY"
+                                  "name": "scaleY"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -5138,9 +5138,9 @@
                                       "line": 97,
                                       "column": 65
                                     },
-                                    "identifierName": "jPadding"
+                                    "identifierName": "padding"
                                   },
-                                  "name": "jPadding"
+                                  "name": "padding"
                                 },
                                 "value": {
                                   "type": "Identifier",
@@ -5155,9 +5155,9 @@
                                       "line": 97,
                                       "column": 65
                                     },
-                                    "identifierName": "jPadding"
+                                    "identifierName": "padding"
                                   },
-                                  "name": "jPadding"
+                                  "name": "padding"
                                 },
                                 "extra": {
                                   "shorthand": true
@@ -5274,9 +5274,9 @@
                                 "line": 100,
                                 "column": 20
                               },
-                              "identifierName": "d3AxisGroup"
+                              "identifierName": "axisGroup"
                             },
-                            "name": "d3AxisGroup"
+                            "name": "axisGroup"
                           },
                           "computed": false,
                           "leadingComments": null
@@ -5337,9 +5337,9 @@
                                   "line": 100,
                                   "column": 39
                                 },
-                                "identifierName": "d3AxisGroup"
+                                "identifierName": "axisGroup"
                               },
-                              "name": "d3AxisGroup"
+                              "name": "axisGroup"
                             },
                             "computed": false
                           },
@@ -5645,9 +5645,9 @@
                                 "line": 101,
                                 "column": 14
                               },
-                              "identifierName": "oAxis"
+                              "identifierName": "axis"
                             },
-                            "name": "oAxis"
+                            "name": "axis"
                           },
                           "computed": false
                         },
@@ -5802,9 +5802,9 @@
                                               "line": 102,
                                               "column": 35
                                             },
-                                            "identifierName": "d3AxisGroup"
+                                            "identifierName": "axisGroup"
                                           },
-                                          "name": "d3AxisGroup"
+                                          "name": "axisGroup"
                                         },
                                         "computed": false
                                       }
@@ -5839,9 +5839,9 @@
                                             "line": 103,
                                             "column": 15
                                           },
-                                          "identifierName": "iTruncate"
+                                          "identifierName": "truncateSize"
                                         },
-                                        "name": "iTruncate"
+                                        "name": "truncateSize"
                                       },
                                       "value": {
                                         "type": "Identifier",
@@ -5856,9 +5856,9 @@
                                             "line": 103,
                                             "column": 15
                                           },
-                                          "identifierName": "iTruncate"
+                                          "identifierName": "truncateSize"
                                         },
-                                        "name": "iTruncate"
+                                        "name": "truncateSize"
                                       },
                                       "extra": {
                                         "shorthand": true
@@ -5894,9 +5894,9 @@
                                             "line": 104,
                                             "column": 17
                                           },
-                                          "identifierName": "aAxisLabels"
+                                          "identifierName": "axisLabels"
                                         },
-                                        "name": "aAxisLabels"
+                                        "name": "axisLabels"
                                       },
                                       "value": {
                                         "type": "Identifier",
@@ -5911,9 +5911,9 @@
                                             "line": 104,
                                             "column": 17
                                           },
-                                          "identifierName": "aAxisLabels"
+                                          "identifierName": "axisLabels"
                                         },
-                                        "name": "aAxisLabels"
+                                        "name": "axisLabels"
                                       },
                                       "extra": {
                                         "shorthand": true
@@ -5949,9 +5949,9 @@
                                             "line": 105,
                                             "column": 13
                                           },
-                                          "identifierName": "oScaleX"
+                                          "identifierName": "scaleX"
                                         },
-                                        "name": "oScaleX"
+                                        "name": "scaleX"
                                       },
                                       "value": {
                                         "type": "Identifier",
@@ -5966,9 +5966,9 @@
                                             "line": 105,
                                             "column": 13
                                           },
-                                          "identifierName": "oScaleX"
+                                          "identifierName": "scaleX"
                                         },
-                                        "name": "oScaleX"
+                                        "name": "scaleX"
                                       },
                                       "extra": {
                                         "shorthand": true
@@ -6004,9 +6004,9 @@
                                             "line": 106,
                                             "column": 13
                                           },
-                                          "identifierName": "oScaleY"
+                                          "identifierName": "scaleY"
                                         },
-                                        "name": "oScaleY"
+                                        "name": "scaleY"
                                       },
                                       "value": {
                                         "type": "Identifier",
@@ -6021,9 +6021,9 @@
                                             "line": 106,
                                             "column": 13
                                           },
-                                          "identifierName": "oScaleY"
+                                          "identifierName": "scaleY"
                                         },
-                                        "name": "oScaleY"
+                                        "name": "scaleY"
                                       },
                                       "extra": {
                                         "shorthand": true
@@ -6059,9 +6059,9 @@
                                             "line": 107,
                                             "column": 14
                                           },
-                                          "identifierName": "jPadding"
+                                          "identifierName": "padding"
                                         },
-                                        "name": "jPadding"
+                                        "name": "padding"
                                       },
                                       "value": {
                                         "type": "Identifier",
@@ -6076,9 +6076,9 @@
                                             "line": 107,
                                             "column": 14
                                           },
-                                          "identifierName": "jPadding"
+                                          "identifierName": "padding"
                                         },
-                                        "name": "jPadding"
+                                        "name": "padding"
                                       },
                                       "extra": {
                                         "shorthand": true
@@ -6114,9 +6114,9 @@
                                             "line": 108,
                                             "column": 12
                                           },
-                                          "identifierName": "iWidth"
+                                          "identifierName": "width"
                                         },
-                                        "name": "iWidth"
+                                        "name": "width"
                                       },
                                       "value": {
                                         "type": "Identifier",
@@ -6131,9 +6131,9 @@
                                             "line": 108,
                                             "column": 25
                                           },
-                                          "identifierName": "iInnerWidth"
+                                          "identifierName": "innerWidth"
                                         },
-                                        "name": "iInnerWidth"
+                                        "name": "innerWidth"
                                       }
                                     },
                                     {
@@ -6166,9 +6166,9 @@
                                             "line": 109,
                                             "column": 13
                                           },
-                                          "identifierName": "iHeight"
+                                          "identifierName": "height"
                                         },
-                                        "name": "iHeight"
+                                        "name": "height"
                                       },
                                       "value": {
                                         "type": "Identifier",
@@ -6183,9 +6183,9 @@
                                             "line": 109,
                                             "column": 27
                                           },
-                                          "identifierName": "iInnerHeight"
+                                          "identifierName": "innerHeight"
                                         },
-                                        "name": "iInnerHeight"
+                                        "name": "innerHeight"
                                       }
                                     },
                                     {
@@ -6218,9 +6218,9 @@
                                             "line": 110,
                                             "column": 14
                                           },
-                                          "identifierName": "oTooltip"
+                                          "identifierName": "tooltip"
                                         },
-                                        "name": "oTooltip"
+                                        "name": "tooltip"
                                       },
                                       "value": {
                                         "type": "MemberExpression",
@@ -6264,9 +6264,9 @@
                                               "line": 110,
                                               "column": 29
                                             },
-                                            "identifierName": "oTooltip"
+                                            "identifierName": "tooltip"
                                           },
-                                          "name": "oTooltip"
+                                          "name": "tooltip"
                                         },
                                         "computed": false
                                       }
@@ -6715,9 +6715,9 @@
                                             "line": 113,
                                             "column": 112
                                           },
-                                          "identifierName": "jPadding"
+                                          "identifierName": "padding"
                                         },
-                                        "name": "jPadding"
+                                        "name": "padding"
                                       },
                                       "computed": false
                                     },
@@ -6898,9 +6898,9 @@
                                 "line": 116,
                                 "column": 13
                               },
-                              "identifierName": "oKey"
+                              "identifierName": "key"
                             },
-                            "name": "oKey"
+                            "name": "key"
                           },
                           "computed": false,
                           "leadingComments": null
@@ -7088,9 +7088,9 @@
                                                   "line": 117,
                                                   "column": 35
                                                 },
-                                                "identifierName": "dSvg"
+                                                "identifierName": "svg"
                                               },
-                                              "name": "dSvg"
+                                              "name": "svg"
                                             },
                                             "computed": false
                                           }
@@ -7127,9 +7127,9 @@
                                             "line": 118,
                                             "column": 13
                                           },
-                                          "identifierName": "aValues"
+                                          "identifierName": "itemValues"
                                         },
-                                        "name": "aValues"
+                                        "name": "itemValues"
                                       },
                                       "value": {
                                         "type": "MemberExpression",
@@ -7187,9 +7187,9 @@
                                                 "line": 118,
                                                 "column": 27
                                               },
-                                              "identifierName": "jConfig"
+                                              "identifierName": "chartConfig"
                                             },
-                                            "name": "jConfig"
+                                            "name": "chartConfig"
                                           },
                                           "computed": false
                                         },
@@ -7206,9 +7206,9 @@
                                               "line": 118,
                                               "column": 35
                                             },
-                                            "identifierName": "aValues"
+                                            "identifierName": "itemValues"
                                           },
-                                          "name": "aValues"
+                                          "name": "itemValues"
                                         },
                                         "computed": false
                                       }
@@ -7243,9 +7243,9 @@
                                             "line": 119,
                                             "column": 14
                                           },
-                                          "identifierName": "iOffsetX"
+                                          "identifierName": "offsetX"
                                         },
-                                        "name": "iOffsetX"
+                                        "name": "offsetX"
                                       },
                                       "value": {
                                         "type": "BinaryExpression",
@@ -7317,9 +7317,9 @@
                                                   "line": 119,
                                                   "column": 33
                                                 },
-                                                "identifierName": "iInnerWidth"
+                                                "identifierName": "innerWidth"
                                               },
-                                              "name": "iInnerWidth"
+                                              "name": "innerWidth"
                                             },
                                             "computed": false
                                           },
@@ -7406,9 +7406,9 @@
                                                   "line": 119,
                                                   "column": 54
                                                 },
-                                                "identifierName": "jPadding"
+                                                "identifierName": "padding"
                                               },
-                                              "name": "jPadding"
+                                              "name": "padding"
                                             },
                                             "computed": false
                                           },
@@ -7463,9 +7463,9 @@
                                             "line": 120,
                                             "column": 14
                                           },
-                                          "identifierName": "iOffsetY"
+                                          "identifierName": "offsetY"
                                         },
-                                        "name": "iOffsetY"
+                                        "name": "offsetY"
                                       },
                                       "value": {
                                         "type": "BinaryExpression",
@@ -7523,9 +7523,9 @@
                                                 "line": 120,
                                                 "column": 28
                                               },
-                                              "identifierName": "iHeight"
+                                              "identifierName": "height"
                                             },
-                                            "name": "iHeight"
+                                            "name": "height"
                                           },
                                           "computed": false
                                         },
@@ -7797,7 +7797,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The d3 object for the chart's axis\r\n  *\r\n  * @property d3AxisGroup\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * The d3 object for the chart's axis\r\n  *\r\n  * @property axisGroup\r\n  * @type {Object}\r\n  ",
       "start": 541,
       "end": 642,
       "loc": {
@@ -7813,7 +7813,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The chart's axis object\r\n  *\r\n  * @property oAxis\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * The chart's axis object\r\n  *\r\n  * @property axis\r\n  * @type {Object}\r\n  ",
       "start": 664,
       "end": 748,
       "loc": {
@@ -7829,7 +7829,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The chart's key object\r\n  *\r\n  * @property oKey\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * The chart's key object\r\n  *\r\n  * @property key\r\n  * @type {Object}\r\n  ",
       "start": 764,
       "end": 846,
       "loc": {
@@ -7845,7 +7845,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Constructor function supersedes parent class.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} oParams same as Chart\r\n  ",
+      "value": "*\r\n  * Constructor function supersedes parent class.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartParams same as Chart\r\n  ",
       "start": 861,
       "end": 994,
       "loc": {
@@ -9268,7 +9268,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The d3 object for the chart's axis\r\n  *\r\n  * @property d3AxisGroup\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * The d3 object for the chart's axis\r\n  *\r\n  * @property axisGroup\r\n  * @type {Object}\r\n  ",
       "start": 541,
       "end": 642,
       "loc": {
@@ -9294,7 +9294,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "d3AxisGroup",
+      "value": "axisGroup",
       "start": 646,
       "end": 657,
       "loc": {
@@ -9336,7 +9336,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The chart's axis object\r\n  *\r\n  * @property oAxis\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * The chart's axis object\r\n  *\r\n  * @property axis\r\n  * @type {Object}\r\n  ",
       "start": 664,
       "end": 748,
       "loc": {
@@ -9362,7 +9362,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oAxis",
+      "value": "axis",
       "start": 752,
       "end": 757,
       "loc": {
@@ -9404,7 +9404,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The chart's key object\r\n  *\r\n  * @property oKey\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * The chart's key object\r\n  *\r\n  * @property key\r\n  * @type {Object}\r\n  ",
       "start": 764,
       "end": 846,
       "loc": {
@@ -9430,7 +9430,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oKey",
+      "value": "key",
       "start": 850,
       "end": 854,
       "loc": {
@@ -9472,7 +9472,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Constructor function supersedes parent class.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} oParams same as Chart\r\n  ",
+      "value": "*\r\n  * Constructor function supersedes parent class.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartParams same as Chart\r\n  ",
       "start": 861,
       "end": 994,
       "loc": {
@@ -9549,7 +9549,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 1010,
       "end": 1017,
       "loc": {
@@ -9755,7 +9755,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 1037,
       "end": 1044,
       "loc": {
@@ -9886,7 +9886,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 1057,
       "end": 1065,
       "loc": {
@@ -10463,7 +10463,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleY",
+      "value": "scaleY",
       "start": 1110,
       "end": 1117,
       "loc": {
@@ -10672,7 +10672,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 1145,
       "end": 1152,
       "loc": {
@@ -11282,7 +11282,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bTrim",
+      "value": "doTrim",
       "start": 1358,
       "end": 1363,
       "loc": {
@@ -11389,7 +11389,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 1371,
       "end": 1378,
       "loc": {
@@ -11441,7 +11441,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bTrim",
+      "value": "doTrim",
       "start": 1379,
       "end": 1384,
       "loc": {
@@ -11521,7 +11521,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 1395,
       "end": 1404,
       "loc": {
@@ -11574,7 +11574,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bTrim",
+      "value": "doTrim",
       "start": 1407,
       "end": 1412,
       "loc": {
@@ -11731,7 +11731,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 1424,
       "end": 1429,
       "loc": {
@@ -11938,7 +11938,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1442,
       "end": 1449,
       "loc": {
@@ -12121,7 +12121,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMaxValue",
+      "value": "maxValue",
       "start": 1466,
       "end": 1475,
       "loc": {
@@ -12279,7 +12279,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 1487,
       "end": 1492,
       "loc": {
@@ -12486,7 +12486,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1505,
       "end": 1512,
       "loc": {
@@ -12616,7 +12616,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iSection",
+      "value": "dataSlice",
       "start": 1527,
       "end": 1535,
       "loc": {
@@ -12772,7 +12772,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMaxValue",
+      "value": "maxValue",
       "start": 1548,
       "end": 1557,
       "loc": {
@@ -12956,7 +12956,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bTrim",
+      "value": "doTrim",
       "start": 1574,
       "end": 1579,
       "loc": {
@@ -13113,7 +13113,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 1612,
       "end": 1621,
       "loc": {
@@ -13166,7 +13166,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iSection",
+      "value": "dataSlice",
       "start": 1624,
       "end": 1632,
       "loc": {
@@ -13218,7 +13218,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 1635,
       "end": 1644,
       "loc": {
@@ -13271,7 +13271,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iSection",
+      "value": "dataSlice",
       "start": 1647,
       "end": 1655,
       "loc": {
@@ -13376,7 +13376,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 1668,
       "end": 1677,
       "loc": {
@@ -13429,7 +13429,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 1680,
       "end": 1689,
       "loc": {
@@ -13587,7 +13587,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 1712,
       "end": 1721,
       "loc": {
@@ -13639,7 +13639,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 1730,
       "end": 1739,
       "loc": {
@@ -13692,7 +13692,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 1742,
       "end": 1751,
       "loc": {
@@ -13798,7 +13798,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 1758,
       "end": 1767,
       "loc": {
@@ -13851,7 +13851,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iSection",
+      "value": "dataSlice",
       "start": 1770,
       "end": 1778,
       "loc": {
@@ -13903,7 +13903,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 1781,
       "end": 1790,
       "loc": {
@@ -13955,7 +13955,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMaxValue",
+      "value": "maxValue",
       "start": 1799,
       "end": 1808,
       "loc": {
@@ -14008,7 +14008,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iSection",
+      "value": "dataSlice",
       "start": 1812,
       "end": 1820,
       "loc": {
@@ -14139,7 +14139,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 1839,
       "end": 1846,
       "loc": {
@@ -14296,7 +14296,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aData",
+      "value": "chartData",
       "start": 1867,
       "end": 1872,
       "loc": {
@@ -14503,7 +14503,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sLabel",
+      "value": "itemLabel",
       "start": 1884,
       "end": 1890,
       "loc": {
@@ -14789,7 +14789,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInnerWidth",
+      "value": "innerWidth",
       "start": 1916,
       "end": 1927,
       "loc": {
@@ -14946,7 +14946,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleY",
+      "value": "scaleY",
       "start": 1941,
       "end": 1948,
       "loc": {
@@ -15075,7 +15075,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 1965,
       "end": 1974,
       "loc": {
@@ -15127,7 +15127,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMaxValue",
+      "value": "maxValue",
       "start": 1976,
       "end": 1985,
       "loc": {
@@ -15361,7 +15361,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInnerHeight",
+      "value": "innerHeight",
       "start": 2008,
       "end": 2020,
       "loc": {
@@ -15467,7 +15467,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 2027,
       "end": 2035,
       "loc": {
@@ -15676,7 +15676,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 2051,
       "end": 2060,
       "loc": {
@@ -15729,7 +15729,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMinValue",
+      "value": "minValue",
       "start": 2063,
       "end": 2072,
       "loc": {
@@ -15835,7 +15835,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMaxValue",
+      "value": "maxValue",
       "start": 2084,
       "end": 2093,
       "loc": {
@@ -15888,7 +15888,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMaxValue",
+      "value": "maxValue",
       "start": 2096,
       "end": 2105,
       "loc": {
@@ -15994,7 +15994,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iSection",
+      "value": "dataSlice",
       "start": 2117,
       "end": 2125,
       "loc": {
@@ -16047,7 +16047,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iSection",
+      "value": "dataSlice",
       "start": 2128,
       "end": 2136,
       "loc": {
@@ -16294,7 +16294,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aAxisLabels",
+      "value": "axisLabels",
       "start": 2268,
       "end": 2279,
       "loc": {
@@ -16346,7 +16346,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iTruncate",
+      "value": "truncateSize",
       "start": 2281,
       "end": 2290,
       "loc": {
@@ -16532,7 +16532,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 2305,
       "end": 2312,
       "loc": {
@@ -16637,7 +16637,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInnerWidth",
+      "value": "innerWidth",
       "start": 2327,
       "end": 2338,
       "loc": {
@@ -16689,7 +16689,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInnerHeight",
+      "value": "innerHeight",
       "start": 2340,
       "end": 2352,
       "loc": {
@@ -16741,7 +16741,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 2354,
       "end": 2361,
       "loc": {
@@ -16793,7 +16793,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleY",
+      "value": "scaleY",
       "start": 2363,
       "end": 2370,
       "loc": {
@@ -16845,7 +16845,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 2372,
       "end": 2380,
       "loc": {
@@ -17047,7 +17047,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "d3AxisGroup",
+      "value": "axisGroup",
       "start": 2432,
       "end": 2443,
       "loc": {
@@ -17154,7 +17154,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "d3AxisGroup",
+      "value": "axisGroup",
       "start": 2451,
       "end": 2462,
       "loc": {
@@ -17678,7 +17678,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oAxis",
+      "value": "axis",
       "start": 2524,
       "end": 2529,
       "loc": {
@@ -17941,7 +17941,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "d3AxisGroup",
+      "value": "axisGroup",
       "start": 2568,
       "end": 2579,
       "loc": {
@@ -17993,7 +17993,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iTruncate",
+      "value": "truncateSize",
       "start": 2588,
       "end": 2597,
       "loc": {
@@ -18045,7 +18045,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aAxisLabels",
+      "value": "axisLabels",
       "start": 2606,
       "end": 2617,
       "loc": {
@@ -18097,7 +18097,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 2626,
       "end": 2633,
       "loc": {
@@ -18149,7 +18149,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleY",
+      "value": "scaleY",
       "start": 2642,
       "end": 2649,
       "loc": {
@@ -18201,7 +18201,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 2658,
       "end": 2666,
       "loc": {
@@ -18253,7 +18253,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iWidth",
+      "value": "width",
       "start": 2675,
       "end": 2681,
       "loc": {
@@ -18305,7 +18305,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInnerWidth",
+      "value": "innerWidth",
       "start": 2683,
       "end": 2694,
       "loc": {
@@ -18357,7 +18357,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iHeight",
+      "value": "height",
       "start": 2703,
       "end": 2710,
       "loc": {
@@ -18409,7 +18409,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInnerHeight",
+      "value": "innerHeight",
       "start": 2712,
       "end": 2724,
       "loc": {
@@ -18461,7 +18461,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltip",
+      "value": "tooltip",
       "start": 2733,
       "end": 2741,
       "loc": {
@@ -18567,7 +18567,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltip",
+      "value": "tooltip",
       "start": 2748,
       "end": 2756,
       "loc": {
@@ -19471,7 +19471,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 2911,
       "end": 2919,
       "loc": {
@@ -19747,7 +19747,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oKey",
+      "value": "key",
       "start": 2978,
       "end": 2982,
       "loc": {
@@ -20061,7 +20061,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dSvg",
+      "value": "svg",
       "start": 3027,
       "end": 3031,
       "loc": {
@@ -20138,7 +20138,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 3041,
       "end": 3048,
       "loc": {
@@ -20244,7 +20244,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jConfig",
+      "value": "chartConfig",
       "start": 3055,
       "end": 3062,
       "loc": {
@@ -20296,7 +20296,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 3063,
       "end": 3070,
       "loc": {
@@ -20348,7 +20348,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOffsetX",
+      "value": "offsetX",
       "start": 3079,
       "end": 3087,
       "loc": {
@@ -20479,7 +20479,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iInnerWidth",
+      "value": "innerWidth",
       "start": 3095,
       "end": 3106,
       "loc": {
@@ -20665,7 +20665,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 3119,
       "end": 3127,
       "loc": {
@@ -20769,7 +20769,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iOffsetY",
+      "value": "offsetY",
       "start": 3138,
       "end": 3146,
       "loc": {
@@ -20875,7 +20875,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iHeight",
+      "value": "height",
       "start": 3153,
       "end": 3160,
       "loc": {

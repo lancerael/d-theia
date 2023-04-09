@@ -329,9 +329,9 @@
                           "line": 21,
                           "column": 35
                         },
-                        "identifierName": "sBackground"
+                        "identifierName": "contrast"
                       },
-                      "name": "sBackground"
+                      "name": "contrast"
                     },
                     "right": {
                       "type": "StringLiteral",
@@ -381,9 +381,9 @@
                           "line": 21,
                           "column": 56
                         },
-                        "identifierName": "iBoundary"
+                        "identifierName": "boundary"
                       },
-                      "name": "iBoundary"
+                      "name": "boundary"
                     },
                     "right": {
                       "type": "NumericLiteral",
@@ -641,9 +641,9 @@
                                 "line": 23,
                                 "column": 15
                               },
-                              "identifierName": "aValues"
+                              "identifierName": "itemValues"
                             },
-                            "name": "aValues"
+                            "name": "itemValues"
                           },
                           "init": {
                             "type": "ArrayExpression",
@@ -736,9 +736,9 @@
                                   "line": 24,
                                   "column": 19
                                 },
-                                "identifierName": "aValues"
+                                "identifierName": "itemValues"
                               },
-                              "name": "aValues"
+                              "name": "itemValues"
                             },
                             "property": {
                               "type": "Identifier",
@@ -856,9 +856,9 @@
                                     "line": 24,
                                     "column": 59
                                   },
-                                  "identifierName": "sBackground"
+                                  "identifierName": "contrast"
                                 },
-                                "name": "sBackground"
+                                "name": "contrast"
                               },
                               {
                                 "type": "Identifier",
@@ -873,9 +873,9 @@
                                     "line": 24,
                                     "column": 70
                                   },
-                                  "identifierName": "iBoundary"
+                                  "identifierName": "boundary"
                                 },
-                                "name": "iBoundary"
+                                "name": "boundary"
                               },
                               {
                                 "type": "Identifier",
@@ -890,9 +890,9 @@
                                     "line": 24,
                                     "column": 79
                                   },
-                                  "identifierName": "aValues"
+                                  "identifierName": "itemValues"
                                 },
-                                "name": "aValues"
+                                "name": "itemValues"
                               }
                             ]
                           },
@@ -958,9 +958,9 @@
                                     "line": 25,
                                     "column": 13
                                   },
-                                  "identifierName": "aValues"
+                                  "identifierName": "itemValues"
                                 },
-                                "name": "aValues"
+                                "name": "itemValues"
                               },
                               "right": {
                                 "type": "ArrayExpression",
@@ -1157,9 +1157,9 @@
                                   "line": 27,
                                   "column": 22
                                 },
-                                "identifierName": "aValues"
+                                "identifierName": "itemValues"
                               },
-                              "name": "aValues"
+                              "name": "itemValues"
                             },
                             "property": {
                               "type": "NumericLiteral",
@@ -1210,9 +1210,9 @@
                                   "line": 27,
                                   "column": 34
                                 },
-                                "identifierName": "aValues"
+                                "identifierName": "itemValues"
                               },
-                              "name": "aValues"
+                              "name": "itemValues"
                             },
                             "property": {
                               "type": "NumericLiteral",
@@ -1263,9 +1263,9 @@
                                   "line": 27,
                                   "column": 46
                                 },
-                                "identifierName": "aValues"
+                                "identifierName": "itemValues"
                               },
-                              "name": "aValues"
+                              "name": "itemValues"
                             },
                             "property": {
                               "type": "NumericLiteral",
@@ -1299,7 +1299,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Returns a random color (D3 object)\r\n  *\r\n  * @method getRandomColor\r\n  * @static\r\n  * @param {String} sBackground the type of background light/dark to filter for contrast\r\n  * @param {Integer} iBoundary the brightness value to filter\r\n  * @return {Object} randomly generated RGB object\r\n  ",
+                    "value": "*\r\n  * Returns a random color (D3 object)\r\n  *\r\n  * @method getRandomColor\r\n  * @static\r\n  * @param {String} contrast the type of background light/dark to filter for contrast\r\n  * @param {Integer} boundary the brightness value to filter\r\n  * @return {Object} randomly generated RGB object\r\n  ",
                     "start": 218,
                     "end": 518,
                     "loc": {
@@ -1317,7 +1317,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Used to filter random colour values and ensure high contrast against background\r\n  *\r\n  * @method colorFilter\r\n  * @static\r\n  * @param {String} sBackground the type of background light/dark to filter for contrast\r\n  * @param {Integer} iBoundary the brightness value to filter\r\n  * @param {Array} aValues array of RGB values\r\n  * @return {Boolean} specify whether the values pass or fail\r\n  ",
+                    "value": "*\r\n  * Used to filter random colour values and ensure high contrast against background\r\n  *\r\n  * @method colorFilter\r\n  * @static\r\n  * @param {String} contrast the type of background light/dark to filter for contrast\r\n  * @param {Integer} boundary the brightness value to filter\r\n  * @param {Array} itemValues array of RGB values\r\n  * @return {Boolean} specify whether the values pass or fail\r\n  ",
                     "start": 867,
                     "end": 1268,
                     "loc": {
@@ -1385,9 +1385,9 @@
                         "line": 40,
                         "column": 32
                       },
-                      "identifierName": "sBackground"
+                      "identifierName": "contrast"
                     },
-                    "name": "sBackground"
+                    "name": "contrast"
                   },
                   {
                     "type": "Identifier",
@@ -1402,9 +1402,9 @@
                         "line": 40,
                         "column": 43
                       },
-                      "identifierName": "iBoundary"
+                      "identifierName": "boundary"
                     },
-                    "name": "iBoundary"
+                    "name": "boundary"
                   },
                   {
                     "type": "Identifier",
@@ -1419,9 +1419,9 @@
                         "line": 40,
                         "column": 52
                       },
-                      "identifierName": "aValues"
+                      "identifierName": "itemValues"
                     },
-                    "name": "aValues"
+                    "name": "itemValues"
                   }
                 ],
                 "body": {
@@ -1481,9 +1481,9 @@
                                 "line": 41,
                                 "column": 13
                               },
-                              "identifierName": "bPass"
+                              "identifierName": "isPass"
                             },
-                            "name": "bPass"
+                            "name": "isPass"
                           },
                           "init": {
                             "type": "BooleanLiteral",
@@ -1562,9 +1562,9 @@
                                 "line": 42,
                                 "column": 16
                               },
-                              "identifierName": "aValues"
+                              "identifierName": "itemValues"
                             },
-                            "name": "aValues"
+                            "name": "itemValues"
                           },
                           "property": {
                             "type": "Identifier",
@@ -1646,9 +1646,9 @@
                                     "line": 43,
                                     "column": 11
                                   },
-                                  "identifierName": "bPass"
+                                  "identifierName": "isPass"
                                 },
-                                "name": "bPass"
+                                "name": "isPass"
                               },
                               "right": {
                                 "type": "BooleanLiteral",
@@ -1714,9 +1714,9 @@
                                 "line": 44,
                                 "column": 27
                               },
-                              "identifierName": "sBackground"
+                              "identifierName": "contrast"
                             },
-                            "name": "sBackground"
+                            "name": "contrast"
                           },
                           "extra": {
                             "parenthesizedArgument": false
@@ -1779,9 +1779,9 @@
                                       "line": 45,
                                       "column": 11
                                     },
-                                    "identifierName": "bPass"
+                                    "identifierName": "isPass"
                                   },
-                                  "name": "bPass"
+                                  "name": "isPass"
                                 },
                                 "right": {
                                   "type": "BooleanLiteral",
@@ -1861,9 +1861,9 @@
                                         "line": 47,
                                         "column": 23
                                       },
-                                      "identifierName": "iBrightness"
+                                      "identifierName": "brightness"
                                     },
-                                    "name": "iBrightness"
+                                    "name": "brightness"
                                   },
                                   "init": {
                                     "type": "BinaryExpression",
@@ -1948,9 +1948,9 @@
                                                   "line": 47,
                                                   "column": 35
                                                 },
-                                                "identifierName": "aValues"
+                                                "identifierName": "itemValues"
                                               },
-                                              "name": "aValues"
+                                              "name": "itemValues"
                                             },
                                             "property": {
                                               "type": "NumericLiteral",
@@ -2042,9 +2042,9 @@
                                                   "line": 47,
                                                   "column": 56
                                                 },
-                                                "identifierName": "aValues"
+                                                "identifierName": "itemValues"
                                               },
-                                              "name": "aValues"
+                                              "name": "itemValues"
                                             },
                                             "property": {
                                               "type": "NumericLiteral",
@@ -2137,9 +2137,9 @@
                                                 "line": 47,
                                                 "column": 77
                                               },
-                                              "identifierName": "aValues"
+                                              "identifierName": "itemValues"
                                             },
-                                            "name": "aValues"
+                                            "name": "itemValues"
                                           },
                                           "property": {
                                             "type": "NumericLiteral",
@@ -2261,9 +2261,9 @@
                                       "line": 48,
                                       "column": 21
                                     },
-                                    "identifierName": "sBackground"
+                                    "identifierName": "contrast"
                                   },
-                                  "name": "sBackground"
+                                  "name": "contrast"
                                 },
                                 "operator": "===",
                                 "right": {
@@ -2344,9 +2344,9 @@
                                             "line": 49,
                                             "column": 13
                                           },
-                                          "identifierName": "bPass"
+                                          "identifierName": "isPass"
                                         },
-                                        "name": "bPass"
+                                        "name": "isPass"
                                       },
                                       "right": {
                                         "type": "BinaryExpression",
@@ -2375,9 +2375,9 @@
                                               "line": 49,
                                               "column": 27
                                             },
-                                            "identifierName": "iBrightness"
+                                            "identifierName": "brightness"
                                           },
-                                          "name": "iBrightness"
+                                          "name": "brightness"
                                         },
                                         "operator": "<",
                                         "right": {
@@ -2393,9 +2393,9 @@
                                               "line": 49,
                                               "column": 39
                                             },
-                                            "identifierName": "iBoundary"
+                                            "identifierName": "boundary"
                                           },
-                                          "name": "iBoundary"
+                                          "name": "boundary"
                                         }
                                       }
                                     }
@@ -2444,9 +2444,9 @@
                                         "line": 50,
                                         "column": 28
                                       },
-                                      "identifierName": "sBackground"
+                                      "identifierName": "contrast"
                                     },
-                                    "name": "sBackground"
+                                    "name": "contrast"
                                   },
                                   "operator": "===",
                                   "right": {
@@ -2527,9 +2527,9 @@
                                               "line": 51,
                                               "column": 13
                                             },
-                                            "identifierName": "bPass"
+                                            "identifierName": "isPass"
                                           },
-                                          "name": "bPass"
+                                          "name": "isPass"
                                         },
                                         "right": {
                                           "type": "BinaryExpression",
@@ -2558,9 +2558,9 @@
                                                 "line": 51,
                                                 "column": 27
                                               },
-                                              "identifierName": "iBrightness"
+                                              "identifierName": "brightness"
                                             },
-                                            "name": "iBrightness"
+                                            "name": "brightness"
                                           },
                                           "operator": ">",
                                           "right": {
@@ -2576,9 +2576,9 @@
                                                 "line": 51,
                                                 "column": 39
                                               },
-                                              "identifierName": "iBoundary"
+                                              "identifierName": "boundary"
                                             },
-                                            "name": "iBoundary"
+                                            "name": "boundary"
                                           }
                                         }
                                       }
@@ -2621,9 +2621,9 @@
                             "line": 54,
                             "column": 16
                           },
-                          "identifierName": "bPass"
+                          "identifierName": "isPass"
                         },
-                        "name": "bPass"
+                        "name": "isPass"
                       }
                     }
                   ],
@@ -2633,7 +2633,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Used to filter random colour values and ensure high contrast against background\r\n  *\r\n  * @method colorFilter\r\n  * @static\r\n  * @param {String} sBackground the type of background light/dark to filter for contrast\r\n  * @param {Integer} iBoundary the brightness value to filter\r\n  * @param {Array} aValues array of RGB values\r\n  * @return {Boolean} specify whether the values pass or fail\r\n  ",
+                    "value": "*\r\n  * Used to filter random colour values and ensure high contrast against background\r\n  *\r\n  * @method colorFilter\r\n  * @static\r\n  * @param {String} contrast the type of background light/dark to filter for contrast\r\n  * @param {Integer} boundary the brightness value to filter\r\n  * @param {Array} itemValues array of RGB values\r\n  * @return {Boolean} specify whether the values pass or fail\r\n  ",
                     "start": 867,
                     "end": 1268,
                     "loc": {
@@ -2651,7 +2651,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Converts a HEX string to an RGB value\r\n  *\r\n  * @method convertHexToRgb\r\n  * @static\r\n  * @param {String} sColor the HEX colour\r\n  * @return {Object} RGB color object\r\n  ",
+                    "value": "*\r\n  * Converts a HEX string to an RGB value\r\n  *\r\n  * @method convertHexToRgb\r\n  * @static\r\n  * @param {String} color the HEX colour\r\n  * @return {Object} RGB color object\r\n  ",
                     "start": 1775,
                     "end": 1956,
                     "loc": {
@@ -2719,9 +2719,9 @@
                         "line": 65,
                         "column": 31
                       },
-                      "identifierName": "sColor"
+                      "identifierName": "color"
                     },
-                    "name": "sColor"
+                    "name": "color"
                   }
                 ],
                 "body": {
@@ -2798,9 +2798,9 @@
                                 "line": 66,
                                 "column": 21
                               },
-                              "identifierName": "sColor"
+                              "identifierName": "color"
                             },
-                            "name": "sColor"
+                            "name": "color"
                           }
                         ]
                       }
@@ -2812,7 +2812,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Converts a HEX string to an RGB value\r\n  *\r\n  * @method convertHexToRgb\r\n  * @static\r\n  * @param {String} sColor the HEX colour\r\n  * @return {Object} RGB color object\r\n  ",
+                    "value": "*\r\n  * Converts a HEX string to an RGB value\r\n  *\r\n  * @method convertHexToRgb\r\n  * @static\r\n  * @param {String} color the HEX colour\r\n  * @return {Object} RGB color object\r\n  ",
                     "start": 1775,
                     "end": 1956,
                     "loc": {
@@ -2830,7 +2830,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Returns a random color palette\r\n  *\r\n  * @method getRandomPalette\r\n  * @static\r\n  * @param {Integer} iLength the size of the palette\r\n  * @return {Array} list of randomly generated RGB objects\r\n  ",
+                    "value": "*\r\n  * Returns a random color palette\r\n  *\r\n  * @method getRandomPalette\r\n  * @static\r\n  * @param {Integer} length the size of the palette\r\n  * @return {Array} list of randomly generated RGB objects\r\n  ",
                     "start": 2028,
                     "end": 2235,
                     "loc": {
@@ -2912,9 +2912,9 @@
                           "line": 77,
                           "column": 33
                         },
-                        "identifierName": "iLength"
+                        "identifierName": "length"
                       },
-                      "name": "iLength"
+                      "name": "length"
                     },
                     "right": {
                       "type": "NumericLiteral",
@@ -2995,9 +2995,9 @@
                                 "line": 78,
                                 "column": 14
                               },
-                              "identifierName": "iCount"
+                              "identifierName": "count"
                             },
-                            "name": "iCount"
+                            "name": "count"
                           },
                           "init": {
                             "type": "Identifier",
@@ -3012,9 +3012,9 @@
                                 "line": 78,
                                 "column": 24
                               },
-                              "identifierName": "iLength"
+                              "identifierName": "length"
                             },
-                            "name": "iLength"
+                            "name": "length"
                           }
                         }
                       ],
@@ -3062,9 +3062,9 @@
                                 "line": 79,
                                 "column": 18
                               },
-                              "identifierName": "aPalette"
+                              "identifierName": "palette"
                             },
-                            "name": "aPalette"
+                            "name": "palette"
                           },
                           "init": {
                             "type": "ArrayExpression",
@@ -3129,9 +3129,9 @@
                               "line": 80,
                               "column": 17
                             },
-                            "identifierName": "iCount"
+                            "identifierName": "count"
                           },
-                          "name": "iCount"
+                          "name": "count"
                         }
                       },
                       "body": {
@@ -3204,9 +3204,9 @@
                                       "line": 81,
                                       "column": 14
                                     },
-                                    "identifierName": "aPalette"
+                                    "identifierName": "palette"
                                   },
-                                  "name": "aPalette"
+                                  "name": "palette"
                                 },
                                 "property": {
                                   "type": "Identifier",
@@ -3326,9 +3326,9 @@
                             "line": 83,
                             "column": 19
                           },
-                          "identifierName": "aPalette"
+                          "identifierName": "palette"
                         },
-                        "name": "aPalette"
+                        "name": "palette"
                       }
                     }
                   ],
@@ -3338,7 +3338,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Returns a random color palette\r\n  *\r\n  * @method getRandomPalette\r\n  * @static\r\n  * @param {Integer} iLength the size of the palette\r\n  * @return {Array} list of randomly generated RGB objects\r\n  ",
+                    "value": "*\r\n  * Returns a random color palette\r\n  *\r\n  * @method getRandomPalette\r\n  * @static\r\n  * @param {Integer} length the size of the palette\r\n  * @return {Array} list of randomly generated RGB objects\r\n  ",
                     "start": 2028,
                     "end": 2235,
                     "loc": {
@@ -3356,7 +3356,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Returns a darker version of a color\r\n  *\r\n  * @method getDarkerColor\r\n  * @static\r\n  * @param {Object} oColor RGB object\r\n  * @return {Object} darker RGB object\r\n  ",
+                    "value": "*\r\n  * Returns a darker version of a color\r\n  *\r\n  * @method getDarkerColor\r\n  * @static\r\n  * @param {Object} color RGB object\r\n  * @return {Object} darker RGB object\r\n  ",
                     "start": 2440,
                     "end": 2615,
                     "loc": {
@@ -3424,9 +3424,9 @@
                         "line": 94,
                         "column": 30
                       },
-                      "identifierName": "oColor"
+                      "identifierName": "color"
                     },
-                    "name": "oColor"
+                    "name": "color"
                   }
                 ],
                 "body": {
@@ -3499,9 +3499,9 @@
                                 "line": 95,
                                 "column": 17
                               },
-                              "identifierName": "oColor"
+                              "identifierName": "color"
                             },
-                            "name": "oColor"
+                            "name": "color"
                           },
                           "property": {
                             "type": "Identifier",
@@ -3552,7 +3552,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Returns a darker version of a color\r\n  *\r\n  * @method getDarkerColor\r\n  * @static\r\n  * @param {Object} oColor RGB object\r\n  * @return {Object} darker RGB object\r\n  ",
+                    "value": "*\r\n  * Returns a darker version of a color\r\n  *\r\n  * @method getDarkerColor\r\n  * @static\r\n  * @param {Object} color RGB object\r\n  * @return {Object} darker RGB object\r\n  ",
                     "start": 2440,
                     "end": 2615,
                     "loc": {
@@ -3631,7 +3631,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Returns a random color (D3 object)\r\n  *\r\n  * @method getRandomColor\r\n  * @static\r\n  * @param {String} sBackground the type of background light/dark to filter for contrast\r\n  * @param {Integer} iBoundary the brightness value to filter\r\n  * @return {Object} randomly generated RGB object\r\n  ",
+      "value": "*\r\n  * Returns a random color (D3 object)\r\n  *\r\n  * @method getRandomColor\r\n  * @static\r\n  * @param {String} contrast the type of background light/dark to filter for contrast\r\n  * @param {Integer} boundary the brightness value to filter\r\n  * @return {Object} randomly generated RGB object\r\n  ",
       "start": 218,
       "end": 518,
       "loc": {
@@ -3647,7 +3647,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Used to filter random colour values and ensure high contrast against background\r\n  *\r\n  * @method colorFilter\r\n  * @static\r\n  * @param {String} sBackground the type of background light/dark to filter for contrast\r\n  * @param {Integer} iBoundary the brightness value to filter\r\n  * @param {Array} aValues array of RGB values\r\n  * @return {Boolean} specify whether the values pass or fail\r\n  ",
+      "value": "*\r\n  * Used to filter random colour values and ensure high contrast against background\r\n  *\r\n  * @method colorFilter\r\n  * @static\r\n  * @param {String} contrast the type of background light/dark to filter for contrast\r\n  * @param {Integer} boundary the brightness value to filter\r\n  * @param {Array} itemValues array of RGB values\r\n  * @return {Boolean} specify whether the values pass or fail\r\n  ",
       "start": 867,
       "end": 1268,
       "loc": {
@@ -3663,7 +3663,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Converts a HEX string to an RGB value\r\n  *\r\n  * @method convertHexToRgb\r\n  * @static\r\n  * @param {String} sColor the HEX colour\r\n  * @return {Object} RGB color object\r\n  ",
+      "value": "*\r\n  * Converts a HEX string to an RGB value\r\n  *\r\n  * @method convertHexToRgb\r\n  * @static\r\n  * @param {String} color the HEX colour\r\n  * @return {Object} RGB color object\r\n  ",
       "start": 1775,
       "end": 1956,
       "loc": {
@@ -3679,7 +3679,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Returns a random color palette\r\n  *\r\n  * @method getRandomPalette\r\n  * @static\r\n  * @param {Integer} iLength the size of the palette\r\n  * @return {Array} list of randomly generated RGB objects\r\n  ",
+      "value": "*\r\n  * Returns a random color palette\r\n  *\r\n  * @method getRandomPalette\r\n  * @static\r\n  * @param {Integer} length the size of the palette\r\n  * @return {Array} list of randomly generated RGB objects\r\n  ",
       "start": 2028,
       "end": 2235,
       "loc": {
@@ -3695,7 +3695,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Returns a darker version of a color\r\n  *\r\n  * @method getDarkerColor\r\n  * @static\r\n  * @param {Object} oColor RGB object\r\n  * @return {Object} darker RGB object\r\n  ",
+      "value": "*\r\n  * Returns a darker version of a color\r\n  *\r\n  * @method getDarkerColor\r\n  * @static\r\n  * @param {Object} color RGB object\r\n  * @return {Object} darker RGB object\r\n  ",
       "start": 2440,
       "end": 2615,
       "loc": {
@@ -4180,7 +4180,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Returns a random color (D3 object)\r\n  *\r\n  * @method getRandomColor\r\n  * @static\r\n  * @param {String} sBackground the type of background light/dark to filter for contrast\r\n  * @param {Integer} iBoundary the brightness value to filter\r\n  * @return {Object} randomly generated RGB object\r\n  ",
+      "value": "*\r\n  * Returns a random color (D3 object)\r\n  *\r\n  * @method getRandomColor\r\n  * @static\r\n  * @param {String} contrast the type of background light/dark to filter for contrast\r\n  * @param {Integer} boundary the brightness value to filter\r\n  * @return {Object} randomly generated RGB object\r\n  ",
       "start": 218,
       "end": 518,
       "loc": {
@@ -4283,7 +4283,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sBackground",
+      "value": "contrast",
       "start": 544,
       "end": 555,
       "loc": {
@@ -4389,7 +4389,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iBoundary",
+      "value": "boundary",
       "start": 567,
       "end": 576,
       "loc": {
@@ -4938,7 +4938,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 655,
       "end": 662,
       "loc": {
@@ -5149,7 +5149,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 682,
       "end": 689,
       "loc": {
@@ -5386,7 +5386,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sBackground",
+      "value": "contrast",
       "start": 718,
       "end": 729,
       "loc": {
@@ -5438,7 +5438,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iBoundary",
+      "value": "boundary",
       "start": 731,
       "end": 740,
       "loc": {
@@ -5490,7 +5490,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 742,
       "end": 749,
       "loc": {
@@ -5591,7 +5591,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 761,
       "end": 768,
       "loc": {
@@ -6106,7 +6106,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 820,
       "end": 827,
       "loc": {
@@ -6237,7 +6237,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 832,
       "end": 839,
       "loc": {
@@ -6368,7 +6368,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 844,
       "end": 851,
       "loc": {
@@ -6539,7 +6539,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Used to filter random colour values and ensure high contrast against background\r\n  *\r\n  * @method colorFilter\r\n  * @static\r\n  * @param {String} sBackground the type of background light/dark to filter for contrast\r\n  * @param {Integer} iBoundary the brightness value to filter\r\n  * @param {Array} aValues array of RGB values\r\n  * @return {Boolean} specify whether the values pass or fail\r\n  ",
+      "value": "*\r\n  * Used to filter random colour values and ensure high contrast against background\r\n  *\r\n  * @method colorFilter\r\n  * @static\r\n  * @param {String} contrast the type of background light/dark to filter for contrast\r\n  * @param {Integer} boundary the brightness value to filter\r\n  * @param {Array} itemValues array of RGB values\r\n  * @return {Boolean} specify whether the values pass or fail\r\n  ",
       "start": 867,
       "end": 1268,
       "loc": {
@@ -6642,7 +6642,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sBackground",
+      "value": "contrast",
       "start": 1291,
       "end": 1302,
       "loc": {
@@ -6694,7 +6694,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iBoundary",
+      "value": "boundary",
       "start": 1304,
       "end": 1313,
       "loc": {
@@ -6746,7 +6746,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1315,
       "end": 1322,
       "loc": {
@@ -6850,7 +6850,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bPass",
+      "value": "isPass",
       "start": 1335,
       "end": 1340,
       "loc": {
@@ -7037,7 +7037,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1360,
       "end": 1367,
       "loc": {
@@ -7165,7 +7165,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bPass",
+      "value": "isPass",
       "start": 1385,
       "end": 1390,
       "loc": {
@@ -7405,7 +7405,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sBackground",
+      "value": "contrast",
       "start": 1417,
       "end": 1428,
       "loc": {
@@ -7481,7 +7481,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bPass",
+      "value": "isPass",
       "start": 1439,
       "end": 1444,
       "loc": {
@@ -7668,7 +7668,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iBrightness",
+      "value": "brightness",
       "start": 1479,
       "end": 1490,
       "loc": {
@@ -7771,7 +7771,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1495,
       "end": 1502,
       "loc": {
@@ -8007,7 +8007,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1516,
       "end": 1523,
       "loc": {
@@ -8243,7 +8243,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aValues",
+      "value": "itemValues",
       "start": 1537,
       "end": 1544,
       "loc": {
@@ -8585,7 +8585,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sBackground",
+      "value": "contrast",
       "start": 1575,
       "end": 1586,
       "loc": {
@@ -8715,7 +8715,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bPass",
+      "value": "isPass",
       "start": 1611,
       "end": 1616,
       "loc": {
@@ -8768,7 +8768,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iBrightness",
+      "value": "brightness",
       "start": 1619,
       "end": 1630,
       "loc": {
@@ -8821,7 +8821,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iBoundary",
+      "value": "boundary",
       "start": 1633,
       "end": 1642,
       "loc": {
@@ -8979,7 +8979,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sBackground",
+      "value": "contrast",
       "start": 1662,
       "end": 1673,
       "loc": {
@@ -9109,7 +9109,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bPass",
+      "value": "isPass",
       "start": 1697,
       "end": 1702,
       "loc": {
@@ -9162,7 +9162,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iBrightness",
+      "value": "brightness",
       "start": 1705,
       "end": 1716,
       "loc": {
@@ -9215,7 +9215,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iBoundary",
+      "value": "boundary",
       "start": 1719,
       "end": 1728,
       "loc": {
@@ -9345,7 +9345,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "bPass",
+      "value": "isPass",
       "start": 1758,
       "end": 1763,
       "loc": {
@@ -9412,7 +9412,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Converts a HEX string to an RGB value\r\n  *\r\n  * @method convertHexToRgb\r\n  * @static\r\n  * @param {String} sColor the HEX colour\r\n  * @return {Object} RGB color object\r\n  ",
+      "value": "*\r\n  * Converts a HEX string to an RGB value\r\n  *\r\n  * @method convertHexToRgb\r\n  * @static\r\n  * @param {String} color the HEX colour\r\n  * @return {Object} RGB color object\r\n  ",
       "start": 1775,
       "end": 1956,
       "loc": {
@@ -9515,7 +9515,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sColor",
+      "value": "color",
       "start": 1983,
       "end": 1989,
       "loc": {
@@ -9670,7 +9670,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sColor",
+      "value": "color",
       "start": 2009,
       "end": 2015,
       "loc": {
@@ -9762,7 +9762,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Returns a random color palette\r\n  *\r\n  * @method getRandomPalette\r\n  * @static\r\n  * @param {Integer} iLength the size of the palette\r\n  * @return {Array} list of randomly generated RGB objects\r\n  ",
+      "value": "*\r\n  * Returns a random color palette\r\n  *\r\n  * @method getRandomPalette\r\n  * @static\r\n  * @param {Integer} length the size of the palette\r\n  * @return {Array} list of randomly generated RGB objects\r\n  ",
       "start": 2028,
       "end": 2235,
       "loc": {
@@ -9865,7 +9865,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iLength",
+      "value": "length",
       "start": 2263,
       "end": 2270,
       "loc": {
@@ -10023,7 +10023,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iCount",
+      "value": "count",
       "start": 2288,
       "end": 2294,
       "loc": {
@@ -10076,7 +10076,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iLength",
+      "value": "length",
       "start": 2297,
       "end": 2304,
       "loc": {
@@ -10156,7 +10156,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aPalette",
+      "value": "palette",
       "start": 2317,
       "end": 2325,
       "loc": {
@@ -10340,7 +10340,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iCount",
+      "value": "count",
       "start": 2344,
       "end": 2350,
       "loc": {
@@ -10442,7 +10442,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aPalette",
+      "value": "palette",
       "start": 2363,
       "end": 2371,
       "loc": {
@@ -10779,7 +10779,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aPalette",
+      "value": "palette",
       "start": 2420,
       "end": 2428,
       "loc": {
@@ -10846,7 +10846,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Returns a darker version of a color\r\n  *\r\n  * @method getDarkerColor\r\n  * @static\r\n  * @param {Object} oColor RGB object\r\n  * @return {Object} darker RGB object\r\n  ",
+      "value": "*\r\n  * Returns a darker version of a color\r\n  *\r\n  * @method getDarkerColor\r\n  * @static\r\n  * @param {Object} color RGB object\r\n  * @return {Object} darker RGB object\r\n  ",
       "start": 2440,
       "end": 2615,
       "loc": {
@@ -10949,7 +10949,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 2641,
       "end": 2647,
       "loc": {
@@ -11053,7 +11053,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oColor",
+      "value": "color",
       "start": 2663,
       "end": 2669,
       "loc": {

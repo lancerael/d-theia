@@ -186,25 +186,25 @@ export default class Theia {
   *
   * @method chart
   * @static
-  * @param {String} sContainer ID to select container DOM object
-  * @param {String} sType string denoting the type of chart
-  * @param {Object} oParams includes target DOM object, JSON config and array of data
+  * @param {String} containerId ID to select container DOM object
+  * @param {String} chartType string denoting the type of chart
+  * @param {Object} chartParams includes target DOM object, JSON config and array of data
   * @return {Object} oChart returns a chart object of the requested type
   */
-  static chart(sContainer, sType, oParams) {
+  static chart(containerId, chartType, chartParams) {
     let oChart = {};
-    const oAllParams = { sContainer, ...oParams };
-    switch (sType) {
+    const allParams = { containerId, ...chartParams };
+    switch (chartType) {
       case &apos;line&apos;: {
-        oChart = this.createLineChart(oAllParams);
+        oChart = this.createLineChart(allParams);
         break;
       }
       case &apos;bubble&apos;: {
-        oChart = this.createBubbleChart(oAllParams);
+        oChart = this.createBubbleChart(allParams);
         break;
       }
       default: {
-        oChart = this.createBarChart(oAllParams);
+        oChart = this.createBarChart(allParams);
       }
     }
     return oChart;
@@ -215,11 +215,11 @@ export default class Theia {
   *
   * @method createBarChart
   * @static
-  * @param {Object} oParams contains the configuration for the chart
+  * @param {Object} chartParams contains the configuration for the chart
   * @return {Object} returns a bar chart object
   */
-  static createBarChart(oParams) {
-    return new BarChart(oParams).init();
+  static createBarChart(chartParams) {
+    return new BarChart(chartParams).init();
   }
 
   /**
@@ -227,11 +227,11 @@ export default class Theia {
   *
   * @method createLineChart
   * @static
-  * @param {Object} oParams contains the configuration for the chart
+  * @param {Object} chartParams contains the configuration for the chart
   * @return {Object} returns a line chart object
   */
-  static createLineChart(oParams) {
-    return new LineChart(oParams).init();
+  static createLineChart(chartParams) {
+    return new LineChart(chartParams).init();
   }
 
   /**
@@ -239,11 +239,11 @@ export default class Theia {
   *
   * @method createBubbleChart
   * @static
-  * @param {Object} oParams contains the configuration for the chart
+  * @param {Object} chartParams contains the configuration for the chart
   * @return {Object} returns a bubble chart object
   */
-  static createBubbleChart(oParams) {
-    return new BubbleChart(oParams).init();
+  static createBubbleChart(chartParams) {
+    return new BubbleChart(chartParams).init();
   }
 
   /**

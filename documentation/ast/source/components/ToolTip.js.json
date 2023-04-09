@@ -232,7 +232,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * DOM reference to container element\r\n  *\r\n  * @property dContainer\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * DOM reference to container element\r\n  *\r\n  * @property container\r\n  * @type {Object}\r\n  ",
                     "start": 138,
                     "end": 238,
                     "loc": {
@@ -250,7 +250,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * DOM reference to tooltip's main element\r\n  *\r\n  * @property dTooltip\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * DOM reference to tooltip's main element\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  ",
                     "start": 259,
                     "end": 362,
                     "loc": {
@@ -295,16 +295,16 @@
                       "line": 25,
                       "column": 10
                     },
-                    "identifierName": "dTooltip"
+                    "identifierName": "tooltip"
                   },
-                  "name": "dTooltip",
+                  "name": "tooltip",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * DOM reference to tooltip's main element\r\n  *\r\n  * @property dTooltip\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * DOM reference to tooltip's main element\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  ",
                     "start": 259,
                     "end": 362,
                     "loc": {
@@ -322,7 +322,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Tooltip's main timeout to close tooltip\r\n  *\r\n  * @property oTooltipTimeout\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * Tooltip's main timeout to close tooltip\r\n  *\r\n  * @property tooltipTimeout\r\n  * @type {Object}\r\n  ",
                     "start": 381,
                     "end": 491,
                     "loc": {
@@ -367,16 +367,16 @@
                       "line": 33,
                       "column": 17
                     },
-                    "identifierName": "oTooltipTimeout"
+                    "identifierName": "tooltipTimeout"
                   },
-                  "name": "oTooltipTimeout",
+                  "name": "tooltipTimeout",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Tooltip's main timeout to close tooltip\r\n  *\r\n  * @property oTooltipTimeout\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * Tooltip's main timeout to close tooltip\r\n  *\r\n  * @property tooltipTimeout\r\n  * @type {Object}\r\n  ",
                     "start": 381,
                     "end": 491,
                     "loc": {
@@ -394,7 +394,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Tooltip's sub timeout to hide tooltip\r\n  *\r\n  * @property oTooltipSubTimeout\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * Tooltip's sub timeout to hide tooltip\r\n  *\r\n  * @property tooltipSubTimeout\r\n  * @type {Object}\r\n  ",
                     "start": 517,
                     "end": 628,
                     "loc": {
@@ -439,16 +439,16 @@
                       "line": 41,
                       "column": 20
                     },
-                    "identifierName": "oTooltipSubTimeout"
+                    "identifierName": "tooltipSubTimeout"
                   },
-                  "name": "oTooltipSubTimeout",
+                  "name": "tooltipSubTimeout",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Tooltip's sub timeout to hide tooltip\r\n  *\r\n  * @property oTooltipSubTimeout\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * Tooltip's sub timeout to hide tooltip\r\n  *\r\n  * @property tooltipSubTimeout\r\n  * @type {Object}\r\n  ",
                     "start": 517,
                     "end": 628,
                     "loc": {
@@ -466,7 +466,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} dContainer DOM object\r\n  ",
+                    "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} container DOM object\r\n  ",
                     "start": 657,
                     "end": 796,
                     "loc": {
@@ -535,9 +535,9 @@
                         "line": 49,
                         "column": 24
                       },
-                      "identifierName": "dContainer"
+                      "identifierName": "container"
                     },
-                    "name": "dContainer"
+                    "name": "container"
                   }
                 ],
                 "body": {
@@ -596,9 +596,9 @@
                               "line": 50,
                               "column": 18
                             },
-                            "identifierName": "dContainer"
+                            "identifierName": "container"
                           },
-                          "name": "dContainer"
+                          "name": "container"
                         },
                         "property": {
                           "type": "Identifier",
@@ -705,9 +705,9 @@
                                       "line": 51,
                                       "column": 21
                                     },
-                                    "identifierName": "dContainer"
+                                    "identifierName": "container"
                                   },
-                                  "name": "dContainer"
+                                  "name": "container"
                                 },
                                 "computed": false
                               },
@@ -724,9 +724,9 @@
                                     "line": 51,
                                     "column": 34
                                   },
-                                  "identifierName": "dContainer"
+                                  "identifierName": "container"
                                 },
-                                "name": "dContainer"
+                                "name": "container"
                               }
                             }
                           }
@@ -828,7 +828,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} dContainer DOM object\r\n  ",
+                    "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} container DOM object\r\n  ",
                     "start": 657,
                     "end": 796,
                     "loc": {
@@ -988,9 +988,9 @@
                                 "line": 64,
                                 "column": 17
                               },
-                              "identifierName": "dTooltip"
+                              "identifierName": "tooltip"
                             },
-                            "name": "dTooltip"
+                            "name": "tooltip"
                           },
                           "computed": false
                         },
@@ -1168,9 +1168,9 @@
                                   "line": 65,
                                   "column": 17
                                 },
-                                "identifierName": "dTooltip"
+                                "identifierName": "tooltip"
                               },
-                              "name": "dTooltip"
+                              "name": "tooltip"
                             },
                             "computed": false
                           },
@@ -1299,9 +1299,9 @@
                                   "line": 66,
                                   "column": 19
                                 },
-                                "identifierName": "dContainer"
+                                "identifierName": "container"
                               },
-                              "name": "dContainer"
+                              "name": "container"
                             },
                             "computed": false
                           },
@@ -1367,9 +1367,9 @@
                                   "line": 66,
                                   "column": 45
                                 },
-                                "identifierName": "dTooltip"
+                                "identifierName": "tooltip"
                               },
-                              "name": "dTooltip"
+                              "name": "tooltip"
                             },
                             "computed": false
                           }
@@ -1431,7 +1431,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Ping the tooltip with data and location\r\n  *\r\n  * @method ping\r\n  * @param {Array} mContent values or string for content\r\n  ",
+                    "value": "*\r\n  * Ping the tooltip with data and location\r\n  *\r\n  * @method ping\r\n  * @param {Array} content values or string for content\r\n  ",
                     "start": 1304,
                     "end": 1439,
                     "loc": {
@@ -1500,9 +1500,9 @@
                         "line": 76,
                         "column": 15
                       },
-                      "identifierName": "mContent"
+                      "identifierName": "content"
                     },
-                    "name": "mContent"
+                    "name": "content"
                   }
                 ],
                 "body": {
@@ -1562,9 +1562,9 @@
                                 "line": 77,
                                 "column": 18
                               },
-                              "identifierName": "sContent"
+                              "identifierName": "contentHtml"
                             },
-                            "name": "sContent"
+                            "name": "contentHtml"
                           },
                           "init": {
                             "type": "ConditionalExpression",
@@ -1621,9 +1621,9 @@
                                       "line": 77,
                                       "column": 29
                                     },
-                                    "identifierName": "mContent"
+                                    "identifierName": "content"
                                   },
-                                  "name": "mContent"
+                                  "name": "content"
                                 },
                                 "property": {
                                   "type": "Identifier",
@@ -1705,9 +1705,9 @@
                                         "line": 78,
                                         "column": 27
                                       },
-                                      "identifierName": "mContent"
+                                      "identifierName": "content"
                                     },
-                                    "name": "mContent"
+                                    "name": "content"
                                   },
                                   "property": {
                                     "type": "NumericLiteral",
@@ -1758,9 +1758,9 @@
                                         "line": 78,
                                         "column": 54
                                       },
-                                      "identifierName": "mContent"
+                                      "identifierName": "content"
                                     },
-                                    "name": "mContent"
+                                    "name": "content"
                                   },
                                   "property": {
                                     "type": "NumericLiteral",
@@ -1811,9 +1811,9 @@
                                         "line": 78,
                                         "column": 74
                                       },
-                                      "identifierName": "mContent"
+                                      "identifierName": "content"
                                     },
-                                    "name": "mContent"
+                                    "name": "content"
                                   },
                                   "property": {
                                     "type": "NumericLiteral",
@@ -1934,9 +1934,9 @@
                                   "line": 79,
                                   "column": 16
                                 },
-                                "identifierName": "mContent"
+                                "identifierName": "content"
                               },
-                              "name": "mContent"
+                              "name": "content"
                             }
                           }
                         }
@@ -2360,9 +2360,9 @@
                                       "line": 81,
                                       "column": 43
                                     },
-                                    "identifierName": "dContainer"
+                                    "identifierName": "container"
                                   },
-                                  "name": "dContainer"
+                                  "name": "container"
                                 },
                                 "computed": false
                               },
@@ -2433,9 +2433,9 @@
                                 "line": 82,
                                 "column": 22
                               },
-                              "identifierName": "iPageOffsetX"
+                              "identifierName": "pageOffsetX"
                             },
-                            "name": "iPageOffsetX"
+                            "name": "pageOffsetX"
                           },
                           "init": {
                             "type": "BinaryExpression",
@@ -2569,9 +2569,9 @@
                                 "line": 83,
                                 "column": 22
                               },
-                              "identifierName": "iPageOffsetY"
+                              "identifierName": "pageOffsetY"
                             },
-                            "name": "iPageOffsetY"
+                            "name": "pageOffsetY"
                           },
                           "init": {
                             "type": "MemberExpression",
@@ -2669,9 +2669,9 @@
                                 "line": 84,
                                 "column": 17
                               },
-                              "identifierName": "iMouseX"
+                              "identifierName": "mouseX"
                             },
-                            "name": "iMouseX"
+                            "name": "mouseX"
                           },
                           "init": {
                             "type": "ConditionalExpression",
@@ -2821,9 +2821,9 @@
                                 "line": 85,
                                 "column": 17
                               },
-                              "identifierName": "iMouseY"
+                              "identifierName": "mouseY"
                             },
-                            "name": "iMouseY"
+                            "name": "mouseY"
                           },
                           "init": {
                             "type": "ConditionalExpression",
@@ -3016,9 +3016,9 @@
                                   "line": 86,
                                   "column": 17
                                 },
-                                "identifierName": "dTooltip"
+                                "identifierName": "tooltip"
                               },
-                              "name": "dTooltip"
+                              "name": "tooltip"
                             },
                             "computed": false
                           },
@@ -3054,9 +3054,9 @@
                               "line": 86,
                               "column": 38
                             },
-                            "identifierName": "sContent"
+                            "identifierName": "contentHtml"
                           },
-                          "name": "sContent"
+                          "name": "contentHtml"
                         }
                       }
                     },
@@ -3145,9 +3145,9 @@
                                   "line": 87,
                                   "column": 17
                                 },
-                                "identifierName": "dTooltip"
+                                "identifierName": "tooltip"
                               },
-                              "name": "dTooltip"
+                              "name": "tooltip"
                             },
                             "computed": false
                           },
@@ -3312,9 +3312,9 @@
                                   "line": 88,
                                   "column": 45
                                 },
-                                "identifierName": "iPageOffsetX"
+                                "identifierName": "pageOffsetX"
                               },
-                              "name": "iPageOffsetX"
+                              "name": "pageOffsetX"
                             },
                             "extra": {
                               "parenthesized": true,
@@ -3335,9 +3335,9 @@
                                 "line": 88,
                                 "column": 56
                               },
-                              "identifierName": "iMouseX"
+                              "identifierName": "mouseX"
                             },
-                            "name": "iMouseX"
+                            "name": "mouseX"
                           }
                         },
                         "operator": "<",
@@ -3476,9 +3476,9 @@
                                           "line": 89,
                                           "column": 19
                                         },
-                                        "identifierName": "dTooltip"
+                                        "identifierName": "tooltip"
                                       },
-                                      "name": "dTooltip"
+                                      "name": "tooltip"
                                     },
                                     "computed": false
                                   },
@@ -3641,9 +3641,9 @@
                                           "line": 90,
                                           "column": 19
                                         },
-                                        "identifierName": "dTooltip"
+                                        "identifierName": "tooltip"
                                       },
-                                      "name": "dTooltip"
+                                      "name": "tooltip"
                                     },
                                     "computed": false
                                   },
@@ -3806,9 +3806,9 @@
                                               "line": 90,
                                               "column": 69
                                             },
-                                            "identifierName": "iMouseX"
+                                            "identifierName": "mouseX"
                                           },
-                                          "name": "iMouseX"
+                                          "name": "mouseX"
                                         },
                                         "extra": {
                                           "parenthesized": true,
@@ -3829,9 +3829,9 @@
                                             "line": 90,
                                             "column": 85
                                           },
-                                          "identifierName": "iPageOffsetX"
+                                          "identifierName": "pageOffsetX"
                                         },
-                                        "name": "iPageOffsetX"
+                                        "name": "pageOffsetX"
                                       }
                                     },
                                     "operator": "+",
@@ -4019,9 +4019,9 @@
                                           "line": 92,
                                           "column": 19
                                         },
-                                        "identifierName": "dTooltip"
+                                        "identifierName": "tooltip"
                                       },
-                                      "name": "dTooltip"
+                                      "name": "tooltip"
                                     },
                                     "computed": false
                                   },
@@ -4105,9 +4105,9 @@
                                           "line": 92,
                                           "column": 43
                                         },
-                                        "identifierName": "iMouseX"
+                                        "identifierName": "mouseX"
                                       },
-                                      "name": "iMouseX"
+                                      "name": "mouseX"
                                     },
                                     "operator": "-",
                                     "right": {
@@ -4123,9 +4123,9 @@
                                           "line": 92,
                                           "column": 58
                                         },
-                                        "identifierName": "iPageOffsetX"
+                                        "identifierName": "pageOffsetX"
                                       },
-                                      "name": "iPageOffsetX"
+                                      "name": "pageOffsetX"
                                     }
                                   }
                                 ],
@@ -4273,9 +4273,9 @@
                                           "line": 93,
                                           "column": 19
                                         },
-                                        "identifierName": "dTooltip"
+                                        "identifierName": "tooltip"
                                       },
-                                      "name": "dTooltip"
+                                      "name": "tooltip"
                                     },
                                     "computed": false
                                   },
@@ -4442,9 +4442,9 @@
                                     "line": 95,
                                     "column": 17
                                   },
-                                  "identifierName": "dTooltip"
+                                  "identifierName": "tooltip"
                                 },
-                                "name": "dTooltip"
+                                "name": "tooltip"
                               },
                               "computed": false
                             },
@@ -4542,9 +4542,9 @@
                                       "line": 95,
                                       "column": 41
                                     },
-                                    "identifierName": "iMouseY"
+                                    "identifierName": "mouseY"
                                   },
-                                  "name": "iMouseY"
+                                  "name": "mouseY"
                                 },
                                 "operator": "/",
                                 "right": {
@@ -4583,9 +4583,9 @@
                                     "line": 95,
                                     "column": 72
                                   },
-                                  "identifierName": "iPageOffsetY"
+                                  "identifierName": "pageOffsetY"
                                 },
-                                "name": "iPageOffsetY"
+                                "name": "pageOffsetY"
                               }
                             }
                           ],
@@ -4722,9 +4722,9 @@
                                   "line": 96,
                                   "column": 37
                                 },
-                                "identifierName": "oTooltipTimeout"
+                                "identifierName": "tooltipTimeout"
                               },
-                              "name": "oTooltipTimeout"
+                              "name": "tooltipTimeout"
                             },
                             "computed": false
                           }
@@ -4819,9 +4819,9 @@
                                   "line": 97,
                                   "column": 40
                                 },
-                                "identifierName": "oTooltipSubTimeout"
+                                "identifierName": "tooltipSubTimeout"
                               },
-                              "name": "oTooltipSubTimeout"
+                              "name": "tooltipSubTimeout"
                             },
                             "computed": false
                           }
@@ -4899,9 +4899,9 @@
                                 "line": 98,
                                 "column": 24
                               },
-                              "identifierName": "oTooltipTimeout"
+                              "identifierName": "tooltipTimeout"
                             },
-                            "name": "oTooltipTimeout"
+                            "name": "tooltipTimeout"
                           },
                           "computed": false
                         },
@@ -5084,7 +5084,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Ping the tooltip with data and location\r\n  *\r\n  * @method ping\r\n  * @param {Array} mContent values or string for content\r\n  ",
+                    "value": "*\r\n  * Ping the tooltip with data and location\r\n  *\r\n  * @method ping\r\n  * @param {Array} content values or string for content\r\n  ",
                     "start": 1304,
                     "end": 1439,
                     "loc": {
@@ -5242,9 +5242,9 @@
                                   "line": 104,
                                   "column": 37
                                 },
-                                "identifierName": "oTooltipTimeout"
+                                "identifierName": "tooltipTimeout"
                               },
-                              "name": "oTooltipTimeout"
+                              "name": "tooltipTimeout"
                             },
                             "computed": false
                           }
@@ -5339,9 +5339,9 @@
                                   "line": 105,
                                   "column": 40
                                 },
-                                "identifierName": "oTooltipSubTimeout"
+                                "identifierName": "tooltipSubTimeout"
                               },
-                              "name": "oTooltipSubTimeout"
+                              "name": "tooltipSubTimeout"
                             },
                             "computed": false
                           }
@@ -5433,9 +5433,9 @@
                                   "line": 106,
                                   "column": 17
                                 },
-                                "identifierName": "dTooltip"
+                                "identifierName": "tooltip"
                               },
-                              "name": "dTooltip"
+                              "name": "tooltip"
                             },
                             "computed": false
                           },
@@ -5551,9 +5551,9 @@
                                 "line": 107,
                                 "column": 27
                               },
-                              "identifierName": "oTooltipSubTimeout"
+                              "identifierName": "tooltipSubTimeout"
                             },
-                            "name": "oTooltipSubTimeout"
+                            "name": "tooltipSubTimeout"
                           },
                           "computed": false
                         },
@@ -5708,9 +5708,9 @@
                                                 "line": 108,
                                                 "column": 19
                                               },
-                                              "identifierName": "dTooltip"
+                                              "identifierName": "tooltip"
                                             },
-                                            "name": "dTooltip"
+                                            "name": "tooltip"
                                           },
                                           "computed": false
                                         },
@@ -5850,7 +5850,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * DOM reference to container element\r\n  *\r\n  * @property dContainer\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * DOM reference to container element\r\n  *\r\n  * @property container\r\n  * @type {Object}\r\n  ",
       "start": 138,
       "end": 238,
       "loc": {
@@ -5866,7 +5866,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * DOM reference to tooltip's main element\r\n  *\r\n  * @property dTooltip\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * DOM reference to tooltip's main element\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  ",
       "start": 259,
       "end": 362,
       "loc": {
@@ -5882,7 +5882,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Tooltip's main timeout to close tooltip\r\n  *\r\n  * @property oTooltipTimeout\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * Tooltip's main timeout to close tooltip\r\n  *\r\n  * @property tooltipTimeout\r\n  * @type {Object}\r\n  ",
       "start": 381,
       "end": 491,
       "loc": {
@@ -5898,7 +5898,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Tooltip's sub timeout to hide tooltip\r\n  *\r\n  * @property oTooltipSubTimeout\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * Tooltip's sub timeout to hide tooltip\r\n  *\r\n  * @property tooltipSubTimeout\r\n  * @type {Object}\r\n  ",
       "start": 517,
       "end": 628,
       "loc": {
@@ -5914,7 +5914,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} dContainer DOM object\r\n  ",
+      "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} container DOM object\r\n  ",
       "start": 657,
       "end": 796,
       "loc": {
@@ -5946,7 +5946,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Ping the tooltip with data and location\r\n  *\r\n  * @method ping\r\n  * @param {Array} mContent values or string for content\r\n  ",
+      "value": "*\r\n  * Ping the tooltip with data and location\r\n  *\r\n  * @method ping\r\n  * @param {Array} content values or string for content\r\n  ",
       "start": 1304,
       "end": 1439,
       "loc": {
@@ -6298,7 +6298,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * DOM reference to container element\r\n  *\r\n  * @property dContainer\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * DOM reference to container element\r\n  *\r\n  * @property container\r\n  * @type {Object}\r\n  ",
       "start": 138,
       "end": 238,
       "loc": {
@@ -6366,7 +6366,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * DOM reference to tooltip's main element\r\n  *\r\n  * @property dTooltip\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * DOM reference to tooltip's main element\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  ",
       "start": 259,
       "end": 362,
       "loc": {
@@ -6392,7 +6392,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dTooltip",
+      "value": "tooltip",
       "start": 366,
       "end": 374,
       "loc": {
@@ -6434,7 +6434,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Tooltip's main timeout to close tooltip\r\n  *\r\n  * @property oTooltipTimeout\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * Tooltip's main timeout to close tooltip\r\n  *\r\n  * @property tooltipTimeout\r\n  * @type {Object}\r\n  ",
       "start": 381,
       "end": 491,
       "loc": {
@@ -6460,7 +6460,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltipTimeout",
+      "value": "tooltipTimeout",
       "start": 495,
       "end": 510,
       "loc": {
@@ -6502,7 +6502,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Tooltip's sub timeout to hide tooltip\r\n  *\r\n  * @property oTooltipSubTimeout\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * Tooltip's sub timeout to hide tooltip\r\n  *\r\n  * @property tooltipSubTimeout\r\n  * @type {Object}\r\n  ",
       "start": 517,
       "end": 628,
       "loc": {
@@ -6528,7 +6528,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltipSubTimeout",
+      "value": "tooltipSubTimeout",
       "start": 632,
       "end": 650,
       "loc": {
@@ -6570,7 +6570,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} dContainer DOM object\r\n  ",
+      "value": "*\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} container DOM object\r\n  ",
       "start": 657,
       "end": 796,
       "loc": {
@@ -6647,7 +6647,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 812,
       "end": 822,
       "loc": {
@@ -6776,7 +6776,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 835,
       "end": 845,
       "loc": {
@@ -6958,7 +6958,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 870,
       "end": 880,
       "loc": {
@@ -7011,7 +7011,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 883,
       "end": 893,
       "loc": {
@@ -7547,7 +7547,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dTooltip",
+      "value": "tooltip",
       "start": 1118,
       "end": 1126,
       "loc": {
@@ -7835,7 +7835,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dTooltip",
+      "value": "tooltip",
       "start": 1170,
       "end": 1178,
       "loc": {
@@ -8047,7 +8047,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 1237,
       "end": 1247,
       "loc": {
@@ -8204,7 +8204,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dTooltip",
+      "value": "tooltip",
       "start": 1265,
       "end": 1273,
       "loc": {
@@ -8378,7 +8378,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Ping the tooltip with data and location\r\n  *\r\n  * @method ping\r\n  * @param {Array} mContent values or string for content\r\n  ",
+      "value": "*\r\n  * Ping the tooltip with data and location\r\n  *\r\n  * @method ping\r\n  * @param {Array} content values or string for content\r\n  ",
       "start": 1304,
       "end": 1439,
       "loc": {
@@ -8455,7 +8455,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "mContent",
+      "value": "content",
       "start": 1448,
       "end": 1456,
       "loc": {
@@ -8559,7 +8559,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sContent",
+      "value": "contentHtml",
       "start": 1471,
       "end": 1479,
       "loc": {
@@ -8612,7 +8612,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "mContent",
+      "value": "content",
       "start": 1482,
       "end": 1490,
       "loc": {
@@ -8846,7 +8846,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "mContent",
+      "value": "content",
       "start": 1533,
       "end": 1541,
       "loc": {
@@ -9028,7 +9028,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "mContent",
+      "value": "content",
       "start": 1560,
       "end": 1568,
       "loc": {
@@ -9210,7 +9210,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "mContent",
+      "value": "content",
       "start": 1580,
       "end": 1588,
       "loc": {
@@ -9418,7 +9418,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "mContent",
+      "value": "content",
       "start": 1608,
       "end": 1616,
       "loc": {
@@ -10209,7 +10209,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dContainer",
+      "value": "container",
       "start": 1750,
       "end": 1760,
       "loc": {
@@ -10365,7 +10365,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iPageOffsetX",
+      "value": "pageOffsetX",
       "start": 1796,
       "end": 1808,
       "loc": {
@@ -10604,7 +10604,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iPageOffsetY",
+      "value": "pageOffsetY",
       "start": 1849,
       "end": 1861,
       "loc": {
@@ -10789,7 +10789,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMouseX",
+      "value": "mouseX",
       "start": 1896,
       "end": 1903,
       "loc": {
@@ -11079,7 +11079,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMouseY",
+      "value": "mouseY",
       "start": 1944,
       "end": 1951,
       "loc": {
@@ -11395,7 +11395,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dTooltip",
+      "value": "tooltip",
       "start": 1991,
       "end": 1999,
       "loc": {
@@ -11500,7 +11500,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "sContent",
+      "value": "contentHtml",
       "start": 2012,
       "end": 2020,
       "loc": {
@@ -11606,7 +11606,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dTooltip",
+      "value": "tooltip",
       "start": 2032,
       "end": 2040,
       "loc": {
@@ -11947,7 +11947,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iPageOffsetX",
+      "value": "pageOffsetX",
       "start": 2098,
       "end": 2110,
       "loc": {
@@ -12025,7 +12025,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMouseX",
+      "value": "mouseX",
       "start": 2114,
       "end": 2121,
       "loc": {
@@ -12209,7 +12209,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dTooltip",
+      "value": "tooltip",
       "start": 2142,
       "end": 2150,
       "loc": {
@@ -12473,7 +12473,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dTooltip",
+      "value": "tooltip",
       "start": 2184,
       "end": 2192,
       "loc": {
@@ -12837,7 +12837,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMouseX",
+      "value": "mouseX",
       "start": 2235,
       "end": 2242,
       "loc": {
@@ -12915,7 +12915,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iPageOffsetX",
+      "value": "pageOffsetX",
       "start": 2246,
       "end": 2258,
       "loc": {
@@ -13230,7 +13230,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dTooltip",
+      "value": "tooltip",
       "start": 2295,
       "end": 2303,
       "loc": {
@@ -13464,7 +13464,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMouseX",
+      "value": "mouseX",
       "start": 2320,
       "end": 2327,
       "loc": {
@@ -13517,7 +13517,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iPageOffsetX",
+      "value": "pageOffsetX",
       "start": 2330,
       "end": 2342,
       "loc": {
@@ -13700,7 +13700,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dTooltip",
+      "value": "tooltip",
       "start": 2360,
       "end": 2368,
       "loc": {
@@ -13989,7 +13989,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dTooltip",
+      "value": "tooltip",
       "start": 2408,
       "end": 2416,
       "loc": {
@@ -14248,7 +14248,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iMouseY",
+      "value": "mouseY",
       "start": 2433,
       "end": 2440,
       "loc": {
@@ -14379,7 +14379,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iPageOffsetY",
+      "value": "pageOffsetY",
       "start": 2459,
       "end": 2471,
       "loc": {
@@ -14613,7 +14613,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltipTimeout",
+      "value": "tooltipTimeout",
       "start": 2500,
       "end": 2515,
       "loc": {
@@ -14795,7 +14795,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltipSubTimeout",
+      "value": "tooltipSubTimeout",
       "start": 2541,
       "end": 2559,
       "loc": {
@@ -14926,7 +14926,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltipTimeout",
+      "value": "tooltipTimeout",
       "start": 2572,
       "end": 2587,
       "loc": {
@@ -15647,7 +15647,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltipTimeout",
+      "value": "tooltipTimeout",
       "start": 2686,
       "end": 2701,
       "loc": {
@@ -15829,7 +15829,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltipSubTimeout",
+      "value": "tooltipSubTimeout",
       "start": 2727,
       "end": 2745,
       "loc": {
@@ -15960,7 +15960,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dTooltip",
+      "value": "tooltip",
       "start": 2758,
       "end": 2766,
       "loc": {
@@ -16172,7 +16172,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltipSubTimeout",
+      "value": "tooltipSubTimeout",
       "start": 2815,
       "end": 2833,
       "loc": {
@@ -16431,7 +16431,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "dTooltip",
+      "value": "tooltip",
       "start": 2867,
       "end": 2875,
       "loc": {

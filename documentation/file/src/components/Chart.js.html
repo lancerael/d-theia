@@ -172,10 +172,10 @@ export default class Chart {
   /**
   * SVG DOM object for displaying the chart
   *
-  * @property dSvg
+  * @property svg
   * @type {Object}
   */
-  dSvg;
+  svg;
 
   /**
   * SVG d3 object for d3 operations on the chart
@@ -188,128 +188,128 @@ export default class Chart {
   /**
   * Default time for d3 transitions on the chart
   *
-  * @property iTransitionTime
+  * @property transitionTime
   * @type {Number}
   */
-  iTransitionTime;
+  transitionTime;
 
   /**
   * DOM reference to container element that wraps SVG
   *
-  * @property dContainer
+  * @property container
   * @type {Object}
   */
-  dContainer;
+  container;
 
   /**
   * DOM reference to loader display element
   *
-  * @property dLoader
+  * @property loader
   * @type {Object}
   */
-  dLoader;
+  loader;
 
   /**
   * Chart&apos;s tooltip object
   *
-  * @property oTooltip
+  * @property tooltip
   * @type {Object}
   */
-  oTooltip;
+  tooltip;
 
   /**
   * The current calculated width of the chart
   *
-  * @property iWidth
+  * @property width
   * @type {Number}
   */
-  iWidth;
+  width;
 
   /**
   * The current calculated height of the chart
   *
-  * @property iHeight
+  * @property height
   * @type {Number}
   */
-  iHeight;
+  height;
 
   /**
   * The current calculated inner width of the chart
   *
-  * @property iInnerWidth
+  * @property innerWidth
   * @type {Number}
   */
-  iInnerWidth;
+  innerWidth;
 
   /**
   * The current calculated inner height of the chart
   *
-  * @property iInnerHeight
+  * @property innerHeight
   * @type {Number}
   */
-  iInnerHeight;
+  innerHeight;
 
   /**
   * The width before any browser resize
   *
-  * @property iInitialWidth
+  * @property initialWidth
   * @type {Number}
   */
-  iInitialWidth;
+  initialWidth;
 
   /**
   * The padding for the chart within the container
   *
-  * @property jPadding
+  * @property padding
   * @type {Object}
   */
-  jPadding;
+  padding;
 
   /**
   * The chart&apos;s config object
   *
-  * @property jConfig
+  * @property chartConfig
   * @type {Object}
   */
-  jConfig;
+  chartConfig;
 
   /**
   * The chart&apos;s data
   *
-  * @property aData
+  * @property chartData
   * @type {Array}
   */
-  aData;
+  chartData;
 
   /**
   * Constructor function that sets up the local object.
   *
   * @method constructor
-  * @param {Object} jConfig JSON configuration object
-  * @param {Array} aData the data to be displayed
-  * @param {String} sContainer Optional ID to select DOM object
-  * @param {Object} dContainer Optional DOM object in place of ID
+  * @param {Object} chartConfig JSON configuration object
+  * @param {Array} chartData the data to be displayed
+  * @param {String} containerId Optional ID to select DOM object
+  * @param {Object} container Optional DOM object in place of ID
   */
-  constructor(oParams = {}) {
-    const { jConfig, aData, sContainer } = oParams;
-    let { dContainer } = oParams;
-    this.dSvg = document.createElementNS(&apos;http://www.w3.org/2000/svg&apos;, &apos;svg&apos;);
-    this.d3Svg = select(this.dSvg);
-    this.iTransitionTime = 500;
-    this.jPadding = { l: 5, r: 5, t: 5, b: 5 };
-    this.dLoader = document.createElement(&apos;div&apos;);
-    this.dLoader.className = &apos;dt-loader&apos;;
-    if (!dContainer &amp;&amp; sContainer) {
-      dContainer = document.getElementById(sContainer);
+  constructor(chartParams = {}) {
+    const { chartConfig, chartData, containerId } = chartParams;
+    let { container } = chartParams;
+    this.svg = document.createElementNS(&apos;http://www.w3.org/2000/svg&apos;, &apos;svg&apos;);
+    this.d3Svg = select(this.svg);
+    this.transitionTime = 500;
+    this.padding = { l: 5, r: 5, t: 5, b: 5 };
+    this.loader = document.createElement(&apos;div&apos;);
+    this.loader.className = &apos;dt-loader&apos;;
+    if (!container &amp;&amp; containerId) {
+      container = document.getElementById(containerId);
     }
-    if (dContainer) {
-      this.setContainer(dContainer);
+    if (container) {
+      this.setContainer(container);
     }
-    if (jConfig) {
-      this.setConfig(jConfig);
+    if (chartConfig) {
+      this.setConfig(chartConfig);
     }
-    if (aData) {
-      this.setData(aData);
+    if (chartData) {
+      this.setData(chartData);
     }
   }
 
@@ -317,13 +317,13 @@ export default class Chart {
   * Sets the local container object.
   *
   * @method setContainer
-  * @param {Object} dContainer Required DOM element
+  * @param {Object} container Required DOM element
   * @throws {Error} invalid DOM element
   */
-  setContainer(dContainer) {
-    if (dContainer.nodeName) {
-      dContainer.appendChild(this.dLoader);
-      this.dContainer = dContainer;
+  setContainer(container) {
+    if (container.nodeName) {
+      container.appendChild(this.loader);
+      this.container = container;
     } else {
       throw new Error(&apos;No valid DOM element or ID provided for chart.&apos;);
     }
@@ -333,15 +333,15 @@ export default class Chart {
   * Sets the local config options for the chart.
   *
   * @method setConfig
-  * @param {Object} jConfig JSON configuration object
+  * @param {Object} chartConfig JSON configuration object
   * @throws {Error} missing configuration
   */
-  setConfig(jConfig) {
-    if (jConfig &amp;&amp; jConfig.toString() === &apos;[object Object]&apos;) {
-      if (jConfig.aValues) {
-        jConfig.aValues = DataOps.addColoursToConfig(jConfig.aValues);
+  setConfig(chartConfig) {
+    if (chartConfig &amp;&amp; chartConfig.toString() === &apos;[object Object]&apos;) {
+      if (chartConfig.itemValues) {
+        chartConfig.itemValues = DataOps.addColoursToConfig(chartConfig.itemValues);
       }
-      this.jConfig = jConfig;
+      this.chartConfig = chartConfig;
     } else {
       throw new Error(&apos;No valid configuration provided for chart.&apos;);
     }
@@ -351,16 +351,16 @@ export default class Chart {
   * Sets the local data for the chart.
   *
   * @method setData
-  * @param {Array} aData array of JSON objects
-  * @param {Boolean} bTransform transform mapped data
+  * @param {Array} chartData array of JSON objects
+  * @param {Boolean} doTransform transform mapped data
   * @throws {Error} missing data
   */
-  setData(aData, bTransform = true) {
-    if (aData &amp;&amp; Array.isArray(aData) === true) {
-      if (this.jConfig &amp;&amp; bTransform) {
-        aData = DataOps.transformDataKeys(this.jConfig, aData);
+  setData(chartData, doTransform = true) {
+    if (chartData &amp;&amp; Array.isArray(chartData) === true) {
+      if (this.chartConfig &amp;&amp; doTransform) {
+        chartData = DataOps.transformDataKeys(this.chartConfig, chartData);
       }
-      this.aData = aData;
+      this.chartData = chartData;
     } else {
       throw new Error(&apos;No valid data provided for chart.&apos;);
     }
@@ -370,14 +370,14 @@ export default class Chart {
   * Updates the local data for the chart.
   *
   * @method updateData
-  * @param {Array} aData array of JSON objects
-  * @param {Boolean} bTransform transform mapped data
+  * @param {Array} chartData array of JSON objects
+  * @param {Boolean} doTransform transform mapped data
   */
-  updateData(aData, bTransform = true) {
-    this.setData(aData, bTransform);
+  updateData(chartData, doTransform = true) {
+    this.setData(chartData, doTransform);
     this.setDimensions();
-    if (this.oAxis) {
-      this.oAxis.render();
+    if (this.axis) {
+      this.axis.render();
     }
     if (this.renderChart) {
       this.renderChart();
@@ -388,10 +388,10 @@ export default class Chart {
   * Updates the local config for the chart.
   *
   * @method updateConfig
-  * @param {JSON} jConfig config JSON style object
+  * @param {JSON} chartConfig config JSON style object
   */
-  updateConfig(jConfig) {
-    this.setConfig(jConfig);
+  updateConfig(chartConfig) {
+    this.setConfig(chartConfig);
     if (this.renderChart) {
       this.renderChart(true, false);
     }
@@ -404,11 +404,11 @@ export default class Chart {
   * @throws {Error} missing DOM element
   */
   setDimensions() {
-    if (this.dContainer &amp;&amp; this.dContainer.nodeName) {
-      this.iWidth = this.dContainer.clientWidth;
-      this.iHeight = this.dContainer.clientHeight;
-      this.iInnerWidth = this.iWidth - this.jPadding.l - this.jPadding.r;
-      this.iInnerHeight = this.iHeight - this.jPadding.t - this.jPadding.b;
+    if (this.container &amp;&amp; this.container.nodeName) {
+      this.width = this.container.clientWidth;
+      this.height = this.container.clientHeight;
+      this.innerWidth = this.width - this.padding.l - this.padding.r;
+      this.innerHeight = this.height - this.padding.t - this.padding.b;
     } else {
       throw new Error(&apos;Cannot set dimensions of chart without container element.&apos;);
     }
@@ -423,27 +423,27 @@ export default class Chart {
   */
   init() {
     this.setDimensions();
-    if (this.aData &amp;&amp; this.jConfig &amp;&amp; !isNaN(this.iWidth) &amp;&amp; !isNaN(this.iHeight)) {
-      this.iInitialWidth = this.iWidth;
-      this.oTooltip = new Tooltip(this.dContainer).create();
-      select(this.dContainer).append(&apos;div&apos;).attr(&apos;class&apos;, &apos;title&apos;).text(this.jConfig.sTitle);
-      this.dSvg.setAttribute(&apos;class&apos;, &apos;chart&apos;);
-      this.dContainer.appendChild(this.dSvg);
-      this.oResizeWatcher = this.oResizeWatcher || window.addEventListener(&apos;resize&apos;, () =&gt; {
+    if (this.chartData &amp;&amp; this.chartConfig &amp;&amp; !isNaN(this.width) &amp;&amp; !isNaN(this.height)) {
+      this.initialWidth = this.width;
+      this.tooltip = new Tooltip(this.container).create();
+      select(this.container).append(&apos;div&apos;).attr(&apos;class&apos;, &apos;title&apos;).text(this.chartConfig.title);
+      this.svg.setAttribute(&apos;class&apos;, &apos;chart&apos;);
+      this.container.appendChild(this.svg);
+      this.resizeWatcher = this.resizeWatcher || window.addEventListener(&apos;resize&apos;, () =&gt; {
         this.setDimensions();
-        this.iResizeOffset = this.iWidth - this.iInitialWidth;
+        this.resizeOffset = this.width - this.initialWidth;
         if (this.renderChart) {
           this.renderChart();
         }
-        this.oTooltip.hide();
+        this.tooltip.hide();
       });
-      this.oChartOutWatcher = this.oChartOutWatcher || this.dSvg.addEventListener(&apos;mouseout&apos;, () =&gt; {
-        this.oTooltip.hide();
+      this.chartOutWatcher = this.chartOutWatcher || this.svg.addEventListener(&apos;mouseout&apos;, () =&gt; {
+        this.tooltip.hide();
       });
       if (this.renderChart) {
         this.renderChart();
       }
-      this.dContainer.removeChild(this.dLoader);
+      this.container.removeChild(this.loader);
       return this;
     }
     throw new Error(&apos;The chart is not ready for initialisation.&apos;);

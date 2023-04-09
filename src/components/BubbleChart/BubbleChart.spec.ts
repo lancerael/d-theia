@@ -6,22 +6,22 @@ describe('BubbleChart', () => {
   beforeEach(() => {
     const dDiv = document.createElement('div')
     oBubbleChart = new BubbleChart({
-      dContainer: dDiv,
-      jConfig: {
-        aAxisLabels: ['y', 'x'],
-        aValues: [
+      container: dDiv,
+      chartConfig: {
+        axisLabels: ['y', 'x'],
+        itemValues: [
           {
-            sKey: 'k1',
-            sName: 'K1',
+            key: 'k1',
+            name: 'K1',
           },
           {
-            sKey: 'k2',
-            sName: 'K2',
-            aColors: ['blue', 'red'],
+            key: 'k2',
+            name: 'K2',
+            colors: ['blue', 'red'],
           },
         ],
       },
-      aData: [
+      chartData: [
         { k1: 4, k2: 5 },
         { k1: 7, k2: 8 },
       ],
@@ -30,15 +30,13 @@ describe('BubbleChart', () => {
 
   it('should set up the scale object', () => {
     oBubbleChart.setDimensions()
-    expect(oBubbleChart.oScaleColor.domain()[1]).toBe(8)
-    expect(oBubbleChart.oScaleColor.range()[1]).toBe('red')
+    expect(oBubbleChart.scaleColor.domain()[1]).toBe(8)
+    expect(oBubbleChart.scaleColor.range()[1]).toBe('red')
   })
 
   it('should render the chart', () => {
     oBubbleChart.renderChart()
-    expect(oBubbleChart.d3BubblesGroup.selectAll('circle.circles').size()).toBe(
-      2
-    )
-    expect(oBubbleChart.oForce.nodes().length).toBe(2)
+    expect(oBubbleChart.bubblesGroup.selectAll('circle.circles').size()).toBe(2)
+    expect(oBubbleChart.force.nodes().length).toBe(2)
   })
 })

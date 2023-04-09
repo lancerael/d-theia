@@ -178,77 +178,77 @@ export default class Axis {
   /**
   * Amount to truncate axis labels to
   *
-  * @property iTruncate
+  * @property truncateSize
   * @type {Object}
   */
-  iTruncate;
+  truncateSize;
 
   /**
   * Collection of axis labels
   *
-  * @property aAxisLabels
+  * @property axisLabels
   * @type {Array}
   */
-  aAxisLabels;
+  axisLabels;
 
   /**
   * Scale object for the x axis
   *
-  * @property oScaleX
+  * @property scaleX
   * @type {Object}
   */
-  oScaleX;
+  scaleX;
 
   /**
   * Scale object for the y axis
   *
-  * @property oScaleY
+  * @property scaleY
   * @type {Object}
   */
-  oScaleY;
+  scaleY;
 
   /**
   * Chart&apos;s tooltip object
   *
-  * @property oTooltip
+  * @property tooltip
   * @type {Object}
   */
-  oTooltip;
+  tooltip;
 
   /**
   * The current calculated width of the chart
   *
-  * @property iWidth
+  * @property width
   * @type {Number}
   */
-  iWidth;
+  width;
 
   /**
   * The current calculated height of the chart
   *
-  * @property iHeight
+  * @property height
   * @type {Number}
   */
-  iHeight;
+  height;
 
   /**
   * The padding for the chart within the container
   *
-  * @property jPadding
+  * @property padding
   * @type {Object}
   */
-  jPadding;
+  padding;
 
   /**
   * Constructor function which sets up the local object.
   *
   * @method constructor
-  * @param {Object} oParams configuration parameters object
+  * @param {Object} chartParams configuration parameters object
   * @throws {Error} invalid parameters
   */
-  constructor(oParams) {
-    if (oParams.d3Container) {
-      Object.assign(this, oParams);
+  constructor(chartParams) {
+    if (chartParams.d3Container) {
+      Object.assign(this, chartParams);
     } else {
       throw new Error(&apos;Incorrect parameters provided to Axis constructor.&apos;);
     }
@@ -276,18 +276,18 @@ export default class Axis {
     this.d3Container.selectAll(&apos;g.x-axis&apos;).remove();
     this.d3Container.append(&apos;g&apos;)
         .attr(&apos;class&apos;, &apos;x-axis&apos;)
-        .call(axisBottom(this.oScaleX))
-        .attr(&apos;transform&apos;, `translate(${this.jPadding.l},${this.iHeight})`)
+        .call(axisBottom(this.scaleX))
+        .attr(&apos;transform&apos;, `translate(${this.padding.l},${this.height})`)
         .selectAll(&apos;text&apos;)
           .attr(&apos;x&apos;, -5)
           .attr(&apos;y&apos;, 6)
           .attr(&apos;transform&apos;, &apos;rotate(310)&apos;)
           .attr(&apos;class&apos;, &apos;x-labels&apos;)
-          .text(d =&gt; Utilities.truncateString(d, this.iTruncate))
+          .text(d =&gt; Utilities.truncateString(d, this.truncateSize))
           .style(&apos;text-anchor&apos;, &apos;end&apos;)
           .on(&apos;mousemove&apos;, (d) =&gt; {
-            if (this.oTooltip &amp;&amp; d.length &gt; this.iTruncate) {
-              this.oTooltip.ping(`&lt;strong&gt;${d}&lt;/strong&gt;`);
+            if (this.tooltip &amp;&amp; d.length &gt; this.truncateSize) {
+              this.tooltip.ping(`&lt;strong&gt;${d}&lt;/strong&gt;`);
             }
           });
   }
@@ -301,10 +301,10 @@ export default class Axis {
     this.d3Container.selectAll(&apos;g.y-axis&apos;).remove();
     this.d3Container.append(&apos;g&apos;)
         .attr(&apos;class&apos;, &apos;y-axis&apos;)
-        .call(axisLeft(this.oScaleY))
-        .attr(&apos;transform&apos;, `translate(${this.jPadding.l},0)`)
+        .call(axisLeft(this.scaleY))
+        .attr(&apos;transform&apos;, `translate(${this.padding.l},0)`)
         .selectAll(&apos;.y-axis .tick line&apos;)
-          .attr(&apos;x2&apos;, () =&gt; this.iWidth);
+          .attr(&apos;x2&apos;, () =&gt; this.width);
   }
 
   /**
@@ -316,17 +316,17 @@ export default class Axis {
     this.d3Container.selectAll(&apos;text.labels&apos;).remove();
     this.d3Container.append(&apos;text&apos;)
         .attr(&apos;class&apos;, &apos;labels&apos;)
-        .attr(&apos;x&apos;, (this.iHeight / -2) - (this.jPadding.t / 2))// - ((this.jConfig.aAxisLabels[0].length / 2) * 7))
+        .attr(&apos;x&apos;, (this.height / -2) - (this.padding.t / 2))// - ((this.chartConfig.axisLabels[0].length / 2) * 7))
         .attr(&apos;y&apos;, 10)
         .attr(&apos;transform&apos;, &apos;rotate(-90)&apos;)
         .attr(&apos;text-anchor&apos;, &apos;middle&apos;)
-        .text(this.aAxisLabels[0]);
+        .text(this.axisLabels[0]);
     this.d3Container.append(&apos;text&apos;)
         .attr(&apos;class&apos;, &apos;labels&apos;)
-        .attr(&apos;x&apos;, ((this.iWidth + this.jPadding.l + this.jPadding.r) / 2))// - ((this.aAxisLabels[1].length / 2) * 2))
-        .attr(&apos;y&apos;, this.iHeight + (this.jPadding.b - 5))
+        .attr(&apos;x&apos;, ((this.width + this.padding.l + this.padding.r) / 2))// - ((this.axisLabels[1].length / 2) * 2))
+        .attr(&apos;y&apos;, this.height + (this.padding.b - 5))
         .attr(&apos;text-anchor&apos;, &apos;middle&apos;)
-        .text(this.aAxisLabels[1]);
+        .text(this.axisLabels[1]);
   }
 
 }

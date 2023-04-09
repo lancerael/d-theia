@@ -1,98 +1,87 @@
 import { easeLinear } from 'd3-ease'
-import { select } from 'd3-selection'
+import { BaseType, select } from 'd3-selection'
 import 'd3-transition'
 import AxisChart from '../AxisChart'
 import { rgb } from 'd3-color'
+import { ChartParams, ChartSelection, ConfigItemValue } from '../../types'
+import { Transition } from 'd3-transition'
 
-/**
- * Create BarCharts from the supplied data, based on the JSON config.
- *
- * @class BarChart
- * @extends {AxisChart}
- * @constructor
- */
 export default class BarChart extends AxisChart {
-  /**
-   * The local collection of bars
-   *
-   * @property aBars
-   * @type {Array}
-   */
-  aBars: any
+  bars?: ChartSelection[]
 
-  /**
-   * Constructor used to set chart type
-   *
-   * @method constructor
-   */
-  constructor(oParams = {}) {
-    super(oParams)
-    this.sChartType = 'bar'
+  constructor(chartParams = {} as ChartParams) {
+    super(chartParams)
+    this.chartType = 'bar'
   }
 
   /**
    * Render the chart including bars, axes and labels
    *
    * @method renderChart
-   * @param {Boolean} bReset optionally reset the chart data
-   * @param {Boolean} bHeightTransition optionally transition height
+   * @param {Boolean} doReset optionally reset the chart data
+   * @param {Boolean} doHeightTransition optionally transition height
    */
-  renderChart(bReset = false, bHeightTransition = true) {
+  renderChart(doReset = false, doHeightTransition = true) {
     super.renderChart()
-    const { aValues, sBarType = 'side' } = this.jConfig
-    const { iInnerHeight, oScaleX, oScaleY } = this
-    const iBarWidth = oScaleX.bandwidth() / aValues.length
+    const { itemValues, sBarType = 'side' } = this.chartConfig
+    const { innerHeight, scaleX, scaleY } = this
+    const barWidth = scaleX.bandwidth() / itemValues.length
 
-    this.aBars ??= []
+    this.bars ??= [] as ChartSelection[]
 
     // Reset bars data and clear graph
-    if (bReset) {
-      this.aBars.forEach((dtBar: any, i: number) => {
-        this.aBars[i] = this.d3ChartGroup.selectAll(`rect.bars-${i}`).data({})
-        this.aBars[i].exit().remove()
-        this.aBars[i] = undefined
-        dtBar
+    if (doReset) {
+      this.bars.forEach((bar: ChartSelection, i: number) => {
+        if (!this.d3ChartGroup || !this.bars) return
+        this.bars[i] = this.d3ChartGroup
+          .selectAll(`rect.bars-${i}`)
+          .data([] as any)
+        this.bars[i]?.exit().remove()
+        this.bars[i] = undefined as unknown as ChartSelection
+        bar
       })
-      this.aBars = []
+      this.bars = []
     }
 
     // Iterate through config value keys
-    aValues.forEach(({ sColor, sName }: any, i: number) => {
-      const iBarOffset = sBarType === 'side' ? iBarWidth * i : 0
+    itemValues.forEach(({ color, name }: ConfigItemValue, i: number) => {
+      if (!this.bars || !this.d3ChartGroup) return
+      const iBarOffset = sBarType === 'side' ? barWidth * i : 0
       // Add bars for each value
-      if (!this.aBars[i]) {
+      if (!this.bars[i]) {
         // Bind bars data
-        this.aBars[i] = this.d3ChartGroup
+        this.bars[i] = this.d3ChartGroup
           .selectAll(`rect.bars-${i}`)
-          .data(this.aData)
+          .data(this.chartData)
+        if (!color) return
         // Add new rect elements and set base attributes
-        this.aBars[i]
+        this.bars[i]
           .enter()
           .append('rect')
           .on('mousemove', (event: MouseEvent, d: any) => {
-            this.oTooltip.ping([d.sLabel, sName, d.aValues[i]], event)
+            this.tooltip.ping([d.itemLabel, name, d.itemValues[i]], event)
           })
           .on('mouseover', (event: MouseEvent) => {
             select(event.target as HTMLElement).attr(
               'fill',
-              rgb(sColor).darker().formatHex()
+              rgb(color).darker().formatHex()
             )
           })
           .on('mousedown', (event: MouseEvent, d: any) => {
-            if (this.jConfig.fnClickCallback) {
-              this.jConfig.fnClickCallback({
+            if (this.chartConfig.fnClickCallback) {
+              this.chartConfig.fnClickCallback({
                 oEvent: event,
                 jData: d,
               })
             }
           })
           .on('mouseout', (event: MouseEvent) => {
-            this.oTooltip.hide()
-            select(event.target as HTMLElement).attr('fill', sColor)
+            this.tooltip.hide()
+            select(event.target as HTMLElement).attr('fill', color)
           })
           .attr('class', `bars bars-${i}`)
-          .attr('fill', sColor)
-          .attr('y', iInnerHeight)
+          .attr('fill', color)
+          .attr('y', innerHeight)
           .attr('height', 0)
       }
 
@@ -100,25 +89,30 @@ export default class BarChart extends AxisChart {
       ;(() => {
         const d3BarGroup = this.d3ChartGroup.selectAll(`rect.bars-${i}`)
         d3BarGroup
-          .data(this.aData)
-          .attr('x', (d: any) => oScaleX(d.sLabel) + iBarOffset)
-          .attr('width', iBarWidth)
-        if (bHeightTransition) {
+          .data(this.chartData)
+          .attr('x', (d: any) => (scaleX(d.itemLabel) ?? 0) + iBarOffset)
+          .attr('width', barWidth)
+        if (doHeightTransition) {
           return d3BarGroup
-            .transition(false)
+            .transition()
             .ease(easeLinear)
-            .duration(this.iTransitionTime)
+            .duration(this.transitionTime)
         }
-        return d3BarGroup
+        return d3BarGroup as unknown as Transition<
+          BaseType,
+          unknown,
+          SVGGElement,
+          unknown
+        >
       })()
         .attr('y', (d: any) => {
-          let iValue = d.aValues[i]
-          iValue = iValue < 0 ? Math.abs(iValue) : 0
-          return oScaleY(d.aValues[i] + iValue)
+          let value = d.itemValues[i]
+          value = value < 0 ? Math.abs(value) : 0
+          return scaleY(d.itemValues[i] + value)
         })
         .attr('height', (d: any) => {
-          const iModifier = this.iMinValue < 0 ? Math.abs(this.iMinValue) : 0
-          return iInnerHeight - oScaleY(Math.abs(d.aValues[i]) - iModifier)
+          const modifier = this.minValue < 0 ? Math.abs(this.minValue) : 0
+          return innerHeight - scaleY(Math.abs(d.itemValues[i]) - modifier)
         })
     })
   }

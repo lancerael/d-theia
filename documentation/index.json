@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/components/Axis.js",
-    "content": "import { axisBottom, axisLeft } from 'd3-axis';\r\nimport Utilities from './Utilities';\r\n\r\n/**\r\n* The Axis object is used to instantiate x and y axes, as well as labels\r\n*\r\n* @class Axis\r\n* @constructor\r\n*/\r\nexport default class Axis {\r\n\r\n  /**\r\n  * d3 object for axis container\r\n  *\r\n  * @property d3Container\r\n  * @type {Object}\r\n  */\r\n  d3Container;\r\n\r\n  /**\r\n  * Amount to truncate axis labels to\r\n  *\r\n  * @property iTruncate\r\n  * @type {Object}\r\n  */\r\n  iTruncate;\r\n\r\n  /**\r\n  * Collection of axis labels\r\n  *\r\n  * @property aAxisLabels\r\n  * @type {Array}\r\n  */\r\n  aAxisLabels;\r\n\r\n  /**\r\n  * Scale object for the x axis\r\n  *\r\n  * @property oScaleX\r\n  * @type {Object}\r\n  */\r\n  oScaleX;\r\n\r\n  /**\r\n  * Scale object for the y axis\r\n  *\r\n  * @property oScaleY\r\n  * @type {Object}\r\n  */\r\n  oScaleY;\r\n\r\n  /**\r\n  * Chart's tooltip object\r\n  *\r\n  * @property oTooltip\r\n  * @type {Object}\r\n  */\r\n  oTooltip;\r\n\r\n  /**\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property iWidth\r\n  * @type {Number}\r\n  */\r\n  iWidth;\r\n\r\n  /**\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property iHeight\r\n  * @type {Number}\r\n  */\r\n  iHeight;\r\n\r\n  /**\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property jPadding\r\n  * @type {Object}\r\n  */\r\n  jPadding;\r\n\r\n  /**\r\n  * Constructor function which sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} oParams configuration parameters object\r\n  * @throws {Error} invalid parameters\r\n  */\r\n  constructor(oParams) {\r\n    if (oParams.d3Container) {\r\n      Object.assign(this, oParams);\r\n    } else {\r\n      throw new Error('Incorrect parameters provided to Axis constructor.');\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Master render to call all rendering methods\r\n  *\r\n  * @method render\r\n  * @chainable\r\n  */\r\n  render() {\r\n    this.renderAxisX();\r\n    this.renderAxisY();\r\n    this.renderLabels();\r\n    return this;\r\n  }\r\n\r\n  /**\r\n  * Render only the x axis\r\n  *\r\n  * @method renderAxisX\r\n  */\r\n  renderAxisX() {\r\n    this.d3Container.selectAll('g.x-axis').remove();\r\n    this.d3Container.append('g')\r\n        .attr('class', 'x-axis')\r\n        .call(axisBottom(this.oScaleX))\r\n        .attr('transform', `translate(${this.jPadding.l},${this.iHeight})`)\r\n        .selectAll('text')\r\n          .attr('x', -5)\r\n          .attr('y', 6)\r\n          .attr('transform', 'rotate(310)')\r\n          .attr('class', 'x-labels')\r\n          .text(d => Utilities.truncateString(d, this.iTruncate))\r\n          .style('text-anchor', 'end')\r\n          .on('mousemove', (d) => {\r\n            if (this.oTooltip && d.length > this.iTruncate) {\r\n              this.oTooltip.ping(`<strong>${d}</strong>`);\r\n            }\r\n          });\r\n  }\r\n\r\n  /**\r\n  * Render only the y axis\r\n  *\r\n  * @method renderAxisY\r\n  */\r\n  renderAxisY() {\r\n    this.d3Container.selectAll('g.y-axis').remove();\r\n    this.d3Container.append('g')\r\n        .attr('class', 'y-axis')\r\n        .call(axisLeft(this.oScaleY))\r\n        .attr('transform', `translate(${this.jPadding.l},0)`)\r\n        .selectAll('.y-axis .tick line')\r\n          .attr('x2', () => this.iWidth);\r\n  }\r\n\r\n  /**\r\n  * Render only the labels\r\n  *\r\n  * @method renderLabels\r\n  */\r\n  renderLabels() {\r\n    this.d3Container.selectAll('text.labels').remove();\r\n    this.d3Container.append('text')\r\n        .attr('class', 'labels')\r\n        .attr('x', (this.iHeight / -2) - (this.jPadding.t / 2))// - ((this.jConfig.aAxisLabels[0].length / 2) * 7))\r\n        .attr('y', 10)\r\n        .attr('transform', 'rotate(-90)')\r\n        .attr('text-anchor', 'middle')\r\n        .text(this.aAxisLabels[0]);\r\n    this.d3Container.append('text')\r\n        .attr('class', 'labels')\r\n        .attr('x', ((this.iWidth + this.jPadding.l + this.jPadding.r) / 2))// - ((this.aAxisLabels[1].length / 2) * 2))\r\n        .attr('y', this.iHeight + (this.jPadding.b - 5))\r\n        .attr('text-anchor', 'middle')\r\n        .text(this.aAxisLabels[1]);\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = Axis;\r\n",
+    "content": "import { axisBottom, axisLeft } from 'd3-axis';\r\nimport Utilities from './Utilities';\r\n\r\n/**\r\n* The Axis object is used to instantiate x and y axes, as well as labels\r\n*\r\n* @class Axis\r\n* @constructor\r\n*/\r\nexport default class Axis {\r\n\r\n  /**\r\n  * d3 object for axis container\r\n  *\r\n  * @property d3Container\r\n  * @type {Object}\r\n  */\r\n  d3Container;\r\n\r\n  /**\r\n  * Amount to truncate axis labels to\r\n  *\r\n  * @property truncateSize\r\n  * @type {Object}\r\n  */\r\n  truncateSize;\r\n\r\n  /**\r\n  * Collection of axis labels\r\n  *\r\n  * @property axisLabels\r\n  * @type {Array}\r\n  */\r\n  axisLabels;\r\n\r\n  /**\r\n  * Scale object for the x axis\r\n  *\r\n  * @property scaleX\r\n  * @type {Object}\r\n  */\r\n  scaleX;\r\n\r\n  /**\r\n  * Scale object for the y axis\r\n  *\r\n  * @property scaleY\r\n  * @type {Object}\r\n  */\r\n  scaleY;\r\n\r\n  /**\r\n  * Chart's tooltip object\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  */\r\n  tooltip;\r\n\r\n  /**\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property width\r\n  * @type {Number}\r\n  */\r\n  width;\r\n\r\n  /**\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property height\r\n  * @type {Number}\r\n  */\r\n  height;\r\n\r\n  /**\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property padding\r\n  * @type {Object}\r\n  */\r\n  padding;\r\n\r\n  /**\r\n  * Constructor function which sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartParams configuration parameters object\r\n  * @throws {Error} invalid parameters\r\n  */\r\n  constructor(chartParams) {\r\n    if (chartParams.d3Container) {\r\n      Object.assign(this, chartParams);\r\n    } else {\r\n      throw new Error('Incorrect parameters provided to Axis constructor.');\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Master render to call all rendering methods\r\n  *\r\n  * @method render\r\n  * @chainable\r\n  */\r\n  render() {\r\n    this.renderAxisX();\r\n    this.renderAxisY();\r\n    this.renderLabels();\r\n    return this;\r\n  }\r\n\r\n  /**\r\n  * Render only the x axis\r\n  *\r\n  * @method renderAxisX\r\n  */\r\n  renderAxisX() {\r\n    this.d3Container.selectAll('g.x-axis').remove();\r\n    this.d3Container.append('g')\r\n        .attr('class', 'x-axis')\r\n        .call(axisBottom(this.scaleX))\r\n        .attr('transform', `translate(${this.padding.l},${this.height})`)\r\n        .selectAll('text')\r\n          .attr('x', -5)\r\n          .attr('y', 6)\r\n          .attr('transform', 'rotate(310)')\r\n          .attr('class', 'x-labels')\r\n          .text(d => Utilities.truncateString(d, this.truncateSize))\r\n          .style('text-anchor', 'end')\r\n          .on('mousemove', (d) => {\r\n            if (this.tooltip && d.length > this.truncateSize) {\r\n              this.tooltip.ping(`<strong>${d}</strong>`);\r\n            }\r\n          });\r\n  }\r\n\r\n  /**\r\n  * Render only the y axis\r\n  *\r\n  * @method renderAxisY\r\n  */\r\n  renderAxisY() {\r\n    this.d3Container.selectAll('g.y-axis').remove();\r\n    this.d3Container.append('g')\r\n        .attr('class', 'y-axis')\r\n        .call(axisLeft(this.scaleY))\r\n        .attr('transform', `translate(${this.padding.l},0)`)\r\n        .selectAll('.y-axis .tick line')\r\n          .attr('x2', () => this.width);\r\n  }\r\n\r\n  /**\r\n  * Render only the labels\r\n  *\r\n  * @method renderLabels\r\n  */\r\n  renderLabels() {\r\n    this.d3Container.selectAll('text.labels').remove();\r\n    this.d3Container.append('text')\r\n        .attr('class', 'labels')\r\n        .attr('x', (this.height / -2) - (this.padding.t / 2))// - ((this.chartConfig.axisLabels[0].length / 2) * 7))\r\n        .attr('y', 10)\r\n        .attr('transform', 'rotate(-90)')\r\n        .attr('text-anchor', 'middle')\r\n        .text(this.axisLabels[0]);\r\n    this.d3Container.append('text')\r\n        .attr('class', 'labels')\r\n        .attr('x', ((this.width + this.padding.l + this.padding.r) / 2))// - ((this.axisLabels[1].length / 2) * 2))\r\n        .attr('y', this.height + (this.padding.b - 5))\r\n        .attr('text-anchor', 'middle')\r\n        .text(this.axisLabels[1]);\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = Axis;\r\n",
     "static": true,
     "longname": "C:/Dev/d-theia/src/components/Axis.js",
     "access": "public",
@@ -629,10 +629,10 @@
   {
     "__docId__": 51,
     "kind": "member",
-    "name": "iTruncate",
+    "name": "truncateSize",
     "memberof": "src/components/Axis.js~Axis",
     "static": false,
-    "longname": "src/components/Axis.js~Axis#iTruncate",
+    "longname": "src/components/Axis.js~Axis#truncateSize",
     "access": "public",
     "description": "Amount to truncate axis labels to",
     "lineNumber": 26,
@@ -642,7 +642,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "iTruncate",
+        "name": "truncateSize",
         "description": ""
       }
     ],
@@ -656,10 +656,10 @@
   {
     "__docId__": 52,
     "kind": "member",
-    "name": "aAxisLabels",
+    "name": "axisLabels",
     "memberof": "src/components/Axis.js~Axis",
     "static": false,
-    "longname": "src/components/Axis.js~Axis#aAxisLabels",
+    "longname": "src/components/Axis.js~Axis#axisLabels",
     "access": "public",
     "description": "Collection of axis labels",
     "lineNumber": 34,
@@ -669,7 +669,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "aAxisLabels",
+        "name": "axisLabels",
         "description": ""
       }
     ],
@@ -683,10 +683,10 @@
   {
     "__docId__": 53,
     "kind": "member",
-    "name": "oScaleX",
+    "name": "scaleX",
     "memberof": "src/components/Axis.js~Axis",
     "static": false,
-    "longname": "src/components/Axis.js~Axis#oScaleX",
+    "longname": "src/components/Axis.js~Axis#scaleX",
     "access": "public",
     "description": "Scale object for the x axis",
     "lineNumber": 42,
@@ -696,7 +696,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "oScaleX",
+        "name": "scaleX",
         "description": ""
       }
     ],
@@ -710,10 +710,10 @@
   {
     "__docId__": 54,
     "kind": "member",
-    "name": "oScaleY",
+    "name": "scaleY",
     "memberof": "src/components/Axis.js~Axis",
     "static": false,
-    "longname": "src/components/Axis.js~Axis#oScaleY",
+    "longname": "src/components/Axis.js~Axis#scaleY",
     "access": "public",
     "description": "Scale object for the y axis",
     "lineNumber": 50,
@@ -723,7 +723,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "oScaleY",
+        "name": "scaleY",
         "description": ""
       }
     ],
@@ -737,10 +737,10 @@
   {
     "__docId__": 55,
     "kind": "member",
-    "name": "oTooltip",
+    "name": "tooltip",
     "memberof": "src/components/Axis.js~Axis",
     "static": false,
-    "longname": "src/components/Axis.js~Axis#oTooltip",
+    "longname": "src/components/Axis.js~Axis#tooltip",
     "access": "public",
     "description": "Chart's tooltip object",
     "lineNumber": 58,
@@ -750,7 +750,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "oTooltip",
+        "name": "tooltip",
         "description": ""
       }
     ],
@@ -764,10 +764,10 @@
   {
     "__docId__": 56,
     "kind": "member",
-    "name": "iWidth",
+    "name": "width",
     "memberof": "src/components/Axis.js~Axis",
     "static": false,
-    "longname": "src/components/Axis.js~Axis#iWidth",
+    "longname": "src/components/Axis.js~Axis#width",
     "access": "public",
     "description": "The current calculated width of the chart",
     "lineNumber": 66,
@@ -777,7 +777,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "iWidth",
+        "name": "width",
         "description": ""
       }
     ],
@@ -791,10 +791,10 @@
   {
     "__docId__": 57,
     "kind": "member",
-    "name": "iHeight",
+    "name": "height",
     "memberof": "src/components/Axis.js~Axis",
     "static": false,
-    "longname": "src/components/Axis.js~Axis#iHeight",
+    "longname": "src/components/Axis.js~Axis#height",
     "access": "public",
     "description": "The current calculated height of the chart",
     "lineNumber": 74,
@@ -804,7 +804,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "iHeight",
+        "name": "height",
         "description": ""
       }
     ],
@@ -818,10 +818,10 @@
   {
     "__docId__": 58,
     "kind": "member",
-    "name": "jPadding",
+    "name": "padding",
     "memberof": "src/components/Axis.js~Axis",
     "static": false,
-    "longname": "src/components/Axis.js~Axis#jPadding",
+    "longname": "src/components/Axis.js~Axis#padding",
     "access": "public",
     "description": "The padding for the chart within the container",
     "lineNumber": 82,
@@ -831,7 +831,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "jPadding",
+        "name": "padding",
         "description": ""
       }
     ],
@@ -866,7 +866,7 @@
         "types": ["Object"],
         "spread": false,
         "optional": false,
-        "name": "oParams",
+        "name": "chartParams",
         "description": "configuration parameters object"
       }
     ],
@@ -971,7 +971,7 @@
     "__docId__": 64,
     "kind": "file",
     "name": "src/components/AxisChart.js",
-    "content": "import { min, max } from 'd3-array';\r\nimport { select } from 'd3-selection';\r\nimport { scaleLinear, scaleBand } from 'd3-scale';\r\nimport Chart from './Chart';\r\nimport Key from './Key';\r\nimport Axis from './Axis';\r\n\r\n/**\r\n* Create AxisChart from the supplied data, based on the supplied JSON config.\r\n*\r\n* @class AxisChart\r\n* @extends {Chart}\r\n* @constructor\r\n*/\r\nexport default class AxisChart extends Chart {\r\n\r\n  /**\r\n  * The d3 object for the chart's group\r\n  *\r\n  * @property d3ChartGroup\r\n  * @type {Object}\r\n  */\r\n  d3ChartGroup;\r\n\r\n  /**\r\n  * The d3 object for the chart's axis\r\n  *\r\n  * @property d3AxisGroup\r\n  * @type {Object}\r\n  */\r\n  d3AxisGroup;\r\n\r\n  /**\r\n  * The chart's axis object\r\n  *\r\n  * @property oAxis\r\n  * @type {Object}\r\n  */\r\n  oAxis;\r\n\r\n  /**\r\n  * The chart's key object\r\n  *\r\n  * @property oKey\r\n  * @type {Object}\r\n  */\r\n  oKey;\r\n\r\n  /**\r\n  * Constructor function supersedes parent class.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} oParams same as Chart\r\n  */\r\n  constructor(oParams = {}) {\r\n    super(oParams);\r\n    this.jPadding = { l: 45, r: 15, t: 25, b: 90 };\r\n    this.oScaleY = scaleLinear();\r\n    this.oScaleX = scaleBand().padding(0.2);\r\n  }\r\n\r\n  /**\r\n  * Supersede the parent method to update local scaling objects\r\n  *\r\n  * @method setDimensions\r\n  */\r\n  setDimensions() {\r\n    super.setDimensions();\r\n    const bTrim = this.jConfig.bTrim;\r\n    let iMinValue = bTrim ? min(this.aData, d => min(d.aValues)) : 0;\r\n    let iMaxValue = max(this.aData, d => max(d.aValues));\r\n    const iSection = Math.ceil(iMaxValue / 15);\r\n    if (bTrim) {\r\n      const iLowerSection = iMinValue > iSection ? iMinValue - iSection : 0;\r\n      iMinValue = iMinValue > 0 ? iLowerSection : iMinValue;\r\n      iMinValue = iMinValue < 0 ? iMinValue - iSection : iMinValue;\r\n      iMaxValue += iSection;\r\n    }\r\n    this.oScaleX\r\n      .domain(this.aData.map(d => d.sLabel))\r\n      .range([0, this.iInnerWidth]);\r\n    this.oScaleY\r\n      .domain([iMinValue, iMaxValue])\r\n      .range([this.iInnerHeight, this.jPadding.t]);\r\n    this.iMinValue = iMinValue;\r\n    this.iMaxValue = iMaxValue;\r\n    this.iSection = iSection;\r\n  }\r\n\r\n  /**\r\n  * Render the chart including axes and labels\r\n  *\r\n  * @method renderChart\r\n  */\r\n  renderChart() {\r\n    const { aAxisLabels, iTruncate = 15 } = this.jConfig;\r\n    const { iInnerWidth, iInnerHeight, oScaleX, oScaleY, jPadding } = this;\r\n\r\n    // Add chart scale axes\r\n    this.d3AxisGroup = this.d3AxisGroup || this.d3Svg.append('g').attr('class', 'axes-g');\r\n    this.oAxis = new Axis({\r\n      d3Container: this.d3AxisGroup,\r\n      iTruncate,\r\n      aAxisLabels,\r\n      oScaleX,\r\n      oScaleY,\r\n      jPadding,\r\n      iWidth: iInnerWidth,\r\n      iHeight: iInnerHeight,\r\n      oTooltip: this.oTooltip }).render();\r\n\r\n    // Add chart container group\r\n    this.d3ChartGroup = this.d3ChartGroup || this.d3Svg.append('g').attr('transform', `translate(${this.jPadding.l}, 0)`);\r\n\r\n    // Render the key for the data\r\n    this.oKey = new Key({\r\n      d3Container: select(this.dSvg),\r\n      aValues: this.jConfig.aValues,\r\n      iOffsetX: (this.iInnerWidth / 2) + this.jPadding.l,\r\n      iOffsetY: this.iHeight - 20\r\n    }).render();\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = AxisChart;\r\n",
+    "content": "import { min, max } from 'd3-array';\r\nimport { select } from 'd3-selection';\r\nimport { scaleLinear, scaleBand } from 'd3-scale';\r\nimport Chart from './Chart';\r\nimport Key from './Key';\r\nimport Axis from './Axis';\r\n\r\n/**\r\n* Create AxisChart from the supplied data, based on the supplied JSON config.\r\n*\r\n* @class AxisChart\r\n* @extends {Chart}\r\n* @constructor\r\n*/\r\nexport default class AxisChart extends Chart {\r\n\r\n  /**\r\n  * The d3 object for the chart's group\r\n  *\r\n  * @property d3ChartGroup\r\n  * @type {Object}\r\n  */\r\n  d3ChartGroup;\r\n\r\n  /**\r\n  * The d3 object for the chart's axis\r\n  *\r\n  * @property axisGroup\r\n  * @type {Object}\r\n  */\r\n  axisGroup;\r\n\r\n  /**\r\n  * The chart's axis object\r\n  *\r\n  * @property axis\r\n  * @type {Object}\r\n  */\r\n  axis;\r\n\r\n  /**\r\n  * The chart's key object\r\n  *\r\n  * @property key\r\n  * @type {Object}\r\n  */\r\n  key;\r\n\r\n  /**\r\n  * Constructor function supersedes parent class.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartParams same as Chart\r\n  */\r\n  constructor(chartParams = {}) {\r\n    super(chartParams);\r\n    this.padding = { l: 45, r: 15, t: 25, b: 90 };\r\n    this.scaleY = scaleLinear();\r\n    this.scaleX = scaleBand().padding(0.2);\r\n  }\r\n\r\n  /**\r\n  * Supersede the parent method to update local scaling objects\r\n  *\r\n  * @method setDimensions\r\n  */\r\n  setDimensions() {\r\n    super.setDimensions();\r\n    const doTrim = this.chartConfig.doTrim;\r\n    let minValue = doTrim ? min(this.chartData, d => min(d.itemValues)) : 0;\r\n    let maxValue = max(this.chartData, d => max(d.itemValues));\r\n    const dataSlice = Math.ceil(maxValue / 15);\r\n    if (doTrim) {\r\n      const iLowerSection = minValue > dataSlice ? minValue - dataSlice : 0;\r\n      minValue = minValue > 0 ? iLowerSection : minValue;\r\n      minValue = minValue < 0 ? minValue - dataSlice : minValue;\r\n      maxValue += dataSlice;\r\n    }\r\n    this.scaleX\r\n      .domain(this.chartData.map(d => d.itemLabel))\r\n      .range([0, this.innerWidth]);\r\n    this.scaleY\r\n      .domain([minValue, maxValue])\r\n      .range([this.innerHeight, this.padding.t]);\r\n    this.minValue = minValue;\r\n    this.maxValue = maxValue;\r\n    this.dataSlice = dataSlice;\r\n  }\r\n\r\n  /**\r\n  * Render the chart including axes and labels\r\n  *\r\n  * @method renderChart\r\n  */\r\n  renderChart() {\r\n    const { axisLabels, truncateSize = 15 } = this.chartConfig;\r\n    const { innerWidth, innerHeight, scaleX, scaleY, padding } = this;\r\n\r\n    // Add chart scale axes\r\n    this.axisGroup = this.axisGroup || this.d3Svg.append('g').attr('class', 'axes-g');\r\n    this.axis = new Axis({\r\n      d3Container: this.axisGroup,\r\n      truncateSize,\r\n      axisLabels,\r\n      scaleX,\r\n      scaleY,\r\n      padding,\r\n      width: innerWidth,\r\n      height: innerHeight,\r\n      tooltip: this.tooltip }).render();\r\n\r\n    // Add chart container group\r\n    this.d3ChartGroup = this.d3ChartGroup || this.d3Svg.append('g').attr('transform', `translate(${this.padding.l}, 0)`);\r\n\r\n    // Render the key for the data\r\n    this.key = new Key({\r\n      d3Container: select(this.svg),\r\n      itemValues: this.chartConfig.itemValues,\r\n      offsetX: (this.innerWidth / 2) + this.padding.l,\r\n      offsetY: this.height - 20\r\n    }).render();\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = AxisChart;\r\n",
     "static": true,
     "longname": "C:/Dev/d-theia/src/components/AxisChart.js",
     "access": "public",
@@ -1034,10 +1034,10 @@
   {
     "__docId__": 67,
     "kind": "member",
-    "name": "d3AxisGroup",
+    "name": "axisGroup",
     "memberof": "src/components/AxisChart.js~AxisChart",
     "static": false,
-    "longname": "src/components/AxisChart.js~AxisChart#d3AxisGroup",
+    "longname": "src/components/AxisChart.js~AxisChart#axisGroup",
     "access": "public",
     "description": "The d3 object for the chart's axis",
     "lineNumber": 31,
@@ -1047,7 +1047,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "d3AxisGroup",
+        "name": "axisGroup",
         "description": ""
       }
     ],
@@ -1061,10 +1061,10 @@
   {
     "__docId__": 68,
     "kind": "member",
-    "name": "oAxis",
+    "name": "axis",
     "memberof": "src/components/AxisChart.js~AxisChart",
     "static": false,
-    "longname": "src/components/AxisChart.js~AxisChart#oAxis",
+    "longname": "src/components/AxisChart.js~AxisChart#axis",
     "access": "public",
     "description": "The chart's axis object",
     "lineNumber": 39,
@@ -1074,7 +1074,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "oAxis",
+        "name": "axis",
         "description": ""
       }
     ],
@@ -1088,10 +1088,10 @@
   {
     "__docId__": 69,
     "kind": "member",
-    "name": "oKey",
+    "name": "key",
     "memberof": "src/components/AxisChart.js~AxisChart",
     "static": false,
-    "longname": "src/components/AxisChart.js~AxisChart#oKey",
+    "longname": "src/components/AxisChart.js~AxisChart#key",
     "access": "public",
     "description": "The chart's key object",
     "lineNumber": 47,
@@ -1101,7 +1101,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "oKey",
+        "name": "key",
         "description": ""
       }
     ],
@@ -1136,7 +1136,7 @@
         "types": ["Object"],
         "spread": false,
         "optional": false,
-        "name": "oParams",
+        "name": "chartParams",
         "description": "same as Chart"
       }
     ]
@@ -1144,10 +1144,10 @@
   {
     "__docId__": 71,
     "kind": "member",
-    "name": "jPadding",
+    "name": "padding",
     "memberof": "src/components/AxisChart.js~AxisChart",
     "static": false,
-    "longname": "src/components/AxisChart.js~AxisChart#jPadding",
+    "longname": "src/components/AxisChart.js~AxisChart#padding",
     "access": "public",
     "description": null,
     "lineNumber": 57,
@@ -1159,10 +1159,10 @@
   {
     "__docId__": 72,
     "kind": "member",
-    "name": "oScaleY",
+    "name": "scaleY",
     "memberof": "src/components/AxisChart.js~AxisChart",
     "static": false,
-    "longname": "src/components/AxisChart.js~AxisChart#oScaleY",
+    "longname": "src/components/AxisChart.js~AxisChart#scaleY",
     "access": "public",
     "description": null,
     "lineNumber": 58,
@@ -1174,10 +1174,10 @@
   {
     "__docId__": 73,
     "kind": "member",
-    "name": "oScaleX",
+    "name": "scaleX",
     "memberof": "src/components/AxisChart.js~AxisChart",
     "static": false,
-    "longname": "src/components/AxisChart.js~AxisChart#oScaleX",
+    "longname": "src/components/AxisChart.js~AxisChart#scaleX",
     "access": "public",
     "description": null,
     "lineNumber": 59,
@@ -1210,10 +1210,10 @@
   {
     "__docId__": 75,
     "kind": "member",
-    "name": "iMinValue",
+    "name": "minValue",
     "memberof": "src/components/AxisChart.js~AxisChart",
     "static": false,
-    "longname": "src/components/AxisChart.js~AxisChart#iMinValue",
+    "longname": "src/components/AxisChart.js~AxisChart#minValue",
     "access": "public",
     "description": null,
     "lineNumber": 85,
@@ -1225,10 +1225,10 @@
   {
     "__docId__": 76,
     "kind": "member",
-    "name": "iMaxValue",
+    "name": "maxValue",
     "memberof": "src/components/AxisChart.js~AxisChart",
     "static": false,
-    "longname": "src/components/AxisChart.js~AxisChart#iMaxValue",
+    "longname": "src/components/AxisChart.js~AxisChart#maxValue",
     "access": "public",
     "description": null,
     "lineNumber": 86,
@@ -1240,10 +1240,10 @@
   {
     "__docId__": 77,
     "kind": "member",
-    "name": "iSection",
+    "name": "dataSlice",
     "memberof": "src/components/AxisChart.js~AxisChart",
     "static": false,
-    "longname": "src/components/AxisChart.js~AxisChart#iSection",
+    "longname": "src/components/AxisChart.js~AxisChart#dataSlice",
     "access": "public",
     "description": null,
     "lineNumber": 87,
@@ -1277,7 +1277,7 @@
     "__docId__": 83,
     "kind": "file",
     "name": "src/components/BarChart.js",
-    "content": "import { easeLinear } from 'd3-ease';\r\nimport { select, event } from 'd3-selection';\r\nimport 'd3-transition';\r\nimport AxisChart from './AxisChart';\r\n\r\n/**\r\n* Create BarCharts from the supplied data, based on the JSON config.\r\n*\r\n* @class BarChart\r\n* @extends {AxisChart}\r\n* @constructor\r\n*/\r\nexport default class BarChart extends AxisChart {\r\n\r\n  /**\r\n  * The local collection of bars\r\n  *\r\n  * @property aBars\r\n  * @type {Array}\r\n  */\r\n  aBars;\r\n\r\n  /**\r\n  * Constructor used to set chart type\r\n  *\r\n  * @method constructor\r\n  */\r\n  constructor(oParams = {}) {\r\n    super(oParams);\r\n    this.sChartType = 'bar';\r\n  }\r\n\r\n  /**\r\n  * Render the chart including bars, axes and labels\r\n  *\r\n  * @method renderChart\r\n  * @param {Boolean} bReset optionally reset the chart data\r\n  * @param {Boolean} bHeightTransition optionally transition height\r\n  */\r\n  renderChart(bReset = false, bHeightTransition = true) {\r\n    super.renderChart();\r\n    const { aValues, sBarType = 'side' } = this.jConfig;\r\n    const { iInnerHeight, oScaleX, oScaleY } = this;\r\n    const iBarWidth = oScaleX.bandwidth() / aValues.length;\r\n\r\n    this.aBars = this.aBars || [];\r\n\r\n    // Iterate through config value keys\r\n    aValues.forEach((oValues, i) => {\r\n      const { oColor } = oValues;\r\n      const iBarOffset = sBarType === 'side' ? (iBarWidth * i) : 0;\r\n      // Reset bars data and clear graph\r\n      if (bReset && this.aBars[i]) {\r\n        this.aBars[i] = this.d3ChartGroup.selectAll(`rect.bars-${i}`).data({});\r\n        this.aBars[i].exit().remove();\r\n        this.aBars[i] = undefined;\r\n      }\r\n      // Add bars for each value\r\n      if (!this.aBars[i]) {\r\n        // Bind bars data\r\n        this.aBars[i] = this.d3ChartGroup.selectAll(`rect.bars-${i}`).data(this.aData);\r\n        // Add new rect elements and set base attributes\r\n        this.aBars[i]\r\n          .enter()\r\n          .append('rect')\r\n          .on('mousemove', (d) => {\r\n            this.oTooltip.ping([d.sLabel, oValues.sName, d.aValues[i]]);\r\n          })\r\n          .on('mouseover', (d) => {\r\n            d.oColor = oColor;\r\n            select(event.target).attr('fill', d.oColor.darker(1));\r\n          })\r\n          .on('mousedown', (d) => {\r\n            if (this.jConfig.fnClickCallback) {\r\n              this.jConfig.fnClickCallback({\r\n                oEvent: event,\r\n                jData: d\r\n              });\r\n            }\r\n          })\r\n          .on('mouseout', (d) => {\r\n            this.oTooltip.hide();\r\n            select(event.target).attr('fill', d.oColor);\r\n          })\r\n          .attr('class', `bars bars-${i}`)\r\n          .attr('fill', oColor)\r\n          .attr('y', iInnerHeight)\r\n          .attr('height', 0);\r\n      }\r\n\r\n      // Update bars (IIFE used to allow for optional transition)\r\n      (() => {\r\n        const d3BarGroup = this.d3ChartGroup.selectAll(`rect.bars-${i}`);\r\n        d3BarGroup.data(this.aData)\r\n          .attr('x', d => oScaleX(d.sLabel) + iBarOffset)\r\n          .attr('width', iBarWidth);\r\n        if (bHeightTransition) {\r\n          return d3BarGroup.transition(false)\r\n          .ease(easeLinear)\r\n          .duration(this.iTransitionTime);\r\n        }\r\n        return d3BarGroup;\r\n      })().attr('y', (d) => {\r\n        let iValue = d.aValues[i];\r\n        iValue = iValue < 0 ? Math.abs(iValue) : 0;\r\n        return oScaleY(d.aValues[i] + iValue);\r\n      })\r\n      .attr('height', (d) => {\r\n        const iModifier = this.iMinValue < 0 ? Math.abs(this.iMinValue) : 0;\r\n        return iInnerHeight - oScaleY(Math.abs(d.aValues[i]) - iModifier);\r\n      });\r\n    });\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = BarChart;\r\n",
+    "content": "import { easeLinear } from 'd3-ease';\r\nimport { select, event } from 'd3-selection';\r\nimport 'd3-transition';\r\nimport AxisChart from './AxisChart';\r\n\r\n/**\r\n* Create BarCharts from the supplied data, based on the JSON config.\r\n*\r\n* @class BarChart\r\n* @extends {AxisChart}\r\n* @constructor\r\n*/\r\nexport default class BarChart extends AxisChart {\r\n\r\n  /**\r\n  * The local collection of bars\r\n  *\r\n  * @property bars\r\n  * @type {Array}\r\n  */\r\n  bars;\r\n\r\n  /**\r\n  * Constructor used to set chart type\r\n  *\r\n  * @method constructor\r\n  */\r\n  constructor(chartParams = {}) {\r\n    super(chartParams);\r\n    this.chartType = 'bar';\r\n  }\r\n\r\n  /**\r\n  * Render the chart including bars, axes and labels\r\n  *\r\n  * @method renderChart\r\n  * @param {Boolean} doReset optionally reset the chart data\r\n  * @param {Boolean} doHeightTransition optionally transition height\r\n  */\r\n  renderChart(doReset = false, doHeightTransition = true) {\r\n    super.renderChart();\r\n    const { itemValues, sBarType = 'side' } = this.chartConfig;\r\n    const { innerHeight, scaleX, scaleY } = this;\r\n    const barWidth = scaleX.bandwidth() / itemValues.length;\r\n\r\n    this.bars = this.bars || [];\r\n\r\n    // Iterate through config value keys\r\n    itemValues.forEach((oValues, i) => {\r\n      const { color } = oValues;\r\n      const iBarOffset = sBarType === 'side' ? (barWidth * i) : 0;\r\n      // Reset bars data and clear graph\r\n      if (doReset && this.bars[i]) {\r\n        this.bars[i] = this.d3ChartGroup.selectAll(`rect.bars-${i}`).data({});\r\n        this.bars[i].exit().remove();\r\n        this.bars[i] = undefined;\r\n      }\r\n      // Add bars for each value\r\n      if (!this.bars[i]) {\r\n        // Bind bars data\r\n        this.bars[i] = this.d3ChartGroup.selectAll(`rect.bars-${i}`).data(this.chartData);\r\n        // Add new rect elements and set base attributes\r\n        this.bars[i]\r\n          .enter()\r\n          .append('rect')\r\n          .on('mousemove', (d) => {\r\n            this.tooltip.ping([d.itemLabel, oValues.name, d.itemValues[i]]);\r\n          })\r\n          .on('mouseover', (d) => {\r\n            d.color = color;\r\n            select(event.target).attr('fill', d.color.darker(1));\r\n          })\r\n          .on('mousedown', (d) => {\r\n            if (this.chartConfig.fnClickCallback) {\r\n              this.chartConfig.fnClickCallback({\r\n                oEvent: event,\r\n                jData: d\r\n              });\r\n            }\r\n          })\r\n          .on('mouseout', (d) => {\r\n            this.tooltip.hide();\r\n            select(event.target).attr('fill', d.color);\r\n          })\r\n          .attr('class', `bars bars-${i}`)\r\n          .attr('fill', color)\r\n          .attr('y', innerHeight)\r\n          .attr('height', 0);\r\n      }\r\n\r\n      // Update bars (IIFE used to allow for optional transition)\r\n      (() => {\r\n        const d3BarGroup = this.d3ChartGroup.selectAll(`rect.bars-${i}`);\r\n        d3BarGroup.data(this.chartData)\r\n          .attr('x', d => scaleX(d.itemLabel) + iBarOffset)\r\n          .attr('width', barWidth);\r\n        if (doHeightTransition) {\r\n          return d3BarGroup.transition(false)\r\n          .ease(easeLinear)\r\n          .duration(this.transitionTime);\r\n        }\r\n        return d3BarGroup;\r\n      })().attr('y', (d) => {\r\n        let value = d.itemValues[i];\r\n        value = value < 0 ? Math.abs(value) : 0;\r\n        return scaleY(d.itemValues[i] + value);\r\n      })\r\n      .attr('height', (d) => {\r\n        const modifier = this.minValue < 0 ? Math.abs(this.minValue) : 0;\r\n        return innerHeight - scaleY(Math.abs(d.itemValues[i]) - modifier);\r\n      });\r\n    });\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = BarChart;\r\n",
     "static": true,
     "longname": "C:/Dev/d-theia/src/components/BarChart.js",
     "access": "public",
@@ -1313,10 +1313,10 @@
   {
     "__docId__": 85,
     "kind": "member",
-    "name": "aBars",
+    "name": "bars",
     "memberof": "src/components/BarChart.js~BarChart",
     "static": false,
-    "longname": "src/components/BarChart.js~BarChart#aBars",
+    "longname": "src/components/BarChart.js~BarChart#bars",
     "access": "public",
     "description": "The local collection of bars",
     "lineNumber": 21,
@@ -1326,7 +1326,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "aBars",
+        "name": "bars",
         "description": ""
       }
     ],
@@ -1359,10 +1359,10 @@
   {
     "__docId__": 87,
     "kind": "member",
-    "name": "sChartType",
+    "name": "chartType",
     "memberof": "src/components/BarChart.js~BarChart",
     "static": false,
-    "longname": "src/components/BarChart.js~BarChart#sChartType",
+    "longname": "src/components/BarChart.js~BarChart#chartType",
     "access": "public",
     "description": null,
     "lineNumber": 30,
@@ -1395,7 +1395,7 @@
         "types": ["Boolean"],
         "spread": false,
         "optional": false,
-        "name": "bReset",
+        "name": "doReset",
         "description": "optionally reset the chart data"
       },
       {
@@ -1403,7 +1403,7 @@
         "types": ["Boolean"],
         "spread": false,
         "optional": false,
-        "name": "bHeightTransition",
+        "name": "doHeightTransition",
         "description": "optionally transition height"
       }
     ],
@@ -1413,7 +1413,7 @@
     "__docId__": 90,
     "kind": "file",
     "name": "src/components/BubbleChart.js",
-    "content": "import { forceSimulation, forceManyBody, forceCenter } from 'd3-force';\r\nimport { max } from 'd3-array';\r\nimport { select } from 'd3-selection';\r\nimport { easeLinear } from 'd3-ease';\r\nimport { scaleLinear } from 'd3-scale';\r\nimport Chart from './Chart';\r\nimport Axis from './Axis';\r\nimport Key from './Key';\r\n\r\n/**\r\n* Create BubbleCharts from the supplied data, based on the supplied JSON config.\r\n*\r\n* @class BubbleChart\r\n* @extends {Chart}\r\n* @constructor\r\n*/\r\nexport default class BubbleChart extends Chart {\r\n\r\n  /**\r\n  * The local collection of bubbles\r\n  *\r\n  * @property aBubbles\r\n  * @type {Array}\r\n  */\r\n  aBubbles;\r\n\r\n  /**\r\n  * Constructor function supersedes parent class.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} oParams same as Chart\r\n  */\r\n  constructor(oParams = {}) {\r\n    super(oParams);\r\n    this.oScaleColor = scaleLinear();\r\n    this.sChartType = 'bubble';\r\n  }\r\n\r\n  /**\r\n  * Supersede the parent method to update local scaling objects\r\n  *\r\n  * @method setDimensions\r\n  */\r\n  setDimensions() {\r\n    super.setDimensions();\r\n    this.oScaleColor\r\n      .domain([0, max(this.aData, d => d[this.jConfig.aValues[1].sKey])])\r\n      .range(this.jConfig.aValues[1].aColors);\r\n  }\r\n\r\n  /**\r\n  * Render the chart including bubbles, axes and labels\r\n  *\r\n  * @method renderChart\r\n  */\r\n  renderChart() {\r\n    const { aAxisLabels, aValues } = this.jConfig;\r\n    const { iInnerWidth, iInnerHeight, jPadding } = this;\r\n    const { sKey: sKey1, sName: sName1 } = aValues[0];\r\n    const { sKey: sKey2, sName: sName2, aColors } = aValues[1];\r\n\r\n    // Add chart scale axes\r\n    this.d3AxisGroup = this.d3AxisGroup || this.d3Svg.append('g').attr('class', 'axes-g');\r\n    this.oAxis = new Axis({\r\n      d3Container: this.d3AxisGroup,\r\n      aAxisLabels,\r\n      jPadding,\r\n      iWidth: iInnerWidth,\r\n      iHeight: iInnerHeight - 25 }).renderLabels();\r\n\r\n    // Add the group container for bubbles\r\n    this.d3BubblesGroup = this.d3BubblesGroup || this.d3Svg.append('g').attr('transform', `translate(${this.jPadding.l}, 0)`);\r\n\r\n    // The method runs on each tick of the force calculation to reposition the bubbles\r\n    const fnTicked = () => {\r\n      this.d3BubblesGroup.selectAll('circle')\r\n        .attr('cx', d => d.x)\r\n        .attr('cy', d => d.y);\r\n    };\r\n\r\n    // Initialise the d3 force calculations\r\n    this.oForce = forceSimulation()\r\n      .nodes(JSON.parse(JSON.stringify(this.aData)))\r\n      .force('charge', forceManyBody().strength(d => (d[sKey1] * (d[sKey1] / 2)) / -150))\r\n      .force('center', forceCenter(this.iWidth / 2, this.iHeight / 2))\r\n      .on('tick', () => {\r\n        fnTicked();\r\n      });\r\n\r\n    // Add circles for each value\r\n    if (!this.d3Circles) {\r\n      // Bind bars data\r\n      this.d3Circles = this.d3BubblesGroup.selectAll('circle.circles').data(this.oForce.nodes());\r\n      // Add new rect elements and set base attributes\r\n      this.d3Circles\r\n        .enter()\r\n        .append('circle')\r\n        .on('mousemove', (d) => {\r\n          this.oTooltip.ping(`<strong>${d.sLabel}</strong><br>${sName1}: <em>${d[sKey1]}</em><br>${sName2}: <em>${d[sKey2]}</em>`);\r\n        })\r\n        .on('mouseout', () => this.oTooltip.hide())\r\n        .attr('class', 'circles')\r\n        .attr('fill', d => this.oScaleColor(d[sKey2]))\r\n        .attr('r', 0)\r\n        .transition()\r\n        .ease(easeLinear)\r\n        .duration(this.iTransitionTime)\r\n        .attr('r', d => d[sKey1] / 2);\r\n    } else {\r\n      this.d3BubblesGroup.attr('transform', `translate(${this.iResizeOffset / 2}, 0)`);\r\n    }\r\n\r\n    // Render the key for the data\r\n    this.oKey = new Key({\r\n      d3Container: select(this.dSvg),\r\n      aValues: [\r\n        {\r\n          sName: 0,\r\n          sColor: aColors[0]\r\n        },\r\n        {\r\n          sName: this.oScaleColor.domain()[1],\r\n          sColor: aColors[1]\r\n        }\r\n      ],\r\n      iOffsetX: (this.iInnerWidth / 2) + this.jPadding.l + 10,\r\n      iOffsetY: this.iHeight - 20,\r\n      sType: 'range'\r\n    }).render();\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = BubbleChart;\r\n",
+    "content": "import { forceSimulation, forceManyBody, forceCenter } from 'd3-force';\r\nimport { max } from 'd3-array';\r\nimport { select } from 'd3-selection';\r\nimport { easeLinear } from 'd3-ease';\r\nimport { scaleLinear } from 'd3-scale';\r\nimport Chart from './Chart';\r\nimport Axis from './Axis';\r\nimport Key from './Key';\r\n\r\n/**\r\n* Create BubbleCharts from the supplied data, based on the supplied JSON config.\r\n*\r\n* @class BubbleChart\r\n* @extends {Chart}\r\n* @constructor\r\n*/\r\nexport default class BubbleChart extends Chart {\r\n\r\n  /**\r\n  * The local collection of bubbles\r\n  *\r\n  * @property bubbles\r\n  * @type {Array}\r\n  */\r\n  bubbles;\r\n\r\n  /**\r\n  * Constructor function supersedes parent class.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartParams same as Chart\r\n  */\r\n  constructor(chartParams = {}) {\r\n    super(chartParams);\r\n    this.scaleColor = scaleLinear();\r\n    this.chartType = 'bubble';\r\n  }\r\n\r\n  /**\r\n  * Supersede the parent method to update local scaling objects\r\n  *\r\n  * @method setDimensions\r\n  */\r\n  setDimensions() {\r\n    super.setDimensions();\r\n    this.scaleColor\r\n      .domain([0, max(this.chartData, d => d[this.chartConfig.itemValues[1].key])])\r\n      .range(this.chartConfig.itemValues[1].colors);\r\n  }\r\n\r\n  /**\r\n  * Render the chart including bubbles, axes and labels\r\n  *\r\n  * @method renderChart\r\n  */\r\n  renderChart() {\r\n    const { axisLabels, itemValues } = this.chartConfig;\r\n    const { innerWidth, innerHeight, padding } = this;\r\n    const { key: key1, name: name1 } = itemValues[0];\r\n    const { key: key2, name: name2, colors } = itemValues[1];\r\n\r\n    // Add chart scale axes\r\n    this.axisGroup = this.axisGroup || this.d3Svg.append('g').attr('class', 'axes-g');\r\n    this.axis = new Axis({\r\n      d3Container: this.axisGroup,\r\n      axisLabels,\r\n      padding,\r\n      width: innerWidth,\r\n      height: innerHeight - 25 }).renderLabels();\r\n\r\n    // Add the group container for bubbles\r\n    this.bubblesGroup = this.bubblesGroup || this.d3Svg.append('g').attr('transform', `translate(${this.padding.l}, 0)`);\r\n\r\n    // The method runs on each tick of the force calculation to reposition the bubbles\r\n    const fnTicked = () => {\r\n      this.bubblesGroup.selectAll('circle')\r\n        .attr('cx', d => d.x)\r\n        .attr('cy', d => d.y);\r\n    };\r\n\r\n    // Initialise the d3 force calculations\r\n    this.force = forceSimulation()\r\n      .nodes(JSON.parse(JSON.stringify(this.chartData)))\r\n      .force('charge', forceManyBody().strength(d => (d[key1] * (d[key1] / 2)) / -150))\r\n      .force('center', forceCenter(this.width / 2, this.height / 2))\r\n      .on('tick', () => {\r\n        fnTicked();\r\n      });\r\n\r\n    // Add circles for each value\r\n    if (!this.circles) {\r\n      // Bind bars data\r\n      this.circles = this.bubblesGroup.selectAll('circle.circles').data(this.force.nodes());\r\n      // Add new rect elements and set base attributes\r\n      this.circles\r\n        .enter()\r\n        .append('circle')\r\n        .on('mousemove', (d) => {\r\n          this.tooltip.ping(`<strong>${d.itemLabel}</strong><br>${name1}: <em>${d[key1]}</em><br>${name2}: <em>${d[key2]}</em>`);\r\n        })\r\n        .on('mouseout', () => this.tooltip.hide())\r\n        .attr('class', 'circles')\r\n        .attr('fill', d => this.scaleColor(d[key2]))\r\n        .attr('r', 0)\r\n        .transition()\r\n        .ease(easeLinear)\r\n        .duration(this.transitionTime)\r\n        .attr('r', d => d[key1] / 2);\r\n    } else {\r\n      this.bubblesGroup.attr('transform', `translate(${this.resizeOffset / 2}, 0)`);\r\n    }\r\n\r\n    // Render the key for the data\r\n    this.key = new Key({\r\n      d3Container: select(this.svg),\r\n      itemValues: [\r\n        {\r\n          name: 0,\r\n          color: colors[0]\r\n        },\r\n        {\r\n          name: this.scaleColor.domain()[1],\r\n          color: colors[1]\r\n        }\r\n      ],\r\n      offsetX: (this.innerWidth / 2) + this.padding.l + 10,\r\n      offsetY: this.height - 20,\r\n      chartType: 'range'\r\n    }).render();\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = BubbleChart;\r\n",
     "static": true,
     "longname": "C:/Dev/d-theia/src/components/BubbleChart.js",
     "access": "public",
@@ -1449,10 +1449,10 @@
   {
     "__docId__": 92,
     "kind": "member",
-    "name": "aBubbles",
+    "name": "bubbles",
     "memberof": "src/components/BubbleChart.js~BubbleChart",
     "static": false,
-    "longname": "src/components/BubbleChart.js~BubbleChart#aBubbles",
+    "longname": "src/components/BubbleChart.js~BubbleChart#bubbles",
     "access": "public",
     "description": "The local collection of bubbles",
     "lineNumber": 25,
@@ -1462,7 +1462,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "aBubbles",
+        "name": "bubbles",
         "description": ""
       }
     ],
@@ -1497,7 +1497,7 @@
         "types": ["Object"],
         "spread": false,
         "optional": false,
-        "name": "oParams",
+        "name": "chartParams",
         "description": "same as Chart"
       }
     ]
@@ -1505,10 +1505,10 @@
   {
     "__docId__": 94,
     "kind": "member",
-    "name": "oScaleColor",
+    "name": "scaleColor",
     "memberof": "src/components/BubbleChart.js~BubbleChart",
     "static": false,
-    "longname": "src/components/BubbleChart.js~BubbleChart#oScaleColor",
+    "longname": "src/components/BubbleChart.js~BubbleChart#scaleColor",
     "access": "public",
     "description": null,
     "lineNumber": 35,
@@ -1520,10 +1520,10 @@
   {
     "__docId__": 95,
     "kind": "member",
-    "name": "sChartType",
+    "name": "chartType",
     "memberof": "src/components/BubbleChart.js~BubbleChart",
     "static": false,
-    "longname": "src/components/BubbleChart.js~BubbleChart#sChartType",
+    "longname": "src/components/BubbleChart.js~BubbleChart#chartType",
     "access": "public",
     "description": null,
     "lineNumber": 36,
@@ -1577,10 +1577,10 @@
   {
     "__docId__": 98,
     "kind": "member",
-    "name": "d3AxisGroup",
+    "name": "axisGroup",
     "memberof": "src/components/BubbleChart.js~BubbleChart",
     "static": false,
-    "longname": "src/components/BubbleChart.js~BubbleChart#d3AxisGroup",
+    "longname": "src/components/BubbleChart.js~BubbleChart#axisGroup",
     "access": "public",
     "description": null,
     "lineNumber": 63,
@@ -1592,10 +1592,10 @@
   {
     "__docId__": 99,
     "kind": "member",
-    "name": "oAxis",
+    "name": "axis",
     "memberof": "src/components/BubbleChart.js~BubbleChart",
     "static": false,
-    "longname": "src/components/BubbleChart.js~BubbleChart#oAxis",
+    "longname": "src/components/BubbleChart.js~BubbleChart#axis",
     "access": "public",
     "description": null,
     "lineNumber": 64,
@@ -1607,10 +1607,10 @@
   {
     "__docId__": 100,
     "kind": "member",
-    "name": "d3BubblesGroup",
+    "name": "bubblesGroup",
     "memberof": "src/components/BubbleChart.js~BubbleChart",
     "static": false,
-    "longname": "src/components/BubbleChart.js~BubbleChart#d3BubblesGroup",
+    "longname": "src/components/BubbleChart.js~BubbleChart#bubblesGroup",
     "access": "public",
     "description": null,
     "lineNumber": 72,
@@ -1622,10 +1622,10 @@
   {
     "__docId__": 101,
     "kind": "member",
-    "name": "oForce",
+    "name": "force",
     "memberof": "src/components/BubbleChart.js~BubbleChart",
     "static": false,
-    "longname": "src/components/BubbleChart.js~BubbleChart#oForce",
+    "longname": "src/components/BubbleChart.js~BubbleChart#force",
     "access": "public",
     "description": null,
     "lineNumber": 82,
@@ -1637,10 +1637,10 @@
   {
     "__docId__": 102,
     "kind": "member",
-    "name": "d3Circles",
+    "name": "circles",
     "memberof": "src/components/BubbleChart.js~BubbleChart",
     "static": false,
-    "longname": "src/components/BubbleChart.js~BubbleChart#d3Circles",
+    "longname": "src/components/BubbleChart.js~BubbleChart#circles",
     "access": "public",
     "description": null,
     "lineNumber": 93,
@@ -1652,10 +1652,10 @@
   {
     "__docId__": 103,
     "kind": "member",
-    "name": "oKey",
+    "name": "key",
     "memberof": "src/components/BubbleChart.js~BubbleChart",
     "static": false,
-    "longname": "src/components/BubbleChart.js~BubbleChart#oKey",
+    "longname": "src/components/BubbleChart.js~BubbleChart#key",
     "access": "public",
     "description": null,
     "lineNumber": 114,
@@ -1668,7 +1668,7 @@
     "__docId__": 104,
     "kind": "file",
     "name": "src/components/Chart.js",
-    "content": "import { select } from 'd3-selection';\r\nimport Tooltip from './Tooltip';\r\nimport DataOps from './DataOps';\r\n\r\n/**\r\n* The Chart object is the parent class for all types of Chart.\r\n* It is used to initialise all of the base settings universal to all charts.\r\n*\r\n* @class Chart\r\n* @constructor\r\n*/\r\nexport default class Chart {\r\n\r\n  /**\r\n  * SVG DOM object for displaying the chart\r\n  *\r\n  * @property dSvg\r\n  * @type {Object}\r\n  */\r\n  dSvg;\r\n\r\n  /**\r\n  * SVG d3 object for d3 operations on the chart\r\n  *\r\n  * @property d3Svg\r\n  * @type {Object}\r\n  */\r\n  d3Svg;\r\n\r\n  /**\r\n  * Default time for d3 transitions on the chart\r\n  *\r\n  * @property iTransitionTime\r\n  * @type {Number}\r\n  */\r\n  iTransitionTime;\r\n\r\n  /**\r\n  * DOM reference to container element that wraps SVG\r\n  *\r\n  * @property dContainer\r\n  * @type {Object}\r\n  */\r\n  dContainer;\r\n\r\n  /**\r\n  * DOM reference to loader display element\r\n  *\r\n  * @property dLoader\r\n  * @type {Object}\r\n  */\r\n  dLoader;\r\n\r\n  /**\r\n  * Chart's tooltip object\r\n  *\r\n  * @property oTooltip\r\n  * @type {Object}\r\n  */\r\n  oTooltip;\r\n\r\n  /**\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property iWidth\r\n  * @type {Number}\r\n  */\r\n  iWidth;\r\n\r\n  /**\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property iHeight\r\n  * @type {Number}\r\n  */\r\n  iHeight;\r\n\r\n  /**\r\n  * The current calculated inner width of the chart\r\n  *\r\n  * @property iInnerWidth\r\n  * @type {Number}\r\n  */\r\n  iInnerWidth;\r\n\r\n  /**\r\n  * The current calculated inner height of the chart\r\n  *\r\n  * @property iInnerHeight\r\n  * @type {Number}\r\n  */\r\n  iInnerHeight;\r\n\r\n  /**\r\n  * The width before any browser resize\r\n  *\r\n  * @property iInitialWidth\r\n  * @type {Number}\r\n  */\r\n  iInitialWidth;\r\n\r\n  /**\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property jPadding\r\n  * @type {Object}\r\n  */\r\n  jPadding;\r\n\r\n  /**\r\n  * The chart's config object\r\n  *\r\n  * @property jConfig\r\n  * @type {Object}\r\n  */\r\n  jConfig;\r\n\r\n  /**\r\n  * The chart's data\r\n  *\r\n  * @property aData\r\n  * @type {Array}\r\n  */\r\n  aData;\r\n\r\n  /**\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} jConfig JSON configuration object\r\n  * @param {Array} aData the data to be displayed\r\n  * @param {String} sContainer Optional ID to select DOM object\r\n  * @param {Object} dContainer Optional DOM object in place of ID\r\n  */\r\n  constructor(oParams = {}) {\r\n    const { jConfig, aData, sContainer } = oParams;\r\n    let { dContainer } = oParams;\r\n    this.dSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');\r\n    this.d3Svg = select(this.dSvg);\r\n    this.iTransitionTime = 500;\r\n    this.jPadding = { l: 5, r: 5, t: 5, b: 5 };\r\n    this.dLoader = document.createElement('div');\r\n    this.dLoader.className = 'dt-loader';\r\n    if (!dContainer && sContainer) {\r\n      dContainer = document.getElementById(sContainer);\r\n    }\r\n    if (dContainer) {\r\n      this.setContainer(dContainer);\r\n    }\r\n    if (jConfig) {\r\n      this.setConfig(jConfig);\r\n    }\r\n    if (aData) {\r\n      this.setData(aData);\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Sets the local container object.\r\n  *\r\n  * @method setContainer\r\n  * @param {Object} dContainer Required DOM element\r\n  * @throws {Error} invalid DOM element\r\n  */\r\n  setContainer(dContainer) {\r\n    if (dContainer.nodeName) {\r\n      dContainer.appendChild(this.dLoader);\r\n      this.dContainer = dContainer;\r\n    } else {\r\n      throw new Error('No valid DOM element or ID provided for chart.');\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Sets the local config options for the chart.\r\n  *\r\n  * @method setConfig\r\n  * @param {Object} jConfig JSON configuration object\r\n  * @throws {Error} missing configuration\r\n  */\r\n  setConfig(jConfig) {\r\n    if (jConfig && jConfig.toString() === '[object Object]') {\r\n      if (jConfig.aValues) {\r\n        jConfig.aValues = DataOps.addColoursToConfig(jConfig.aValues);\r\n      }\r\n      this.jConfig = jConfig;\r\n    } else {\r\n      throw new Error('No valid configuration provided for chart.');\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Sets the local data for the chart.\r\n  *\r\n  * @method setData\r\n  * @param {Array} aData array of JSON objects\r\n  * @param {Boolean} bTransform transform mapped data\r\n  * @throws {Error} missing data\r\n  */\r\n  setData(aData, bTransform = true) {\r\n    if (aData && Array.isArray(aData) === true) {\r\n      if (this.jConfig && bTransform) {\r\n        aData = DataOps.transformDataKeys(this.jConfig, aData);\r\n      }\r\n      this.aData = aData;\r\n    } else {\r\n      throw new Error('No valid data provided for chart.');\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Updates the local data for the chart.\r\n  *\r\n  * @method updateData\r\n  * @param {Array} aData array of JSON objects\r\n  * @param {Boolean} bTransform transform mapped data\r\n  */\r\n  updateData(aData, bTransform = true) {\r\n    this.setData(aData, bTransform);\r\n    this.setDimensions();\r\n    if (this.oAxis) {\r\n      this.oAxis.render();\r\n    }\r\n    if (this.renderChart) {\r\n      this.renderChart();\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Updates the local config for the chart.\r\n  *\r\n  * @method updateConfig\r\n  * @param {JSON} jConfig config JSON style object\r\n  */\r\n  updateConfig(jConfig) {\r\n    this.setConfig(jConfig);\r\n    if (this.renderChart) {\r\n      this.renderChart(true, false);\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Sets the local chart dimensions based on the size of the container.\r\n  *\r\n  * @method setDimensions\r\n  * @throws {Error} missing DOM element\r\n  */\r\n  setDimensions() {\r\n    if (this.dContainer && this.dContainer.nodeName) {\r\n      this.iWidth = this.dContainer.clientWidth;\r\n      this.iHeight = this.dContainer.clientHeight;\r\n      this.iInnerWidth = this.iWidth - this.jPadding.l - this.jPadding.r;\r\n      this.iInnerHeight = this.iHeight - this.jPadding.t - this.jPadding.b;\r\n    } else {\r\n      throw new Error('Cannot set dimensions of chart without container element.');\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Check chart is ready and render.\r\n  *\r\n  * @method init\r\n  * @throws {Error} chart not ready for initialisation\r\n  * @chainable\r\n  */\r\n  init() {\r\n    this.setDimensions();\r\n    if (this.aData && this.jConfig && !isNaN(this.iWidth) && !isNaN(this.iHeight)) {\r\n      this.iInitialWidth = this.iWidth;\r\n      this.oTooltip = new Tooltip(this.dContainer).create();\r\n      select(this.dContainer).append('div').attr('class', 'title').text(this.jConfig.sTitle);\r\n      this.dSvg.setAttribute('class', 'chart');\r\n      this.dContainer.appendChild(this.dSvg);\r\n      this.oResizeWatcher = this.oResizeWatcher || window.addEventListener('resize', () => {\r\n        this.setDimensions();\r\n        this.iResizeOffset = this.iWidth - this.iInitialWidth;\r\n        if (this.renderChart) {\r\n          this.renderChart();\r\n        }\r\n        this.oTooltip.hide();\r\n      });\r\n      this.oChartOutWatcher = this.oChartOutWatcher || this.dSvg.addEventListener('mouseout', () => {\r\n        this.oTooltip.hide();\r\n      });\r\n      if (this.renderChart) {\r\n        this.renderChart();\r\n      }\r\n      this.dContainer.removeChild(this.dLoader);\r\n      return this;\r\n    }\r\n    throw new Error('The chart is not ready for initialisation.');\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = Chart;\r\n",
+    "content": "import { select } from 'd3-selection';\r\nimport Tooltip from './Tooltip';\r\nimport DataOps from './DataOps';\r\n\r\n/**\r\n* The Chart object is the parent class for all types of Chart.\r\n* It is used to initialise all of the base settings universal to all charts.\r\n*\r\n* @class Chart\r\n* @constructor\r\n*/\r\nexport default class Chart {\r\n\r\n  /**\r\n  * SVG DOM object for displaying the chart\r\n  *\r\n  * @property svg\r\n  * @type {Object}\r\n  */\r\n  svg;\r\n\r\n  /**\r\n  * SVG d3 object for d3 operations on the chart\r\n  *\r\n  * @property d3Svg\r\n  * @type {Object}\r\n  */\r\n  d3Svg;\r\n\r\n  /**\r\n  * Default time for d3 transitions on the chart\r\n  *\r\n  * @property transitionTime\r\n  * @type {Number}\r\n  */\r\n  transitionTime;\r\n\r\n  /**\r\n  * DOM reference to container element that wraps SVG\r\n  *\r\n  * @property container\r\n  * @type {Object}\r\n  */\r\n  container;\r\n\r\n  /**\r\n  * DOM reference to loader display element\r\n  *\r\n  * @property loader\r\n  * @type {Object}\r\n  */\r\n  loader;\r\n\r\n  /**\r\n  * Chart's tooltip object\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  */\r\n  tooltip;\r\n\r\n  /**\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property width\r\n  * @type {Number}\r\n  */\r\n  width;\r\n\r\n  /**\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property height\r\n  * @type {Number}\r\n  */\r\n  height;\r\n\r\n  /**\r\n  * The current calculated inner width of the chart\r\n  *\r\n  * @property innerWidth\r\n  * @type {Number}\r\n  */\r\n  innerWidth;\r\n\r\n  /**\r\n  * The current calculated inner height of the chart\r\n  *\r\n  * @property innerHeight\r\n  * @type {Number}\r\n  */\r\n  innerHeight;\r\n\r\n  /**\r\n  * The width before any browser resize\r\n  *\r\n  * @property initialWidth\r\n  * @type {Number}\r\n  */\r\n  initialWidth;\r\n\r\n  /**\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property padding\r\n  * @type {Object}\r\n  */\r\n  padding;\r\n\r\n  /**\r\n  * The chart's config object\r\n  *\r\n  * @property chartConfig\r\n  * @type {Object}\r\n  */\r\n  chartConfig;\r\n\r\n  /**\r\n  * The chart's data\r\n  *\r\n  * @property chartData\r\n  * @type {Array}\r\n  */\r\n  chartData;\r\n\r\n  /**\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartConfig JSON configuration object\r\n  * @param {Array} chartData the data to be displayed\r\n  * @param {String} containerId Optional ID to select DOM object\r\n  * @param {Object} container Optional DOM object in place of ID\r\n  */\r\n  constructor(chartParams = {}) {\r\n    const { chartConfig, chartData, containerId } = chartParams;\r\n    let { container } = chartParams;\r\n    this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');\r\n    this.d3Svg = select(this.svg);\r\n    this.transitionTime = 500;\r\n    this.padding = { l: 5, r: 5, t: 5, b: 5 };\r\n    this.loader = document.createElement('div');\r\n    this.loader.className = 'dt-loader';\r\n    if (!container && containerId) {\r\n      container = document.getElementById(containerId);\r\n    }\r\n    if (container) {\r\n      this.setContainer(container);\r\n    }\r\n    if (chartConfig) {\r\n      this.setConfig(chartConfig);\r\n    }\r\n    if (chartData) {\r\n      this.setData(chartData);\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Sets the local container object.\r\n  *\r\n  * @method setContainer\r\n  * @param {Object} container Required DOM element\r\n  * @throws {Error} invalid DOM element\r\n  */\r\n  setContainer(container) {\r\n    if (container.nodeName) {\r\n      container.appendChild(this.loader);\r\n      this.container = container;\r\n    } else {\r\n      throw new Error('No valid DOM element or ID provided for chart.');\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Sets the local config options for the chart.\r\n  *\r\n  * @method setConfig\r\n  * @param {Object} chartConfig JSON configuration object\r\n  * @throws {Error} missing configuration\r\n  */\r\n  setConfig(chartConfig) {\r\n    if (chartConfig && chartConfig.toString() === '[object Object]') {\r\n      if (chartConfig.itemValues) {\r\n        chartConfig.itemValues = DataOps.addColoursToConfig(chartConfig.itemValues);\r\n      }\r\n      this.chartConfig = chartConfig;\r\n    } else {\r\n      throw new Error('No valid configuration provided for chart.');\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Sets the local data for the chart.\r\n  *\r\n  * @method setData\r\n  * @param {Array} chartData array of JSON objects\r\n  * @param {Boolean} doTransform transform mapped data\r\n  * @throws {Error} missing data\r\n  */\r\n  setData(chartData, doTransform = true) {\r\n    if (chartData && Array.isArray(chartData) === true) {\r\n      if (this.chartConfig && doTransform) {\r\n        chartData = DataOps.transformDataKeys(this.chartConfig, chartData);\r\n      }\r\n      this.chartData = chartData;\r\n    } else {\r\n      throw new Error('No valid data provided for chart.');\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Updates the local data for the chart.\r\n  *\r\n  * @method updateData\r\n  * @param {Array} chartData array of JSON objects\r\n  * @param {Boolean} doTransform transform mapped data\r\n  */\r\n  updateData(chartData, doTransform = true) {\r\n    this.setData(chartData, doTransform);\r\n    this.setDimensions();\r\n    if (this.axis) {\r\n      this.axis.render();\r\n    }\r\n    if (this.renderChart) {\r\n      this.renderChart();\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Updates the local config for the chart.\r\n  *\r\n  * @method updateConfig\r\n  * @param {JSON} chartConfig config JSON style object\r\n  */\r\n  updateConfig(chartConfig) {\r\n    this.setConfig(chartConfig);\r\n    if (this.renderChart) {\r\n      this.renderChart(true, false);\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Sets the local chart dimensions based on the size of the container.\r\n  *\r\n  * @method setDimensions\r\n  * @throws {Error} missing DOM element\r\n  */\r\n  setDimensions() {\r\n    if (this.container && this.container.nodeName) {\r\n      this.width = this.container.clientWidth;\r\n      this.height = this.container.clientHeight;\r\n      this.innerWidth = this.width - this.padding.l - this.padding.r;\r\n      this.innerHeight = this.height - this.padding.t - this.padding.b;\r\n    } else {\r\n      throw new Error('Cannot set dimensions of chart without container element.');\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Check chart is ready and render.\r\n  *\r\n  * @method init\r\n  * @throws {Error} chart not ready for initialisation\r\n  * @chainable\r\n  */\r\n  init() {\r\n    this.setDimensions();\r\n    if (this.chartData && this.chartConfig && !isNaN(this.width) && !isNaN(this.height)) {\r\n      this.initialWidth = this.width;\r\n      this.tooltip = new Tooltip(this.container).create();\r\n      select(this.container).append('div').attr('class', 'title').text(this.chartConfig.title);\r\n      this.svg.setAttribute('class', 'chart');\r\n      this.container.appendChild(this.svg);\r\n      this.resizeWatcher = this.resizeWatcher || window.addEventListener('resize', () => {\r\n        this.setDimensions();\r\n        this.resizeOffset = this.width - this.initialWidth;\r\n        if (this.renderChart) {\r\n          this.renderChart();\r\n        }\r\n        this.tooltip.hide();\r\n      });\r\n      this.chartOutWatcher = this.chartOutWatcher || this.svg.addEventListener('mouseout', () => {\r\n        this.tooltip.hide();\r\n      });\r\n      if (this.renderChart) {\r\n        this.renderChart();\r\n      }\r\n      this.container.removeChild(this.loader);\r\n      return this;\r\n    }\r\n    throw new Error('The chart is not ready for initialisation.');\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = Chart;\r\n",
     "static": true,
     "longname": "C:/Dev/d-theia/src/components/Chart.js",
     "access": "public",
@@ -1703,10 +1703,10 @@
   {
     "__docId__": 106,
     "kind": "member",
-    "name": "dSvg",
+    "name": "svg",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#dSvg",
+    "longname": "src/components/Chart.js~Chart#svg",
     "access": "public",
     "description": "SVG DOM object for displaying the chart",
     "lineNumber": 20,
@@ -1716,7 +1716,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "dSvg",
+        "name": "svg",
         "description": ""
       }
     ],
@@ -1757,10 +1757,10 @@
   {
     "__docId__": 108,
     "kind": "member",
-    "name": "iTransitionTime",
+    "name": "transitionTime",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#iTransitionTime",
+    "longname": "src/components/Chart.js~Chart#transitionTime",
     "access": "public",
     "description": "Default time for d3 transitions on the chart",
     "lineNumber": 36,
@@ -1770,7 +1770,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "iTransitionTime",
+        "name": "transitionTime",
         "description": ""
       }
     ],
@@ -1784,10 +1784,10 @@
   {
     "__docId__": 109,
     "kind": "member",
-    "name": "dContainer",
+    "name": "container",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#dContainer",
+    "longname": "src/components/Chart.js~Chart#container",
     "access": "public",
     "description": "DOM reference to container element that wraps SVG",
     "lineNumber": 44,
@@ -1797,7 +1797,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "dContainer",
+        "name": "container",
         "description": ""
       }
     ],
@@ -1811,10 +1811,10 @@
   {
     "__docId__": 110,
     "kind": "member",
-    "name": "dLoader",
+    "name": "loader",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#dLoader",
+    "longname": "src/components/Chart.js~Chart#loader",
     "access": "public",
     "description": "DOM reference to loader display element",
     "lineNumber": 52,
@@ -1824,7 +1824,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "dLoader",
+        "name": "loader",
         "description": ""
       }
     ],
@@ -1838,10 +1838,10 @@
   {
     "__docId__": 111,
     "kind": "member",
-    "name": "oTooltip",
+    "name": "tooltip",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#oTooltip",
+    "longname": "src/components/Chart.js~Chart#tooltip",
     "access": "public",
     "description": "Chart's tooltip object",
     "lineNumber": 60,
@@ -1851,7 +1851,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "oTooltip",
+        "name": "tooltip",
         "description": ""
       }
     ],
@@ -1865,10 +1865,10 @@
   {
     "__docId__": 112,
     "kind": "member",
-    "name": "iWidth",
+    "name": "width",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#iWidth",
+    "longname": "src/components/Chart.js~Chart#width",
     "access": "public",
     "description": "The current calculated width of the chart",
     "lineNumber": 68,
@@ -1878,7 +1878,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "iWidth",
+        "name": "width",
         "description": ""
       }
     ],
@@ -1892,10 +1892,10 @@
   {
     "__docId__": 113,
     "kind": "member",
-    "name": "iHeight",
+    "name": "height",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#iHeight",
+    "longname": "src/components/Chart.js~Chart#height",
     "access": "public",
     "description": "The current calculated height of the chart",
     "lineNumber": 76,
@@ -1905,7 +1905,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "iHeight",
+        "name": "height",
         "description": ""
       }
     ],
@@ -1919,10 +1919,10 @@
   {
     "__docId__": 114,
     "kind": "member",
-    "name": "iInnerWidth",
+    "name": "innerWidth",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#iInnerWidth",
+    "longname": "src/components/Chart.js~Chart#innerWidth",
     "access": "public",
     "description": "The current calculated inner width of the chart",
     "lineNumber": 84,
@@ -1932,7 +1932,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "iInnerWidth",
+        "name": "innerWidth",
         "description": ""
       }
     ],
@@ -1946,10 +1946,10 @@
   {
     "__docId__": 115,
     "kind": "member",
-    "name": "iInnerHeight",
+    "name": "innerHeight",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#iInnerHeight",
+    "longname": "src/components/Chart.js~Chart#innerHeight",
     "access": "public",
     "description": "The current calculated inner height of the chart",
     "lineNumber": 92,
@@ -1959,7 +1959,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "iInnerHeight",
+        "name": "innerHeight",
         "description": ""
       }
     ],
@@ -1973,10 +1973,10 @@
   {
     "__docId__": 116,
     "kind": "member",
-    "name": "iInitialWidth",
+    "name": "initialWidth",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#iInitialWidth",
+    "longname": "src/components/Chart.js~Chart#initialWidth",
     "access": "public",
     "description": "The width before any browser resize",
     "lineNumber": 100,
@@ -1986,7 +1986,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "iInitialWidth",
+        "name": "initialWidth",
         "description": ""
       }
     ],
@@ -2000,10 +2000,10 @@
   {
     "__docId__": 117,
     "kind": "member",
-    "name": "jPadding",
+    "name": "padding",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#jPadding",
+    "longname": "src/components/Chart.js~Chart#padding",
     "access": "public",
     "description": "The padding for the chart within the container",
     "lineNumber": 108,
@@ -2013,7 +2013,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "jPadding",
+        "name": "padding",
         "description": ""
       }
     ],
@@ -2027,10 +2027,10 @@
   {
     "__docId__": 118,
     "kind": "member",
-    "name": "jConfig",
+    "name": "chartConfig",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#jConfig",
+    "longname": "src/components/Chart.js~Chart#chartConfig",
     "access": "public",
     "description": "The chart's config object",
     "lineNumber": 116,
@@ -2040,7 +2040,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "jConfig",
+        "name": "chartConfig",
         "description": ""
       }
     ],
@@ -2054,10 +2054,10 @@
   {
     "__docId__": 119,
     "kind": "member",
-    "name": "aData",
+    "name": "chartData",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#aData",
+    "longname": "src/components/Chart.js~Chart#chartData",
     "access": "public",
     "description": "The chart's data",
     "lineNumber": 124,
@@ -2067,7 +2067,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "aData",
+        "name": "chartData",
         "description": ""
       }
     ],
@@ -2102,7 +2102,7 @@
         "types": ["Object"],
         "spread": false,
         "optional": false,
-        "name": "jConfig",
+        "name": "chartConfig",
         "description": "JSON configuration object"
       },
       {
@@ -2110,7 +2110,7 @@
         "types": ["Array"],
         "spread": false,
         "optional": false,
-        "name": "aData",
+        "name": "chartData",
         "description": "the data to be displayed"
       },
       {
@@ -2118,7 +2118,7 @@
         "types": ["String"],
         "spread": false,
         "optional": false,
-        "name": "sContainer",
+        "name": "containerId",
         "description": "Optional ID to select DOM object"
       },
       {
@@ -2126,7 +2126,7 @@
         "types": ["Object"],
         "spread": false,
         "optional": false,
-        "name": "dContainer",
+        "name": "container",
         "description": "Optional DOM object in place of ID"
       }
     ]
@@ -2155,7 +2155,7 @@
         "types": ["Object"],
         "spread": false,
         "optional": false,
-        "name": "dContainer",
+        "name": "container",
         "description": "Required DOM element"
       }
     ],
@@ -2191,7 +2191,7 @@
         "types": ["Object"],
         "spread": false,
         "optional": false,
-        "name": "jConfig",
+        "name": "chartConfig",
         "description": "JSON configuration object"
       }
     ],
@@ -2227,7 +2227,7 @@
         "types": ["Array"],
         "spread": false,
         "optional": false,
-        "name": "aData",
+        "name": "chartData",
         "description": "array of JSON objects"
       },
       {
@@ -2235,7 +2235,7 @@
         "types": ["Boolean"],
         "spread": false,
         "optional": false,
-        "name": "bTransform",
+        "name": "doTransform",
         "description": "transform mapped data"
       }
     ],
@@ -2271,7 +2271,7 @@
         "types": ["Array"],
         "spread": false,
         "optional": false,
-        "name": "aData",
+        "name": "chartData",
         "description": "array of JSON objects"
       },
       {
@@ -2279,7 +2279,7 @@
         "types": ["Boolean"],
         "spread": false,
         "optional": false,
-        "name": "bTransform",
+        "name": "doTransform",
         "description": "transform mapped data"
       }
     ],
@@ -2309,7 +2309,7 @@
         "types": ["JSON"],
         "spread": false,
         "optional": false,
-        "name": "jConfig",
+        "name": "chartConfig",
         "description": "config JSON style object"
       }
     ],
@@ -2378,10 +2378,10 @@
   {
     "__docId__": 142,
     "kind": "member",
-    "name": "oResizeWatcher",
+    "name": "resizeWatcher",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#oResizeWatcher",
+    "longname": "src/components/Chart.js~Chart#resizeWatcher",
     "access": "public",
     "description": null,
     "lineNumber": 274,
@@ -2393,10 +2393,10 @@
   {
     "__docId__": 143,
     "kind": "member",
-    "name": "iResizeOffset",
+    "name": "resizeOffset",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#iResizeOffset",
+    "longname": "src/components/Chart.js~Chart#resizeOffset",
     "access": "public",
     "description": null,
     "lineNumber": 276,
@@ -2408,10 +2408,10 @@
   {
     "__docId__": 144,
     "kind": "member",
-    "name": "oChartOutWatcher",
+    "name": "chartOutWatcher",
     "memberof": "src/components/Chart.js~Chart",
     "static": false,
-    "longname": "src/components/Chart.js~Chart#oChartOutWatcher",
+    "longname": "src/components/Chart.js~Chart#chartOutWatcher",
     "access": "public",
     "description": null,
     "lineNumber": 282,
@@ -2424,7 +2424,7 @@
     "__docId__": 145,
     "kind": "file",
     "name": "src/components/Colors.js",
-    "content": "import { rgb } from 'd3-color';\r\nimport Utilities from './Utilities';\r\n\r\n/**\r\n* The Colors object is is a class containing reusable static methods\r\n*\r\n* @class Colors\r\n* @static\r\n*/\r\nexport default class Colors {\r\n\r\n  /**\r\n  * Returns a random color (D3 object)\r\n  *\r\n  * @method getRandomColor\r\n  * @static\r\n  * @param {String} sBackground the type of background light/dark to filter for contrast\r\n  * @param {Integer} iBoundary the brightness value to filter\r\n  * @return {Object} randomly generated RGB object\r\n  */\r\n  static getRandomColor(sBackground = 'light', iBoundary = 170) {\r\n    const iRGB = () => Utilities.getRandomInteger(0, 255);\r\n    let aValues = [];\r\n    while (!aValues.length || !this.colorFilter(sBackground, iBoundary, aValues)) {\r\n      aValues = [iRGB(), iRGB(), iRGB()];\r\n    }\r\n    return rgb(aValues[0], aValues[1], aValues[2]);\r\n  }\r\n\r\n  /**\r\n  * Used to filter random colour values and ensure high contrast against background\r\n  *\r\n  * @method colorFilter\r\n  * @static\r\n  * @param {String} sBackground the type of background light/dark to filter for contrast\r\n  * @param {Integer} iBoundary the brightness value to filter\r\n  * @param {Array} aValues array of RGB values\r\n  * @return {Boolean} specify whether the values pass or fail\r\n  */\r\n  static colorFilter(sBackground, iBoundary, aValues) {\r\n    let bPass = false;\r\n    if (!aValues.length) {\r\n      bPass = false;\r\n    } else if (!sBackground) {\r\n      bPass = true\r\n    } else {\r\n      const iBrightness = ((aValues[0] * 299) + (aValues[1] * 587) + (aValues[2] * 114)) / 1000;\r\n      if (sBackground === 'light') {\r\n        bPass = iBrightness < iBoundary;\r\n      } else if (sBackground === 'dark') {\r\n        bPass = iBrightness > iBoundary;\r\n      }\r\n    }\r\n    return bPass;\r\n  }\r\n\r\n  /**\r\n  * Converts a HEX string to an RGB value\r\n  *\r\n  * @method convertHexToRgb\r\n  * @static\r\n  * @param {String} sColor the HEX colour\r\n  * @return {Object} RGB color object\r\n  */\r\n  static convertHexToRgb(sColor) {\r\n    return rgb(sColor);\r\n  }\r\n\r\n  /**\r\n  * Returns a random color palette\r\n  *\r\n  * @method getRandomPalette\r\n  * @static\r\n  * @param {Integer} iLength the size of the palette\r\n  * @return {Array} list of randomly generated RGB objects\r\n  */\r\n  static getRandomPalette(iLength = 10) {\r\n    let iCount = iLength;\r\n    const aPalette = [];\r\n    while (iCount--) {\r\n      aPalette.push(this.getRandomColor());\r\n    }\r\n    return aPalette;\r\n  }\r\n\r\n  /**\r\n  * Returns a darker version of a color\r\n  *\r\n  * @method getDarkerColor\r\n  * @static\r\n  * @param {Object} oColor RGB object\r\n  * @return {Object} darker RGB object\r\n  */\r\n  static getDarkerColor(oColor) {\r\n    return oColor.darker(0.5);\r\n  }\r\n\r\n}\r\n",
+    "content": "import { rgb } from 'd3-color';\r\nimport Utilities from './Utilities';\r\n\r\n/**\r\n* The Colors object is is a class containing reusable static methods\r\n*\r\n* @class Colors\r\n* @static\r\n*/\r\nexport default class Colors {\r\n\r\n  /**\r\n  * Returns a random color (D3 object)\r\n  *\r\n  * @method getRandomColor\r\n  * @static\r\n  * @param {String} contrast the type of background light/dark to filter for contrast\r\n  * @param {Integer} boundary the brightness value to filter\r\n  * @return {Object} randomly generated RGB object\r\n  */\r\n  static getRandomColor(contrast = 'light', boundary = 170) {\r\n    const iRGB = () => Utilities.getRandomInteger(0, 255);\r\n    let itemValues = [];\r\n    while (!itemValues.length || !this.colorFilter(contrast, boundary, itemValues)) {\r\n      itemValues = [iRGB(), iRGB(), iRGB()];\r\n    }\r\n    return rgb(itemValues[0], itemValues[1], itemValues[2]);\r\n  }\r\n\r\n  /**\r\n  * Used to filter random colour values and ensure high contrast against background\r\n  *\r\n  * @method colorFilter\r\n  * @static\r\n  * @param {String} contrast the type of background light/dark to filter for contrast\r\n  * @param {Integer} boundary the brightness value to filter\r\n  * @param {Array} itemValues array of RGB values\r\n  * @return {Boolean} specify whether the values pass or fail\r\n  */\r\n  static colorFilter(contrast, boundary, itemValues) {\r\n    let isPass = false;\r\n    if (!itemValues.length) {\r\n      isPass = false;\r\n    } else if (!contrast) {\r\n      isPass = true\r\n    } else {\r\n      const brightness = ((itemValues[0] * 299) + (itemValues[1] * 587) + (itemValues[2] * 114)) / 1000;\r\n      if (contrast === 'light') {\r\n        isPass = brightness < boundary;\r\n      } else if (contrast === 'dark') {\r\n        isPass = brightness > boundary;\r\n      }\r\n    }\r\n    return isPass;\r\n  }\r\n\r\n  /**\r\n  * Converts a HEX string to an RGB value\r\n  *\r\n  * @method convertHexToRgb\r\n  * @static\r\n  * @param {String} color the HEX colour\r\n  * @return {Object} RGB color object\r\n  */\r\n  static convertHexToRgb(color) {\r\n    return rgb(color);\r\n  }\r\n\r\n  /**\r\n  * Returns a random color palette\r\n  *\r\n  * @method getRandomPalette\r\n  * @static\r\n  * @param {Integer} length the size of the palette\r\n  * @return {Array} list of randomly generated RGB objects\r\n  */\r\n  static getRandomPalette(length = 10) {\r\n    let count = length;\r\n    const palette = [];\r\n    while (count--) {\r\n      palette.push(this.getRandomColor());\r\n    }\r\n    return palette;\r\n  }\r\n\r\n  /**\r\n  * Returns a darker version of a color\r\n  *\r\n  * @method getDarkerColor\r\n  * @static\r\n  * @param {Object} color RGB object\r\n  * @return {Object} darker RGB object\r\n  */\r\n  static getDarkerColor(color) {\r\n    return color.darker(0.5);\r\n  }\r\n\r\n}\r\n",
     "static": true,
     "longname": "C:/Dev/d-theia/src/components/Colors.js",
     "access": "public",
@@ -2476,7 +2476,7 @@
         "types": ["String"],
         "spread": false,
         "optional": false,
-        "name": "sBackground",
+        "name": "contrast",
         "description": "the type of background light/dark to filter for contrast"
       },
       {
@@ -2484,7 +2484,7 @@
         "types": ["Integer"],
         "spread": false,
         "optional": false,
-        "name": "iBoundary",
+        "name": "boundary",
         "description": "the brightness value to filter"
       }
     ],
@@ -2519,7 +2519,7 @@
         "types": ["String"],
         "spread": false,
         "optional": false,
-        "name": "sBackground",
+        "name": "contrast",
         "description": "the type of background light/dark to filter for contrast"
       },
       {
@@ -2527,7 +2527,7 @@
         "types": ["Integer"],
         "spread": false,
         "optional": false,
-        "name": "iBoundary",
+        "name": "boundary",
         "description": "the brightness value to filter"
       },
       {
@@ -2535,7 +2535,7 @@
         "types": ["Array"],
         "spread": false,
         "optional": false,
-        "name": "aValues",
+        "name": "itemValues",
         "description": "array of RGB values"
       }
     ],
@@ -2570,7 +2570,7 @@
         "types": ["String"],
         "spread": false,
         "optional": false,
-        "name": "sColor",
+        "name": "color",
         "description": "the HEX colour"
       }
     ],
@@ -2605,7 +2605,7 @@
         "types": ["Integer"],
         "spread": false,
         "optional": false,
-        "name": "iLength",
+        "name": "length",
         "description": "the size of the palette"
       }
     ],
@@ -2640,7 +2640,7 @@
         "types": ["Object"],
         "spread": false,
         "optional": false,
-        "name": "oColor",
+        "name": "color",
         "description": "RGB object"
       }
     ],
@@ -2655,7 +2655,7 @@
     "__docId__": 152,
     "kind": "file",
     "name": "src/components/DataOps.js",
-    "content": "import Utilities from './Utilities';\r\nimport Colors from './Colors';\r\n\r\n/**\r\n* The DataOps object is is a class containing reusable static methods to be operated on data\r\n*\r\n* @class DataOps\r\n* @static\r\n*/\r\nexport default class DataOps {\r\n\r\n  /**\r\n  * Returns a sample selection from an array (minmum length 3).\r\n  *\r\n  * @method sliceSampleData\r\n  * @static\r\n  * @param {Array} aData the complete data set\r\n  * @param {Integer} iMaxLength max length of sample\r\n  * @return {Array} sliced section of data\r\n  */\r\n  static sliceSampleData(aData, iMaxLength = 50) {\r\n    const iStart = Utilities.getRandomInteger(0, aData.length - iMaxLength);\r\n    const iEnd = iStart + Utilities.getRandomInteger(3, iMaxLength);\r\n    return aData.slice(iStart, iEnd);\r\n  }\r\n\r\n  /**\r\n  * Returns random data and config for demo purposes.\r\n  *\r\n  * @method getRandomChart\r\n  * @static\r\n  * @return {JSON} JSON style data structure\r\n  */\r\n  static getRandomData() {\r\n    const iLength = Utilities.getRandomInteger(3, 10);\r\n    const iGroupSize = Utilities.getRandomInteger(1, 4);\r\n    const iRangeLow = Utilities.getRandomInteger(1, 50);\r\n    const iRangeHigh = Utilities.getRandomInteger(iRangeLow, 200);\r\n    const jChart = {};\r\n    jChart.jConfig = {\r\n      sTitle: 'Random Chart Data',\r\n      aAxisLabels: ['Y Axis', 'X Axis'],\r\n      aValues: (() => {\r\n        const aValues = [];\r\n        let iCounter = iGroupSize;\r\n        while (iCounter--) {\r\n          aValues.push({ sName: `Type ${iGroupSize - iCounter}` });\r\n        }\r\n        return aValues;\r\n      })(),\r\n      bTrim: true\r\n    };\r\n    jChart.jConfig.aValues = DataOps.addColoursToConfig(jChart.jConfig.aValues, false);\r\n    jChart.aData = [];\r\n    let iCounter = iLength;\r\n    while (iCounter--) {\r\n      jChart.aData.push({\r\n        sLabel: `Item ${iLength - iCounter}`,\r\n        aValues: (() => {\r\n          const aValues = [];\r\n          let iSubCounter = iGroupSize;\r\n          while (iSubCounter--) {\r\n            aValues.push(Utilities.getRandomInteger(iRangeLow, iRangeHigh));\r\n          }\r\n          return aValues;\r\n        })()\r\n      });\r\n    }\r\n    return jChart;\r\n  }\r\n\r\n  /**\r\n  * Maps custom data keys into standard structure.\r\n  *\r\n  * @method transformDataKeys\r\n  * @static\r\n  * @param {JSON} jConfig the JSON style config object\r\n  * @param {Array} aData the chart data to be transformed\r\n  */\r\n  static transformDataKeys(jConfig, aData) {\r\n    return aData.map((hItem) => {\r\n      if (jConfig.aValues && !hItem.aValues) {\r\n        hItem.aValues = jConfig.aValues.map(jValue => parseInt(hItem[jValue.sKey]));\r\n      }\r\n      if (hItem.aValues) {\r\n        hItem.aValues = hItem.aValues.map((iValue) => {\r\n          const iSanitisedValue = parseInt(iValue);\r\n          return isNaN(iSanitisedValue) ? 0 : iSanitisedValue;\r\n        });\r\n      }\r\n      if (jConfig.aAxisKeys && !hItem.sLabel) {\r\n        hItem.sLabel = hItem[jConfig.aAxisKeys[0]];\r\n      }\r\n      return hItem;\r\n    });\r\n  }\r\n\r\n  /**\r\n  * Adds colour values to the config array of key values\r\n  *\r\n  * @method addColoursToConfig\r\n  * @static\r\n  * @param {Array} aValues the config values needing colours\r\n  * @param {Boolean} bAddRgb add RGB object or not?\r\n  * @return {Array} A modified version of aValues containing colours\r\n  */\r\n  static addColoursToConfig(aValues, bAddRgb = true) {\r\n    return aValues.map((jValue) => {\r\n      if (!jValue.sColor) {\r\n        jValue.sColor = Colors.getRandomColor().hex();\r\n      }\r\n      if (bAddRgb) {\r\n        jValue.oColor = Colors.convertHexToRgb(jValue.sColor);\r\n      }\r\n      return jValue;\r\n    });\r\n  }\r\n\r\n}\r\n",
+    "content": "import Utilities from './Utilities';\r\nimport Colors from './Colors';\r\n\r\n/**\r\n* The DataOps object is is a class containing reusable static methods to be operated on data\r\n*\r\n* @class DataOps\r\n* @static\r\n*/\r\nexport default class DataOps {\r\n\r\n  /**\r\n  * Returns a sample selection from an array (minmum length 3).\r\n  *\r\n  * @method sliceSampleData\r\n  * @static\r\n  * @param {Array} chartData the complete data set\r\n  * @param {Integer} maxLength max length of sample\r\n  * @return {Array} sliced section of data\r\n  */\r\n  static sliceSampleData(chartData, maxLength = 50) {\r\n    const iStart = Utilities.getRandomInteger(0, chartData.length - maxLength);\r\n    const iEnd = iStart + Utilities.getRandomInteger(3, maxLength);\r\n    return chartData.slice(iStart, iEnd);\r\n  }\r\n\r\n  /**\r\n  * Returns random data and config for demo purposes.\r\n  *\r\n  * @method getRandomChart\r\n  * @static\r\n  * @return {JSON} JSON style data structure\r\n  */\r\n  static getRandomData() {\r\n    const length = Utilities.getRandomInteger(3, 10);\r\n    const groupSize = Utilities.getRandomInteger(1, 4);\r\n    const rangeLow = Utilities.getRandomInteger(1, 50);\r\n    const rangeHigh = Utilities.getRandomInteger(rangeLow, 200);\r\n    const chartParams = {};\r\n    chartParams.chartConfig = {\r\n      title: 'Random Chart Data',\r\n      axisLabels: ['Y Axis', 'X Axis'],\r\n      itemValues: (() => {\r\n        const itemValues = [];\r\n        let counter = groupSize;\r\n        while (counter--) {\r\n          itemValues.push({ name: `Type ${groupSize - counter}` });\r\n        }\r\n        return itemValues;\r\n      })(),\r\n      doTrim: true\r\n    };\r\n    chartParams.chartConfig.itemValues = DataOps.addColoursToConfig(chartParams.chartConfig.itemValues, false);\r\n    chartParams.chartData = [];\r\n    let counter = length;\r\n    while (counter--) {\r\n      chartParams.chartData.push({\r\n        itemLabel: `Item ${length - counter}`,\r\n        itemValues: (() => {\r\n          const itemValues = [];\r\n          let subCounter = groupSize;\r\n          while (subCounter--) {\r\n            itemValues.push(Utilities.getRandomInteger(rangeLow, rangeHigh));\r\n          }\r\n          return itemValues;\r\n        })()\r\n      });\r\n    }\r\n    return chartParams;\r\n  }\r\n\r\n  /**\r\n  * Maps custom data keys into standard structure.\r\n  *\r\n  * @method transformDataKeys\r\n  * @static\r\n  * @param {JSON} chartConfig the JSON style config object\r\n  * @param {Array} chartData the chart data to be transformed\r\n  */\r\n  static transformDataKeys(chartConfig, chartData) {\r\n    return chartData.map((item) => {\r\n      if (chartConfig.itemValues && !item.itemValues) {\r\n        item.itemValues = chartConfig.itemValues.map(value => parseInt(item[value.key]));\r\n      }\r\n      if (item.itemValues) {\r\n        item.itemValues = item.itemValues.map((value) => {\r\n          const sanitisedValue = parseInt(value);\r\n          return isNaN(sanitisedValue) ? 0 : sanitisedValue;\r\n        });\r\n      }\r\n      if (chartConfig.axisKeys && !item.itemLabel) {\r\n        item.itemLabel = item[chartConfig.axisKeys[0]];\r\n      }\r\n      return item;\r\n    });\r\n  }\r\n\r\n  /**\r\n  * Adds colour values to the config array of key values\r\n  *\r\n  * @method addColoursToConfig\r\n  * @static\r\n  * @param {Array} itemValues the config values needing colours\r\n  * @param {Boolean} bAddRgb add RGB object or not?\r\n  * @return {Array} A modified version of itemValues containing colours\r\n  */\r\n  static addColoursToConfig(itemValues, bAddRgb = true) {\r\n    return itemValues.map((value) => {\r\n      if (!value.color) {\r\n        value.color = Colors.getRandomColor().hex();\r\n      }\r\n      if (bAddRgb) {\r\n        value.color = Colors.convertHexToRgb(value.color);\r\n      }\r\n      return value;\r\n    });\r\n  }\r\n\r\n}\r\n",
     "static": true,
     "longname": "C:/Dev/d-theia/src/components/DataOps.js",
     "access": "public",
@@ -2707,7 +2707,7 @@
         "types": ["Array"],
         "spread": false,
         "optional": false,
-        "name": "aData",
+        "name": "chartData",
         "description": "the complete data set"
       },
       {
@@ -2715,7 +2715,7 @@
         "types": ["Integer"],
         "spread": false,
         "optional": false,
-        "name": "iMaxLength",
+        "name": "maxLength",
         "description": "max length of sample"
       }
     ],
@@ -2776,7 +2776,7 @@
         "types": ["JSON"],
         "spread": false,
         "optional": false,
-        "name": "jConfig",
+        "name": "chartConfig",
         "description": "the JSON style config object"
       },
       {
@@ -2784,7 +2784,7 @@
         "types": ["Array"],
         "spread": false,
         "optional": false,
-        "name": "aData",
+        "name": "chartData",
         "description": "the chart data to be transformed"
       }
     ],
@@ -2816,7 +2816,7 @@
         "types": ["Array"],
         "spread": false,
         "optional": false,
-        "name": "aValues",
+        "name": "itemValues",
         "description": "the config values needing colours"
       },
       {
@@ -2832,14 +2832,14 @@
       "nullable": null,
       "types": ["Array"],
       "spread": false,
-      "description": "A modified version of aValues containing colours"
+      "description": "A modified version of itemValues containing colours"
     }
   },
   {
     "__docId__": 158,
     "kind": "file",
     "name": "src/components/Key.js",
-    "content": "/**\r\n* The Key shows how the colors represent the data\r\n*\r\n* @class Key\r\n* @constructor\r\n*/\r\nexport default class Key {\r\n\r\n  /**\r\n  * d3 object for axis container\r\n  *\r\n  * @property d3Container\r\n  * @type {Object}\r\n  */\r\n  d3Container;\r\n\r\n  /**\r\n  * The key's values\r\n  *\r\n  * @property aValues\r\n  * @type {Array}\r\n  */\r\n  aValues;\r\n\r\n  /**\r\n  * The x offset for the key\r\n  *\r\n  * @property iOffsetX\r\n  * @type {Number}\r\n  */\r\n  iOffsetX;\r\n\r\n  /**\r\n  * The y offset for the key\r\n  *\r\n  * @property iOffsetY\r\n  * @type {Number}\r\n  */\r\n  iOffsetY;\r\n\r\n  /**\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} d3Container A d3 wrapped container element\r\n  * @param {Array} aValues the data to be displayed\r\n  * @param {Integer} iOffsetX optional x offset\r\n  * @param {Integer} iOffsetY optional y offset\r\n  */\r\n  constructor({ d3Container, aValues, iOffsetX = 0, iOffsetY = 0 }) {\r\n    if (d3Container && aValues) {\r\n      this.d3Container = d3Container;\r\n      this.aValues = aValues.slice(aValues);\r\n      this.iOffsetX = iOffsetX;\r\n      this.iOffsetY = iOffsetY;\r\n    } else {\r\n      throw new Error('Incorrect parameters provided to Key constructor.');\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Render the key showing the labels for the color values\r\n  *\r\n  * @method render\r\n  * @chainable\r\n  */\r\n  render() {\r\n    this.d3Container.selectAll('g.key').remove();\r\n    let iGroupOffset = 0;\r\n    const d3KeyGroup = this.d3Container.append('g').attr('class', 'key');\r\n    const d3Labels = d3KeyGroup.selectAll('text.label').data(this.aValues);\r\n    const fnCalculateMargin = (aValues, i) => {\r\n      let iMargin = 0;\r\n      if (i) {\r\n        for (let l = 0; l < i; l++) {\r\n          iMargin += aValues[l].iLabelWidth;\r\n        }\r\n      }\r\n      return iMargin;\r\n    };\r\n    d3Labels.enter()\r\n      .append('text')\r\n      .text(d => d.sName)\r\n      .each((d, i, nodes) => {\r\n        const iLabelWidth = nodes[i].getBoundingClientRect().width + 15;\r\n        this.aValues[i].iLabelWidth = iLabelWidth;\r\n        iGroupOffset += iLabelWidth - 2;\r\n      })\r\n      .attr('class', 'label')\r\n      .attr('x', (d, i) => fnCalculateMargin(this.aValues, i))\r\n      .attr('y', 8)\r\n      .attr('width', 10)\r\n      .attr('height', 10)\r\n      .attr('font-family', 'sans-serif')\r\n      .attr('font-size', '10px')\r\n      .attr('fill', '#222222');\r\n    const d3Keys = d3KeyGroup.selectAll('rect.key').data(this.aValues);\r\n    d3Keys.enter()\r\n      .append('rect')\r\n      .attr('class', 'key')\r\n      .attr('fill', d => d.sColor)\r\n      .attr('x', (d, i) => fnCalculateMargin(this.aValues, i) - 12)\r\n      .attr('y', 0)\r\n      .attr('width', 10)\r\n      .attr('height', 10);\r\n    iGroupOffset = this.iOffsetX - (iGroupOffset / 2);\r\n    d3KeyGroup.attr('transform', `translate(${iGroupOffset},${this.iOffsetY})`);\r\n    return this;\r\n  }\r\n\r\n\r\n  /**\r\n  * Set the position of the key\r\n  *\r\n  * @method position\r\n  * @chainable\r\n  */\r\n  position() {\r\n    // placeholder\r\n    return this;\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = Key;\r\n",
+    "content": "/**\r\n* The Key shows how the colors represent the data\r\n*\r\n* @class Key\r\n* @constructor\r\n*/\r\nexport default class Key {\r\n\r\n  /**\r\n  * d3 object for axis container\r\n  *\r\n  * @property d3Container\r\n  * @type {Object}\r\n  */\r\n  d3Container;\r\n\r\n  /**\r\n  * The key's values\r\n  *\r\n  * @property itemValues\r\n  * @type {Array}\r\n  */\r\n  itemValues;\r\n\r\n  /**\r\n  * The x offset for the key\r\n  *\r\n  * @property offsetX\r\n  * @type {Number}\r\n  */\r\n  offsetX;\r\n\r\n  /**\r\n  * The y offset for the key\r\n  *\r\n  * @property offsetY\r\n  * @type {Number}\r\n  */\r\n  offsetY;\r\n\r\n  /**\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} d3Container A d3 wrapped container element\r\n  * @param {Array} itemValues the data to be displayed\r\n  * @param {Integer} offsetX optional x offset\r\n  * @param {Integer} offsetY optional y offset\r\n  */\r\n  constructor({ d3Container, itemValues, offsetX = 0, offsetY = 0 }) {\r\n    if (d3Container && itemValues) {\r\n      this.d3Container = d3Container;\r\n      this.itemValues = itemValues.slice(itemValues);\r\n      this.offsetX = offsetX;\r\n      this.offsetY = offsetY;\r\n    } else {\r\n      throw new Error('Incorrect parameters provided to Key constructor.');\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Render the key showing the labels for the color values\r\n  *\r\n  * @method render\r\n  * @chainable\r\n  */\r\n  render() {\r\n    this.d3Container.selectAll('g.key').remove();\r\n    let groupOffset = 0;\r\n    const d3KeyGroup = this.d3Container.append('g').attr('class', 'key');\r\n    const d3Labels = d3KeyGroup.selectAll('text.label').data(this.itemValues);\r\n    const fnCalculateMargin = (itemValues, i) => {\r\n      let margin = 0;\r\n      if (i) {\r\n        for (let l = 0; l < i; l++) {\r\n          margin += itemValues[l].labelWidth;\r\n        }\r\n      }\r\n      return margin;\r\n    };\r\n    d3Labels.enter()\r\n      .append('text')\r\n      .text(d => d.name)\r\n      .each((d, i, nodes) => {\r\n        const labelWidth = nodes[i].getBoundingClientRect().width + 15;\r\n        this.itemValues[i].labelWidth = labelWidth;\r\n        groupOffset += labelWidth - 2;\r\n      })\r\n      .attr('class', 'label')\r\n      .attr('x', (d, i) => fnCalculateMargin(this.itemValues, i))\r\n      .attr('y', 8)\r\n      .attr('width', 10)\r\n      .attr('height', 10)\r\n      .attr('font-family', 'sans-serif')\r\n      .attr('font-size', '10px')\r\n      .attr('fill', '#222222');\r\n    const d3Keys = d3KeyGroup.selectAll('rect.key').data(this.itemValues);\r\n    d3Keys.enter()\r\n      .append('rect')\r\n      .attr('class', 'key')\r\n      .attr('fill', d => d.color)\r\n      .attr('x', (d, i) => fnCalculateMargin(this.itemValues, i) - 12)\r\n      .attr('y', 0)\r\n      .attr('width', 10)\r\n      .attr('height', 10);\r\n    groupOffset = this.offsetX - (groupOffset / 2);\r\n    d3KeyGroup.attr('transform', `translate(${groupOffset},${this.offsetY})`);\r\n    return this;\r\n  }\r\n\r\n\r\n  /**\r\n  * Set the position of the key\r\n  *\r\n  * @method position\r\n  * @chainable\r\n  */\r\n  position() {\r\n    // placeholder\r\n    return this;\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = Key;\r\n",
     "static": true,
     "longname": "C:/Dev/d-theia/src/components/Key.js",
     "access": "public",
@@ -2901,10 +2901,10 @@
   {
     "__docId__": 161,
     "kind": "member",
-    "name": "aValues",
+    "name": "itemValues",
     "memberof": "src/components/Key.js~Key",
     "static": false,
-    "longname": "src/components/Key.js~Key#aValues",
+    "longname": "src/components/Key.js~Key#itemValues",
     "access": "public",
     "description": "The key's values",
     "lineNumber": 23,
@@ -2914,7 +2914,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "aValues",
+        "name": "itemValues",
         "description": ""
       }
     ],
@@ -2928,10 +2928,10 @@
   {
     "__docId__": 162,
     "kind": "member",
-    "name": "iOffsetX",
+    "name": "offsetX",
     "memberof": "src/components/Key.js~Key",
     "static": false,
-    "longname": "src/components/Key.js~Key#iOffsetX",
+    "longname": "src/components/Key.js~Key#offsetX",
     "access": "public",
     "description": "The x offset for the key",
     "lineNumber": 31,
@@ -2941,7 +2941,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "iOffsetX",
+        "name": "offsetX",
         "description": ""
       }
     ],
@@ -2955,10 +2955,10 @@
   {
     "__docId__": 163,
     "kind": "member",
-    "name": "iOffsetY",
+    "name": "offsetY",
     "memberof": "src/components/Key.js~Key",
     "static": false,
-    "longname": "src/components/Key.js~Key#iOffsetY",
+    "longname": "src/components/Key.js~Key#offsetY",
     "access": "public",
     "description": "The y offset for the key",
     "lineNumber": 39,
@@ -2968,7 +2968,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "iOffsetY",
+        "name": "offsetY",
         "description": ""
       }
     ],
@@ -3011,7 +3011,7 @@
         "types": ["Array"],
         "spread": false,
         "optional": false,
-        "name": "aValues",
+        "name": "itemValues",
         "description": "the data to be displayed"
       },
       {
@@ -3019,7 +3019,7 @@
         "types": ["Integer"],
         "spread": false,
         "optional": false,
-        "name": "iOffsetX",
+        "name": "offsetX",
         "description": "optional x offset"
       },
       {
@@ -3027,7 +3027,7 @@
         "types": ["Integer"],
         "spread": false,
         "optional": false,
-        "name": "iOffsetY",
+        "name": "offsetY",
         "description": "optional y offset"
       }
     ]
@@ -3090,7 +3090,7 @@
     "__docId__": 171,
     "kind": "file",
     "name": "src/components/LineChart.js",
-    "content": "import { line } from 'd3-shape';\r\nimport { select, event } from 'd3-selection';\r\nimport { scalePoint } from 'd3-scale';\r\nimport AxisChart from './AxisChart';\r\n\r\n/**\r\n* Create LineCharts from the supplied data, based on the JSON config.\r\n*\r\n* @class LineChart\r\n* @extends {AxisChart}\r\n* @constructor\r\n*/\r\nexport default class LineChart extends AxisChart {\r\n\r\n  /**\r\n  * The local collection of lines\r\n  *\r\n  * @property aLines\r\n  * @type {Array}\r\n  */\r\n  aLines;\r\n\r\n  /**\r\n  * The local collection of circles\r\n  *\r\n  * @property aCircles\r\n  * @type {Array}\r\n  */\r\n  aCircles;\r\n\r\n  /**\r\n  * Constructor used to set chart type\r\n  *\r\n  * @method constructor\r\n  */\r\n  constructor(oParams = {}) {\r\n    super(oParams);\r\n    this.sChartType = 'line';\r\n    this.oScaleX = scalePoint();\r\n  }\r\n\r\n  /**\r\n  * Render the chart including lines, axes and labels\r\n  *\r\n  * @method renderChart\r\n  */\r\n  renderChart(bReset = false) {\r\n    super.renderChart();\r\n    const { aValues } = this.jConfig;\r\n    const { oScaleX, oScaleY } = this;\r\n\r\n    this.aLines = this.aLines || [];\r\n    this.aCircles = this.aCircles || [];\r\n\r\n    // Iterate through config value keys\r\n    aValues.forEach((oValues, i) => {\r\n      const { oColor } = oValues;\r\n\r\n      // Reset lines data and clear graph\r\n      if (bReset && this.aLines[i]) {\r\n        this.aLines[i] = this.d3ChartGroup.selectAll(`path.lines-${i}`).data([]);\r\n        this.aLines[i].exit().remove();\r\n        this.aLines[i] = undefined;\r\n      }\r\n\r\n      if (!this.aLines[i]) {\r\n        // define the line\r\n        this.aLines[i] = line();\r\n\r\n        // Add the valueline path.\r\n        this.d3ChartGroup.append('path')\r\n            .data([this.aData])\r\n            .attr('class', `line lines-${i}`)\r\n            .attr('stroke', oColor);\r\n      }\r\n\r\n      // Update lines\r\n      this.aLines[i]\r\n        .x(d => oScaleX(d.sLabel) + (oScaleX.bandwidth() / 2))\r\n        .y(d => oScaleY(d.aValues[i]));\r\n      this.d3ChartGroup.selectAll(`path.lines-${i}`)\r\n        .data([this.aData])\r\n        .attr('d', this.aLines[i]);\r\n\r\n      // Reset circles data and clear graph\r\n      if (bReset && this.aCircles[i]) {\r\n        this.aCircles[i] = this.d3ChartGroup.selectAll(`circle.circles-${i}`).data([]);\r\n        this.aCircles[i].exit().remove();\r\n        this.aCircles[i] = undefined;\r\n      }\r\n\r\n      // Add circles for each value\r\n      if (!this.aCircles[i]) {\r\n        // Bind circles data\r\n        this.aCircles[i] = this.d3ChartGroup.selectAll(`circle.circles-${i}`).data(this.aData);\r\n        // Add new circle elements and set base attributes\r\n        this.aCircles[i]\r\n          .enter()\r\n          .append('circle')\r\n          .on('mousemove', (d) => {\r\n            this.oTooltip.ping([d.sLabel, oValues.sName, d.aValues[i]]);\r\n          })\r\n          .on('mouseover', (d) => {\r\n            d.oColor = this.jConfig.aValues[i].oColor;\r\n            select(event.target).attr('fill', d.oColor.darker(1));\r\n          })\r\n          .on('mousedown', (d) => {\r\n            if (this.jConfig.fnClickCallback) {\r\n              this.jConfig.fnClickCallback({\r\n                oEvent: event,\r\n                jData: d\r\n              });\r\n            }\r\n          })\r\n          .on('mouseout', (d) => {\r\n            this.oTooltip.hide();\r\n            select(event.target).attr('fill', d.oColor);\r\n          })\r\n          .attr('class', `circles circles-${i}`)\r\n          .attr('fill', oColor)\r\n          .attr('r', 5);\r\n      }\r\n\r\n      // Update circles\r\n      this.d3ChartGroup.selectAll(`circle.circles-${i}`)\r\n        .data(this.aData)\r\n        .attr('cy', d => oScaleY(d.aValues[i]))\r\n        .attr('cx', d => oScaleX(d.sLabel) + (oScaleX.bandwidth() / 2));\r\n    });\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = LineChart;\r\n",
+    "content": "import { line } from 'd3-shape';\r\nimport { select, event } from 'd3-selection';\r\nimport { scalePoint } from 'd3-scale';\r\nimport AxisChart from './AxisChart';\r\n\r\n/**\r\n* Create LineCharts from the supplied data, based on the JSON config.\r\n*\r\n* @class LineChart\r\n* @extends {AxisChart}\r\n* @constructor\r\n*/\r\nexport default class LineChart extends AxisChart {\r\n\r\n  /**\r\n  * The local collection of lines\r\n  *\r\n  * @property lines\r\n  * @type {Array}\r\n  */\r\n  lines;\r\n\r\n  /**\r\n  * The local collection of circles\r\n  *\r\n  * @property circles\r\n  * @type {Array}\r\n  */\r\n  circles;\r\n\r\n  /**\r\n  * Constructor used to set chart type\r\n  *\r\n  * @method constructor\r\n  */\r\n  constructor(chartParams = {}) {\r\n    super(chartParams);\r\n    this.chartType = 'line';\r\n    this.scaleX = scalePoint();\r\n  }\r\n\r\n  /**\r\n  * Render the chart including lines, axes and labels\r\n  *\r\n  * @method renderChart\r\n  */\r\n  renderChart(doReset = false) {\r\n    super.renderChart();\r\n    const { itemValues } = this.chartConfig;\r\n    const { scaleX, scaleY } = this;\r\n\r\n    this.lines = this.lines || [];\r\n    this.circles = this.circles || [];\r\n\r\n    // Iterate through config value keys\r\n    itemValues.forEach((oValues, i) => {\r\n      const { color } = oValues;\r\n\r\n      // Reset lines data and clear graph\r\n      if (doReset && this.lines[i]) {\r\n        this.lines[i] = this.d3ChartGroup.selectAll(`path.lines-${i}`).data([]);\r\n        this.lines[i].exit().remove();\r\n        this.lines[i] = undefined;\r\n      }\r\n\r\n      if (!this.lines[i]) {\r\n        // define the line\r\n        this.lines[i] = line();\r\n\r\n        // Add the valueline path.\r\n        this.d3ChartGroup.append('path')\r\n            .data([this.chartData])\r\n            .attr('class', `line lines-${i}`)\r\n            .attr('stroke', color);\r\n      }\r\n\r\n      // Update lines\r\n      this.lines[i]\r\n        .x(d => scaleX(d.itemLabel) + (scaleX.bandwidth() / 2))\r\n        .y(d => scaleY(d.itemValues[i]));\r\n      this.d3ChartGroup.selectAll(`path.lines-${i}`)\r\n        .data([this.chartData])\r\n        .attr('d', this.lines[i]);\r\n\r\n      // Reset circles data and clear graph\r\n      if (doReset && this.circles[i]) {\r\n        this.circles[i] = this.d3ChartGroup.selectAll(`circle.circles-${i}`).data([]);\r\n        this.circles[i].exit().remove();\r\n        this.circles[i] = undefined;\r\n      }\r\n\r\n      // Add circles for each value\r\n      if (!this.circles[i]) {\r\n        // Bind circles data\r\n        this.circles[i] = this.d3ChartGroup.selectAll(`circle.circles-${i}`).data(this.chartData);\r\n        // Add new circle elements and set base attributes\r\n        this.circles[i]\r\n          .enter()\r\n          .append('circle')\r\n          .on('mousemove', (d) => {\r\n            this.tooltip.ping([d.itemLabel, oValues.name, d.itemValues[i]]);\r\n          })\r\n          .on('mouseover', (d) => {\r\n            d.color = this.chartConfig.itemValues[i].color;\r\n            select(event.target).attr('fill', d.color.darker(1));\r\n          })\r\n          .on('mousedown', (d) => {\r\n            if (this.chartConfig.fnClickCallback) {\r\n              this.chartConfig.fnClickCallback({\r\n                oEvent: event,\r\n                jData: d\r\n              });\r\n            }\r\n          })\r\n          .on('mouseout', (d) => {\r\n            this.tooltip.hide();\r\n            select(event.target).attr('fill', d.color);\r\n          })\r\n          .attr('class', `circles circles-${i}`)\r\n          .attr('fill', color)\r\n          .attr('r', 5);\r\n      }\r\n\r\n      // Update circles\r\n      this.d3ChartGroup.selectAll(`circle.circles-${i}`)\r\n        .data(this.chartData)\r\n        .attr('cy', d => scaleY(d.itemValues[i]))\r\n        .attr('cx', d => scaleX(d.itemLabel) + (scaleX.bandwidth() / 2));\r\n    });\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = LineChart;\r\n",
     "static": true,
     "longname": "C:/Dev/d-theia/src/components/LineChart.js",
     "access": "public",
@@ -3126,10 +3126,10 @@
   {
     "__docId__": 173,
     "kind": "member",
-    "name": "aLines",
+    "name": "lines",
     "memberof": "src/components/LineChart.js~LineChart",
     "static": false,
-    "longname": "src/components/LineChart.js~LineChart#aLines",
+    "longname": "src/components/LineChart.js~LineChart#lines",
     "access": "public",
     "description": "The local collection of lines",
     "lineNumber": 21,
@@ -3139,7 +3139,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "aLines",
+        "name": "lines",
         "description": ""
       }
     ],
@@ -3153,10 +3153,10 @@
   {
     "__docId__": 174,
     "kind": "member",
-    "name": "aCircles",
+    "name": "circles",
     "memberof": "src/components/LineChart.js~LineChart",
     "static": false,
-    "longname": "src/components/LineChart.js~LineChart#aCircles",
+    "longname": "src/components/LineChart.js~LineChart#circles",
     "access": "public",
     "description": "The local collection of circles",
     "lineNumber": 29,
@@ -3166,7 +3166,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "aCircles",
+        "name": "circles",
         "description": ""
       }
     ],
@@ -3199,10 +3199,10 @@
   {
     "__docId__": 176,
     "kind": "member",
-    "name": "sChartType",
+    "name": "chartType",
     "memberof": "src/components/LineChart.js~LineChart",
     "static": false,
-    "longname": "src/components/LineChart.js~LineChart#sChartType",
+    "longname": "src/components/LineChart.js~LineChart#chartType",
     "access": "public",
     "description": null,
     "lineNumber": 38,
@@ -3214,10 +3214,10 @@
   {
     "__docId__": 177,
     "kind": "member",
-    "name": "oScaleX",
+    "name": "scaleX",
     "memberof": "src/components/LineChart.js~LineChart",
     "static": false,
-    "longname": "src/components/LineChart.js~LineChart#oScaleX",
+    "longname": "src/components/LineChart.js~LineChart#scaleX",
     "access": "public",
     "description": null,
     "lineNumber": 39,
@@ -3246,7 +3246,7 @@
     ],
     "params": [
       {
-        "name": "bReset",
+        "name": "doReset",
         "optional": true,
         "types": ["boolean"],
         "defaultRaw": false,
@@ -3259,7 +3259,7 @@
     "__docId__": 181,
     "kind": "file",
     "name": "src/components/Tooltip.js",
-    "content": "import { event } from 'd3-selection';\r\n\r\n/**\r\n* The Tooltip\r\n*\r\n* @class Tooltip\r\n* @constructor\r\n*/\r\nexport default class Tooltip {\r\n\r\n  /**\r\n  * DOM reference to container element\r\n  *\r\n  * @property dContainer\r\n  * @type {Object}\r\n  */\r\n  oContainer;\r\n\r\n  /**\r\n  * DOM reference to tooltip's main element\r\n  *\r\n  * @property dTooltip\r\n  * @type {Object}\r\n  */\r\n  dTooltip;\r\n\r\n  /**\r\n  * Tooltip's main timeout to close tooltip\r\n  *\r\n  * @property oTooltipTimeout\r\n  * @type {Object}\r\n  */\r\n  oTooltipTimeout;\r\n\r\n  /**\r\n  * Tooltip's sub timeout to hide tooltip\r\n  *\r\n  * @property oTooltipSubTimeout\r\n  * @type {Object}\r\n  */\r\n  oTooltipSubTimeout;\r\n\r\n  /**\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} dContainer DOM object\r\n  */\r\n  constructor(dContainer) {\r\n    if (dContainer.nodeName) {\r\n      this.dContainer = dContainer;\r\n    } else {\r\n      throw new Error('The tooltip has no valid container element.');\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Create the tooltip DOM and return object\r\n  *\r\n  * @method create\r\n  * @chainable\r\n  */\r\n  create() {\r\n    this.dTooltip = document.createElement('div');\r\n    this.dTooltip.className = 'tooltip is-transparent is-hidden';\r\n    this.dContainer.appendChild(this.dTooltip);\r\n    return this;\r\n  }\r\n\r\n  /**\r\n  * Ping the tooltip with data and location\r\n  *\r\n  * @method ping\r\n  * @param {Array} mContent values or string for content\r\n  */\r\n  ping(mContent) {\r\n    const sContent = mContent.constructor === Array\r\n      ? `<strong>${mContent[0]}</strong><br>${mContent[1]}: <em>${mContent[2]}</em>`\r\n      : mContent;\r\n    const iZoomDivider = 1 + (window.devicePixelRatio > 1 ? (window.devicePixelRatio / 20) : 0);\r\n    const oContainerEdges = this.dContainer.getBoundingClientRect()\r\n    const iPageOffsetX = oContainerEdges.left - 15;\r\n    const iPageOffsetY = oContainerEdges.top;\r\n    const iMouseX = event ? event.clientX : 0;\r\n    const iMouseY = event ? event.clientY : 0;\r\n    this.dTooltip.innerHTML = sContent;\r\n    this.dTooltip.className = 'tooltip';\r\n    if ((oContainerEdges.width + iPageOffsetX) - iMouseX < 90) {\r\n      this.dTooltip.style.left = 'auto';\r\n      this.dTooltip.style.right = `${(oContainerEdges.width - iMouseX) + iPageOffsetX + 25}px`;\r\n    } else {\r\n      this.dTooltip.style.left = `${iMouseX - iPageOffsetX}px`;\r\n      this.dTooltip.style.right = 'auto';\r\n    }\r\n    this.dTooltip.style.top = `${(iMouseY / iZoomDivider) - iPageOffsetY}px`;\r\n    clearTimeout(this.oTooltipTimeout);\r\n    clearTimeout(this.oTooltipSubTimeout);\r\n    this.oTooltipTimeout = setTimeout(() => {\r\n      this.hide();\r\n    }, 5000);\r\n  }\r\n\r\n  hide() {\r\n    clearTimeout(this.oTooltipTimeout);\r\n    clearTimeout(this.oTooltipSubTimeout);\r\n    this.dTooltip.className = 'tooltip is-transparent';\r\n    this.oTooltipSubTimeout = setTimeout(() => {\r\n      this.dTooltip.className = 'tooltip is-transparent is-hidden';\r\n    }, 300);\r\n  }\r\n\r\n}\r\n",
+    "content": "import { event } from 'd3-selection';\r\n\r\n/**\r\n* The Tooltip\r\n*\r\n* @class Tooltip\r\n* @constructor\r\n*/\r\nexport default class Tooltip {\r\n\r\n  /**\r\n  * DOM reference to container element\r\n  *\r\n  * @property container\r\n  * @type {Object}\r\n  */\r\n  oContainer;\r\n\r\n  /**\r\n  * DOM reference to tooltip's main element\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  */\r\n  tooltip;\r\n\r\n  /**\r\n  * Tooltip's main timeout to close tooltip\r\n  *\r\n  * @property tooltipTimeout\r\n  * @type {Object}\r\n  */\r\n  tooltipTimeout;\r\n\r\n  /**\r\n  * Tooltip's sub timeout to hide tooltip\r\n  *\r\n  * @property tooltipSubTimeout\r\n  * @type {Object}\r\n  */\r\n  tooltipSubTimeout;\r\n\r\n  /**\r\n  * Constructor function that sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} container DOM object\r\n  */\r\n  constructor(container) {\r\n    if (container.nodeName) {\r\n      this.container = container;\r\n    } else {\r\n      throw new Error('The tooltip has no valid container element.');\r\n    }\r\n  }\r\n\r\n  /**\r\n  * Create the tooltip DOM and return object\r\n  *\r\n  * @method create\r\n  * @chainable\r\n  */\r\n  create() {\r\n    this.tooltip = document.createElement('div');\r\n    this.tooltip.className = 'tooltip is-transparent is-hidden';\r\n    this.container.appendChild(this.tooltip);\r\n    return this;\r\n  }\r\n\r\n  /**\r\n  * Ping the tooltip with data and location\r\n  *\r\n  * @method ping\r\n  * @param {Array} content values or string for content\r\n  */\r\n  ping(content) {\r\n    const contentHtml = content.constructor === Array\r\n      ? `<strong>${content[0]}</strong><br>${content[1]}: <em>${content[2]}</em>`\r\n      : content;\r\n    const iZoomDivider = 1 + (window.devicePixelRatio > 1 ? (window.devicePixelRatio / 20) : 0);\r\n    const oContainerEdges = this.container.getBoundingClientRect()\r\n    const pageOffsetX = oContainerEdges.left - 15;\r\n    const pageOffsetY = oContainerEdges.top;\r\n    const mouseX = event ? event.clientX : 0;\r\n    const mouseY = event ? event.clientY : 0;\r\n    this.tooltip.innerHTML = contentHtml;\r\n    this.tooltip.className = 'tooltip';\r\n    if ((oContainerEdges.width + pageOffsetX) - mouseX < 90) {\r\n      this.tooltip.style.left = 'auto';\r\n      this.tooltip.style.right = `${(oContainerEdges.width - mouseX) + pageOffsetX + 25}px`;\r\n    } else {\r\n      this.tooltip.style.left = `${mouseX - pageOffsetX}px`;\r\n      this.tooltip.style.right = 'auto';\r\n    }\r\n    this.tooltip.style.top = `${(mouseY / iZoomDivider) - pageOffsetY}px`;\r\n    clearTimeout(this.tooltipTimeout);\r\n    clearTimeout(this.tooltipSubTimeout);\r\n    this.tooltipTimeout = setTimeout(() => {\r\n      this.hide();\r\n    }, 5000);\r\n  }\r\n\r\n  hide() {\r\n    clearTimeout(this.tooltipTimeout);\r\n    clearTimeout(this.tooltipSubTimeout);\r\n    this.tooltip.className = 'tooltip is-transparent';\r\n    this.tooltipSubTimeout = setTimeout(() => {\r\n      this.tooltip.className = 'tooltip is-transparent is-hidden';\r\n    }, 300);\r\n  }\r\n\r\n}\r\n",
     "static": true,
     "longname": "C:/Dev/d-theia/src/components/Tooltip.js",
     "access": "public",
@@ -3307,7 +3307,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "dContainer",
+        "name": "container",
         "description": ""
       }
     ],
@@ -3321,10 +3321,10 @@
   {
     "__docId__": 184,
     "kind": "member",
-    "name": "dTooltip",
+    "name": "tooltip",
     "memberof": "src/components/Tooltip.js~Tooltip",
     "static": false,
-    "longname": "src/components/Tooltip.js~Tooltip#dTooltip",
+    "longname": "src/components/Tooltip.js~Tooltip#tooltip",
     "access": "public",
     "description": "DOM reference to tooltip's main element",
     "lineNumber": 25,
@@ -3334,7 +3334,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "dTooltip",
+        "name": "tooltip",
         "description": ""
       }
     ],
@@ -3348,10 +3348,10 @@
   {
     "__docId__": 185,
     "kind": "member",
-    "name": "oTooltipTimeout",
+    "name": "tooltipTimeout",
     "memberof": "src/components/Tooltip.js~Tooltip",
     "static": false,
-    "longname": "src/components/Tooltip.js~Tooltip#oTooltipTimeout",
+    "longname": "src/components/Tooltip.js~Tooltip#tooltipTimeout",
     "access": "public",
     "description": "Tooltip's main timeout to close tooltip",
     "lineNumber": 33,
@@ -3361,7 +3361,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "oTooltipTimeout",
+        "name": "tooltipTimeout",
         "description": ""
       }
     ],
@@ -3375,10 +3375,10 @@
   {
     "__docId__": 186,
     "kind": "member",
-    "name": "oTooltipSubTimeout",
+    "name": "tooltipSubTimeout",
     "memberof": "src/components/Tooltip.js~Tooltip",
     "static": false,
-    "longname": "src/components/Tooltip.js~Tooltip#oTooltipSubTimeout",
+    "longname": "src/components/Tooltip.js~Tooltip#tooltipSubTimeout",
     "access": "public",
     "description": "Tooltip's sub timeout to hide tooltip",
     "lineNumber": 41,
@@ -3388,7 +3388,7 @@
         "types": ["*"],
         "spread": false,
         "optional": false,
-        "name": "oTooltipSubTimeout",
+        "name": "tooltipSubTimeout",
         "description": ""
       }
     ],
@@ -3423,7 +3423,7 @@
         "types": ["Object"],
         "spread": false,
         "optional": false,
-        "name": "dContainer",
+        "name": "container",
         "description": "DOM object"
       }
     ]
@@ -3431,10 +3431,10 @@
   {
     "__docId__": 188,
     "kind": "member",
-    "name": "dContainer",
+    "name": "container",
     "memberof": "src/components/Tooltip.js~Tooltip",
     "static": false,
-    "longname": "src/components/Tooltip.js~Tooltip#dContainer",
+    "longname": "src/components/Tooltip.js~Tooltip#container",
     "access": "public",
     "description": null,
     "lineNumber": 51,
@@ -3494,7 +3494,7 @@
         "types": ["Array"],
         "spread": false,
         "optional": false,
-        "name": "mContent",
+        "name": "content",
         "description": "values or string for content"
       }
     ],
@@ -3520,7 +3520,7 @@
     "__docId__": 195,
     "kind": "file",
     "name": "src/components/Utilities.js",
-    "content": "import { json } from 'd3-fetch';\r\n\r\n/**\r\n* The Utilities object is is a class containing reusable static methods\r\n*\r\n* @class Utilities\r\n* @static\r\n*/\r\nexport default class Utilities {\r\n\r\n  /**\r\n  * Returns a promise resolving with JSON when supplied with a valid URL\r\n  *\r\n  * @method getPromiseJSON\r\n  * @static\r\n  * @param {String} sUrl Required URL to make request\r\n  * @throws {Error} invalid api string\r\n  */\r\n  static getPromiseJSON(sUrl) {\r\n    if (typeof sUrl === 'string') {\r\n      return json(sUrl);\r\n    }\r\n    throw new Error('No valid data API string provided.');\r\n  }\r\n\r\n  /**\r\n  * Truncates a string and adds ellipsis.\r\n  *\r\n  * @method truncateString\r\n  * @static\r\n  * @param {String} sString string to be truncated\r\n  * @param {Integer} iMaxLength max length of string before truncation\r\n  * @return {String} truncated string\r\n  */\r\n  static truncateString(sString, iMaxLength) {\r\n    if (sString.length > iMaxLength) {\r\n      return `${sString.slice(0, iMaxLength - 3)}[...]`;\r\n    }\r\n    return sString;\r\n  }\r\n\r\n  /**\r\n  * Generates a random integer within a range.\r\n  *\r\n  * @method getRandomInteger\r\n  * @static\r\n  * @param {Integer} iMin minimum random value\r\n  * @param {Integer} iMax max random value\r\n  * @param {Integer} iOmit specify a value to omit from results\r\n  * @return {Integer} new random integer\r\n  */\r\n  static getRandomInteger(iMin, iMax, iOmit) {\r\n    let iInt = Math.floor(Math.random() * (iMin - iMax - 1)) + iMax + 1;\r\n    if (iOmit) {\r\n      while (iInt === iOmit) {\r\n        iInt = this.getRandomInteger(iMin, iMax);\r\n      }\r\n    }\r\n    return iInt;\r\n  }\r\n\r\n}\r\n",
+    "content": "import { json } from 'd3-fetch';\r\n\r\n/**\r\n* The Utilities object is is a class containing reusable static methods\r\n*\r\n* @class Utilities\r\n* @static\r\n*/\r\nexport default class Utilities {\r\n\r\n  /**\r\n  * Returns a promise resolving with JSON when supplied with a valid URL\r\n  *\r\n  * @method getPromiseJSON\r\n  * @static\r\n  * @param {String} url Required URL to make request\r\n  * @throws {Error} invalid api string\r\n  */\r\n  static getPromiseJSON(url) {\r\n    if (typeof url === 'string') {\r\n      return json(url);\r\n    }\r\n    throw new Error('No valid data API string provided.');\r\n  }\r\n\r\n  /**\r\n  * Truncates a string and adds ellipsis.\r\n  *\r\n  * @method truncateString\r\n  * @static\r\n  * @param {String} value string to be truncated\r\n  * @param {Integer} maxLength max length of string before truncation\r\n  * @return {String} truncated string\r\n  */\r\n  static truncateString(value, maxLength) {\r\n    if (value.length > maxLength) {\r\n      return `${value.slice(0, maxLength - 3)}[...]`;\r\n    }\r\n    return value;\r\n  }\r\n\r\n  /**\r\n  * Generates a random integer within a range.\r\n  *\r\n  * @method getRandomInteger\r\n  * @static\r\n  * @param {Integer} minValue minimum random value\r\n  * @param {Integer} maxValue max random value\r\n  * @param {Integer} omitValue specify a value to omit from results\r\n  * @return {Integer} new random integer\r\n  */\r\n  static getRandomInteger(minValue, maxValue, omitValue) {\r\n    let iInt = Math.floor(Math.random() * (minValue - maxValue - 1)) + maxValue + 1;\r\n    if (omitValue) {\r\n      while (iInt === omitValue) {\r\n        iInt = this.getRandomInteger(minValue, maxValue);\r\n      }\r\n    }\r\n    return iInt;\r\n  }\r\n\r\n}\r\n",
     "static": true,
     "longname": "C:/Dev/d-theia/src/components/Utilities.js",
     "access": "public",
@@ -3572,7 +3572,7 @@
         "types": ["String"],
         "spread": false,
         "optional": false,
-        "name": "sUrl",
+        "name": "url",
         "description": "Required URL to make request"
       }
     ],
@@ -3610,7 +3610,7 @@
         "types": ["String"],
         "spread": false,
         "optional": false,
-        "name": "sString",
+        "name": "value",
         "description": "string to be truncated"
       },
       {
@@ -3618,7 +3618,7 @@
         "types": ["Integer"],
         "spread": false,
         "optional": false,
-        "name": "iMaxLength",
+        "name": "maxLength",
         "description": "max length of string before truncation"
       }
     ],
@@ -3653,7 +3653,7 @@
         "types": ["Integer"],
         "spread": false,
         "optional": false,
-        "name": "iMin",
+        "name": "minValue",
         "description": "minimum random value"
       },
       {
@@ -3661,7 +3661,7 @@
         "types": ["Integer"],
         "spread": false,
         "optional": false,
-        "name": "iMax",
+        "name": "maxValue",
         "description": "max random value"
       },
       {
@@ -3669,7 +3669,7 @@
         "types": ["Integer"],
         "spread": false,
         "optional": false,
-        "name": "iOmit",
+        "name": "omitValue",
         "description": "specify a value to omit from results"
       }
     ],
@@ -3684,7 +3684,7 @@
     "__docId__": 200,
     "kind": "file",
     "name": "src/Theia.js",
-    "content": "/** @license dTheia v2.0.1\r\n *\r\n * Copyright (c) 2017-present, Lance Taylor.\r\n *\r\n * This source code is licensed under the GNU public license found in the\r\n * LICENSE file in the root directory of this source tree.\r\n */\r\n\r\nimport BarChart from './components/BarChart';\r\nimport LineChart from './components/LineChart';\r\nimport BubbleChart from './components/BubbleChart';\r\nimport Utilities from './components/Utilities';\r\nimport DataOps from './components/DataOps';\r\n\r\n/**\r\n* Theia is the main API for dTheia - a reusable charting library built using d3 v.4 and ES6\r\n*\r\n* @module dTheia\r\n* @class Theia\r\n* @static\r\n* @main\r\n*/\r\n\r\nexport default class Theia {\r\n\r\n  /**\r\n  * Create a chart and return object\r\n  *\r\n  * @method chart\r\n  * @static\r\n  * @param {String} sContainer ID to select container DOM object\r\n  * @param {String} sType string denoting the type of chart\r\n  * @param {Object} oParams includes target DOM object, JSON config and array of data\r\n  * @return {Object} oChart returns a chart object of the requested type\r\n  */\r\n  static chart(sContainer, sType, oParams) {\r\n    let oChart = {};\r\n    const oAllParams = { sContainer, ...oParams };\r\n    switch (sType) {\r\n      case 'line': {\r\n        oChart = this.createLineChart(oAllParams);\r\n        break;\r\n      }\r\n      case 'bubble': {\r\n        oChart = this.createBubbleChart(oAllParams);\r\n        break;\r\n      }\r\n      default: {\r\n        oChart = this.createBarChart(oAllParams);\r\n      }\r\n    }\r\n    return oChart;\r\n  }\r\n\r\n  /**\r\n  * Create a bar chart and return object\r\n  *\r\n  * @method createBarChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a bar chart object\r\n  */\r\n  static createBarChart(oParams) {\r\n    return new BarChart(oParams).init();\r\n  }\r\n\r\n  /**\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createLineChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a line chart object\r\n  */\r\n  static createLineChart(oParams) {\r\n    return new LineChart(oParams).init();\r\n  }\r\n\r\n  /**\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createBubbleChart\r\n  * @static\r\n  * @param {Object} oParams contains the configuration for the chart\r\n  * @return {Object} returns a bubble chart object\r\n  */\r\n  static createBubbleChart(oParams) {\r\n    return new BubbleChart(oParams).init();\r\n  }\r\n\r\n  /**\r\n  * Return a public Utilities module\r\n  *\r\n  * @method getUtilities\r\n  * @static\r\n  */\r\n  static getUtilities() {\r\n    return Utilities;\r\n  }\r\n\r\n  /**\r\n  * Return a public DataOps module\r\n  *\r\n  * @method getDataOps\r\n  * @static\r\n  */\r\n  static getDataOps() {\r\n    return DataOps;\r\n  }\r\n}\r\n\r\nmodule.exports = Theia;\r\n",
+    "content": "/** @license dTheia v2.0.1\r\n *\r\n * Copyright (c) 2017-present, Lance Taylor.\r\n *\r\n * This source code is licensed under the GNU public license found in the\r\n * LICENSE file in the root directory of this source tree.\r\n */\r\n\r\nimport BarChart from './components/BarChart';\r\nimport LineChart from './components/LineChart';\r\nimport BubbleChart from './components/BubbleChart';\r\nimport Utilities from './components/Utilities';\r\nimport DataOps from './components/DataOps';\r\n\r\n/**\r\n* Theia is the main API for dTheia - a reusable charting library built using d3 v.4 and ES6\r\n*\r\n* @module dTheia\r\n* @class Theia\r\n* @static\r\n* @main\r\n*/\r\n\r\nexport default class Theia {\r\n\r\n  /**\r\n  * Create a chart and return object\r\n  *\r\n  * @method chart\r\n  * @static\r\n  * @param {String} containerId ID to select container DOM object\r\n  * @param {String} chartType string denoting the type of chart\r\n  * @param {Object} chartParams includes target DOM object, JSON config and array of data\r\n  * @return {Object} oChart returns a chart object of the requested type\r\n  */\r\n  static chart(containerId, chartType, chartParams) {\r\n    let oChart = {};\r\n    const allParams = { containerId, ...chartParams };\r\n    switch (chartType) {\r\n      case 'line': {\r\n        oChart = this.createLineChart(allParams);\r\n        break;\r\n      }\r\n      case 'bubble': {\r\n        oChart = this.createBubbleChart(allParams);\r\n        break;\r\n      }\r\n      default: {\r\n        oChart = this.createBarChart(allParams);\r\n      }\r\n    }\r\n    return oChart;\r\n  }\r\n\r\n  /**\r\n  * Create a bar chart and return object\r\n  *\r\n  * @method createBarChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a bar chart object\r\n  */\r\n  static createBarChart(chartParams) {\r\n    return new BarChart(chartParams).init();\r\n  }\r\n\r\n  /**\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createLineChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a line chart object\r\n  */\r\n  static createLineChart(chartParams) {\r\n    return new LineChart(chartParams).init();\r\n  }\r\n\r\n  /**\r\n  * Create a line chart and return object\r\n  *\r\n  * @method createBubbleChart\r\n  * @static\r\n  * @param {Object} chartParams contains the configuration for the chart\r\n  * @return {Object} returns a bubble chart object\r\n  */\r\n  static createBubbleChart(chartParams) {\r\n    return new BubbleChart(chartParams).init();\r\n  }\r\n\r\n  /**\r\n  * Return a public Utilities module\r\n  *\r\n  * @method getUtilities\r\n  * @static\r\n  */\r\n  static getUtilities() {\r\n    return Utilities;\r\n  }\r\n\r\n  /**\r\n  * Return a public DataOps module\r\n  *\r\n  * @method getDataOps\r\n  * @static\r\n  */\r\n  static getDataOps() {\r\n    return DataOps;\r\n  }\r\n}\r\n\r\nmodule.exports = Theia;\r\n",
     "static": true,
     "longname": "C:/Dev/d-theia/src/Theia.js",
     "access": "public",
@@ -3744,7 +3744,7 @@
         "types": ["String"],
         "spread": false,
         "optional": false,
-        "name": "sContainer",
+        "name": "containerId",
         "description": "ID to select container DOM object"
       },
       {
@@ -3752,7 +3752,7 @@
         "types": ["String"],
         "spread": false,
         "optional": false,
-        "name": "sType",
+        "name": "chartType",
         "description": "string denoting the type of chart"
       },
       {
@@ -3760,7 +3760,7 @@
         "types": ["Object"],
         "spread": false,
         "optional": false,
-        "name": "oParams",
+        "name": "chartParams",
         "description": "includes target DOM object, JSON config and array of data"
       }
     ],
@@ -3795,7 +3795,7 @@
         "types": ["Object"],
         "spread": false,
         "optional": false,
-        "name": "oParams",
+        "name": "chartParams",
         "description": "contains the configuration for the chart"
       }
     ],
@@ -3830,7 +3830,7 @@
         "types": ["Object"],
         "spread": false,
         "optional": false,
-        "name": "oParams",
+        "name": "chartParams",
         "description": "contains the configuration for the chart"
       }
     ],
@@ -3865,7 +3865,7 @@
         "types": ["Object"],
         "spread": false,
         "optional": false,
-        "name": "oParams",
+        "name": "chartParams",
         "description": "contains the configuration for the chart"
       }
     ],
@@ -3924,7 +3924,7 @@
   },
   {
     "kind": "index",
-    "content": "# dTheia v2.0.1\r\n\r\ndTheia is a JavaScript charting library for visualization of complex data.\r\n\r\n## Overview\r\n\r\nBuilt using d3 and ES6. Code is transpiled into ES5 for distribution.\r\nThe aim of this project is to provide a simple API for the creation of D3 charts within any client side framework.\r\nCharts are responsive in any device, providing additional detail via hover/touch tooltips.\r\n\r\n- Bar chart\r\n- Line chart\r\n- Bubble Chart\r\n\r\n## Source\r\n\r\n- GitHub - http://www.github.com/lancerael/d-theia\r\n- NPM - https://www.npmjs.com/package/d-theia\r\n\r\n## Demo\r\n\r\nThe library is purely JavaScript but does include a simple app and associated HTML/CSS for demonstration and development.\r\n\r\n### Demo App\r\n\r\nhttp://dtheia.org/demo\r\n\r\n- Shows basic dummy bar and line charts.\r\n- Shows randomised cycle docking station data as bar, line and bubble.\r\n- Refresh page for new random data.\r\n- Another line chart shows race data.\r\n\r\n### React demo App\r\n\r\nThere is a separate repository in progress, using React to create a sandbox app for dTheia.\r\n\r\nd-theia-react-app - https://github.com/lancerael/d-theia-sandbox-react\r\n\r\n## Installation\r\n\r\nYou can include dTheia in your project as an NPM module, or you can check out the code and compile yourself.\r\n\r\n### Install in Node projects\r\n\r\nIf you are using Node, install as follows:\r\n\r\n```$npm install d-theia```\r\n\r\nImport the module into your code:\r\n\r\n```import Theia from 'd-theia';```\r\n\r\n### Installing locally\r\n\r\nFor standalone projects you can build and include dist JS files in your project.\r\n\r\n - ./dist/d-theia.min.js - minified library\r\n - ./dist/d-theia.vendor.min.js - vendor (d3)\r\n\r\nInstall Node.JS (https://nodejs.org/) and NPM:\r\n\r\n```$npm install npm -g```\r\n\r\nNavigate to folder and install app:\r\n\r\n```$npm install```\r\n\r\n### NPM tasks\r\n\r\nYou can then use NPM to manage project tasks.\r\n\r\n#### BUILD\r\n\r\nTo generate the minified files run the build task:\r\n\r\n```$npm run dist```\r\n\r\n\r\n#### TEST\r\nUses Karma to run Jasmine TDD tests (watcher)\r\n\r\n```npm run test```\r\n\r\n#### DEV SERVER\r\nUses Webpack/Babel with plugins, performs linting on build (watcher)\r\n\r\n```npm run serve```\r\n\r\nYou can then access the server at http://localhost:8081 which launches the contents of the demo folder.\r\n\r\n## Displaying charts\r\n\r\nYou can instantiate a new chart by calling the appropriate method and supplying:\r\n- sContainer - the ID of (or dContainer - DOM reference to) a container node.\r\n- jConfig - a JSON configuration object - see examples in demo/config\r\n- aData - Chart data array - see examples in demo/data\r\n\r\n```\r\nTheia.create[Bar/Line/Bubble]Chart({\r\n  sContainer: 'container-bar-1',  // ID of target DOM element\r\n  jConfig, // Chart config\r\n  aData // Chart data\r\n});\r\n```\r\n\r\n...or shorthand...\r\n\r\n```\r\nTheia.chart( 'container-bar-1', 'bar', {jConfig, aData} );\r\n```\r\n\r\nEither method will return a dTheia chart object for you to further manipulate as required.\r\n\r\n### Data\r\n\r\nData can be randomly generated, or loaded from a HTTP endpoint. When loading from an endpoint you have the choice of\r\nusing specially constructed JSON chart data, or mapping any JSON structure from the response using the config.\r\n\r\nThe default structure for the chart is an array of objects, each containing:\r\n- a label string\r\n- an array of integer values\r\n\r\n```\r\n[\r\n  {\"sLabel\":\"Item 1\",\"aValues\":[114,54,159]},\r\n  {\"sLabel\":\"Item 2\",\"aValues\":[102,115,70]},\r\n  {\"sLabel\":\"Item 3\",\"aValues\":[82,146,59]},\r\n  {\"sLabel\":\"Item 4\",\"aValues\":[90,138,113]}\r\n]\r\n```\r\n\r\nFor unmodified endpoints with labels and values on other keys, you can map them using the config as shown below.  \r\n\r\n### Config\r\n\r\nThe config contains the basic info about how to display the chart. It contains:\r\n\r\n- sTitle - a string denoting the title of the charts\r\n- aAxisLabels - an array containing the x and y axis labels\r\n- aValues - an array of key values each with a name for its label and a HEX colour string\r\n- bTrim - optionally you can trim/pad the extremes of the chart for aethetic\r\n\r\n```\r\n{\r\n  \"sTitle\":\"Random Chart Data\",\r\n  \"aAxisLabels\":[\"Y Axis\",\"X Axis\"],\r\n  \"aValues\":[\r\n    {\"sName\":\"Type 1\",\"sColor\":\"#3f09e5\"},\r\n    {\"sName\":\"Type 2\",\"sColor\":\"#1e6b7b\"},\r\n    {\"sName\":\"Type 3\",\"sColor\":\"#adb9dc\"}],\r\n  \"bTrim\":true\r\n}\r\n```\r\n\r\nIf you are mapping another data structure from a JSON endpoint, eg:\r\n\r\n```[{ k1: 4, k2: 5, k3: 'six' }, { k1: 7, k2: 8, k3: 'nine' }]```\r\n\r\nYou would provide an array of keys for the axis, and additional sKey parameter with each value for mapping.\r\n\r\n```{\r\n  aAxisKeys: ['k3'],\r\n  aAxisLabels: ['y', 'x'],\r\n  aValues: [\r\n    {\r\n      sKey: 'k1',\r\n      sName: 'K1',\r\n      sColour: 'red',\r\n    },\r\n    {\r\n      sKey: 'k2',\r\n      sName: 'K2',\r\n      sColour: 'blue',\r\n    }\r\n  ]\r\n}```\r\n\r\n## API Documentation\r\n\r\nhttp://www.dtheia.org/\r\n\r\nThis module provides the following ES6 classes:\r\n\r\n- Theia - static chart parent object an main api\r\n- Chart - parent class for all types of chart\r\n- AxisChart - parent class for types of axis chart\r\n- BarChart - class for bar charts\r\n- LineChart class for line chart\r\n- BubbleChart - class for bubble chart\r\n- Axis - class for x/y axes and labels\r\n- Key - class for colour coded key\r\n- Tooltip - class for helper for displaying data on mouseover\r\n- Utilities - static helper methods\r\n- DataOps - static data operations\r\n\r\n### Variable Naming\r\n\r\nAll variables use camel case. Classes have no prefix.\r\nAll other types of variables use prefixes for a Hungarian style of notation.\r\nThis allows easier learning of the code and faster debugging, particularly when\r\nidentifying different kinds of objects.\r\n\r\n#### Simple Native JS\r\n\r\n- s String\r\n- i integer Number\r\n- f float Number\r\n- n Number (for unknown i/f)\r\n- b Boolean\r\n- m mixed or unknown\r\n\r\n#### Arrays\r\n\r\n- a Array - numerical array\r\n- h Hash table - an object used as an associative array with key/value pairs\r\n\r\n#### Objects\r\n\r\n- o Object any kind of JavaScript Object with properties and methods\r\n- j JSON a JavaScript Object that is a pure data structure safe to stringify or load from endpoint\r\n- d DOM object, a reference to a specific DOM node\r\n- d3 a d3 collection object\r\n\r\n## Technologies Used\r\n\r\n- NodeJS/NPM\r\n- OOP JavaScript ES2015 (ES6)\r\n- d3 v4\r\n- Babel/Webpack\r\n- TDD Jasmine/Karma\r\n- YUIDoc\r\n\r\n## TDD Unit tests\r\n\r\n- 29 tests cover all available classes.\r\n",
+    "content": "# dTheia v2.0.1\r\n\r\ndTheia is a JavaScript charting library for visualization of complex data.\r\n\r\n## Overview\r\n\r\nBuilt using d3 and ES6. Code is transpiled into ES5 for distribution.\r\nThe aim of this project is to provide a simple API for the creation of D3 charts within any client side framework.\r\nCharts are responsive in any device, providing additional detail via hover/touch tooltips.\r\n\r\n- Bar chart\r\n- Line chart\r\n- Bubble Chart\r\n\r\n## Source\r\n\r\n- GitHub - http://www.github.com/lancerael/d-theia\r\n- NPM - https://www.npmjs.com/package/d-theia\r\n\r\n## Demo\r\n\r\nThe library is purely JavaScript but does include a simple app and associated HTML/CSS for demonstration and development.\r\n\r\n### Demo App\r\n\r\nhttp://dtheia.org/demo\r\n\r\n- Shows basic dummy bar and line charts.\r\n- Shows randomised cycle docking station data as bar, line and bubble.\r\n- Refresh page for new random data.\r\n- Another line chart shows race data.\r\n\r\n### React demo App\r\n\r\nThere is a separate repository in progress, using React to create a sandbox app for dTheia.\r\n\r\nd-theia-react-app - https://github.com/lancerael/d-theia-sandbox-react\r\n\r\n## Installation\r\n\r\nYou can include dTheia in your project as an NPM module, or you can check out the code and compile yourself.\r\n\r\n### Install in Node projects\r\n\r\nIf you are using Node, install as follows:\r\n\r\n```$npm install d-theia```\r\n\r\nImport the module into your code:\r\n\r\n```import Theia from 'd-theia';```\r\n\r\n### Installing locally\r\n\r\nFor standalone projects you can build and include dist JS files in your project.\r\n\r\n - ./dist/d-theia.min.js - minified library\r\n - ./dist/d-theia.vendor.min.js - vendor (d3)\r\n\r\nInstall Node.JS (https://nodejs.org/) and NPM:\r\n\r\n```$npm install npm -g```\r\n\r\nNavigate to folder and install app:\r\n\r\n```$npm install```\r\n\r\n### NPM tasks\r\n\r\nYou can then use NPM to manage project tasks.\r\n\r\n#### BUILD\r\n\r\nTo generate the minified files run the build task:\r\n\r\n```$npm run dist```\r\n\r\n\r\n#### TEST\r\nUses Karma to run Jasmine TDD tests (watcher)\r\n\r\n```npm run test```\r\n\r\n#### DEV SERVER\r\nUses Webpack/Babel with plugins, performs linting on build (watcher)\r\n\r\n```npm run serve```\r\n\r\nYou can then access the server at http://localhost:8081 which launches the contents of the demo folder.\r\n\r\n## Displaying charts\r\n\r\nYou can instantiate a new chart by calling the appropriate method and supplying:\r\n- containerId - the ID of (or container - DOM reference to) a container node.\r\n- chartConfig - a JSON configuration object - see examples in demo/config\r\n- chartData - Chart data array - see examples in demo/data\r\n\r\n```\r\nTheia.create[Bar/Line/Bubble]Chart({\r\n  containerId: 'container-bar-1',  // ID of target DOM element\r\n  chartConfig, // Chart config\r\n  chartData // Chart data\r\n});\r\n```\r\n\r\n...or shorthand...\r\n\r\n```\r\nTheia.chart( 'container-bar-1', 'bar', {chartConfig, chartData} );\r\n```\r\n\r\nEither method will return a dTheia chart object for you to further manipulate as required.\r\n\r\n### Data\r\n\r\nData can be randomly generated, or loaded from a HTTP endpoint. When loading from an endpoint you have the choice of\r\nusing specially constructed JSON chart data, or mapping any JSON structure from the response using the config.\r\n\r\nThe default structure for the chart is an array of objects, each containing:\r\n- a label string\r\n- an array of integer values\r\n\r\n```\r\n[\r\n  {\"itemLabel\":\"Item 1\",\"itemValues\":[114,54,159]},\r\n  {\"itemLabel\":\"Item 2\",\"itemValues\":[102,115,70]},\r\n  {\"itemLabel\":\"Item 3\",\"itemValues\":[82,146,59]},\r\n  {\"itemLabel\":\"Item 4\",\"itemValues\":[90,138,113]}\r\n]\r\n```\r\n\r\nFor unmodified endpoints with labels and values on other keys, you can map them using the config as shown below.  \r\n\r\n### Config\r\n\r\nThe config contains the basic info about how to display the chart. It contains:\r\n\r\n- title - a string denoting the title of the charts\r\n- axisLabels - an array containing the x and y axis labels\r\n- itemValues - an array of key values each with a name for its label and a HEX colour string\r\n- doTrim - optionally you can trim/pad the extremes of the chart for aethetic\r\n\r\n```\r\n{\r\n  \"title\":\"Random Chart Data\",\r\n  \"axisLabels\":[\"Y Axis\",\"X Axis\"],\r\n  \"itemValues\":[\r\n    {\"name\":\"Type 1\",\"color\":\"#3f09e5\"},\r\n    {\"name\":\"Type 2\",\"color\":\"#1e6b7b\"},\r\n    {\"name\":\"Type 3\",\"color\":\"#adb9dc\"}],\r\n  \"doTrim\":true\r\n}\r\n```\r\n\r\nIf you are mapping another data structure from a JSON endpoint, eg:\r\n\r\n```[{ k1: 4, k2: 5, k3: 'six' }, { k1: 7, k2: 8, k3: 'nine' }]```\r\n\r\nYou would provide an array of keys for the axis, and additional key parameter with each value for mapping.\r\n\r\n```{\r\n  axisKeys: ['k3'],\r\n  axisLabels: ['y', 'x'],\r\n  itemValues: [\r\n    {\r\n      key: 'k1',\r\n      name: 'K1',\r\n      sColour: 'red',\r\n    },\r\n    {\r\n      key: 'k2',\r\n      name: 'K2',\r\n      sColour: 'blue',\r\n    }\r\n  ]\r\n}```\r\n\r\n## API Documentation\r\n\r\nhttp://www.dtheia.org/\r\n\r\nThis module provides the following ES6 classes:\r\n\r\n- Theia - static chart parent object an main api\r\n- Chart - parent class for all types of chart\r\n- AxisChart - parent class for types of axis chart\r\n- BarChart - class for bar charts\r\n- LineChart class for line chart\r\n- BubbleChart - class for bubble chart\r\n- Axis - class for x/y axes and labels\r\n- Key - class for colour coded key\r\n- Tooltip - class for helper for displaying data on mouseover\r\n- Utilities - static helper methods\r\n- DataOps - static data operations\r\n\r\n### Variable Naming\r\n\r\nAll variables use camel case. Classes have no prefix.\r\nAll other types of variables use prefixes for a Hungarian style of notation.\r\nThis allows easier learning of the code and faster debugging, particularly when\r\nidentifying different kinds of objects.\r\n\r\n#### Simple Native JS\r\n\r\n- s String\r\n- i integer Number\r\n- f float Number\r\n- n Number (for unknown i/f)\r\n- b Boolean\r\n- m mixed or unknown\r\n\r\n#### Arrays\r\n\r\n- a Array - numerical array\r\n- h Hash table - an object used as an associative array with key/value pairs\r\n\r\n#### Objects\r\n\r\n- o Object any kind of JavaScript Object with properties and methods\r\n- j JSON a JavaScript Object that is a pure data structure safe to stringify or load from endpoint\r\n- d DOM object, a reference to a specific DOM node\r\n- d3 a d3 collection object\r\n\r\n## Technologies Used\r\n\r\n- NodeJS/NPM\r\n- OOP JavaScript ES2015 (ES6)\r\n- d3 v4\r\n- Babel/Webpack\r\n- TDD Jasmine/Karma\r\n- YUIDoc\r\n\r\n## TDD Unit tests\r\n\r\n- 29 tests cover all available classes.\r\n",
     "longname": "C:\\Dev\\d-theia\\README.md",
     "name": "./README.md",
     "static": true,

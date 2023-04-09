@@ -6,36 +6,36 @@ describe('LineChart', () => {
   beforeEach(() => {
     const dDiv = document.createElement('div')
     oLineChart = new LineChart({
-      dContainer: dDiv,
-      jConfig: {
-        aAxisKeys: ['k3'],
-        aAxisLabels: ['y', 'x'],
-        aValues: [
+      container: dDiv,
+      chartConfig: {
+        axisKeys: ['k3'],
+        axisLabels: ['y', 'x'],
+        itemValues: [
           {
-            sKey: 'k1',
-            sName: 'K1',
+            key: 'k1',
+            name: 'K1',
             sColour: 'red',
           },
           {
-            sKey: 'k2',
-            sName: 'K2',
+            key: 'k2',
+            name: 'K2',
             sColour: 'blue',
           },
         ],
       },
-      aData: [
+      chartData: [
         { k1: 4, k2: 5, k3: 'six' },
         { k1: 7, k2: 8, k3: 'nine' },
       ],
-      bTransform: true,
+      doTransform: true,
     })
   })
 
   it('should render the chart', () => {
     oLineChart.renderChart()
-    expect(oLineChart.aLines.length).toBe(2)
+    expect(oLineChart.lines.length).toBe(2)
     expect(oLineChart.d3ChartGroup.selectAll('path.line').size()).toEqual(
-      oLineChart.jConfig.aValues.length
+      oLineChart.chartConfig.itemValues.length
     )
   })
 })

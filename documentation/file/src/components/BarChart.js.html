@@ -173,99 +173,99 @@ export default class BarChart extends AxisChart {
   /**
   * The local collection of bars
   *
-  * @property aBars
+  * @property bars
   * @type {Array}
   */
-  aBars;
+  bars;
 
   /**
   * Constructor used to set chart type
   *
   * @method constructor
   */
-  constructor(oParams = {}) {
-    super(oParams);
-    this.sChartType = &apos;bar&apos;;
+  constructor(chartParams = {}) {
+    super(chartParams);
+    this.chartType = &apos;bar&apos;;
   }
 
   /**
   * Render the chart including bars, axes and labels
   *
   * @method renderChart
-  * @param {Boolean} bReset optionally reset the chart data
-  * @param {Boolean} bHeightTransition optionally transition height
+  * @param {Boolean} doReset optionally reset the chart data
+  * @param {Boolean} doHeightTransition optionally transition height
   */
-  renderChart(bReset = false, bHeightTransition = true) {
+  renderChart(doReset = false, doHeightTransition = true) {
     super.renderChart();
-    const { aValues, sBarType = &apos;side&apos; } = this.jConfig;
-    const { iInnerHeight, oScaleX, oScaleY } = this;
-    const iBarWidth = oScaleX.bandwidth() / aValues.length;
+    const { itemValues, sBarType = &apos;side&apos; } = this.chartConfig;
+    const { innerHeight, scaleX, scaleY } = this;
+    const barWidth = scaleX.bandwidth() / itemValues.length;
 
-    this.aBars = this.aBars || [];
+    this.bars = this.bars || [];
 
     // Iterate through config value keys
-    aValues.forEach((oValues, i) =&gt; {
-      const { oColor } = oValues;
-      const iBarOffset = sBarType === &apos;side&apos; ? (iBarWidth * i) : 0;
+    itemValues.forEach((oValues, i) =&gt; {
+      const { color } = oValues;
+      const iBarOffset = sBarType === &apos;side&apos; ? (barWidth * i) : 0;
       // Reset bars data and clear graph
-      if (bReset &amp;&amp; this.aBars[i]) {
-        this.aBars[i] = this.d3ChartGroup.selectAll(`rect.bars-${i}`).data({});
-        this.aBars[i].exit().remove();
-        this.aBars[i] = undefined;
+      if (doReset &amp;&amp; this.bars[i]) {
+        this.bars[i] = this.d3ChartGroup.selectAll(`rect.bars-${i}`).data({});
+        this.bars[i].exit().remove();
+        this.bars[i] = undefined;
       }
       // Add bars for each value
-      if (!this.aBars[i]) {
+      if (!this.bars[i]) {
         // Bind bars data
-        this.aBars[i] = this.d3ChartGroup.selectAll(`rect.bars-${i}`).data(this.aData);
+        this.bars[i] = this.d3ChartGroup.selectAll(`rect.bars-${i}`).data(this.chartData);
         // Add new rect elements and set base attributes
-        this.aBars[i]
+        this.bars[i]
           .enter()
           .append(&apos;rect&apos;)
           .on(&apos;mousemove&apos;, (d) =&gt; {
-            this.oTooltip.ping([d.sLabel, oValues.sName, d.aValues[i]]);
+            this.tooltip.ping([d.itemLabel, oValues.name, d.itemValues[i]]);
           })
           .on(&apos;mouseover&apos;, (d) =&gt; {
-            d.oColor = oColor;
-            select(event.target).attr(&apos;fill&apos;, d.oColor.darker(1));
+            d.color = color;
+            select(event.target).attr(&apos;fill&apos;, d.color.darker(1));
           })
           .on(&apos;mousedown&apos;, (d) =&gt; {
-            if (this.jConfig.fnClickCallback) {
-              this.jConfig.fnClickCallback({
+            if (this.chartConfig.fnClickCallback) {
+              this.chartConfig.fnClickCallback({
                 oEvent: event,
                 jData: d
               });
             }
           })
           .on(&apos;mouseout&apos;, (d) =&gt; {
-            this.oTooltip.hide();
-            select(event.target).attr(&apos;fill&apos;, d.oColor);
+            this.tooltip.hide();
+            select(event.target).attr(&apos;fill&apos;, d.color);
           })
           .attr(&apos;class&apos;, `bars bars-${i}`)
-          .attr(&apos;fill&apos;, oColor)
-          .attr(&apos;y&apos;, iInnerHeight)
+          .attr(&apos;fill&apos;, color)
+          .attr(&apos;y&apos;, innerHeight)
           .attr(&apos;height&apos;, 0);
       }
 
       // Update bars (IIFE used to allow for optional transition)
       (() =&gt; {
         const d3BarGroup = this.d3ChartGroup.selectAll(`rect.bars-${i}`);
-        d3BarGroup.data(this.aData)
-          .attr(&apos;x&apos;, d =&gt; oScaleX(d.sLabel) + iBarOffset)
-          .attr(&apos;width&apos;, iBarWidth);
-        if (bHeightTransition) {
+        d3BarGroup.data(this.chartData)
+          .attr(&apos;x&apos;, d =&gt; scaleX(d.itemLabel) + iBarOffset)
+          .attr(&apos;width&apos;, barWidth);
+        if (doHeightTransition) {
           return d3BarGroup.transition(false)
           .ease(easeLinear)
-          .duration(this.iTransitionTime);
+          .duration(this.transitionTime);
         }
         return d3BarGroup;
       })().attr(&apos;y&apos;, (d) =&gt; {
-        let iValue = d.aValues[i];
-        iValue = iValue &lt; 0 ? Math.abs(iValue) : 0;
-        return oScaleY(d.aValues[i] + iValue);
+        let value = d.itemValues[i];
+        value = value &lt; 0 ? Math.abs(value) : 0;
+        return scaleY(d.itemValues[i] + value);
       })
       .attr(&apos;height&apos;, (d) =&gt; {
-        const iModifier = this.iMinValue &lt; 0 ? Math.abs(this.iMinValue) : 0;
-        return iInnerHeight - oScaleY(Math.abs(d.aValues[i]) - iModifier);
+        const modifier = this.minValue &lt; 0 ? Math.abs(this.minValue) : 0;
+        return innerHeight - scaleY(Math.abs(d.itemValues[i]) - modifier);
       });
     });
   }

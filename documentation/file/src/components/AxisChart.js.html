@@ -183,38 +183,38 @@ export default class AxisChart extends Chart {
   /**
   * The d3 object for the chart&apos;s axis
   *
-  * @property d3AxisGroup
+  * @property axisGroup
   * @type {Object}
   */
-  d3AxisGroup;
+  axisGroup;
 
   /**
   * The chart&apos;s axis object
   *
-  * @property oAxis
+  * @property axis
   * @type {Object}
   */
-  oAxis;
+  axis;
 
   /**
   * The chart&apos;s key object
   *
-  * @property oKey
+  * @property key
   * @type {Object}
   */
-  oKey;
+  key;
 
   /**
   * Constructor function supersedes parent class.
   *
   * @method constructor
-  * @param {Object} oParams same as Chart
+  * @param {Object} chartParams same as Chart
   */
-  constructor(oParams = {}) {
-    super(oParams);
-    this.jPadding = { l: 45, r: 15, t: 25, b: 90 };
-    this.oScaleY = scaleLinear();
-    this.oScaleX = scaleBand().padding(0.2);
+  constructor(chartParams = {}) {
+    super(chartParams);
+    this.padding = { l: 45, r: 15, t: 25, b: 90 };
+    this.scaleY = scaleLinear();
+    this.scaleX = scaleBand().padding(0.2);
   }
 
   /**
@@ -224,25 +224,25 @@ export default class AxisChart extends Chart {
   */
   setDimensions() {
     super.setDimensions();
-    const bTrim = this.jConfig.bTrim;
-    let iMinValue = bTrim ? min(this.aData, d =&gt; min(d.aValues)) : 0;
-    let iMaxValue = max(this.aData, d =&gt; max(d.aValues));
-    const iSection = Math.ceil(iMaxValue / 15);
-    if (bTrim) {
-      const iLowerSection = iMinValue &gt; iSection ? iMinValue - iSection : 0;
-      iMinValue = iMinValue &gt; 0 ? iLowerSection : iMinValue;
-      iMinValue = iMinValue &lt; 0 ? iMinValue - iSection : iMinValue;
-      iMaxValue += iSection;
+    const doTrim = this.chartConfig.doTrim;
+    let minValue = doTrim ? min(this.chartData, d =&gt; min(d.itemValues)) : 0;
+    let maxValue = max(this.chartData, d =&gt; max(d.itemValues));
+    const dataSlice = Math.ceil(maxValue / 15);
+    if (doTrim) {
+      const iLowerSection = minValue &gt; dataSlice ? minValue - dataSlice : 0;
+      minValue = minValue &gt; 0 ? iLowerSection : minValue;
+      minValue = minValue &lt; 0 ? minValue - dataSlice : minValue;
+      maxValue += dataSlice;
     }
-    this.oScaleX
-      .domain(this.aData.map(d =&gt; d.sLabel))
-      .range([0, this.iInnerWidth]);
-    this.oScaleY
-      .domain([iMinValue, iMaxValue])
-      .range([this.iInnerHeight, this.jPadding.t]);
-    this.iMinValue = iMinValue;
-    this.iMaxValue = iMaxValue;
-    this.iSection = iSection;
+    this.scaleX
+      .domain(this.chartData.map(d =&gt; d.itemLabel))
+      .range([0, this.innerWidth]);
+    this.scaleY
+      .domain([minValue, maxValue])
+      .range([this.innerHeight, this.padding.t]);
+    this.minValue = minValue;
+    this.maxValue = maxValue;
+    this.dataSlice = dataSlice;
   }
 
   /**
@@ -251,31 +251,31 @@ export default class AxisChart extends Chart {
   * @method renderChart
   */
   renderChart() {
-    const { aAxisLabels, iTruncate = 15 } = this.jConfig;
-    const { iInnerWidth, iInnerHeight, oScaleX, oScaleY, jPadding } = this;
+    const { axisLabels, truncateSize = 15 } = this.chartConfig;
+    const { innerWidth, innerHeight, scaleX, scaleY, padding } = this;
 
     // Add chart scale axes
-    this.d3AxisGroup = this.d3AxisGroup || this.d3Svg.append(&apos;g&apos;).attr(&apos;class&apos;, &apos;axes-g&apos;);
-    this.oAxis = new Axis({
-      d3Container: this.d3AxisGroup,
-      iTruncate,
-      aAxisLabels,
-      oScaleX,
-      oScaleY,
-      jPadding,
-      iWidth: iInnerWidth,
-      iHeight: iInnerHeight,
-      oTooltip: this.oTooltip }).render();
+    this.axisGroup = this.axisGroup || this.d3Svg.append(&apos;g&apos;).attr(&apos;class&apos;, &apos;axes-g&apos;);
+    this.axis = new Axis({
+      d3Container: this.axisGroup,
+      truncateSize,
+      axisLabels,
+      scaleX,
+      scaleY,
+      padding,
+      width: innerWidth,
+      height: innerHeight,
+      tooltip: this.tooltip }).render();
 
     // Add chart container group
-    this.d3ChartGroup = this.d3ChartGroup || this.d3Svg.append(&apos;g&apos;).attr(&apos;transform&apos;, `translate(${this.jPadding.l}, 0)`);
+    this.d3ChartGroup = this.d3ChartGroup || this.d3Svg.append(&apos;g&apos;).attr(&apos;transform&apos;, `translate(${this.padding.l}, 0)`);
 
     // Render the key for the data
-    this.oKey = new Key({
-      d3Container: select(this.dSvg),
-      aValues: this.jConfig.aValues,
-      iOffsetX: (this.iInnerWidth / 2) + this.jPadding.l,
-      iOffsetY: this.iHeight - 20
+    this.key = new Key({
+      d3Container: select(this.svg),
+      itemValues: this.chartConfig.itemValues,
+      offsetX: (this.innerWidth / 2) + this.padding.l,
+      offsetY: this.height - 20
     }).render();
   }
 

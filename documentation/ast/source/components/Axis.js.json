@@ -368,7 +368,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Amount to truncate axis labels to\r\n  *\r\n  * @property iTruncate\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * Amount to truncate axis labels to\r\n  *\r\n  * @property truncateSize\r\n  * @type {Object}\r\n  ",
                     "start": 356,
                     "end": 454,
                     "loc": {
@@ -413,16 +413,16 @@
                       "line": 26,
                       "column": 11
                     },
-                    "identifierName": "iTruncate"
+                    "identifierName": "truncateSize"
                   },
-                  "name": "iTruncate",
+                  "name": "truncateSize",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Amount to truncate axis labels to\r\n  *\r\n  * @property iTruncate\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * Amount to truncate axis labels to\r\n  *\r\n  * @property truncateSize\r\n  * @type {Object}\r\n  ",
                     "start": 356,
                     "end": 454,
                     "loc": {
@@ -440,7 +440,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Collection of axis labels\r\n  *\r\n  * @property aAxisLabels\r\n  * @type {Array}\r\n  ",
+                    "value": "*\r\n  * Collection of axis labels\r\n  *\r\n  * @property axisLabels\r\n  * @type {Array}\r\n  ",
                     "start": 474,
                     "end": 565,
                     "loc": {
@@ -485,16 +485,16 @@
                       "line": 34,
                       "column": 13
                     },
-                    "identifierName": "aAxisLabels"
+                    "identifierName": "axisLabels"
                   },
-                  "name": "aAxisLabels",
+                  "name": "axisLabels",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Collection of axis labels\r\n  *\r\n  * @property aAxisLabels\r\n  * @type {Array}\r\n  ",
+                    "value": "*\r\n  * Collection of axis labels\r\n  *\r\n  * @property axisLabels\r\n  * @type {Array}\r\n  ",
                     "start": 474,
                     "end": 565,
                     "loc": {
@@ -512,7 +512,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Scale object for the x axis\r\n  *\r\n  * @property oScaleX\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * Scale object for the x axis\r\n  *\r\n  * @property scaleX\r\n  * @type {Object}\r\n  ",
                     "start": 587,
                     "end": 677,
                     "loc": {
@@ -557,16 +557,16 @@
                       "line": 42,
                       "column": 9
                     },
-                    "identifierName": "oScaleX"
+                    "identifierName": "scaleX"
                   },
-                  "name": "oScaleX",
+                  "name": "scaleX",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Scale object for the x axis\r\n  *\r\n  * @property oScaleX\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * Scale object for the x axis\r\n  *\r\n  * @property scaleX\r\n  * @type {Object}\r\n  ",
                     "start": 587,
                     "end": 677,
                     "loc": {
@@ -584,7 +584,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Scale object for the y axis\r\n  *\r\n  * @property oScaleY\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * Scale object for the y axis\r\n  *\r\n  * @property scaleY\r\n  * @type {Object}\r\n  ",
                     "start": 695,
                     "end": 785,
                     "loc": {
@@ -629,16 +629,16 @@
                       "line": 50,
                       "column": 9
                     },
-                    "identifierName": "oScaleY"
+                    "identifierName": "scaleY"
                   },
-                  "name": "oScaleY",
+                  "name": "scaleY",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Scale object for the y axis\r\n  *\r\n  * @property oScaleY\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * Scale object for the y axis\r\n  *\r\n  * @property scaleY\r\n  * @type {Object}\r\n  ",
                     "start": 695,
                     "end": 785,
                     "loc": {
@@ -656,7 +656,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property oTooltip\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  ",
                     "start": 803,
                     "end": 889,
                     "loc": {
@@ -701,16 +701,16 @@
                       "line": 58,
                       "column": 10
                     },
-                    "identifierName": "oTooltip"
+                    "identifierName": "tooltip"
                   },
-                  "name": "oTooltip",
+                  "name": "tooltip",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property oTooltip\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  ",
                     "start": 803,
                     "end": 889,
                     "loc": {
@@ -728,7 +728,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property iWidth\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property width\r\n  * @type {Number}\r\n  ",
                     "start": 908,
                     "end": 1011,
                     "loc": {
@@ -773,16 +773,16 @@
                       "line": 66,
                       "column": 8
                     },
-                    "identifierName": "iWidth"
+                    "identifierName": "width"
                   },
-                  "name": "iWidth",
+                  "name": "width",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property iWidth\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property width\r\n  * @type {Number}\r\n  ",
                     "start": 908,
                     "end": 1011,
                     "loc": {
@@ -800,7 +800,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property iHeight\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property height\r\n  * @type {Number}\r\n  ",
                     "start": 1028,
                     "end": 1133,
                     "loc": {
@@ -845,16 +845,16 @@
                       "line": 74,
                       "column": 9
                     },
-                    "identifierName": "iHeight"
+                    "identifierName": "height"
                   },
-                  "name": "iHeight",
+                  "name": "height",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property iHeight\r\n  * @type {Number}\r\n  ",
+                    "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property height\r\n  * @type {Number}\r\n  ",
                     "start": 1028,
                     "end": 1133,
                     "loc": {
@@ -872,7 +872,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property jPadding\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property padding\r\n  * @type {Object}\r\n  ",
                     "start": 1151,
                     "end": 1261,
                     "loc": {
@@ -917,16 +917,16 @@
                       "line": 82,
                       "column": 10
                     },
-                    "identifierName": "jPadding"
+                    "identifierName": "padding"
                   },
-                  "name": "jPadding",
+                  "name": "padding",
                   "leadingComments": null
                 },
                 "value": null,
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property jPadding\r\n  * @type {Object}\r\n  ",
+                    "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property padding\r\n  * @type {Object}\r\n  ",
                     "start": 1151,
                     "end": 1261,
                     "loc": {
@@ -944,7 +944,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Constructor function which sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} oParams configuration parameters object\r\n  * @throws {Error} invalid parameters\r\n  ",
+                    "value": "*\r\n  * Constructor function which sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartParams configuration parameters object\r\n  * @throws {Error} invalid parameters\r\n  ",
                     "start": 1280,
                     "end": 1478,
                     "loc": {
@@ -1013,9 +1013,9 @@
                         "line": 91,
                         "column": 21
                       },
-                      "identifierName": "oParams"
+                      "identifierName": "chartParams"
                     },
-                    "name": "oParams"
+                    "name": "chartParams"
                   }
                 ],
                 "body": {
@@ -1074,9 +1074,9 @@
                               "line": 92,
                               "column": 15
                             },
-                            "identifierName": "oParams"
+                            "identifierName": "chartParams"
                           },
-                          "name": "oParams"
+                          "name": "chartParams"
                         },
                         "property": {
                           "type": "Identifier",
@@ -1219,9 +1219,9 @@
                                       "line": 93,
                                       "column": 33
                                     },
-                                    "identifierName": "oParams"
+                                    "identifierName": "chartParams"
                                   },
-                                  "name": "oParams"
+                                  "name": "chartParams"
                                 }
                               ]
                             }
@@ -1324,7 +1324,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\r\n  * Constructor function which sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} oParams configuration parameters object\r\n  * @throws {Error} invalid parameters\r\n  ",
+                    "value": "*\r\n  * Constructor function which sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartParams configuration parameters object\r\n  * @throws {Error} invalid parameters\r\n  ",
                     "start": 1280,
                     "end": 1478,
                     "loc": {
@@ -2554,9 +2554,9 @@
                                                                           "line": 121,
                                                                           "column": 37
                                                                         },
-                                                                        "identifierName": "oScaleX"
+                                                                        "identifierName": "scaleX"
                                                                       },
-                                                                      "name": "oScaleX"
+                                                                      "name": "scaleX"
                                                                     },
                                                                     "computed": false
                                                                   }
@@ -2675,9 +2675,9 @@
                                                                         "line": 122,
                                                                         "column": 53
                                                                       },
-                                                                      "identifierName": "jPadding"
+                                                                      "identifierName": "padding"
                                                                     },
-                                                                    "name": "jPadding"
+                                                                    "name": "padding"
                                                                   },
                                                                   "computed": false
                                                                 },
@@ -2742,9 +2742,9 @@
                                                                       "line": 122,
                                                                       "column": 71
                                                                     },
-                                                                    "identifierName": "iHeight"
+                                                                    "identifierName": "height"
                                                                   },
-                                                                  "name": "iHeight"
+                                                                  "name": "height"
                                                                 },
                                                                 "computed": false
                                                               }
@@ -3305,9 +3305,9 @@
                                                 "line": 128,
                                                 "column": 63
                                               },
-                                              "identifierName": "iTruncate"
+                                              "identifierName": "truncateSize"
                                             },
-                                            "name": "iTruncate"
+                                            "name": "truncateSize"
                                           },
                                           "computed": false
                                         }
@@ -3540,9 +3540,9 @@
                                             "line": 131,
                                             "column": 29
                                           },
-                                          "identifierName": "oTooltip"
+                                          "identifierName": "tooltip"
                                         },
-                                        "name": "oTooltip"
+                                        "name": "tooltip"
                                       },
                                       "computed": false
                                     },
@@ -3654,9 +3654,9 @@
                                               "line": 131,
                                               "column": 58
                                             },
-                                            "identifierName": "iTruncate"
+                                            "identifierName": "truncateSize"
                                           },
-                                          "name": "iTruncate"
+                                          "name": "truncateSize"
                                         },
                                         "computed": false
                                       }
@@ -3761,9 +3761,9 @@
                                                     "line": 132,
                                                     "column": 27
                                                   },
-                                                  "identifierName": "oTooltip"
+                                                  "identifierName": "tooltip"
                                                 },
-                                                "name": "oTooltip"
+                                                "name": "tooltip"
                                               },
                                               "computed": false
                                             },
@@ -4584,9 +4584,9 @@
                                                   "line": 146,
                                                   "column": 35
                                                 },
-                                                "identifierName": "oScaleY"
+                                                "identifierName": "scaleY"
                                               },
-                                              "name": "oScaleY"
+                                              "name": "scaleY"
                                             },
                                             "computed": false
                                           }
@@ -4705,9 +4705,9 @@
                                                 "line": 147,
                                                 "column": 53
                                               },
-                                              "identifierName": "jPadding"
+                                              "identifierName": "padding"
                                             },
-                                            "name": "jPadding"
+                                            "name": "padding"
                                           },
                                           "computed": false
                                         },
@@ -4919,9 +4919,9 @@
                                     "line": 149,
                                     "column": 39
                                   },
-                                  "identifierName": "iWidth"
+                                  "identifierName": "width"
                                 },
-                                "name": "iWidth"
+                                "name": "width"
                               },
                               "computed": false
                             }
@@ -5679,9 +5679,9 @@
                                                       "line": 161,
                                                       "column": 32
                                                     },
-                                                    "identifierName": "iHeight"
+                                                    "identifierName": "height"
                                                   },
-                                                  "name": "iHeight"
+                                                  "name": "height"
                                                 },
                                                 "computed": false
                                               },
@@ -5802,9 +5802,9 @@
                                                         "line": 161,
                                                         "column": 55
                                                       },
-                                                      "identifierName": "jPadding"
+                                                      "identifierName": "padding"
                                                     },
-                                                    "name": "jPadding"
+                                                    "name": "padding"
                                                   },
                                                   "computed": false
                                                 },
@@ -5858,7 +5858,7 @@
                                         "trailingComments": [
                                           {
                                             "type": "CommentLine",
-                                            "value": " - ((this.jConfig.aAxisLabels[0].length / 2) * 7))",
+                                            "value": " - ((this.chartConfig.axisLabels[0].length / 2) * 7))",
                                             "start": 3384,
                                             "end": 3436,
                                             "loc": {
@@ -5893,7 +5893,7 @@
                                         "leadingComments": [
                                           {
                                             "type": "CommentLine",
-                                            "value": " - ((this.jConfig.aAxisLabels[0].length / 2) * 7))",
+                                            "value": " - ((this.chartConfig.axisLabels[0].length / 2) * 7))",
                                             "start": 3384,
                                             "end": 3436,
                                             "loc": {
@@ -6154,9 +6154,9 @@
                                     "line": 165,
                                     "column": 30
                                   },
-                                  "identifierName": "aAxisLabels"
+                                  "identifierName": "axisLabels"
                                 },
-                                "name": "aAxisLabels"
+                                "name": "axisLabels"
                               },
                               "computed": false
                             },
@@ -6643,9 +6643,9 @@
                                                     "line": 168,
                                                     "column": 32
                                                   },
-                                                  "identifierName": "iWidth"
+                                                  "identifierName": "width"
                                                 },
-                                                "name": "iWidth"
+                                                "name": "width"
                                               },
                                               "computed": false
                                             },
@@ -6706,9 +6706,9 @@
                                                       "line": 168,
                                                       "column": 48
                                                     },
-                                                    "identifierName": "jPadding"
+                                                    "identifierName": "padding"
                                                   },
-                                                  "name": "jPadding"
+                                                  "name": "padding"
                                                 },
                                                 "computed": false
                                               },
@@ -6789,9 +6789,9 @@
                                                     "line": 168,
                                                     "column": 66
                                                   },
-                                                  "identifierName": "jPadding"
+                                                  "identifierName": "padding"
                                                 },
-                                                "name": "jPadding"
+                                                "name": "padding"
                                               },
                                               "computed": false
                                             },
@@ -6849,7 +6849,7 @@
                                     "trailingComments": [
                                       {
                                         "type": "CommentLine",
-                                        "value": " - ((this.aAxisLabels[1].length / 2) * 2))",
+                                        "value": " - ((this.axisLabels[1].length / 2) * 2))",
                                         "start": 3728,
                                         "end": 3772,
                                         "loc": {
@@ -6884,7 +6884,7 @@
                                     "leadingComments": [
                                       {
                                         "type": "CommentLine",
-                                        "value": " - ((this.aAxisLabels[1].length / 2) * 2))",
+                                        "value": " - ((this.axisLabels[1].length / 2) * 2))",
                                         "start": 3728,
                                         "end": 3772,
                                         "loc": {
@@ -6979,9 +6979,9 @@
                                             "line": 169,
                                             "column": 31
                                           },
-                                          "identifierName": "iHeight"
+                                          "identifierName": "height"
                                         },
-                                        "name": "iHeight"
+                                        "name": "height"
                                       },
                                       "computed": false
                                     },
@@ -7056,9 +7056,9 @@
                                                 "line": 169,
                                                 "column": 48
                                               },
-                                              "identifierName": "jPadding"
+                                              "identifierName": "padding"
                                             },
-                                            "name": "jPadding"
+                                            "name": "padding"
                                           },
                                           "computed": false
                                         },
@@ -7248,9 +7248,9 @@
                                     "line": 171,
                                     "column": 30
                                   },
-                                  "identifierName": "aAxisLabels"
+                                  "identifierName": "axisLabels"
                                 },
-                                "name": "aAxisLabels"
+                                "name": "axisLabels"
                               },
                               "computed": false
                             },
@@ -7478,7 +7478,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Amount to truncate axis labels to\r\n  *\r\n  * @property iTruncate\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * Amount to truncate axis labels to\r\n  *\r\n  * @property truncateSize\r\n  * @type {Object}\r\n  ",
       "start": 356,
       "end": 454,
       "loc": {
@@ -7494,7 +7494,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Collection of axis labels\r\n  *\r\n  * @property aAxisLabels\r\n  * @type {Array}\r\n  ",
+      "value": "*\r\n  * Collection of axis labels\r\n  *\r\n  * @property axisLabels\r\n  * @type {Array}\r\n  ",
       "start": 474,
       "end": 565,
       "loc": {
@@ -7510,7 +7510,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Scale object for the x axis\r\n  *\r\n  * @property oScaleX\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * Scale object for the x axis\r\n  *\r\n  * @property scaleX\r\n  * @type {Object}\r\n  ",
       "start": 587,
       "end": 677,
       "loc": {
@@ -7526,7 +7526,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Scale object for the y axis\r\n  *\r\n  * @property oScaleY\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * Scale object for the y axis\r\n  *\r\n  * @property scaleY\r\n  * @type {Object}\r\n  ",
       "start": 695,
       "end": 785,
       "loc": {
@@ -7542,7 +7542,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property oTooltip\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  ",
       "start": 803,
       "end": 889,
       "loc": {
@@ -7558,7 +7558,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property iWidth\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property width\r\n  * @type {Number}\r\n  ",
       "start": 908,
       "end": 1011,
       "loc": {
@@ -7574,7 +7574,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property iHeight\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property height\r\n  * @type {Number}\r\n  ",
       "start": 1028,
       "end": 1133,
       "loc": {
@@ -7590,7 +7590,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property jPadding\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property padding\r\n  * @type {Object}\r\n  ",
       "start": 1151,
       "end": 1261,
       "loc": {
@@ -7606,7 +7606,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Constructor function which sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} oParams configuration parameters object\r\n  * @throws {Error} invalid parameters\r\n  ",
+      "value": "*\r\n  * Constructor function which sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartParams configuration parameters object\r\n  * @throws {Error} invalid parameters\r\n  ",
       "start": 1280,
       "end": 1478,
       "loc": {
@@ -7686,7 +7686,7 @@
     },
     {
       "type": "CommentLine",
-      "value": " - ((this.jConfig.aAxisLabels[0].length / 2) * 7))",
+      "value": " - ((this.chartConfig.axisLabels[0].length / 2) * 7))",
       "start": 3384,
       "end": 3436,
       "loc": {
@@ -7702,7 +7702,7 @@
     },
     {
       "type": "CommentLine",
-      "value": " - ((this.aAxisLabels[1].length / 2) * 2))",
+      "value": " - ((this.axisLabels[1].length / 2) * 2))",
       "start": 3728,
       "end": 3772,
       "loc": {
@@ -8307,7 +8307,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Amount to truncate axis labels to\r\n  *\r\n  * @property iTruncate\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * Amount to truncate axis labels to\r\n  *\r\n  * @property truncateSize\r\n  * @type {Object}\r\n  ",
       "start": 356,
       "end": 454,
       "loc": {
@@ -8333,7 +8333,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iTruncate",
+      "value": "truncateSize",
       "start": 458,
       "end": 467,
       "loc": {
@@ -8375,7 +8375,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Collection of axis labels\r\n  *\r\n  * @property aAxisLabels\r\n  * @type {Array}\r\n  ",
+      "value": "*\r\n  * Collection of axis labels\r\n  *\r\n  * @property axisLabels\r\n  * @type {Array}\r\n  ",
       "start": 474,
       "end": 565,
       "loc": {
@@ -8401,7 +8401,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aAxisLabels",
+      "value": "axisLabels",
       "start": 569,
       "end": 580,
       "loc": {
@@ -8443,7 +8443,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Scale object for the x axis\r\n  *\r\n  * @property oScaleX\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * Scale object for the x axis\r\n  *\r\n  * @property scaleX\r\n  * @type {Object}\r\n  ",
       "start": 587,
       "end": 677,
       "loc": {
@@ -8469,7 +8469,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 681,
       "end": 688,
       "loc": {
@@ -8511,7 +8511,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Scale object for the y axis\r\n  *\r\n  * @property oScaleY\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * Scale object for the y axis\r\n  *\r\n  * @property scaleY\r\n  * @type {Object}\r\n  ",
       "start": 695,
       "end": 785,
       "loc": {
@@ -8537,7 +8537,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleY",
+      "value": "scaleY",
       "start": 789,
       "end": 796,
       "loc": {
@@ -8579,7 +8579,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property oTooltip\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * Chart's tooltip object\r\n  *\r\n  * @property tooltip\r\n  * @type {Object}\r\n  ",
       "start": 803,
       "end": 889,
       "loc": {
@@ -8605,7 +8605,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltip",
+      "value": "tooltip",
       "start": 893,
       "end": 901,
       "loc": {
@@ -8647,7 +8647,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property iWidth\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The current calculated width of the chart\r\n  *\r\n  * @property width\r\n  * @type {Number}\r\n  ",
       "start": 908,
       "end": 1011,
       "loc": {
@@ -8673,7 +8673,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iWidth",
+      "value": "width",
       "start": 1015,
       "end": 1021,
       "loc": {
@@ -8715,7 +8715,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property iHeight\r\n  * @type {Number}\r\n  ",
+      "value": "*\r\n  * The current calculated height of the chart\r\n  *\r\n  * @property height\r\n  * @type {Number}\r\n  ",
       "start": 1028,
       "end": 1133,
       "loc": {
@@ -8741,7 +8741,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iHeight",
+      "value": "height",
       "start": 1137,
       "end": 1144,
       "loc": {
@@ -8783,7 +8783,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property jPadding\r\n  * @type {Object}\r\n  ",
+      "value": "*\r\n  * The padding for the chart within the container\r\n  *\r\n  * @property padding\r\n  * @type {Object}\r\n  ",
       "start": 1151,
       "end": 1261,
       "loc": {
@@ -8809,7 +8809,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 1265,
       "end": 1273,
       "loc": {
@@ -8851,7 +8851,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\r\n  * Constructor function which sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} oParams configuration parameters object\r\n  * @throws {Error} invalid parameters\r\n  ",
+      "value": "*\r\n  * Constructor function which sets up the local object.\r\n  *\r\n  * @method constructor\r\n  * @param {Object} chartParams configuration parameters object\r\n  * @throws {Error} invalid parameters\r\n  ",
       "start": 1280,
       "end": 1478,
       "loc": {
@@ -8928,7 +8928,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 1494,
       "end": 1501,
       "loc": {
@@ -9057,7 +9057,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 1514,
       "end": 1521,
       "loc": {
@@ -9342,7 +9342,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oParams",
+      "value": "chartParams",
       "start": 1564,
       "end": 1571,
       "loc": {
@@ -11451,7 +11451,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleX",
+      "value": "scaleX",
       "start": 2141,
       "end": 2148,
       "loc": {
@@ -11788,7 +11788,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 2197,
       "end": 2205,
       "loc": {
@@ -11997,7 +11997,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iHeight",
+      "value": "height",
       "start": 2216,
       "end": 2223,
       "loc": {
@@ -13347,7 +13347,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iTruncate",
+      "value": "truncateSize",
       "start": 2445,
       "end": 2454,
       "loc": {
@@ -13969,7 +13969,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltip",
+      "value": "tooltip",
       "start": 2556,
       "end": 2564,
       "loc": {
@@ -14181,7 +14181,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iTruncate",
+      "value": "truncateSize",
       "start": 2584,
       "end": 2593,
       "loc": {
@@ -14311,7 +14311,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oTooltip",
+      "value": "tooltip",
       "start": 2617,
       "end": 2625,
       "loc": {
@@ -15798,7 +15798,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "oScaleY",
+      "value": "scaleY",
       "start": 2935,
       "end": 2942,
       "loc": {
@@ -16135,7 +16135,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 2991,
       "end": 2999,
       "loc": {
@@ -16704,7 +16704,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iWidth",
+      "value": "width",
       "start": 3084,
       "end": 3090,
       "loc": {
@@ -17860,7 +17860,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iHeight",
+      "value": "height",
       "start": 3346,
       "end": 3353,
       "loc": {
@@ -18098,7 +18098,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 3368,
       "end": 3376,
       "loc": {
@@ -18270,7 +18270,7 @@
     },
     {
       "type": "CommentLine",
-      "value": " - ((this.jConfig.aAxisLabels[0].length / 2) * 7))",
+      "value": " - ((this.chartConfig.axisLabels[0].length / 2) * 7))",
       "start": 3384,
       "end": 3436,
       "loc": {
@@ -18973,7 +18973,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aAxisLabels",
+      "value": "axisLabels",
       "start": 3564,
       "end": 3575,
       "loc": {
@@ -19754,7 +19754,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iWidth",
+      "value": "width",
       "start": 3679,
       "end": 3685,
       "loc": {
@@ -19861,7 +19861,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 3693,
       "end": 3701,
       "loc": {
@@ -20020,7 +20020,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 3711,
       "end": 3719,
       "loc": {
@@ -20217,7 +20217,7 @@
     },
     {
       "type": "CommentLine",
-      "value": " - ((this.aAxisLabels[1].length / 2) * 2))",
+      "value": " - ((this.axisLabels[1].length / 2) * 2))",
       "start": 3728,
       "end": 3772,
       "loc": {
@@ -20427,7 +20427,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "iHeight",
+      "value": "height",
       "start": 3798,
       "end": 3805,
       "loc": {
@@ -20559,7 +20559,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "jPadding",
+      "value": "padding",
       "start": 3814,
       "end": 3822,
       "loc": {
@@ -21054,7 +21054,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "aAxisLabels",
+      "value": "axisLabels",
       "start": 3891,
       "end": 3902,
       "loc": {

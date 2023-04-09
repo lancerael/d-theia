@@ -15,28 +15,28 @@ export default class LineChart extends AxisChart {
   /**
    * The local collection of lines
    *
-   * @property aLines
+   * @property lines
    * @type {Array}
    */
-  aLines: any
+  lines: any
 
   /**
    * The local collection of circles
    *
-   * @property aCircles
+   * @property circles
    * @type {Array}
    */
-  aCircles: any
+  circles: any
 
   /**
    * Constructor used to set chart type
    *
    * @method constructor
    */
-  constructor(oParams = {}) {
-    super(oParams)
-    this.sChartType = 'line'
-    this.oScaleX = scalePoint()
+  constructor(chartParams = {}) {
+    super(chartParams)
+    this.chartType = 'line'
+    this.scaleX = scalePoint()
   }
 
   /**
@@ -44,103 +44,103 @@ export default class LineChart extends AxisChart {
    *
    * @method renderChart
    */
-  renderChart(bReset = false) {
+  renderChart(doReset = false) {
     super.renderChart()
-    const { aValues } = this.jConfig
-    const { oScaleX, oScaleY } = this
+    const { itemValues } = this.chartConfig
+    const { scaleX, scaleY } = this
 
-    this.aLines ??= []
-    this.aCircles ??= []
+    this.lines ??= []
+    this.circles ??= []
 
     // Reset lines data and clear graph
-    if (bReset) {
-      this.aLines.forEach((dtLine: any, i: number) => {
-        this.aLines[i] = this.d3ChartGroup.selectAll(`path.lines-${i}`).data([])
-        this.aLines[i].exit().remove()
-        this.aLines[i] = undefined
+    if (doReset) {
+      this.lines.forEach((dtLine: any, i: number) => {
+        this.lines[i] = this.d3ChartGroup.selectAll(`path.lines-${i}`).data([])
+        this.lines[i].exit().remove()
+        this.lines[i] = undefined
         dtLine
       })
-      this.aLines = []
+      this.lines = []
     }
 
     // Reset circles data and clear graph
-    if (bReset) {
-      this.aCircles.forEach((dtLine: any, i: number) => {
-        this.aCircles[i] = this.d3ChartGroup
+    if (doReset) {
+      this.circles.forEach((dtLine: any, i: number) => {
+        this.circles[i] = this.d3ChartGroup
           .selectAll(`circle.circles-${i}`)
           .data([])
-        this.aCircles[i].exit().remove()
-        this.aCircles[i] = undefined
+        this.circles[i].exit().remove()
+        this.circles[i] = undefined
         dtLine
       })
-      this.aCircles = []
+      this.circles = []
     }
 
     // Iterate through config value keys
-    aValues.forEach(({ sColor, sName }: any, i: number) => {
-      if (!this.aLines[i]) {
+    itemValues.forEach(({ color, name }: any, i: number) => {
+      if (!this.lines[i]) {
         // define the line
-        this.aLines[i] = line()
+        this.lines[i] = line()
 
         // Add the valueline path.
         this.d3ChartGroup
           .append('path')
-          .data([this.aData])
+          .data([this.chartData])
           .attr('class', `line lines-${i}`)
-          .attr('stroke', sColor)
+          .attr('stroke', color)
       }
 
       // Update lines
-      this.aLines[i]
-        .x((d: any) => oScaleX(d.sLabel) + oScaleX.bandwidth() / 2)
-        .y((d: any) => oScaleY(d.aValues[i]))
+      this.lines[i]
+        .x((d: any) => scaleX(d.itemLabel) + scaleX.bandwidth() / 2)
+        .y((d: any) => scaleY(d.itemValues[i]))
       this.d3ChartGroup
         .selectAll(`path.lines-${i}`)
-        .data([this.aData])
-        .attr('d', this.aLines[i])
+        .data([this.chartData])
+        .attr('d', this.lines[i])
 
       // Add circles for each value
-      if (!this.aCircles[i]) {
+      if (!this.circles[i]) {
         // Bind circles data
-        this.aCircles[i] = this.d3ChartGroup
+        this.circles[i] = this.d3ChartGroup
           .selectAll(`circle.circles-${i}`)
-          .data(this.aData)
+          .data(this.chartData)
         // Add new circle elements and set base attributes
-        this.aCircles[i]
+        this.circles[i]
           .enter()
           .append('circle')
           .on('mousemove', (event: MouseEvent, d: any) => {
-            this.oTooltip.ping([d.sLabel, sName, d.aValues[i]], event)
+            this.tooltip.ping([d.itemLabel, name, d.itemValues[i]], event)
           })
-          .on('mouseover', (event: MouseEvent, d: any) => {
+          .on('mouseover', (event: MouseEvent) => {
             select(event.target as HTMLElement).attr(
               'fill',
-              rgb(sColor).darker().formatHex()
+              rgb(color).darker().formatHex()
             )
           })
           .on('mousedown', (event: MouseEvent, d: any) => {
-            if (this.jConfig.fnClickCallback) {
-              this.jConfig.fnClickCallback({
+            if (this.chartConfig.fnClickCallback) {
+              this.chartConfig.fnClickCallback({
                 oEvent: event,
                 jData: d,
               })
             }
           })
           .on('mouseout', (event: MouseEvent) => {
-            this.oTooltip.hide()
-            select(event.target as HTMLElement).attr('fill', sColor)
+            this.tooltip.hide()
+            select(event.target as HTMLElement).attr('fill', color)
           })
           .attr('class', `circles circles-${i}`)
-          .attr('fill', sColor)
+          .attr('fill', color)
           .attr('r', 5)
       }
 
       // Update circles
       this.d3ChartGroup
         .selectAll(`circle.circles-${i}`)
-        .data(this.aData)
-        .attr('cy', (d: any) => oScaleY(d.aValues[i]))
-        .attr('cx', (d: any) => oScaleX(d.sLabel) + oScaleX.bandwidth() / 2)
+        .data(this.chartData)
+        .attr('cy', (d: any) => scaleY(d.itemValues[i]))
+        .attr('cx', (d: any) => scaleX(d.itemLabel) + scaleX.bandwidth() / 2)
     })
   }
 }

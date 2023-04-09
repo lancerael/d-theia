@@ -8,44 +8,44 @@ export default class Tooltip {
   /**
    * D3 reference to container element
    *
-   * @property dContainer
+   * @property container
    * @type {Object}
    */
-  dContainer: any
+  container: any
 
   /**
    * DOM reference to tooltip's main element
    *
-   * @property dTooltip
+   * @property tooltip
    * @type {Object}
    */
-  dTooltip: any
+  tooltip: any
 
   /**
    * Tooltip's main timeout to close tooltip
    *
-   * @property oTooltipTimeout
+   * @property tooltipTimeout
    * @type {Object}
    */
-  oTooltipTimeout: any
+  tooltipTimeout: any
 
   /**
    * Tooltip's sub timeout to hide tooltip
    *
-   * @property oTooltipSubTimeout
+   * @property tooltipSubTimeout
    * @type {Object}
    */
-  oTooltipSubTimeout: any
+  tooltipSubTimeout: any
 
   /**
    * Constructor function that sets up the local object.
    *
    * @method constructor
-   * @param {Object} dContainer DOM object
+   * @param {Object} container DOM object
    */
-  constructor(dContainer: any) {
-    if (dContainer.nodeName) {
-      this.dContainer = dContainer
+  constructor(container: any) {
+    if (container.nodeName) {
+      this.container = container
     } else {
       throw new Error('The tooltip has no valid container element.')
     }
@@ -58,9 +58,9 @@ export default class Tooltip {
    * @chainable
    */
   create() {
-    this.dTooltip = document.createElement('div')
-    this.dTooltip.className = 'tooltip is-transparent is-hidden'
-    this.dContainer.appendChild(this.dTooltip)
+    this.tooltip = document.createElement('div')
+    this.tooltip.className = 'tooltip is-transparent is-hidden'
+    this.container.appendChild(this.tooltip)
     return this
   }
 
@@ -68,45 +68,45 @@ export default class Tooltip {
    * Ping the tooltip with data and location
    *
    * @method ping
-   * @param {Array} mContent values or string for content
+   * @param {Array} content values or string for content
    */
-  ping(mContent: any, event: MouseEvent) {
-    const sContent =
-      mContent.constructor === Array
-        ? `<strong>${mContent[0]}</strong><br>${mContent[1]}: <em>${mContent[2]}</em>`
-        : mContent
+  ping(content: any, event: MouseEvent) {
+    const contentHtml =
+      content.constructor === Array
+        ? `<strong>${content[0]}</strong><br>${content[1]}: <em>${content[2]}</em>`
+        : content
     const iZoomDivider =
       1 + (window.devicePixelRatio > 1 ? window.devicePixelRatio / 20 : 0)
-    const oContainerEdges = this.dContainer.getBoundingClientRect()
-    const iPageOffsetX = oContainerEdges.left - 15
-    const iPageOffsetY = oContainerEdges.top
-    const iMouseX = event?.clientX ?? 0
-    const iMouseY = event?.clientY ?? 0
-    this.dTooltip.innerHTML = sContent
-    this.dTooltip.className = 'tooltip'
-    if (oContainerEdges.width + iPageOffsetX - iMouseX < 90) {
-      this.dTooltip.style.left = 'auto'
-      this.dTooltip.style.right = `${
-        oContainerEdges.width - iMouseX + iPageOffsetX + 25
+    const oContainerEdges = this.container.getBoundingClientRect()
+    const pageOffsetX = oContainerEdges.left - 15
+    const pageOffsetY = oContainerEdges.top
+    const mouseX = event?.clientX ?? 0
+    const mouseY = event?.clientY ?? 0
+    this.tooltip.innerHTML = contentHtml
+    this.tooltip.className = 'tooltip'
+    if (oContainerEdges.width + pageOffsetX - mouseX < 90) {
+      this.tooltip.style.left = 'auto'
+      this.tooltip.style.right = `${
+        oContainerEdges.width - mouseX + pageOffsetX + 25
       }px`
     } else {
-      this.dTooltip.style.left = `${iMouseX - iPageOffsetX}px`
-      this.dTooltip.style.right = 'auto'
+      this.tooltip.style.left = `${mouseX - pageOffsetX}px`
+      this.tooltip.style.right = 'auto'
     }
-    this.dTooltip.style.top = `${iMouseY / iZoomDivider - iPageOffsetY}px`
-    clearTimeout(this.oTooltipTimeout)
-    clearTimeout(this.oTooltipSubTimeout)
-    this.oTooltipTimeout = setTimeout(() => {
+    this.tooltip.style.top = `${mouseY / iZoomDivider - pageOffsetY}px`
+    clearTimeout(this.tooltipTimeout)
+    clearTimeout(this.tooltipSubTimeout)
+    this.tooltipTimeout = setTimeout(() => {
       this.hide()
     }, 5000)
   }
 
   hide() {
-    clearTimeout(this.oTooltipTimeout)
-    clearTimeout(this.oTooltipSubTimeout)
-    this.dTooltip.className = 'tooltip is-transparent'
-    this.oTooltipSubTimeout = setTimeout(() => {
-      this.dTooltip.className = 'tooltip is-transparent is-hidden'
+    clearTimeout(this.tooltipTimeout)
+    clearTimeout(this.tooltipSubTimeout)
+    this.tooltip.className = 'tooltip is-transparent'
+    this.tooltipSubTimeout = setTimeout(() => {
+      this.tooltip.className = 'tooltip is-transparent is-hidden'
     }, 300)
   }
 }
