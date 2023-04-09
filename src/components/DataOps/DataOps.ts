@@ -31,8 +31,8 @@ export default class DataOps {
    * @return {JSON} JSON compatible data structure
    */
   static getRandomData(iDefaultLength?: number, iDefaultWidth?: number) {
-    const iLength = iDefaultLength || Utilities.getRandomInteger(3, 10)
-    const iGroupSize = iDefaultWidth || Utilities.getRandomInteger(1, 4)
+    const iLength = iDefaultLength ?? Utilities.getRandomInteger(3, 10)
+    const iGroupSize = iDefaultWidth ?? Utilities.getRandomInteger(1, 4)
     const iRangeLow = Utilities.getRandomInteger(1, 50)
     const iRangeHigh = Utilities.getRandomInteger(iRangeLow, 200)
     const jChart: any = {}

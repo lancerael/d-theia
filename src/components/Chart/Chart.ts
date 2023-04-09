@@ -201,7 +201,7 @@ export default class Chart {
     this.dSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
     this.d3Svg = select(this.dSvg)
     this.iTransitionTime = 500
-    this.jPadding = { l: 5, r: 5, t: 5, b: 5 }
+    this.jPadding = jConfig?.jPadding ?? { l: 5, r: 5, t: 5, b: 5 }
     this.dLoader = document.createElement('div')
     this.bTransform = bTransform
     if (!dContainer && sContainer) {
@@ -361,21 +361,17 @@ export default class Chart {
         .attr('class', 'title')
       this.dSvg.setAttribute('class', 'chart')
       this.dContainer.appendChild(this.dSvg)
-      this.oResizeWatcher =
-        this.oResizeWatcher ||
-        window.addEventListener('resize', () => {
-          this.setDimensions()
-          this.iResizeOffset = this.iWidth - this.iInitialWidth
-          if (this.renderChart) {
-            this.renderChart()
-          }
-          this.oTooltip.hide()
-        })
-      this.oChartOutWatcher =
-        this.oChartOutWatcher ||
-        this.dSvg.addEventListener('mouseout', () => {
-          this.oTooltip.hide()
-        })
+      this.oResizeWatcher ??= window.addEventListener('resize', () => {
+        this.setDimensions()
+        this.iResizeOffset = this.iWidth - this.iInitialWidth
+        if (this.renderChart) {
+          this.renderChart()
+        }
+        this.oTooltip.hide()
+      })
+      this.oChartOutWatcher ??= this.dSvg.addEventListener('mouseout', () => {
+        this.oTooltip.hide()
+      })
       if (this.renderChart) {
         this.renderChart()
       }

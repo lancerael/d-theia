@@ -161,7 +161,7 @@ export default class Axis {
       .append('text')
       .attr('class', 'labels')
       .attr('x', this.iHeight / -2 - this.jPadding.t / 2) // - ((this.jConfig.aAxisLabels[0].length / 2) * 7))
-      .attr('y', 10)
+      .attr('y', 12)
       .attr('transform', 'rotate(-90)')
       .attr('text-anchor', 'middle')
       .text(this.aAxisLabels[0])

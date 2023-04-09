@@ -75,9 +75,9 @@ export default class AxisChart extends Chart {
    * @method constructor
    * @param {Object} oParams same as Chart
    */
-  constructor(oParams = {}) {
+  constructor(oParams: any = {}) {
     super(oParams)
-    this.jPadding = { l: 45, r: 15, t: 25, b: 90 }
+    this.jPadding = oParams.jConfig.jPadding ?? { l: 45, r: 15, t: 25, b: 60 }
     this.oScaleY = scaleLinear()
     this.oScaleX = scaleBand().padding(0.2)
   }
@@ -120,12 +120,11 @@ export default class AxisChart extends Chart {
    */
   renderChart() {
     super.renderChart()
-    const { aAxisLabels, iTruncate = 15 } = this.jConfig
+    const { aAxisLabels, iTruncate = 10 } = this.jConfig
     const { iInnerWidth, iInnerHeight, oScaleX, oScaleY, jPadding } = this
 
     // Add chart scale axes
-    this.d3AxisGroup =
-      this.d3AxisGroup || this.d3Svg.append('g').attr('class', 'axes-g')
+    this.d3AxisGroup ??= this.d3Svg.append('g').attr('class', 'axes-g')
     this.oAxis = new Axis({
       d3Container: this.d3AxisGroup,
       iTruncate,
@@ -139,11 +138,9 @@ export default class AxisChart extends Chart {
     }).render()
 
     // Add chart container group
-    this.d3ChartGroup =
-      this.d3ChartGroup ||
-      this.d3Svg
-        .append('g')
-        .attr('transform', `translate(${this.jPadding.l}, 0)`)
+    this.d3ChartGroup ??= this.d3Svg
+      .append('g')
+      .attr('transform', `translate(${this.jPadding.l}, 0)`)
 
     // Render the key for the data
     this.oKey = new Key({

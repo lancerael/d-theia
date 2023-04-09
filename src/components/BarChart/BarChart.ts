@@ -43,7 +43,7 @@ export default class BarChart extends AxisChart {
     const { iInnerHeight, oScaleX, oScaleY } = this
     const iBarWidth = oScaleX.bandwidth() / aValues.length
 
-    this.aBars = this.aBars || []
+    this.aBars ??= []
 
     // Reset bars data and clear graph
     if (bReset) {

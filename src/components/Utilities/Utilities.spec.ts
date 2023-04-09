@@ -16,7 +16,7 @@ describe('Utilities', () => {
   })
 
   it('should truncate a string', () => {
-    expect(Utilities.truncateString('qwertyuiop', 6)).toBe('qwe[...]')
+    expect(Utilities.truncateString('qwertyuiop', 6)).toBe('qwe...')
   })
 
   it('should generate a random integer', () => {

@@ -1,10 +1,10 @@
 # Change Log - d-theia
 
-## 3.2.2
+## 3.3.0
 
 Sunday, 09 April 2023 14:31:31 GMT
 
-- Console cleanup
+- Improved padding functionality
 
 ## 3.2.1
 

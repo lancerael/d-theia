@@ -33,7 +33,7 @@ export default class Utilities {
    */
   static truncateString(sString: string, iMaxLength: number) {
     if (sString.length > iMaxLength) {
-      return `${sString.slice(0, iMaxLength - 3)}[...]`
+      return `${sString.slice(0, iMaxLength - 3)}...`
     }
     return sString
   }

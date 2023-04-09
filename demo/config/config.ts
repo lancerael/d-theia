@@ -26,7 +26,8 @@ export default {
     aAxisKeys: ['stationName'],
     aAxisLabels: ['Docks / Bikes', 'Station Locations'],
     sBarType: 'side', // "stack","nest"
-    iTruncate: 15,
+    iTruncate: 13,
+    jPadding: { l: 45, r: 15, t: 25, b: 80 },
     /*
     fnClickCallback: ({ oEvent, jData, sKey }) => {
       console.log('Click Callback');
@@ -63,5 +64,6 @@ export default {
     aAxisLabels: ['Position / Points', 'Driver Name'],
     sBarType: 'side', // "stack","nest"
     iTruncate: 15,
+    jPadding: { l: 45, r: 15, t: 25, b: 80 },
   },
 } as any

@@ -100,8 +100,7 @@ export default class BubbleChart extends Chart {
     const { sKey: sKey2, sName: sName2, aColors } = aValues[1]
 
     // Add chart scale axes
-    this.d3AxisGroup =
-      this.d3AxisGroup || this.d3Svg.append('g').attr('class', 'axes-g')
+    this.d3AxisGroup ??= this.d3Svg.append('g').attr('class', 'axes-g')
     this.oAxis = new Axis({
       d3Container: this.d3AxisGroup,
       aAxisLabels,
@@ -111,11 +110,9 @@ export default class BubbleChart extends Chart {
     }).renderLabels()
 
     // Add the group container for bubbles
-    this.d3BubblesGroup =
-      this.d3BubblesGroup ||
-      this.d3Svg
-        .append('g')
-        .attr('transform', `translate(${this.jPadding.l}, 0)`)
+    this.d3BubblesGroup ??= this.d3Svg
+      .append('g')
+      .attr('transform', `translate(${this.jPadding.l}, 0)`)
 
     // The method runs on each tick of the force calculation to reposition the bubbles
     const fnTicked = () => {

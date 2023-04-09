@@ -49,8 +49,8 @@ export default class LineChart extends AxisChart {
     const { aValues } = this.jConfig
     const { oScaleX, oScaleY } = this
 
-    this.aLines = this.aLines || []
-    this.aCircles = this.aCircles || []
+    this.aLines ??= []
+    this.aCircles ??= []
 
     // Reset lines data and clear graph
     if (bReset) {
