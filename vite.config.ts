@@ -19,16 +19,16 @@ export default defineConfig({
       provider: 'istanbul',
     },
   },
-  build: {
-    lib: {
-      entry: './src/index.ts',
-      formats: ['es'],
-      name: 'd-theia',
-      fileName: 'index',
-    },
-    outDir: 'vanilla',
-    minify: 'terser',
-  },
+  // build: {
+  //   lib: {
+  //     entry: './src/index.ts',
+  //     formats: ['es'],
+  //     name: 'd-theia',
+  //     fileName: 'index',
+  //   },
+  //   outDir: 'vanilla',
+  //   minify: 'terser',
+  // },
   plugins: [
     terser({
       compress: {
