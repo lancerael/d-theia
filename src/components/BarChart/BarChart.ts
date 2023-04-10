@@ -30,6 +30,18 @@ export default class BarChart extends AxisChart {
     const { innerHeight, scaleX, scaleY } = this
     const barWidth = scaleX.bandwidth() / itemValues.length
 
+    // Check for cleanup
+    if (
+      [...this.d3ChartGroup.selectAll(`rect.bars`)].length / itemValues.length >
+      this.chartData.length
+    ) {
+      this.d3ChartGroup
+        .selectAll(`rect.bars`)
+        .data(this.chartData)
+        .exit()
+        .remove()
+    }
+
     // Loop through data to create group for each "type" in the key
     itemValues.forEach(({ color, name }: ConfigItemValue, i: number) => {
       if (!this.d3ChartGroup || !color || !this.chartData) return

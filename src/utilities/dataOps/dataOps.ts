@@ -20,12 +20,16 @@ export const sliceSampleData = (array: any[], maxLength = 50) => {
 export const arr = <T>(
   length: number,
   filler: (index: number, _: string) => T
-): T[] => new Array(length).fill('').map((item, i) => filler(i, item))
+): T[] =>
+  new Array(length)
+    .fill('')
+    .map((item, i) => filler(i, item))
+    .reverse()
 
 // generate new random data for the chart
 export const getRandomData = (
   length: number = getRandomInteger(3, 10),
-  groupSize: number = getRandomInteger(1, 4)
+  groupSize: number = getRandomInteger(2, 5)
 ): ChartParams => {
   const rangeLow = getRandomInteger(1, 50)
   const rangeHigh = getRandomInteger(rangeLow, 200)

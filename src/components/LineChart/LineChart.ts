@@ -30,6 +30,19 @@ export default class LineChart extends AxisChart {
     const getX = (d: any) =>
       Number(scaleX(d.itemLabel)) + scaleX.bandwidth() / 2
 
+    // Check for cleanup
+    if (
+      [...this.d3ChartGroup.selectAll(`circle.circles`)].length /
+        itemValues.length >
+      this.chartData.length
+    ) {
+      this.d3ChartGroup
+        .selectAll(`circle.circles`)
+        .data(this.chartData)
+        .exit()
+        .remove()
+    }
+
     // Iterate through config value keys
     itemValues.forEach(({ color, name }: any, i: number) => {
       // Get the y scale value

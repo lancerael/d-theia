@@ -1,5 +1,11 @@
 # Change Log - d-theia
 
+## 3.4.2
+
+Monday, 10 April 2023 11:31:31 GMT
+
+- TS refactor
+
 ## 3.3.0
 
 Sunday, 09 April 2023 14:31:31 GMT

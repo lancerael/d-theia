@@ -8,6 +8,8 @@ import racingData from '../demo/data/formula1.json'
 
 let jTest = getRandomData()
 
+// console.log(jTest)
+
 // Display dummy bar chart
 const barChart = Theia.chart('container-bar-test', 'bar', jTest)
 
@@ -39,7 +41,7 @@ Theia.chart('container-bar-2', 'line', {
   }),
 })
 
-// Show updating of chart data
+// // Show updating of chart data
 setTimeout(() => {
   jTest.chartData[0].itemValues[0] = 100
   barChart.updateData(jTest.chartData)
@@ -55,16 +57,43 @@ setTimeout(() => {
 
 let popped: any
 
-// Show removal of data
+// Show removal of data row
 setTimeout(() => {
   popped = jTest.chartData.pop()
   barChart.updateData(jTest.chartData)
   lineChart.updateData(jTest.chartData)
 }, 3000)
 
-// Show addition of data
+// Show addition of data row
 setTimeout(() => {
   jTest.chartData.push(popped)
   barChart.updateData(jTest.chartData)
   lineChart.updateData(jTest.chartData)
 }, 4000)
+
+// Show removal of data column
+setTimeout(() => {
+  const newData = structuredClone(jTest.chartData).map(
+    ({ itemLabel, itemValues }) => ({
+      itemLabel,
+      itemValues: itemValues.slice(0, -1),
+    })
+  )
+  let newConfig = structuredClone(jTest.chartConfig)
+  newConfig = {
+    ...newConfig,
+    itemValues: newConfig.itemValues.slice(0, -1),
+  }
+  barChart.updateData(newData)
+  barChart.updateConfig(newConfig)
+  lineChart.updateData(newData)
+  lineChart.updateConfig(newConfig)
+}, 5000)
+
+// Show addition of data column
+setTimeout(() => {
+  barChart.updateData(jTest.chartData)
+  barChart.updateConfig(jTest.chartConfig)
+  lineChart.updateData(jTest.chartData)
+  lineChart.updateConfig(jTest.chartConfig)
+}, 6000)
