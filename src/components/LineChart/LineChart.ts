@@ -79,7 +79,6 @@ export default class LineChart extends AxisChart {
         .enter()
         .append('circle')
         .attr('class', `circles circles-${i}`)
-        .attr('fill', color)
         .attr('r', 5)
         .on('mousemove', (event: MouseEvent, d: any) => {
           this.tooltip.ping([d.itemLabel, name, d.itemValues[i]], event)
@@ -101,6 +100,7 @@ export default class LineChart extends AxisChart {
       // Updace changed circles
       this.d3ChartGroup
         .selectAll(`circle.circles-${i}`)
+        .attr('fill', color)
         .attr('cx', getX)
         .attr('cy', getY)
     })

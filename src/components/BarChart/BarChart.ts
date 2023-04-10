@@ -60,7 +60,6 @@ export default class BarChart extends AxisChart {
         .enter()
         .append('rect')
         .attr('class', `bars bars-${i}`)
-        .attr('fill', color)
         .attr('x', (d: any) => (scaleX(d.itemLabel) ?? 0) + iBarOffset)
         .attr('y', innerHeight)
         .attr('width', barWidth)
@@ -87,6 +86,7 @@ export default class BarChart extends AxisChart {
       // Updated changed bars
       this.d3ChartGroup
         .selectAll(`rect.bars-${i}`)
+        .attr('fill', color)
         .transition()
         .ease(easeLinear)
         .duration(this.transitionTime)
