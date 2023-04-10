@@ -3,6 +3,7 @@ import LineChart from './components/LineChart'
 import BubbleChart from './components/BubbleChart'
 import { ChartParams, ChartType } from './types'
 export * from './utilities'
+export * from './components'
 
 export default class Theia {
   static chart(
