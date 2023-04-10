@@ -14,12 +14,12 @@ describe('LineChart', () => {
           {
             key: 'k1',
             name: 'K1',
-            sColour: 'red',
+            color: 'red',
           },
           {
             key: 'k2',
             name: 'K2',
-            sColour: 'blue',
+            color: 'blue',
           },
         ],
       },
@@ -33,7 +33,6 @@ describe('LineChart', () => {
 
   it('should render the chart', () => {
     oLineChart.renderChart()
-    expect(oLineChart.lines.length).toBe(2)
     expect(oLineChart.d3ChartGroup.selectAll('path.line').size()).toEqual(
       oLineChart.chartConfig.itemValues.length
     )

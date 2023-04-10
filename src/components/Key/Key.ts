@@ -1,57 +1,44 @@
+import { ChartType, ConfigItemValue, SVGSelection } from '../../types'
+
+export type KeyParams = Pick<
+  Key,
+  'd3Container' | 'itemValues' | 'offsetX' | 'offsetY' | 'chartType'
+>
+
 /**
  * The Key shows how the colors represent the data
  *
- * @class Key
- * @constructor
+ * @public
  */
 export default class Key {
   /**
    * d3 object for axis container
-   *
-   * @property d3Container
-   * @type {Object}
    */
-  d3Container
+  public d3Container!: SVGSelection
 
   /**
    * The key's values
-   *
-   * @property itemValues
-   * @type {Array}
    */
-  itemValues
+  public itemValues!: ConfigItemValue[]
 
   /**
    * The x offset for the key
-   *
-   * @property offsetX
-   * @type {Number}
    */
-  offsetX
+  public offsetX: number = 0
 
   /**
    * The y offset for the key
-   *
-   * @property offsetY
-   * @type {Number}
    */
-  offsetY
+  public offsetY: number = 0
 
   /**
-   * Constructor function that sets up the local object.
-   *
-   * @method constructor
-   * @param {Object} d3Container A d3 wrapped container element
-   * @param {Array} itemValues the data to be displayed
-   * @param {Integer} offsetX optional x offset
-   * @param {Integer} offsetY optional y offset
+   * The type of chart
    */
-  constructor({ d3Container, itemValues, offsetX = 0, offsetY = 0 }: any) {
-    if (d3Container && itemValues) {
-      this.d3Container = d3Container
-      this.itemValues = itemValues.slice(itemValues)
-      this.offsetX = offsetX
-      this.offsetY = offsetY
+  public chartType?: ChartType = 'bar'
+
+  constructor(keyParams: KeyParams) {
+    if (keyParams.d3Container && keyParams.itemValues) {
+      Object.assign(this, keyParams)
     } else {
       throw new Error('Incorrect parameters provided to Key constructor.')
     }
@@ -59,26 +46,19 @@ export default class Key {
 
   /**
    * Render the key showing the labels for the color values
-   *
-   * @method render
-   * @chainable
    */
-  render() {
+  public render() {
     this.d3Container.selectAll('g.key').remove()
     let groupOffset = 0
     const d3KeyGroup = this.d3Container.append('g').attr('class', 'key')
-    const d3Labels = d3KeyGroup.selectAll('text.label').data(this.itemValues)
     const labelWidths: number[] = []
-    const fnCalculateMargin = (i: number) => {
-      let margin = 0
-      if (i) {
-        for (let l = 0; l < i; l++) {
-          margin += labelWidths[l]
-        }
-      }
-      return margin
-    }
-    d3Labels
+    const fnCalculateMargin = (i: number) =>
+      labelWidths.slice(0, i).reduce((margin, width) => margin + width, 0)
+
+    // Add key labels
+    d3KeyGroup
+      .selectAll('text.label')
+      .data(this.itemValues)
       .enter()
       .append('text')
       .text((d: any) => d.name)
@@ -96,8 +76,11 @@ export default class Key {
       .attr('font-family', 'sans-serif')
       .attr('font-size', '10px')
       .attr('style', 'fill: #222222')
-    const d3Keys = d3KeyGroup.selectAll('rect.key').data(this.itemValues)
-    d3Keys
+
+    // Add coloured squares
+    d3KeyGroup
+      .selectAll('rect.key')
+      .data(this.itemValues)
       .enter()
       .append('rect')
       .attr('class', 'key')
@@ -106,19 +89,12 @@ export default class Key {
       .attr('y', 0)
       .attr('width', 10)
       .attr('height', 10)
-    groupOffset = this.offsetX - groupOffset / 2
-    d3KeyGroup.attr('transform', `translate(${groupOffset},${this.offsetY})`)
-    return this
-  }
 
-  /**
-   * Set the position of the key
-   *
-   * @method position
-   * @chainable
-   */
-  position() {
-    // placeholder
+    // Move to correct posision
+    d3KeyGroup.attr(
+      'transform',
+      `translate(${this.offsetX - groupOffset / 2},${this.offsetY})`
+    )
     return this
   }
 }

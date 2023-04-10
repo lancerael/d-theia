@@ -1,5 +1,6 @@
 import { json } from 'd3-fetch'
 
+// Fetch JSON from a url
 export const getPromiseJSON = (url?: string) => {
   if (typeof url === 'string' && url) {
     return json(url)
@@ -7,6 +8,7 @@ export const getPromiseJSON = (url?: string) => {
   throw new Error('No valid data API string provided.')
 }
 
+// Trumcate a string to a specified length
 export const truncateString = (value: string, maxLength: number) => {
   if (value.length > maxLength) {
     return `${value.slice(0, maxLength - 3)}...`
@@ -14,6 +16,7 @@ export const truncateString = (value: string, maxLength: number) => {
   return value
 }
 
+// Get a random number within a range, omitting certain values if needed
 export const getRandomInteger = (
   minValue: number,
   maxValue: number,

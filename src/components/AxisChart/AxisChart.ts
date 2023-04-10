@@ -1,37 +1,95 @@
 import { min, max } from 'd3-array'
 import { select } from 'd3-selection'
-import { scaleLinear, scaleBand, ScaleBand, ScaleLinear } from 'd3-scale'
+import {
+  scaleLinear,
+  scaleBand,
+  ScaleBand,
+  ScaleLinear,
+  ScalePoint,
+} from 'd3-scale'
 import Chart from '../Chart'
 import Key from '../Key'
 import Axis from '../Axis'
-import { ChartParams, AxisSelection, Padding } from '../../types'
+import {
+  ChartParams,
+  AxisSelection,
+  Padding,
+  AxisChartConfig,
+} from '../../types'
 
+/**
+ * A parent class for charts containing X/Y axes and key.
+ *
+ * @public
+ */
 export default class AxisChart extends Chart {
-  d3ChartGroup?: AxisSelection
-  axisGroup?: AxisSelection
-  scaleX: ScaleBand<string>
+  /**
+   * The chart's config object
+   */
+  declare chartConfig: AxisChartConfig
+
+  /**
+   * The d3 object for the chart's group
+
+   */
+  d3ChartGroup!: AxisSelection
+
+  /**
+   * The d3 object for the chart's axis
+
+   */
+  axisGroup!: AxisSelection
+
+  /**
+   * The chart's x scale
+   */
+  scaleX: ScaleBand<string> | ScalePoint<string>
+
+  /**
+   * The chart's y scale
+   */
   scaleY: ScaleLinear<number, number, never>
+
+  /**
+   * The chart's min value
+   */
   minValue: number = 0
+
+  /**
+   * The chart's max value
+   */
   maxValue: number = 0
+
+  /**
+   * The section of data to show
+   */
   dataSlice: number = 0
-  padding: Padding
+
+  /**
+   * The padding for the chart within the container
+   */
+  padding: Padding = {
+    l: 45,
+    r: 15,
+    t: 25,
+    b: 60,
+  }
 
   constructor(chartParams = {} as ChartParams) {
     super(chartParams)
-    this.padding = chartParams.chartConfig.padding ?? {
-      l: 45,
-      r: 15,
-      t: 25,
-      b: 60,
-    }
+    this.padding = chartParams.chartConfig.padding ?? this.padding
     this.scaleY = scaleLinear()
     this.scaleX = scaleBand().padding(0.2)
   }
 
-  setDimensions() {
-    if (!this.chartData) return
+  /**
+   *  Update local scaling objects
+   */
+  protected setDimensions() {
     super.setDimensions()
-    const doTrim = this.chartConfig.doTrim
+    if (!this.chartData) return
+    // trim is used to zoom on the data within the range
+    const doTrim = this.chartConfig?.doTrim
     let minValue = Number(
       doTrim ? min(this.chartData, (d: any) => min(d.itemValues)) : 0
     )
@@ -43,7 +101,7 @@ export default class AxisChart extends Chart {
       minValue = minValue < 0 ? minValue - dataSlice : minValue
       maxValue += dataSlice
     }
-    this.scaleX
+    ;(this.scaleX as ScaleBand<string>)
       .domain(this.chartData.map((d: any) => d.itemLabel))
       .range([0, this.innerWidth])
     this.scaleY
@@ -54,9 +112,12 @@ export default class AxisChart extends Chart {
     this.dataSlice = dataSlice
   }
 
-  renderChart() {
+  /**
+   * Render the chart including axes and labels
+   */
+  protected renderChart() {
     super.renderChart()
-    const { axisLabels, truncateSize = 10 } = this.chartConfig
+    const { axisLabels, truncateSize = 10 } = this.chartConfig ?? {}
     const { innerWidth, innerHeight, scaleX, scaleY, padding } = this
 
     // Add chart scale axes

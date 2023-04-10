@@ -7,100 +7,76 @@ import 'd3-transition'
 import Chart from '../Chart'
 import Axis from '../Axis'
 import Key from '../Key'
+import { ChartParams } from '../../types'
 
 /**
  * Create BubbleCharts from the supplied data, based on the supplied JSON config.
  *
- * @class BubbleChart
- * @extends {Chart}
- * @constructor
+ * @public
  */
 export default class BubbleChart extends Chart {
   /**
    * The local collection of bubbles
-   *
-   * @property bubbles
-   * @type {Array}
    */
   bubbles: any
 
   /**
    * The color scale
-   *
-   * @property scaleColor
-   * @type {Object}
    */
   scaleColor: any
 
   /**
    * The axis group
-   *
-   * @property axisGroup
-   * @type {Object}
    */
   axisGroup: any
 
   /**
    * The bubbles group
-   *
-   * @property bubblesGroup
-   * @type {Object}
    */
   bubblesGroup: any
 
   /**
    * The force simulation
-   *
-   * @property force
-   * @type {Object}
    */
   force: any
 
   /**
    * The circles
-   *
-   * @property circles
-   * @type {Object}
    */
   circles: any
 
-  /**
-   * Constructor function supersedes parent class.
-   *
-   * @method constructor
-   * @param {Object} chartParams same as Chart
-   */
-  constructor(chartParams = {}) {
+  constructor(chartParams = {} as ChartParams) {
     super(chartParams)
     this.scaleColor = scaleLinear()
     this.chartType = 'bubble'
   }
 
   /**
-   * Supersede the parent method to update local scaling objects
-   *
-   * @method setDimensions
+   * Update local scaling objects
    */
   setDimensions() {
     super.setDimensions()
     this.scaleColor
       .domain([
         0,
-        max(this.chartData, (d: any) => d[this.chartConfig.itemValues[1].key]),
+        max(
+          this.chartData,
+          (d: any) => d[this.chartConfig.itemValues[1].key as string]
+        ),
       ])
       .range(this.chartConfig.itemValues[1].colors)
   }
 
   /**
    * Render the chart including bubbles, axes and labels
-   *
-   * @method renderChart
    */
-  renderChart() {
+  public renderChart() {
     const { axisLabels, itemValues } = this.chartConfig
     const { innerWidth, innerHeight, padding } = this
     const { key: key1, name: name1 } = itemValues[0]
     const { key: key2, name: name2, colors } = itemValues[1]
+
+    if (!key1 || !key2) return
 
     // Add chart scale axes
     this.axisGroup ??= this.d3Svg.append('g').attr('class', 'axes-g')
@@ -167,6 +143,8 @@ export default class BubbleChart extends Chart {
         `translate(${this.resizeOffset / 2}, 0)`
       )
     }
+
+    if (!colors) return
 
     // Render the key for the data
     this.key = new Key({

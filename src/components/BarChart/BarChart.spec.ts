@@ -33,7 +33,6 @@ describe('BarChart', () => {
 
   it('should render the chart', () => {
     oBarChart.renderChart()
-    expect(oBarChart.bars.length).toBe(2)
     expect(oBarChart.d3ChartGroup.selectAll('rect.bars').size()).toEqual(
       oBarChart.chartConfig.itemValues.length * oBarChart.chartData.length
     )

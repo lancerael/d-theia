@@ -1,49 +1,30 @@
 /**
- * The Tooltip
+ * The Tooltip for showing info in a popup
  *
- * @class Tooltip
- * @constructor
+ * @public
  */
 export default class Tooltip {
   /**
-   * D3 reference to container element
-   *
-   * @property container
-   * @type {Object}
+   * DOM reference to container element
    */
-  container: any
+  container: HTMLElement
 
   /**
    * DOM reference to tooltip's main element
-   *
-   * @property tooltip
-   * @type {Object}
    */
-  tooltip: any
+  tooltip!: HTMLElement
 
   /**
    * Tooltip's main timeout to close tooltip
-   *
-   * @property tooltipTimeout
-   * @type {Object}
    */
-  tooltipTimeout: any
+  tooltipTimeout!: NodeJS.Timeout
 
   /**
    * Tooltip's sub timeout to hide tooltip
-   *
-   * @property tooltipSubTimeout
-   * @type {Object}
    */
-  tooltipSubTimeout: any
+  tooltipSubTimeout!: NodeJS.Timeout
 
-  /**
-   * Constructor function that sets up the local object.
-   *
-   * @method constructor
-   * @param {Object} container DOM object
-   */
-  constructor(container: any) {
+  constructor(container: HTMLElement) {
     if (container.nodeName) {
       this.container = container
     } else {
@@ -53,11 +34,8 @@ export default class Tooltip {
 
   /**
    * Create the tooltip DOM and return object
-   *
-   * @method create
-   * @chainable
    */
-  create() {
+  public create() {
     this.tooltip = document.createElement('div')
     this.tooltip.className = 'tooltip is-transparent is-hidden'
     this.container.appendChild(this.tooltip)
@@ -65,16 +43,15 @@ export default class Tooltip {
   }
 
   /**
-   * Ping the tooltip with data and location
-   *
-   * @method ping
-   * @param {Array} content values or string for content
+   * Ping the tooltip to display with data at correct location
+   * @param {string[] | string} content values or string for content
+   * @param {MouseEvent} event the triggering event to get the location
    */
-  ping(content: any, event: MouseEvent) {
+  public ping(content: string[] | string, event: MouseEvent) {
     const contentHtml =
       content.constructor === Array
         ? `<strong>${content[0]}</strong><br>${content[1]}: <em>${content[2]}</em>`
-        : content
+        : (content as string)
     const iZoomDivider =
       1 + (window.devicePixelRatio > 1 ? window.devicePixelRatio / 20 : 0)
     const oContainerEdges = this.container.getBoundingClientRect()
@@ -101,7 +78,10 @@ export default class Tooltip {
     }, 5000)
   }
 
-  hide() {
+  /**
+   * Hide the tooltip
+   */
+  public hide() {
     clearTimeout(this.tooltipTimeout)
     clearTimeout(this.tooltipSubTimeout)
     this.tooltip.className = 'tooltip is-transparent'

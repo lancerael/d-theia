@@ -24,7 +24,7 @@ export const arr = <T>(length: number, filler: (index: number) => T): T[] =>
 export const getRandomData = (
   length: number = getRandomInteger(3, 10),
   groupSize: number = getRandomInteger(1, 4)
-) => {
+): ChartParams => {
   const rangeLow = getRandomInteger(1, 50)
   const rangeHigh = getRandomInteger(rangeLow, 200)
   return {
@@ -47,6 +47,7 @@ export const getRandomData = (
   }
 }
 
+// Get an emptry chart params object for a new chart
 export const getEmptyData = (): ChartParams => {
   return {
     chartConfig: {
@@ -59,6 +60,7 @@ export const getEmptyData = (): ChartParams => {
   }
 }
 
+// Transform the data if we have non-standard keys
 export const transformDataKeys = (
   chartConfig: ChartConfig,
   chartData: ChartData
@@ -66,7 +68,7 @@ export const transformDataKeys = (
   return chartData.map((item) => {
     if (chartConfig.itemValues && !item.itemValues) {
       item.itemValues = chartConfig.itemValues.map((value) =>
-        parseInt(value.key ? (item as unknown as Hash)[value.key] : '0')
+        parseInt(value.key ? `${(item as unknown as Hash)[value.key]}` : '0')
       )
     }
     if (chartConfig.axisKeys && !item.itemLabel) {
@@ -76,6 +78,7 @@ export const transformDataKeys = (
   })
 }
 
+// Add random colours to a chart config
 export const addColoursToConfig = (itemValues: ConfigItemValue[]) => {
   return itemValues.map((value) => {
     value.color ??= getRandomColor().formatHex()

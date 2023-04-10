@@ -2,232 +2,170 @@ import { select } from 'd3-selection'
 import Tooltip from '../Tooltip'
 import { addColoursToConfig, transformDataKeys } from '../../utilities'
 
+import {
+  ChartConfig,
+  ChartData,
+  ChartEventListener,
+  ChartParams,
+  ChartType,
+  DivSelection,
+  Padding,
+  SVGSelection,
+} from '../../types'
+import Key from '../Key/Key'
+import Axis from '../Axis/Axis'
+
 /**
- * The Chart object is the parent class for all types of Chart.
- * It is used to initialise all of the base settings universal to all charts.
+ * The parent class for all types of Chart used to initialise all of the base settings universal to all charts.
+ * In handles data setting/updating, document resizing and includes the tooltip.
  *
- * @class Chart
- * @constructor
+ * @public
  */
 export default class Chart {
   /**
    * SVG DOM object for displaying the chart
-   *
-   * @property svg
-   * @type {Object}
    */
-  svg
+  protected svg: SVGSVGElement
 
   /**
    * SVG d3 object for d3 operations on the chart
-   *
-   * @property d3Svg
-   * @type {Object}
    */
-  d3Svg
+  protected d3Svg: SVGSelection
 
   /**
    * Default time for d3 transitions on the chart
-   *
-   * @property transitionTime
-   * @type {Number}
    */
-  transitionTime
+  protected transitionTime: number = 300
 
   /**
    * DOM reference to container element that wraps SVG
-   *
-   * @property container
-   * @type {Object}
    */
-  container: any
+  private container!: HTMLElement
 
   /**
    * DOM reference to loader display element
-   *
-   * @property loader
-   * @type {Object}
    */
-  loader
+  private loader: HTMLElement
 
   /**
    * d3 reference to chart title element
-   *
-   * @property d3Title
-   * @type {Object}
    */
-  d3Title: any
+  private d3Title?: DivSelection
 
   /**
-   * Chart's tooltip object
-   *
-   * @property tooltip
-   * @type {Object}
+   * Chart's tooltip object instance
    */
-  tooltip: any
+  protected tooltip!: Tooltip
 
   /**
    * The current calculated width of the chart
-   *
-   * @property width
-   * @type {Number}
    */
-  width: any
+  protected width!: number
 
   /**
    * The current calculated height of the chart
-   *
-   * @property height
-   * @type {Number}
    */
-  height: any
+  protected height!: number
 
   /**
    * The current calculated inner width of the chart
-   *
-   * @property innerWidth
-   * @type {Number}
    */
-  innerWidth: any
+  protected innerWidth!: number
 
   /**
    * The current calculated inner height of the chart
-   *
-   * @property innerHeight
-   * @type {Number}
    */
-  innerHeight: any
+  protected innerHeight!: number
 
   /**
    * The width before any browser resize
-   *
-   * @property initialWidth
-   * @type {Number}
    */
-  initialWidth: any
+  private initialWidth!: number
 
   /**
    * The padding for the chart within the container
-   *
-   * @property padding
-   * @type {Object}
    */
-  padding
+  protected padding: Padding = {
+    l: 5,
+    r: 5,
+    t: 5,
+    b: 5,
+  }
 
   /**
    * The chart's config object
-   *
-   * @property chartConfig
-   * @type {Object}
    */
-  chartConfig: any
+  protected chartConfig!: ChartConfig
 
   /**
-   * The chart's data
-   *
-   * @property chartData
-   * @type {Array}
+   * The chart's data array
    */
-  chartData: any
+  protected chartData!: ChartData
 
   /**
    * The chart's type
-   *
-   * @property chartType
-   * @type {string}
    */
-  chartType: any
+  protected chartType: ChartType = 'bar'
 
   /**
-   * The chart's key
-   *
-   * @property key
-   * @type {Object}
+   * The chart's key object instance
    */
-  key: any
+  protected key!: Key
 
   /**
-   * The chart's axis
-   *
-   * @property axis
-   * @type {Object}
+   * The chart's axis object instance
    */
-  axis: any
+  protected axis!: Axis
 
   /**
-   * The chart's axis
-   *
-   * @property resizeWatcher
-   * @type {Object}
+   *  An event watcher for the user resizing the browser
    */
-  resizeWatcher: any
+  protected resizeWatcher!: ChartEventListener
 
   /**
-   * The chart's axis
-   *
-   * @property chartOutWatcher
-   * @type {Object}
+   * An event watcher for the user moving the mouse out of the chart
    */
-  chartOutWatcher: any
+  protected chartOutWatcher!: ChartEventListener
 
   /**
    * The chart's resize offset
-   *
-   * @property resizeOffset
-   * @type {number}
    */
-  resizeOffset: any
+  protected resizeOffset: number = 0
 
   /**
-   * Transform keys from an unknown data schema
-   *
-   * @property doTransform
-   * @type {boolean}
+   * Whether to transform keys from an unknown data schema
    */
-  doTransform: boolean
+  protected doTransform: boolean
 
-  /**
-   * Constructor function that sets up the local object.
-   *
-   * @method constructor
-   * @param {Object} chartConfig JSON configuration object
-   * @param {Array} chartData the data to be displayed
-   * @param {String} containerId Optional ID to select DOM object
-   * @param {Object} container Optional DOM object in place of ID
-   */
-  constructor(chartParams: any = {}) {
-    const { chartConfig, chartData, containerId, bAddColors, doTransform } =
-      chartParams
-    let { container } = chartParams
+  constructor(chartParams = {} as ChartParams) {
+    const {
+      chartConfig,
+      chartData,
+      containerId,
+      shouldAddColors,
+      doTransform,
+      transitionTime,
+      container,
+    } = chartParams
     this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
     this.d3Svg = select(this.svg)
-    this.transitionTime = 500
-    this.padding = chartConfig?.padding ?? { l: 5, r: 5, t: 5, b: 5 }
+    this.transitionTime = transitionTime ?? this.transitionTime
+    this.padding = chartConfig?.padding ?? this.padding
     this.loader = document.createElement('div')
-    this.doTransform = doTransform
-    if (!container && containerId) {
-      container = document.getElementById(containerId)
-    }
-    if (container) {
-      this.setContainer(container)
-    }
-    if (chartConfig) {
-      this.setConfig(chartConfig, bAddColors)
-    }
-    if (chartData) {
-      this.setData(chartData)
-    }
+    this.doTransform = Boolean(doTransform)
+    this.setContainer(container ?? document.getElementById(containerId ?? ''))
+    this.setConfig(chartConfig, shouldAddColors)
+    this.setData(chartData)
   }
 
   /**
    * Sets the local container object.
-   *
-   * @method setContainer
-   * @param {Object} container Required DOM element
+   *#
+   * @param {HTMLElement} container Required DOM element
    * @throws {Error} invalid DOM element
    */
-  setContainer(container: any) {
-    if (container.nodeName) {
+  private setContainer = (container: HTMLElement | null) => {
+    if (container?.nodeName) {
       container.appendChild(this.loader)
       this.container = container
     } else {
@@ -238,15 +176,15 @@ export default class Chart {
   /**
    * Sets the local config options for the chart.
    *
-   * @method setConfig
-   * @param {Object} chartConfig JSON configuration object
+   * @param {ChartConfig} chartConfig JSON configuration object
+   * @param {boolean} shouldAddColors determine whether to add random colours to the config
    * @throws {Error} missing configuration
    */
-  setConfig(chartConfig: any, bAddColors = false) {
+  private setConfig = (chartConfig: ChartConfig, shouldAddColors = false) => {
     const shouldUpdateTrim = this.chartConfig?.doTrim !== chartConfig?.doTrim
     if (chartConfig && chartConfig.toString() === '[object Object]') {
       this.chartConfig = structuredClone(chartConfig)
-      if (this.chartConfig.itemValues && bAddColors) {
+      if (this.chartConfig?.itemValues && shouldAddColors) {
         this.chartConfig.itemValues = addColoursToConfig(
           this.chartConfig.itemValues
         )
@@ -260,15 +198,13 @@ export default class Chart {
   /**
    * Sets the local data for the chart.
    *
-   * @method setData
-   * @param {Array} chartData array of JSON objects
-   * @param {Boolean} doTransform transform mapped data
+   * @param {ChartData} chartData array of JSON objects
    * @throws {Error} missing data
    */
-  setData(chartData: any) {
+  private setData = (chartData: ChartData) => {
     if (chartData && Array.isArray(chartData) === true) {
       this.chartData = structuredClone(chartData)
-      if (this.chartConfig && this.doTransform) {
+      if (this.chartConfig && this.chartData && this.doTransform) {
         this.chartData = transformDataKeys(this.chartConfig, this.chartData)
       }
     } else {
@@ -277,41 +213,31 @@ export default class Chart {
   }
 
   /**
+   * Updates the local config for the chart.
+   *
+   * @method updateConfig
+   * @param {ChartConfig} chartConfig config JSON style object
+   */
+  public updateConfig(chartConfig: ChartConfig) {
+    this.setConfig(chartConfig)
+    if (this.renderChart) {
+      this.renderChart()
+    }
+  }
+
+  /**
    * Updates the local data for the chart.
    *
-   * @method updateData
-   * @param {Array} chartData array of JSON objects
-   * @param {Boolean} doTransform transform mapped data
+   * @param {ChartData} chartData array of JSON objects
    */
-  updateData(chartData: any, bRender = true) {
-    const doReset = chartData.length != this.chartData.length
+  public updateData(chartData: ChartData, bRender = true) {
     this.setData(chartData)
     this.setDimensions()
     if (this.axis) {
       this.axis.render()
     }
     if (this.renderChart && bRender) {
-      this.renderChart(doReset)
-    }
-  }
-
-  /**
-   * Updates the local config for the chart.
-   *
-   * @method updateConfig
-   * @param {JSON} chartConfig config JSON style object
-   */
-  updateConfig(
-    chartConfig: any,
-    doResetDimensions = false,
-    bTransition = false
-  ) {
-    this.setConfig(chartConfig)
-    if (doResetDimensions) {
-      this.setDimensions()
-    }
-    if (this.renderChart) {
-      this.renderChart(true, bTransition)
+      this.renderChart()
     }
   }
 
@@ -321,7 +247,7 @@ export default class Chart {
    * @method setDimensions
    * @throws {Error} missing DOM element
    */
-  setDimensions() {
+  protected setDimensions() {
     if (this.container && this.container.nodeName) {
       this.width = this.container.clientWidth
       this.height = this.container.clientHeight
@@ -336,24 +262,20 @@ export default class Chart {
 
   /**
    * Render the chart
-   *
-   * @method renderChart
    */
-  renderChart(...args: any) {
-    if (this.d3Title) {
+  protected renderChart() {
+    if (this.d3Title && this.chartConfig?.title) {
       this.d3Title.text(this.chartConfig.title)
     }
-    args
   }
 
   /**
    * Check chart is ready and render.
    *
-   * @method init
    * @throws {Error} chart not ready for initialisation
-   * @chainable
    */
-  init() {
+  public init() {
+    if (!this.container) return
     this.setDimensions()
     if (
       this.chartData &&
@@ -372,15 +294,15 @@ export default class Chart {
         if (this.renderChart) {
           this.renderChart()
         }
-        this.tooltip.hide()
+        this.tooltip?.hide()
       })
       this.chartOutWatcher ??= this.svg.addEventListener('mouseout', () => {
-        this.tooltip.hide()
+        this.tooltip?.hide()
       })
       if (this.renderChart) {
         this.renderChart()
       }
-      this.container.removeChild(this.loader)
+      this.loader && this.container.removeChild(this.loader)
       return this
     }
     throw new Error('The chart is not ready for initialisation.')

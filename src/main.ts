@@ -7,10 +7,10 @@ import racingData from '../demo/data/formula1.json'
 let jTest = getRandomData()
 
 // Display dummy bar chart
-const chart = Theia.chart('container-bar-test', 'bar', jTest)
+const barChart = Theia.chart('container-bar-test', 'bar', jTest)
 
 // Display dummy line chart
-Theia.chart('container-line-test', 'line', jTest)
+const lineChart = Theia.chart('container-line-test', 'line', jTest)
 
 // Display a bar chart, line chart and bubble chart from a subsection of retrieved data.
 const aCycleData = sliceSampleData(cycleData.stationBeanList, 15)
@@ -39,12 +39,31 @@ Theia.chart('container-bar-2', 'line', {
 
 // Show updating of chart data
 setTimeout(() => {
+  //@ts-ignore
   jTest.chartData[0].itemValues[0] = 100
-  chart.updateData(jTest.chartData)
-}, 2000)
+  barChart.updateData(jTest.chartData)
+  lineChart.updateData(jTest.chartData)
+}, 1000)
 
 // Show updating of chart config
 setTimeout(() => {
   jTest.chartConfig.doTrim = false
-  chart.updateConfig(jTest.chartConfig)
-}, 5000)
+  barChart.updateConfig(jTest.chartConfig)
+  lineChart.updateConfig(jTest.chartConfig)
+}, 2000)
+
+let popped: any
+
+// Show removal of data
+setTimeout(() => {
+  popped = jTest.chartData.pop()
+  barChart.updateData(jTest.chartData)
+  lineChart.updateData(jTest.chartData)
+}, 3000)
+
+// Show addition of data
+setTimeout(() => {
+  jTest.chartData.push(popped)
+  barChart.updateData(jTest.chartData)
+  lineChart.updateData(jTest.chartData)
+}, 4000)

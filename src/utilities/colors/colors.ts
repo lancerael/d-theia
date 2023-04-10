@@ -2,6 +2,7 @@ import { RGBColor, rgb } from 'd3-color'
 import { getRandomInteger } from '../../utilities'
 import { Contrast } from '../../types'
 
+// Get a random RGB colour
 export const getRandomColor = (
   contrast: Contrast = 'light',
   boundary = 170
@@ -14,6 +15,7 @@ export const getRandomColor = (
   return rgb(itemValues[0], itemValues[1], itemValues[2])
 }
 
+// Filter out colours that are too light or dark
 export const colorFilter = (
   contrast: Contrast,
   boundary: number,
@@ -36,6 +38,7 @@ export const colorFilter = (
   return isPass
 }
 
+// Get a whole palette of random colours for a chart
 export const getRandomPalette = (length = 10) => {
   let count = length
   const palette = []
@@ -45,6 +48,8 @@ export const getRandomPalette = (length = 10) => {
   return palette
 }
 
+// Get a darker variant of a colour
 export const getDarkerColor = (color: RGBColor) => color.darker(0.5)
 
+// Convert a hex colour to an RGB colour
 export const convertHexToRgb = (color: string) => rgb(color)
