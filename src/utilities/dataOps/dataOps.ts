@@ -17,8 +17,10 @@ export const sliceSampleData = (array: any[], maxLength = 50) => {
 }
 
 // Generate a new array of a certain lenghth, with a filler function
-export const arr = <T>(length: number, filler: (index: number) => T): T[] =>
-  new Array(length).fill('').map((item, i) => filler(i))
+export const arr = <T>(
+  length: number,
+  filler: (index: number, _: string) => T
+): T[] => new Array(length).fill('').map((item, i) => filler(i, item))
 
 // generate new random data for the chart
 export const getRandomData = (

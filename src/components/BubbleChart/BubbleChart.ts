@@ -161,7 +161,7 @@ export default class BubbleChart extends Chart {
       ],
       offsetX: this.innerWidth / 2 + this.padding.l + 10,
       offsetY: this.height - 20,
-      chartType: 'range',
+      keyType: 'range',
     }).render()
   }
 }

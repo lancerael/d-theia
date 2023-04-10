@@ -14,7 +14,7 @@ describe('Axis', () => {
       scaleY: scaleLinear(),
       padding: { l: 5, r: 5, t: 5, b: 5 },
       axisLabels: ['l1', 'l2'],
-    })
+    } as any)
   })
 
   it('should call all render methods and return the object', () => {

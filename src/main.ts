@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import Theia, { getRandomData, sliceSampleData } from './'
 import Config from '../demo/config/config'
 
@@ -39,7 +41,6 @@ Theia.chart('container-bar-2', 'line', {
 
 // Show updating of chart data
 setTimeout(() => {
-  //@ts-ignore
   jTest.chartData[0].itemValues[0] = 100
   barChart.updateData(jTest.chartData)
   lineChart.updateData(jTest.chartData)

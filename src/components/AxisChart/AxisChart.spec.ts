@@ -14,12 +14,12 @@ describe('AxisChart', () => {
           {
             key: 'k1',
             name: 'K1',
-            sColour: 'red',
+            color: 'red',
           },
           {
             key: 'k2',
             name: 'K2',
-            sColour: 'blue',
+            color: 'blue',
           },
         ],
       },

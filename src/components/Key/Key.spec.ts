@@ -12,15 +12,15 @@ describe('Key', () => {
         {
           key: 'k1',
           name: 'K1',
-          sColour: 'red',
+          color: 'red',
         },
         {
           key: 'k2',
           name: 'K2',
-          sColour: 'blue',
+          color: 'blue',
         },
       ],
-    })
+    } as any)
   })
 
   it('should render the key', () => {

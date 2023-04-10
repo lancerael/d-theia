@@ -3,7 +3,7 @@ import { Transition } from 'd3-transition'
 
 export type Contrast = 'light' | 'dark'
 
-export type ChartType = 'line' | 'bubble' | 'bar' | 'range'
+export type ChartType = 'line' | 'bubble' | 'bar'
 
 export interface ConfigItemValue {
   name: string

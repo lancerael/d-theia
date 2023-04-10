@@ -1,8 +1,8 @@
-import { ChartType, ConfigItemValue, SVGSelection } from '../../types'
+import { ConfigItemValue, SVGSelection } from '../../types'
 
 export type KeyParams = Pick<
   Key,
-  'd3Container' | 'itemValues' | 'offsetX' | 'offsetY' | 'chartType'
+  'd3Container' | 'itemValues' | 'offsetX' | 'offsetY' | 'keyType'
 >
 
 /**
@@ -34,7 +34,7 @@ export default class Key {
   /**
    * The type of chart
    */
-  public chartType?: ChartType = 'bar'
+  public keyType?: string = 'bar'
 
   constructor(keyParams: KeyParams) {
     if (keyParams.d3Container && keyParams.itemValues) {

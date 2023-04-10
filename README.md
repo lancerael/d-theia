@@ -41,9 +41,9 @@ Recommended to use `PNPM` for tasks and contribution.
 
 Install `pnpm add d-theia`
 
-Import into TS projects - `import Theia from d-theia`
+Import into TS projects - `import Theia from 'd-theia'`
 
-Or vanilla projects - `import Theia from d-theia/vanilla`
+Or vanilla projects - `import Theia from 'd-theia/vanilla'`
 
 ### Contribution
 
@@ -149,12 +149,12 @@ You would provide an array of keys for the axis, and additional key parameter wi
     {
       key: 'k1',
       name: 'K1',
-      sColour: 'red',
+      color: 'red',
     },
     {
       key: 'k2',
       name: 'K2',
-      sColour: 'blue',
+      color: 'blue',
     }
   ]
 }
