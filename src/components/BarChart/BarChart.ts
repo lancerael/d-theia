@@ -16,6 +16,11 @@ export default class BarChart extends AxisChart {
    */
   declare chartConfig: BarChartConfig
 
+  /**
+   * The previous count of types for cleanup
+   */
+  private typeCount: number = 0
+
   constructor(chartParams = {} as ChartParams) {
     super(chartParams)
     this.chartType = 'bar'
@@ -31,16 +36,15 @@ export default class BarChart extends AxisChart {
     const barWidth = scaleX.bandwidth() / itemValues.length
 
     // Check for cleanup
-    if (
-      [...this.d3ChartGroup.selectAll(`rect.bars`)].length / itemValues.length >
-      this.chartData.length
-    ) {
+    if (!!this.typeCount && this.typeCount > itemValues.length) {
       this.d3ChartGroup
         .selectAll(`rect.bars`)
         .data(this.chartData)
         .exit()
         .remove()
     }
+
+    this.typeCount = itemValues.length
 
     // Loop through data to create group for each "type" in the key
     itemValues.forEach(({ color, name }: ConfigItemValue, i: number) => {
@@ -83,24 +87,26 @@ export default class BarChart extends AxisChart {
           select(event.target as HTMLElement).attr('fill', color)
         })
 
-      // Updated changed bars
-      this.d3ChartGroup
-        .selectAll(`rect.bars-${i}`)
-        .attr('fill', color)
-        .transition()
-        .ease(easeLinear)
-        .duration(this.transitionTime)
-        .attr('x', (d: any) => (scaleX(d.itemLabel) ?? 0) + iBarOffset)
-        .attr('width', barWidth)
-        .attr('y', (d: any) => {
-          let value = d.itemValues[i]
-          value = value < 0 ? Math.abs(value) : 0
-          return scaleY(d.itemValues[i] + value)
-        })
-        .attr('height', (d: any) => {
-          const modifier = this.minValue < 0 ? Math.abs(this.minValue) : 0
-          return innerHeight - scaleY(Math.abs(d.itemValues[i]) - modifier)
-        })
+      setTimeout(() => {
+        // Updated changed bars
+        this.d3ChartGroup
+          .selectAll(`rect.bars-${i}`)
+          .attr('fill', color)
+          .transition()
+          .ease(easeLinear)
+          .duration(this.transitionTime)
+          .attr('x', (d: any) => (scaleX(d.itemLabel) ?? 0) + iBarOffset)
+          .attr('width', barWidth)
+          .attr('y', (d: any) => {
+            let value = d.itemValues[i]
+            value = value < 0 ? Math.abs(value) : 0
+            return scaleY(d.itemValues[i] + value)
+          })
+          .attr('height', (d: any) => {
+            const modifier = this.minValue < 0 ? Math.abs(this.minValue) : 0
+            return innerHeight - scaleY(Math.abs(d.itemValues[i]) - modifier)
+          })
+      })
     })
   }
 }

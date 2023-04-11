@@ -5,6 +5,7 @@ import { rgb } from 'd3-color'
 import 'd3-transition'
 import AxisChart from '../AxisChart'
 import { AxisChartConfig, ChartParams } from '../../types'
+import { easeLinear } from 'd3-ease'
 
 /**
  * A line chart containing X/Y axes, key and tooltip.
@@ -12,6 +13,11 @@ import { AxisChartConfig, ChartParams } from '../../types'
  * @public
  */
 export default class LineChart extends AxisChart {
+  /**
+   * The previous count of types for cleanup
+   */
+  private typeCount: number = 0
+
   constructor(chartParams = {} as ChartParams<AxisChartConfig>) {
     super(chartParams)
     this.chartType = 'line'
@@ -31,17 +37,17 @@ export default class LineChart extends AxisChart {
       Number(scaleX(d.itemLabel)) + scaleX.bandwidth() / 2
 
     // Check for cleanup
-    if (
-      [...this.d3ChartGroup.selectAll(`circle.circles`)].length /
-        itemValues.length >
-      this.chartData.length
-    ) {
+    if (!!this.typeCount && this.typeCount > itemValues.length) {
       this.d3ChartGroup
         .selectAll(`circle.circles`)
         .data(this.chartData)
         .exit()
         .remove()
+
+      this.d3ChartGroup.selectAll(`path.line`).data([]).exit().remove()
     }
+
+    this.typeCount = itemValues.length
 
     // Iterate through config value keys
     itemValues.forEach(({ color, name }: any, i: number) => {
@@ -57,14 +63,18 @@ export default class LineChart extends AxisChart {
       lines.exit().remove()
 
       // Update existing lines
-      lines
-        .enter()
-        .append('path')
-        .attr('class', `line lines-${i}`)
-        .merge(lines)
-        .transition()
-        .attr('stroke', color)
-        .attr('d', line().x(getX).y(getY))
+      lines.enter().append('path').attr('class', `line lines-${i}`)
+
+      setTimeout(() => {
+        this.d3ChartGroup
+          .selectAll(`path.lines-${i}`)
+          .merge(lines)
+          .transition()
+          .ease(easeLinear)
+          .duration(this.transitionTime)
+          .attr('stroke', color)
+          .attr('d', line().x(getX).y(getY) as any)
+      })
 
       // Bind circle data
       const circles = this.d3ChartGroup
@@ -80,6 +90,8 @@ export default class LineChart extends AxisChart {
         .append('circle')
         .attr('class', `circles circles-${i}`)
         .attr('r', 5)
+        .attr('cx', getX)
+        .attr('cy', getY)
         .on('mousemove', (event: MouseEvent, d: any) => {
           this.tooltip.ping([d.itemLabel, name, d.itemValues[i]], event)
         })
@@ -98,11 +110,16 @@ export default class LineChart extends AxisChart {
         })
 
       // Updace changed circles
-      this.d3ChartGroup
-        .selectAll(`circle.circles-${i}`)
-        .attr('fill', color)
-        .attr('cx', getX)
-        .attr('cy', getY)
+      setTimeout(() => {
+        this.d3ChartGroup
+          .selectAll(`circle.circles-${i}`)
+          .attr('fill', color)
+          .transition()
+          .ease(easeLinear)
+          .duration(this.transitionTime / 2)
+          .attr('cx', getX)
+          .attr('cy', getY)
+      })
     })
   }
 }

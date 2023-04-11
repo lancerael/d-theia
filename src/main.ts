@@ -50,7 +50,6 @@ setTimeout(() => {
 
 // Show updating of chart config
 setTimeout(() => {
-  console.log(jTest.chartConfig)
   jTest.chartConfig.doTrim = false
   jTest.chartConfig.itemValues[0].color = '#123456'
   barChart.updateConfig(jTest.chartConfig)

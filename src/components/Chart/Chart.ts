@@ -35,7 +35,7 @@ export default class Chart {
   /**
    * Default time for d3 transitions on the chart
    */
-  protected transitionTime: number = 300
+  protected transitionTime: number = 500
 
   /**
    * DOM reference to container element that wraps SVG

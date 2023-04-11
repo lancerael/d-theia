@@ -1,5 +1,11 @@
 # Change Log - d-theia
 
+## 3.4.4
+
+Tuesday, 11 April 2023 10:31:31 GMT
+
+- Fixing edge case render glitch
+
 ## 3.4.3
 
 Monday, 10 April 2023 11:31:31 GMT
