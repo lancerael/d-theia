@@ -1,10 +1,11 @@
 # Change Log - d-theia
 
-## 3.4.4
+## 3.4.5
 
 Tuesday, 11 April 2023 10:31:31 GMT
 
 - Fixing edge case render glitch
+- Fixing hover color glitch
 
 ## 3.4.3
 

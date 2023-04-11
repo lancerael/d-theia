@@ -2,7 +2,6 @@ import { easeLinear } from 'd3-ease'
 import { select } from 'd3-selection'
 import 'd3-transition'
 import AxisChart from '../AxisChart'
-import { rgb } from 'd3-color'
 import { BarChartConfig, ChartParams, ConfigItemValue } from '../../types'
 
 /**
@@ -73,8 +72,8 @@ export default class BarChart extends AxisChart {
         })
         .on('mouseover', (event: MouseEvent) => {
           select(event.target as HTMLElement).attr(
-            'fill',
-            rgb(color).darker().formatHex()
+            'style',
+            'filter: brightness(50%)'
           )
         })
         .on('mousedown', (event: MouseEvent, d: any) => {
@@ -84,7 +83,10 @@ export default class BarChart extends AxisChart {
         })
         .on('mouseout', (event: MouseEvent) => {
           this.tooltip?.hide()
-          select(event.target as HTMLElement).attr('fill', color)
+          select(event.target as HTMLElement).attr(
+            'style',
+            'filter: brightness(100%)'
+          )
         })
 
       setTimeout(() => {

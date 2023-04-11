@@ -97,8 +97,8 @@ export default class LineChart extends AxisChart {
         })
         .on('mouseover', (event: MouseEvent) => {
           select(event.target as HTMLElement).attr(
-            'fill',
-            rgb(color).darker().formatHex()
+            'style',
+            'filter: brightness(50%)'
           )
         })
         .on('mousedown', (event: MouseEvent, d: any) => {
@@ -106,7 +106,10 @@ export default class LineChart extends AxisChart {
         })
         .on('mouseout', (event: MouseEvent) => {
           this.tooltip.hide()
-          select(event.target as HTMLElement).attr('fill', color)
+          select(event.target as HTMLElement).attr(
+            'style',
+            'filter: brightness(100%)'
+          )
         })
 
       // Updace changed circles
