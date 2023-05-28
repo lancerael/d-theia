@@ -4,6 +4,7 @@ import BubbleChart from './components/BubbleChart'
 import { ChartParams, ChartType } from './types'
 export * from './utilities'
 export * from './components'
+export * from './types'
 
 export default class Theia {
   static chart(

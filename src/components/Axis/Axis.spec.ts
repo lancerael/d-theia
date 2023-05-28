@@ -1,6 +1,6 @@
 import { select } from 'd3-selection'
 import { scaleBand, scaleLinear } from 'd3-scale'
-import Axis from './'
+import Axis from './Axis'
 import { vi } from 'vitest'
 
 describe('Axis', () => {

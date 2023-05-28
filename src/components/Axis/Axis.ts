@@ -22,7 +22,7 @@ export type AxisParams = Pick<
  *
  * @public
  */
-export default class Axis {
+export class Axis {
   /**
    * d3 object for axis container
    */
@@ -155,3 +155,5 @@ export default class Axis {
     return this
   }
 }
+
+export default Axis

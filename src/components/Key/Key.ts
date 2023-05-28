@@ -10,7 +10,7 @@ export type KeyParams = Pick<
  *
  * @public
  */
-export default class Key {
+export class Key {
   /**
    * d3 object for axis container
    */
@@ -98,3 +98,5 @@ export default class Key {
     return this
   }
 }
+
+export default Key

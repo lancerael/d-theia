@@ -3,7 +3,7 @@
  *
  * @public
  */
-export default class Tooltip {
+export class Tooltip {
   /**
    * DOM reference to container element
    */
@@ -90,3 +90,5 @@ export default class Tooltip {
     }, 300)
   }
 }
+
+export default Tooltip
