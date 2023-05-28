@@ -9,7 +9,7 @@ import { BarChartConfig, ChartParams, ConfigItemValue } from '../../types'
  *
  * @public
  */
-export default class BarChart extends AxisChart {
+export class BarChart extends AxisChart {
   /**
    * The chart's config object
    */
@@ -112,3 +112,5 @@ export default class BarChart extends AxisChart {
     })
   }
 }
+
+export default BarChart

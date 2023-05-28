@@ -11,7 +11,7 @@ import { easeLinear } from 'd3-ease'
  *
  * @public
  */
-export default class LineChart extends AxisChart {
+export class LineChart extends AxisChart {
   /**
    * The previous count of types for cleanup
    */
@@ -125,3 +125,5 @@ export default class LineChart extends AxisChart {
     })
   }
 }
+
+export default LineChart

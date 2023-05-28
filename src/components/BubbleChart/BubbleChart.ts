@@ -14,7 +14,7 @@ import { ChartParams } from '../../types'
  *
  * @public
  */
-export default class BubbleChart extends Chart {
+export class BubbleChart extends Chart {
   /**
    * The local collection of bubbles
    */
@@ -165,3 +165,5 @@ export default class BubbleChart extends Chart {
     }).render()
   }
 }
+
+export default BubbleChart

@@ -21,7 +21,7 @@ import Axis from '../Axis/Axis'
  *
  * @public
  */
-export default class Chart {
+export class Chart {
   /**
    * SVG DOM object for displaying the chart
    */
@@ -308,3 +308,5 @@ export default class Chart {
     throw new Error('The chart is not ready for initialisation.')
   }
 }
+
+export default Chart

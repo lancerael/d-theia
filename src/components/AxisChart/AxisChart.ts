@@ -22,7 +22,7 @@ import {
  *
  * @public
  */
-export default class AxisChart extends Chart {
+export class AxisChart extends Chart {
   /**
    * The chart's config object
    */
@@ -148,3 +148,5 @@ export default class AxisChart extends Chart {
     }).render()
   }
 }
+
+export default AxisChart
