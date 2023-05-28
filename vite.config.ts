@@ -10,6 +10,7 @@ interface VitestConfigExport extends UserConfig {
 }
 
 export default defineConfig({
+  base: './',
   test: {
     globals: true,
     watch: false,
