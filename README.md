@@ -18,7 +18,7 @@ Charts are responsive in any device, providing additional detail via hover/touch
 
 ## Demo
 
-The library is purely JavaScript but does include a simple app and associated HTML/CSS for demonstration and development.
+The library is pure JavaScript but does include a simple app and associated HTML/CSS for demonstration and development.
 
 ### Demo App
 
@@ -33,7 +33,7 @@ http://dtheia.org/demo
 
 There is a separate sandbox app for dTheia.
 
-sandbox-react-demo -http://dtheia.org/sandbox-react-demo/
+sandbox-react-demo - http://dtheia.org/sandbox-react-demo/
 
 ## Installation
 
