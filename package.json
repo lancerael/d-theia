@@ -20,7 +20,7 @@
     "lint:fix": "npx prettier -w . && npx eslint --fix",
     "test": "vitest",
     "test:coverage": "vitest --coverage",
-    "dist": "npm run docgen && npm run build:demo"
+    "dist": "pnpm docgen && pnpm build:demo"
   },
   "dependencies": {
     "d3-array": "^3.2.3",
