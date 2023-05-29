@@ -115,10 +115,10 @@ export class LineChart extends AxisChart {
       setTimeout(() => {
         this.d3ChartGroup
           .selectAll(`circle.circles-${i}`)
+          .attr('fill', color)
           .transition()
           .ease(easeLinear)
           .duration(this.transitionTime / 2)
-          .attr('fill', color)
           .attr('cx', getX)
           .attr('cy', getY)
       })
