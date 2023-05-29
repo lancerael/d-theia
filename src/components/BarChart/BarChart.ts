@@ -1,6 +1,6 @@
 import { easeLinear } from 'd3-ease'
 import { select } from 'd3-selection'
-import * as transition from 'd3-transition'
+import 'd3-transition'
 import AxisChart from '../AxisChart'
 import { BarChartConfig, ChartParams, ConfigItemValue } from '../../types'
 
@@ -112,7 +112,5 @@ export class BarChart extends AxisChart {
     })
   }
 }
-
-transition // fix tree shake issue
 
 export default BarChart

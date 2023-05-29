@@ -3,7 +3,7 @@ import { max } from 'd3-array'
 import { select } from 'd3-selection'
 import { easeLinear } from 'd3-ease'
 import { scaleLinear } from 'd3-scale'
-import * as transition from 'd3-transition'
+import 'd3-transition'
 import Chart from '../Chart'
 import Axis from '../Axis'
 import Key from '../Key'
@@ -165,7 +165,5 @@ export class BubbleChart extends Chart {
     }).render()
   }
 }
-
-transition // fix tree shake issue
 
 export default BubbleChart

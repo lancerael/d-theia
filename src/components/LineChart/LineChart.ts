@@ -1,7 +1,7 @@
 import { line } from 'd3-shape'
 import { select } from 'd3-selection'
 import { scalePoint } from 'd3-scale'
-import * as transition from 'd3-transition'
+import 'd3-transition'
 import AxisChart from '../AxisChart'
 import { AxisChartConfig, ChartParams } from '../../types'
 import { easeLinear } from 'd3-ease'
@@ -125,7 +125,5 @@ export class LineChart extends AxisChart {
     })
   }
 }
-
-transition // fix tree shake issue
 
 export default LineChart
