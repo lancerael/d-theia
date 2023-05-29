@@ -29,7 +29,7 @@ export const arr = <T>(
 // generate new random data for the chart
 export const getRandomData = (
   length: number = getRandomInteger(3, 10),
-  groupSize: number = getRandomInteger(2, 5)
+  groupSize: number = getRandomInteger(3, 5)
 ): ChartParams => {
   const rangeLow = getRandomInteger(1, 50)
   const rangeHigh = getRandomInteger(rangeLow, 200)
