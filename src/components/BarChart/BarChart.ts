@@ -1,6 +1,6 @@
 import { easeLinear } from 'd3-ease'
 import { select } from 'd3-selection'
-import 'd3-transition'
+import { transition } from 'd3-transition'
 import AxisChart from '../AxisChart'
 import { BarChartConfig, ChartParams, ConfigItemValue } from '../../types'
 
@@ -90,7 +90,7 @@ export class BarChart extends AxisChart {
         })
 
       setTimeout(() => {
-        alert(this.d3ChartGroup.selectAll(`rect.bars-${i}`).transition)
+        console.log(this.d3ChartGroup.selectAll(`rect.bars-${i}`))
         // Updated changed bars
         this.d3ChartGroup
           .selectAll(`rect.bars-${i}`)
@@ -113,5 +113,7 @@ export class BarChart extends AxisChart {
     })
   }
 }
+
+transition
 
 export default BarChart
