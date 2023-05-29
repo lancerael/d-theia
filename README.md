@@ -18,7 +18,7 @@ Charts are responsive in any device, providing additional detail via hover/touch
 
 ## Demo
 
-The library is pure JavaScript but does include a simple app and associated HTML/CSS for demonstration and development.
+The library is pure JavaScript (TS) but does include a simple app and associated HTML/CSS for demonstration and development.
 
 ### Demo App
 
@@ -185,4 +185,4 @@ This module provides the following ES classes:
 - d3
 - Vite
 - Vitest
-- YUIDoc
+- TSDoc
