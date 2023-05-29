@@ -93,10 +93,10 @@ export class BarChart extends AxisChart {
         // Updated changed bars
         this.d3ChartGroup
           .selectAll(`rect.bars-${i}`)
-          .attr('fill', color)
           .transition()
           .ease(easeLinear)
           .duration(this.transitionTime)
+          .attr('fill', color)
           .attr('x', (d: any) => (scaleX(d.itemLabel) ?? 0) + iBarOffset)
           .attr('width', barWidth)
           .attr('y', (d: any) => {
