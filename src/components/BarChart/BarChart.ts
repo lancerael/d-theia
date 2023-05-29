@@ -1,6 +1,6 @@
 import { easeLinear } from 'd3-ease'
 import { select } from 'd3-selection'
-import transition from 'd3-transition'
+import * as transition from 'd3-transition'
 import AxisChart from '../AxisChart'
 import { BarChartConfig, ChartParams, ConfigItemValue } from '../../types'
 
