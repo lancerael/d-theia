@@ -90,6 +90,7 @@ export class BarChart extends AxisChart {
         })
 
       setTimeout(() => {
+        alert(this.d3ChartGroup.selectAll(`rect.bars-${i}`).transition)
         // Updated changed bars
         this.d3ChartGroup
           .selectAll(`rect.bars-${i}`)
@@ -108,7 +109,7 @@ export class BarChart extends AxisChart {
             const modifier = this.minValue < 0 ? Math.abs(this.minValue) : 0
             return innerHeight - scaleY(Math.abs(d.itemValues[i]) - modifier)
           })
-      }, 1000)
+      })
     })
   }
 }
