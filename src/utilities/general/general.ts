@@ -35,7 +35,7 @@ export const getRandomInteger = (
 // Throttle a function call
 export const throttle = (
   callback: (...args: unknown[]) => unknown,
-  delay = 1000
+  delay = 250
 ) => {
   let timeout: NodeJS.Timeout
   let lastExecTime = 0

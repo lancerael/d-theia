@@ -292,13 +292,12 @@ export class Chart {
       this.d3Title = select(this.container).append('div').attr('class', 'title')
       this.svg.setAttribute('class', 'chart')
       this.container.appendChild(this.svg)
-      this.resizeWatcher ??= window.addEventListener(
-        'resize',
-        throttle(this.onResize)
-      )
+      const onResize = throttle(() => this.onResize())
+      const onHideTooltip = () => this.tooltip?.hide()
+      this.resizeWatcher ??= window.addEventListener('resize', onResize)
       this.chartOutWatcher ??= this.svg.addEventListener(
         'mouseout',
-        this.tooltip?.hide
+        onHideTooltip
       )
       this.renderChart?.()
       this.loader && this.container.removeChild(this.loader)
