@@ -1,5 +1,11 @@
 # Change Log - d-theia
 
+## 3.5.0
+
+Thursday, 8th June 2023 22:48:22 GMT
+
+- Aded throttle to improve resize
+
 ## 3.4.5
 
 Tuesday, 11 April 2023 10:31:31 GMT
