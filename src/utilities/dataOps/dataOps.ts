@@ -78,7 +78,7 @@ export const transformDataKeys = (
       )
     }
     if (chartConfig.axisKeys && !item.itemLabel) {
-      item.itemLabel = (item as unknown as Hash)[chartConfig.axisKeys[0]]
+      item.itemLabel = `${(item as unknown as Hash)[chartConfig.axisKeys[0]]}`
     }
     return item
   })
