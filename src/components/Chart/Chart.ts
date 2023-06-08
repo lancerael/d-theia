@@ -1,10 +1,8 @@
 import { select } from 'd3-selection'
 import Tooltip from '../Tooltip'
-import {
-  addColoursToConfig,
-  throttle,
-  transformDataKeys,
-} from '../../utilities'
+import throttle from 'lodash.throttle'
+import debounce from 'lodash.debounce'
+import { addColoursToConfig, transformDataKeys } from '../../utilities'
 
 import {
   ChartConfig,
@@ -292,9 +290,13 @@ export class Chart {
       this.d3Title = select(this.container).append('div').attr('class', 'title')
       this.svg.setAttribute('class', 'chart')
       this.container.appendChild(this.svg)
-      const onResize = throttle(() => this.onResize())
+      const throttledResize = throttle(() => this.onResize(), 100)
+      const debouncedResize = debounce(() => this.onResize(), 1500)
       const onHideTooltip = () => this.tooltip?.hide()
-      this.resizeWatcher ??= window.addEventListener('resize', onResize)
+      this.resizeWatcher ??= window.addEventListener('resize', () => {
+        throttledResize()
+        debouncedResize()
+      })
       this.chartOutWatcher ??= this.svg.addEventListener(
         'mouseout',
         onHideTooltip
