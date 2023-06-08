@@ -44,7 +44,7 @@ export type DataItem = {
   itemValues: number[]
 }
 
-export type ChartData = DataItem[]
+export type ChartData = (DataItem | Hash)[]
 
 export interface ChartParams<T = ChartConfig> {
   chartConfig: T

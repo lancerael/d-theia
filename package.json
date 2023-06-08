@@ -1,6 +1,6 @@
 {
   "name": "d-theia",
-  "version": "3.4.6",
+  "version": "3.5.0",
   "description": "dTheia is a JavaScript (TS) charting library for visualization of complex data.",
   "homepage": "http://www.dtheia.org",
   "type": "module",
@@ -12,7 +12,7 @@
   "author": "Lance Taylor",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && cross-env BUILD_TASK=npm vite build",
     "build:demo": "tsc && vite build --outDir ./docs/demo",
     "docgen": "npx typedoc ./src/index.ts",
     "preview": "pnpm build && vite preview",

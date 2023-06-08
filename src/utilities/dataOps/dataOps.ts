@@ -81,7 +81,7 @@ export const transformDataKeys = (
       item.itemLabel = `${(item as unknown as Hash)[chartConfig.axisKeys[0]]}`
     }
     return item
-  })
+  }) as ChartData
 }
 
 // Add random colours to a chart config
