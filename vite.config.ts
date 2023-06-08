@@ -18,14 +18,16 @@ export default defineConfig({
       provider: 'istanbul',
     },
   },
-  // build: {
-  //   lib: {
-  //     entry: './src/index.ts',
-  //     formats: ['es'],
-  //     name: 'd-theia',
-  //     fileName: 'index',
-  //   },
-  //   outDir: 'vanilla',
-  //   minify: 'terser',
-  // },
+  build: process.env.BUILD_TASK
+    ? {
+        lib: {
+          entry: './src/index.ts',
+          formats: ['es'],
+          name: 'd-theia',
+          fileName: 'index',
+        },
+        outDir: 'vanilla',
+        minify: 'terser',
+      }
+    : {},
 } as VitestConfigExport)
