@@ -1,6 +1,10 @@
 import { select } from 'd3-selection'
 import Tooltip from '../Tooltip'
-import { addColoursToConfig, transformDataKeys } from '../../utilities'
+import {
+  addColoursToConfig,
+  throttle,
+  transformDataKeys,
+} from '../../utilities'
 
 import {
   ChartConfig,
@@ -288,24 +292,31 @@ export class Chart {
       this.d3Title = select(this.container).append('div').attr('class', 'title')
       this.svg.setAttribute('class', 'chart')
       this.container.appendChild(this.svg)
-      this.resizeWatcher ??= window.addEventListener('resize', () => {
-        this.setDimensions()
-        this.resizeOffset = this.width - this.initialWidth
-        if (this.renderChart) {
-          this.renderChart()
-        }
-        this.tooltip?.hide()
-      })
-      this.chartOutWatcher ??= this.svg.addEventListener('mouseout', () => {
-        this.tooltip?.hide()
-      })
-      if (this.renderChart) {
-        this.renderChart()
-      }
+      const onResize = throttle(() => this.onResize())
+      const onHideTooltip = () => this.tooltip?.hide()
+      this.resizeWatcher ??= window.addEventListener('resize', onResize)
+      this.chartOutWatcher ??= this.svg.addEventListener(
+        'mouseout',
+        onHideTooltip
+      )
+      this.renderChart?.()
       this.loader && this.container.removeChild(this.loader)
       return this
     }
     throw new Error('The chart is not ready for initialisation.')
+  }
+
+  /**
+   * Resize the chart
+   *
+   */
+  public onResize() {
+    this.setDimensions()
+    this.resizeOffset = this.width - this.initialWidth
+    if (this.renderChart) {
+      this.renderChart()
+    }
+    this.tooltip?.hide()
   }
 }
 
