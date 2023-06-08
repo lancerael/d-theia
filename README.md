@@ -18,11 +18,11 @@ Charts are responsive in any device, providing additional detail via hover/touch
 
 ## Demo
 
-The library is purely JavaScript but does include a simple app and associated HTML/CSS for demonstration and development.
+The library is pure JavaScript (TS) but does include a simple app and associated HTML/CSS for demonstration and development.
 
 ### Demo App
 
-http://dtheia.org/demo
+https://www.dtheia.org/demo
 
 - Shows basic dummy bar and line charts.
 - Shows randomised cycle docking station data as bar, line and bubble.
@@ -33,7 +33,7 @@ http://dtheia.org/demo
 
 There is a separate sandbox app for dTheia.
 
-sandbox-react-demo -http://dtheia.org/sandbox-react-demo/
+sandbox-react-demo - https://sandbox.dtheia.org
 
 ## Installation
 
@@ -162,7 +162,7 @@ You would provide an array of keys for the axis, and additional key parameter wi
 
 ## API Documentation
 
-http://www.dtheia.org/
+https://www.dtheia.org/
 
 This module provides the following ES classes:
 
@@ -185,4 +185,4 @@ This module provides the following ES classes:
 - d3
 - Vite
 - Vitest
-- YUIDoc
+- TSDoc

@@ -3,13 +3,12 @@ import { defineConfig, UserConfig } from 'vite'
 
 import type { InlineConfig } from 'vitest'
 
-import { terser } from 'rollup-plugin-terser'
-
 interface VitestConfigExport extends UserConfig {
   test: InlineConfig
 }
 
 export default defineConfig({
+  base: './',
   test: {
     globals: true,
     watch: false,
@@ -29,22 +28,4 @@ export default defineConfig({
   //   outDir: 'vanilla',
   //   minify: 'terser',
   // },
-  plugins: [
-    terser({
-      compress: {
-        defaults: false,
-        drop_console: true,
-      },
-      mangle: {
-        eval: true,
-        module: true,
-        toplevel: true,
-        safari10: true,
-        properties: false,
-      },
-      output: {
-        comments: false,
-      },
-    }),
-  ],
 } as VitestConfigExport)
