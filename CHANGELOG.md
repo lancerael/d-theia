@@ -1,6 +1,6 @@
 # Change Log - d-theia
 
-## 3.5.0
+## 3.5.2
 
 Thursday, 8th June 2023 22:48:22 GMT
 
