@@ -1,5 +1,11 @@
 # Change Log - d-theia
 
+## 3.6.0
+
+Saturday, 10th June 2023 12:18:12 GMT
+
+- Added debounce to improce resize
+
 ## 3.5.0
 
 Thursday, 8th June 2023 22:48:22 GMT

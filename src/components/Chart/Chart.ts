@@ -1,8 +1,11 @@
 import { select } from 'd3-selection'
 import Tooltip from '../Tooltip'
-import throttle from 'lodash.throttle'
-import debounce from 'lodash.debounce'
-import { addColoursToConfig, transformDataKeys } from '../../utilities'
+import {
+  addColoursToConfig,
+  transformDataKeys,
+  throttle,
+  debounce,
+} from '../../utilities'
 
 import {
   ChartConfig,
