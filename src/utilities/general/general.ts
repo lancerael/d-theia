@@ -56,7 +56,7 @@ export const throttle = (
   }
 }
 
-// Debounce a funciton call
+// Debounce a function call
 export const debounce = (
   callback: (...args: unknown[]) => unknown,
   delay = 250
